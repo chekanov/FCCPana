@@ -6,11 +6,11 @@ using multiple cores. You can program any histogram and attach any C++ library.
 Here are the main features:
 
 - Very simple and fast!
-- Can run on multiple cores (on 72 cores)
+- Can run on multiple cores (tested on 72 cores)
 - Can define systematics via main.in input file
 - Can attach additional C++ libraries
+- Unified object definition, independent is this full or fast simulation.
 - Very flexible. You can create any analysis logic using any variable listed in analysis.h
-
 
 # How to test 
 
@@ -57,7 +57,6 @@ To create a histogram, follow these steps:
 (3) Fill histogram in event loop in src?/Loop.cxx
 
 Note that src/Loop.cxx is the most important for analysis. Here you can define the program logic and fill histograms.
-
 If you need to define some global variables, use inc/Global.h and src/Global.cxx
 
 # Extending the program
