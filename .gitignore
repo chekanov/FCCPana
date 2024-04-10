@@ -1,3 +1,9 @@
+main
+
+*.root
+*.pcm
+*.dict.cxx
+
 # Prerequisites
 *.d
 

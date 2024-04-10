@@ -1,0 +1,80 @@
+# Developed at ASC ANL
+# S.Chekanov (ANL). chekanov@anl.gov 
+# Feb. 2024  
+
+
+KEY4HEP=/cvmfs/sw-nightlies.hsf.org/key4hep/releases/2024-04-08/x86_64-almalinux9-gcc11.3.1-opt
+
+ROOT_INCLUDE_PATH=$(KEY4HEP)/edm4hep/562d0a0c15f35426a20ffcaa7830ca8ea470300b_develop-lpxyq7
+ 
+#ROOT_INCLUDE_PATH="/cvmfs/sw-nightlies.hsf.org/key4hep/releases/2024-01-09/x86_64-centos7-gcc12.2.0-opt/edm4hep/562d0a0c15f35426a20ffcaa7830ca8ea470300b_develop-lpxyq7"
+
+#PADIO="/cvmfs/sw-nightlies.hsf.org/key4hep/releases/2024-01-09/x86_64-centos7-gcc12.2.0-opt/podio/532234f9eb9f2471a23c7620487a22056db885d7_develop-rix6ne"
+
+
+ifndef ROOTSYS
+$(error ROOTSYS  env variable is not set. Run setup.sh first)
+endif
+
+
+ifndef EDM_CPPAN 
+$(error EDM_CPPAN  env variable is not set. Run setup.sh first)
+endif
+
+ifndef PODIO_CPPAN
+$(error PODIO_CPPAN  env variable is not set. Run setup.sh first)
+endif
+
+
+include ${ROOTSYS}/etc/root/Makefile.arch
+
+
+# Root variables
+ROOTCFLAGS    = $(shell root-config --nonew --cflags)
+ROOTLIBS      = $(shell root-config --nonew --libs)
+ROOTGTTLIBS   = $(shell root-config --nonew --glibs)
+ROOTLIBS     += -L${ROOTSYS}/lib/  -lTreePlayer
+
+# Assign or add variables
+CXXFLAGS     += $(ROOTCFLAGS)
+LIBS         += $(ROOTLIBS)
+
+INCLUDE1= -I./inc -I$(EDM_CPPAN)/include -I$(PODIO_CPPAN)/include 
+INCLUDE2= -I.
+
+SOURCE_FILES := $(shell ls -1 *.cxx)
+SOURCE_FILES += $(shell ls -1 src/*.cxx)
+
+
+# build object files 
+objects       = $(patsubst %.cxx,%.o,$(SOURCE_FILES))
+
+
+%.o: %.cxx
+	$(CXX) $(OPT) $(CXXFLAGS) -Dgeant $(INCLUDE1) $(INCLUDE2) -o $@ -c $<
+
+Tasks:    main
+
+
+tar:
+	rm -f ana.tgz; cd ../; tar -cvzf ana.tgz --exclude='*.o' --exclude='*.root' \
+	--exclude='*.log'  --exclude='*.tup' --exclude='*.eps' --exclude='*.png' --exclude='*.log.gz'\
+	--exclude='main' --exclude='*.root.log.gz' --exclude='*.so' --exclude='*~' --exclude='*.pyc' ana; \
+        mv ana.tgz ana/; cd ana; 
+
+mydict: inc/LParticle.h
+	@rm -f src/CParticle_dict*
+	@rm -f inc/CParticle_dict*
+	@echo "Generating dictionary for CParticle"
+	@rootcint src/CParticle_dict.cxx -c inc/CParticle.h
+	@rm -f src/LParticle_dict*
+	@rm -f inc/LParticle_dict*
+	@echo "Generating dictionary for LParticle"
+	@rootcint src/LParticle_dict.cxx -c inc/LParticle.h
+
+
+main: $(objects)
+	$(LD) $(LDFLAGS) $^ $(LIBS) $(OutPutOpt)$@
+
+clean:
+	@rm -f *.o  main *~ src/*.o src/*~ inc/*~; echo "Clear.." 

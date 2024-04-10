@@ -1,0 +1,113 @@
+#!/bin/bash
+
+# for fast simulation 
+INPUT_TYPE=1 # 1 delphes, 2 CLT full sim
+OUTPUT_DIR="delphes"
+DATA_DIR=data/IDEA_DELPHES/
+
+#### for full simulation
+#INPUT_TYPE=2 # 1 delphes, 2 CLT full sim
+#OUTPUT_DIR="cld_full"
+#DATA_DIR=data/CLD_FULL/
+
+EVENTS=1000       # 1000 events or use -1 for all 
+SYSTEMATICS=0     # this is a default systematics. Can be any integer value 
+NODES=2           # How many jobs do you want to run in parallel? 
+
+
+##################### do not modify below ########################################
+
+CURRENT_DIR=`pwd`
+me=`basename "$0"`
+echo "-> Running $me"
+
+
+source ./setup.sh
+
+echo "Current output directory=$OUTPUT_DIR"
+echo "Current input  directory=$DATA_DIR"
+
+# total number of events
+TotEvents=$EVENTS
+sys=$SYSTEMATICS
+mkdir -p out/sys${sys}/$OUTPUT_DIR
+
+
+if [ "$INPUT_TYPE" -eq "1" ]; then
+   echo "Using DELPHES input"
+   cp -f aux/delphes.h  analysis.h
+   make fast
+fi
+
+if [ "$INPUT_TYPE" -eq "2" ]; then
+   echo "Using CLD full simulation input"
+   cp -f aux/full_cld.h analysis.h
+   make full
+fi
+
+
+## generate MC input files
+python ./Make_input $DATA_DIR
+
+# systematics 0: events with at least one good lepton (electron non-isolated)
+# systematics 1: events with at least one good lepton (default cuts)  
+################ data
+cat > $CURRENT_DIR/main.ini <<!
+events $TotEvents
+debug 0
+type $TYPE 
+systematics $sys
+!
+
+rm -f  inputs/*
+rm -rf output/*
+mkdir inputs output
+INPUTTEM=inputs/list
+
+Nlines=`cat data.in | wc -l`
+echo "Nr of files=$Nlines"
+
+Splits=$(( ($Nlines + $NODES -1)/$NODES))
+echo "Split data on $Splits input files for $NODES CPUs" 
+split -l${Splits} -d data.in $INPUTTEM
+
+
+# run all jobs in NODES threads
+# echo "Traverse list of files.."
+for filename in inputs/*
+do
+  INPUT=${filename}
+  #torepl="inputs/list"
+  #newrepl="";
+  #INPUT_NR=${INPUT/${torepl}/$newrepl}
+
+  name="${INPUT##*/}" 
+  echo "start input =$filename. Base name=$name"
+  nohup ./main $name  > "inputs/$name.log" 2>&1 &
+  sleep 3
+done
+
+renice -n 19 `ps -o pid -C main`
+
+
+T=`date`
+echo "Launching $NODES jobs: $T" 
+NJOBS=`ps -u $USER | grep -e "main" | wc -l`
+while [ $NJOBS -gt 0  ]
+do
+    NJOBS=`ps -u $USER | grep -e "main" | wc -l`
+    T=`date`
+    echo "Running $NJOBS jobs: $T"
+    sleep 10
+done
+echo "Done!"
+date
+
+# combine as:
+rm -f out/sys${sys}/$OUTPUT_DIR/*
+hadd -f out/sys${sys}/$OUTPUT_DIR/data.root output/*.root
+mv output/*.root out/sys${sys}/$OUTPUT_DIR/
+mv inputs/* out/sys${sys}/$OUTPUT_DIR/
+rm -f out/sys${sys}/$OUTPUT_DIR/list*root
+gzip -f out/sys${sys}/$OUTPUT_DIR/*.log
+
