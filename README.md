@@ -27,10 +27,12 @@ Now you can run it!
 ./A_RUN
 ```
 
-During the runs, the output will be in the temporaty directory "output". 
+During the runs, the output will be in the temporary directory "output". 
 After the runs finished, the merged output ROOT will be in "out/sysN/name".
+During the run, the list of ROOT files is stored inside "data.in". In addition,
+there is auto-generated "main.in" which keeps global variables for all runs.
 
-# How to create histogram
+# How to create and fill histograms 
 
 (1) Define a histogram name in inc/Histo.h
 (2) Initialize histogram in src/Histo.cxx
@@ -50,10 +52,12 @@ Full simulation: https://hep-fcc.github.io/fcc-tutorials/master/full-detector-si
 
 It does not work for old ROOT files stored in:
 
-(1) https://fcc-physics-events.web.cern.ch/fcc-physics-events/FCCee/winter2023/Delphesevents_IDEA.php
-(2) /eos/experiment/fcc/ee/generation/FullSimulation/CLD/CLD_o2_v05/
-(3) /eos/experiment/fcc/ee/generation/DelphesEvents/winter2023/IDEA/
+ - https://fcc-physics-events.web.cern.ch/fcc-physics-events/FCCee/winter2023/Delphesevents_IDEA.php
+ - /eos/experiment/fcc/ee/generation/FullSimulation/CLD/CLD_o2_v05/
+ - /eos/experiment/fcc/ee/generation/DelphesEvents/winter2023/IDEA/
 
-since they require rebuilded the header files.
+since they require rebuilded the header files. Note the older ROOT files include "#" in tree definitions, which
+are not friendly for C++.
+ 
 
 S.Chekanov (ANL)
