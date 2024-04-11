@@ -62,10 +62,10 @@ The variables for EDM objects can be found in analysis.h header files (autogener
 
 To create a histogram, follow these steps:
 
-(1) Define a histogram name in inc/Histo.h
-(2) Initialize histogram in src/Histo.cxx
-(3) Fill histogram in event loop in src/Loop.cxx
-(4) Apply selection cuts for your events in src/CutEvent.cxx
+- Define a histogram name in inc/Histo.h
+- Initialize the histogram in src/Histo.cxx
+- Fill histogram in event loop in src/Loop.cxx
+- Apply selection cuts for your events in src/CutEvent.cxx
 
 Note that src/Loop.cxx is the most important for analysis. Here you can define the program logic and fill histograms.
 If you need to define some global variables, use inc/Global.h and src/Global.cxx
