@@ -67,6 +67,10 @@ void Histo::setHistograms() {
     Mmm = new TH1D( "Mmm", "Mmm", nMax, 0,200);  Mmm->Sumw2();
     Mgg = new TH1D( "Mgg", "Mgg", nMax, 0,200);  Mgg->Sumw2();
 
+    // true masses 
+    MeeTrue = new TH1D( "MeeTrue", "Mee true", nMax, 0,200);  MeeTrue->Sumw2();
+    MmmTrue = new TH1D( "MmmTrue", "Mmm true", nMax, 0,200);  MmmTrue->Sumw2();
+    MggTrue = new TH1D( "MggTrue", "Mgg true", nMax, 0,200);  MggTrue->Sumw2();
 
 
 }

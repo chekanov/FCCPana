@@ -1,5 +1,8 @@
 #!/bin/bash
-
+# Main stript that initiates jobs and runs them. The output ROOT files
+# are created inside "out" (after all jobs are done). 
+# S.Chekanov 
+# 
 # for fast simulation 
 INPUT_TYPE=1 # 1 delphes, 2 CLT full sim
 OUTPUT_DIR="delphes"
@@ -35,13 +38,11 @@ mkdir -p out/sys${sys}/$OUTPUT_DIR
 
 if [ "$INPUT_TYPE" -eq "1" ]; then
    echo "Using DELPHES input"
-   cp -f aux/delphes.h  analysis.h
    make fast
 fi
 
 if [ "$INPUT_TYPE" -eq "2" ]; then
    echo "Using CLD full simulation input"
-   cp -f aux/full_cld.h analysis.h
    make full
 fi
 

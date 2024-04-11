@@ -33,6 +33,11 @@ class Histo {
     TH1D* Mmm;
     TH1D* Mgg;
 
+    // true 
+    TH1D* MeeTrue;
+    TH1D* MmmTrue;
+    TH1D* MggTrue;
+
 
 
 

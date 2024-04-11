@@ -1,18 +1,13 @@
 /*
  *      Loop.cxx
  *
- *      Copyright 2010 Sergei Chekanov <chakanau@hep.anl.gov> ANL
+ *      Copyright 2010 Sergei Chekanov <chekanov@hep.anl.gov> ANL
  *      Main analysis Loop.
  *
  *      This program is free software; you can redistribute it and/or modify
  *      it under the terms of the GNU General Public License as published by
  *      the Free Software Foundation; either version 2 of the License, or
  *      (at your option) any later version.
- *
- *      This program is distributed in the hope that it will be useful,
- *      but WITHOUT ANY WARRANTY; without even the implied warranty of
- *      MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- *      GNU General Public License for more details.
  *
  *      You should have received a copy of the GNU General Public License
  *      along with this program; if not, write to the Free Software
@@ -82,6 +77,11 @@ void Ana::Loop()
       vector<LParticle> electrons; // electrons 
       vector<LParticle> photons; // electrons 
 
+      // truth
+      vector<LParticle> true_muons;     // muons 
+      vector<LParticle> true_electrons; // electrons 
+      vector<LParticle> true_photons; // electrons 
+
       if (CutEvent(ientry) <0) continue;
       h.debug->Fill("Event cut",1.0);
 
@@ -119,6 +119,28 @@ void Ana::Loop()
         if (abs(pdg)==22) photons.push_back(p);
  
      };
+
+
+      // truth
+      for(Int_t  i = 0; i < Particle_; i++){
+       if ( Particle_generatorStatus[i] != 1) continue; 
+        TLorentzVector tl;
+        float e=sqrt(Particle_momentum_x[i]*Particle_momentum_x[i]+Particle_momentum_y[i]*Particle_momentum_y[i]+Particle_momentum_z[i]*Particle_momentum_z[i]+Particle_mass[i]*Particle_mass[i]); 
+        tl.SetPxPyPzE(Particle_momentum_x[i],Particle_momentum_y[i],Particle_momentum_z[i],e);
+        LParticle p;
+        p.SetP(tl);
+        int pdg=Particle_PDG[i];
+        p.SetType( pdg  );
+        p.SetStatus( Particle_simulatorStatus[i] );
+        p.SetParent( 0 );
+        p.SetCharge( Particle_charge[i]  );
+        if (abs(pdg)==11) true_electrons.push_back(p);
+        if (abs(pdg)==13) true_muons.push_back(p);
+        if (abs(pdg)==22) true_photons.push_back(p);
+     };
+
+
+
 
 #endif
 ////////////////////////////// end delphes ////////////////////////////////////
@@ -160,6 +182,29 @@ void Ana::Loop()
         if (abs(pdg)==22) photons.push_back(p);
      };
 
+
+      // truth
+      for(Int_t  i = 0; i < MCParticles_; i++){
+       if ( MCParticles_generatorStatus[i] != 1) continue;
+        TLorentzVector tl;
+        float e=sqrt( MCParticles_momentum_x[i]* MCParticles_momentum_x[i]+MCParticles_momentum_y[i]* MCParticles_momentum_y[i]+MCParticles_momentum_z[i]*MCParticles_momentum_z[i]+MCParticles_mass[i]*MCParticles_mass[i]);
+        tl.SetPxPyPzE(MCParticles_momentum_x[i],MCParticles_momentum_y[i],MCParticles_momentum_z[i],e);
+        LParticle p;
+        p.SetP(tl);
+        int pdg=MCParticles_PDG[i];
+        p.SetType( pdg  );
+        p.SetStatus(  MCParticles_simulatorStatus[i] );
+        p.SetParent( 0 );
+        p.SetCharge( MCParticles_charge[i]  );
+        if (abs(pdg)==11) true_electrons.push_back(p);
+        if (abs(pdg)==13) true_muons.push_back(p);
+        if (abs(pdg)==22) true_photons.push_back(p);
+     };
+
+
+
+
+
 /////////////////////////////  end full simulations ////////////////////////////////////////////
 #endif
 
@@ -174,6 +219,10 @@ void Ana::Loop()
       if (electrons.size()>1) std::sort(electrons.begin(), electrons.end(), greater<LParticle>() ) ;
       if (muons.size()>1) std::sort(muons.begin(), muons.end(), greater<LParticle>() ) ;
       if (photons.size()>1) std::sort(photons.begin(), photons.end(), greater<LParticle>() ) ;
+      // truth level 
+      if (true_electrons.size()>1) std::sort(true_electrons.begin(), true_electrons.end(), greater<LParticle>() ) ;
+      if (true_muons.size()>1) std::sort(true_muons.begin(), true_muons.end(), greater<LParticle>() ) ;
+      if (true_photons.size()>1) std::sort(true_photons.begin(), true_photons.end(), greater<LParticle>() ) ;
 
 
          h.njet->Fill(Ljets.size(),weight);
@@ -230,6 +279,34 @@ void Ana::Loop()
             TLorentzVector PP=p1.GetP()+p2.GetP();
             h.Mgg->Fill(PP.M(), weight);
         }
+
+
+
+         // true masses
+         if ( true_electrons.size()>1){
+            LParticle p1= true_electrons.at(0);
+            LParticle p2= true_electrons.at(1);
+            if (p1.GetCharge()*p2.GetCharge() > 0) continue;
+            TLorentzVector PP=p1.GetP()+p2.GetP();
+            h.MeeTrue->Fill(PP.M(), weight);
+        }
+
+        if ( true_muons.size()>1){
+            LParticle p1= true_muons.at(0);
+            LParticle p2= true_muons.at(1);
+            if (p1.GetCharge()*p2.GetCharge() > 0) continue;
+            TLorentzVector PP=p1.GetP()+p2.GetP();
+            h.MmmTrue->Fill(PP.M(), weight);
+        }
+
+        if ( true_photons.size()>1){
+            LParticle p1= true_photons.at(0);
+            LParticle p2= true_photons.at(1);
+            TLorentzVector PP=p1.GetP()+p2.GetP();
+            h.MggTrue->Fill(PP.M(), weight);
+        }
+
+
 
 
       glob.TotalEvents++;

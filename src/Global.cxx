@@ -71,12 +71,10 @@ void Global::getNtuples(string xname)
 
      string temp;
      while (myfile >> temp) {
- //the following line trims white space from the beginning of the string
-           temp.erase(temp.begin(), std::find_if(temp.begin(), temp.end(), not1(ptr_fun<int, int>(isspace))));
-            if (temp.find("#") == 0) continue; 
             ntup.push_back(temp);
-
      }
+
+
     cout << "-> Number of runs=" << ntup.size()  << endl;
     myfile.close();
 
