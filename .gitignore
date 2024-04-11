@@ -2,7 +2,7 @@ main
 
 *.root
 *.pcm
-*.dict.cxx
+*_dict.cxx
 
 # Prerequisites
 *.d
