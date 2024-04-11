@@ -18,31 +18,17 @@ using namespace std;
 #include <TFile.h>
 
 // Header file for the classes stored in the TTree if any.
-#include "vector"
 #include "edm4hep/CalorimeterHitData.h"
-#include "vector"
 #include "edm4hep/ClusterData.h"
-#include "vector"
 #include "podio/ObjectID.h"
-#include "vector"
-#include "vector"
 #include "edm4hep/TrackData.h"
-#include "vector"
-#include "vector"
-#include "vector"
-#include "vector"
 #include "edm4hep/EventHeaderData.h"
-#include "vector"
-#include "vector"
 #include "edm4hep/ReconstructedParticleData.h"
-#include "vector"
 #include "edm4hep/MCRecoParticleAssociationData.h"
-#include "vector"
 #include "edm4hep/MCParticleData.h"
-#include "vector"
 #include "edm4hep/ParticleIDData.h"
-#include "vector"
-#include "edm4hep/TrackerHit3DData.h"
+// only available starting from Apr 2024
+// #include "edm4hep/TrackerHit3DData.h"
 
 class analysis {
 public :

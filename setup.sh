@@ -5,6 +5,13 @@ source /cvmfs/sw-nightlies.hsf.org/key4hep/setup.sh
 echo  "KEY4HEP_STACK=$KEY4HEP_STACK"
 echo "Setup FccpAna"
 
+# older
+# source /cvmfs/sw.hsf.org/key4hep/setup.sh
+
+# even more older
+# source /cvmfs/sw.hsf.org/key4hep/setup.sh -r 2023-11-23
+
+
 DELIMITER="key4hep-stack"
 FCCPANALIB="${KEY4HEP_STACK%$DELIMITER*}"
 
