@@ -5,9 +5,9 @@ using namespace std;
 #include <TLorentzVector.h>
 //////////////////////////////////////////////////////////
 // This class has been automatically generated on
-// Wed Apr 10 17:32:07 2024 by ROOT version 6.28/10
+// Mon Apr 15 15:35:10 2024 by ROOT version 6.12/06
 // from TTree events/events data tree
-// found on file: data/IDEA_DELPHES/p8_ee_mumuH_ecm240_IDEA.root
+// found on file: data/py8_ZZ_idea_1.root
 //////////////////////////////////////////////////////////
 
 #ifndef analysis_h
@@ -17,18 +17,6 @@ using namespace std;
 #include <TChain.h>
 #include <TFile.h>
 
-// Header file for the classes stored in the TTree if any.
-#include "edm4hep/CalorimeterHitData.h"
-#include "edm4hep/ClusterData.h"
-#include "podio/ObjectID.h"
-#include "edm4hep/TrackData.h"
-#include "edm4hep/EventHeaderData.h"
-#include "edm4hep/ReconstructedParticleData.h"
-#include "edm4hep/MCRecoParticleAssociationData.h"
-#include "edm4hep/MCParticleData.h"
-#include "edm4hep/ParticleIDData.h"
-// only available starting from Apr 2024
-// #include "edm4hep/TrackerHit3DData.h"
 
 class analysis {
 public :
@@ -36,46 +24,47 @@ public :
    Int_t           fCurrent; //!current Tree number in a TChain
 
 // Fixed size dimensions of array or collections stored in the TTree if any.
-   static constexpr Int_t kMaxCalorimeterHits = 79;
-   static constexpr Int_t kMaxEFlowNeutralHadron = 16;
+   static constexpr Int_t kMaxCalorimeterHits = 103;
+   static constexpr Int_t kMaxEFlowNeutralHadron = 15;
    static constexpr Int_t kMax_EFlowNeutralHadron_clusters = 1;
-   static constexpr Int_t kMax_EFlowNeutralHadron_hits = 16;
+   static constexpr Int_t kMax_EFlowNeutralHadron_hits = 15;
    static constexpr Int_t kMax_EFlowNeutralHadron_particleIDs = 1;
-   static constexpr Int_t kMaxEFlowPhoton = 75;
+   static constexpr Int_t kMaxEFlowPhoton = 91;
    static constexpr Int_t kMax_EFlowPhoton_clusters = 1;
-   static constexpr Int_t kMax_EFlowPhoton_hits = 75;
+   static constexpr Int_t kMax_EFlowPhoton_hits = 91;
    static constexpr Int_t kMax_EFlowPhoton_particleIDs = 1;
-   static constexpr Int_t kMaxEFlowTrack = 67;
-   static constexpr Int_t kMax_EFlowTrack_trackerHits = 201;
+   static constexpr Int_t kMaxEFlowTrack = 75;
+   static constexpr Int_t kMax_EFlowTrack_trackerHits = 225;
    static constexpr Int_t kMax_EFlowTrack_tracks = 1;
-   static constexpr Int_t kMax_EFlowTrack_trackStates = 67;
-   static constexpr Int_t kMax_EFlowTrack_dxQuantities = 67;
+   static constexpr Int_t kMax_EFlowTrack_trackStates = 75;
+   static constexpr Int_t kMax_EFlowTrack_dxQuantities = 75;
    static constexpr Int_t kMaxElectron_objIdx = 4;
    static constexpr Int_t kMaxEventHeader = 1;
    static constexpr Int_t kMaxJet = 4;
    static constexpr Int_t kMax_Jet_clusters = 1;
    static constexpr Int_t kMax_Jet_tracks = 1;
-   static constexpr Int_t kMax_Jet_particles = 140;
+   static constexpr Int_t kMax_Jet_particles = 170;
    static constexpr Int_t kMax_Jet_particleIDs = 4;
    static constexpr Int_t kMax_Jet_startVertex = 4;
    static constexpr Int_t kMax_Jet_particleIDUsed = 4;
-   static constexpr Int_t kMaxMCRecoAssociations = 141;
-   static constexpr Int_t kMax_MCRecoAssociations_rec = 141;
-   static constexpr Int_t kMax_MCRecoAssociations_sim = 141;
-   static constexpr Int_t kMaxMuon_objIdx = 5;
-   static constexpr Int_t kMaxParticle = 404;
-   static constexpr Int_t kMax_Particle_parents = 2799;
-   static constexpr Int_t kMax_Particle_daughters = 2797;
-   static constexpr Int_t kMaxParticleIDs = 70;
-   static constexpr Int_t kMaxPhoton_objIdx = 19;
-   static constexpr Int_t kMaxReconstructedParticles = 140;
-   static constexpr Int_t kMax_ReconstructedParticles_clusters = 79;
-   static constexpr Int_t kMax_ReconstructedParticles_tracks = 67;
+   static constexpr Int_t kMaxMCRecoAssociations = 170;
+   static constexpr Int_t kMax_MCRecoAssociations_rec = 170;
+   static constexpr Int_t kMax_MCRecoAssociations_sim = 170;
+   static constexpr Int_t kMaxMuon_objIdx = 4;
+   static constexpr Int_t kMaxParticle = 455;
+   static constexpr Int_t kMax_Particle_parents = 2192;
+   static constexpr Int_t kMax_Particle_daughters = 2172;
+   static constexpr Int_t kMaxParticleIDs = 78;
+   static constexpr Int_t kMaxPhoton_objIdx = 21;
+   static constexpr Int_t kMaxReconstructedParticles = 170;
+   static constexpr Int_t kMax_ReconstructedParticles_clusters = 103;
+   static constexpr Int_t kMax_ReconstructedParticles_tracks = 75;
    static constexpr Int_t kMax_ReconstructedParticles_particles = 1;
-   static constexpr Int_t kMax_ReconstructedParticles_particleIDs = 67;
-   static constexpr Int_t kMax_ReconstructedParticles_startVertex = 140;
-   static constexpr Int_t kMax_ReconstructedParticles_particleIDUsed = 140;
-   static constexpr Int_t kMaxTrackerHits = 201;
+   static constexpr Int_t kMax_ReconstructedParticles_particleIDs = 75;
+   static constexpr Int_t kMax_ReconstructedParticles_startVertex = 170;
+   static constexpr Int_t kMax_ReconstructedParticles_particleIDUsed = 170;
+   static constexpr Int_t kMaxTrackerHits = 225;
+   static constexpr Int_t kMax_TrackerHits_rawHits = 1;
    static constexpr Int_t kMax_intMap = 1;
    static constexpr Int_t kMax_floatMap = 1;
    static constexpr Int_t kMax_stringMap = 1;
@@ -208,12 +197,9 @@ public :
    Int_t           EventHeader_eventNumber[kMaxEventHeader];   //[EventHeader_]
    Int_t           EventHeader_runNumber[kMaxEventHeader];   //[EventHeader_]
    ULong_t         EventHeader_timeStamp[kMaxEventHeader];   //[EventHeader_]
-   Double_t        EventHeader_weight[kMaxEventHeader];   //[EventHeader_]
-   UInt_t          EventHeader_weights_begin[kMaxEventHeader];   //[EventHeader_]
-   UInt_t          EventHeader_weights_end[kMaxEventHeader];   //[EventHeader_]
-   vector<double>  *_EventHeader_weights;
+   Float_t         EventHeader_weight[kMaxEventHeader];   //[EventHeader_]
    Int_t           Jet_;
-   Int_t           Jet_PDG[kMaxJet];   //[Jet_]
+   Int_t           Jet_type[kMaxJet];   //[Jet_]
    Float_t         Jet_energy[kMaxJet];   //[Jet_]
    Float_t         Jet_momentum_x[kMaxJet];   //[Jet_]
    Float_t         Jet_momentum_y[kMaxJet];   //[Jet_]
@@ -277,12 +263,12 @@ public :
    Double_t        Particle_endpoint_x[kMaxParticle];   //[Particle_]
    Double_t        Particle_endpoint_y[kMaxParticle];   //[Particle_]
    Double_t        Particle_endpoint_z[kMaxParticle];   //[Particle_]
-   Double_t        Particle_momentum_x[kMaxParticle];   //[Particle_]
-   Double_t        Particle_momentum_y[kMaxParticle];   //[Particle_]
-   Double_t        Particle_momentum_z[kMaxParticle];   //[Particle_]
-   Double_t        Particle_momentumAtEndpoint_x[kMaxParticle];   //[Particle_]
-   Double_t        Particle_momentumAtEndpoint_y[kMaxParticle];   //[Particle_]
-   Double_t        Particle_momentumAtEndpoint_z[kMaxParticle];   //[Particle_]
+   Float_t         Particle_momentum_x[kMaxParticle];   //[Particle_]
+   Float_t         Particle_momentum_y[kMaxParticle];   //[Particle_]
+   Float_t         Particle_momentum_z[kMaxParticle];   //[Particle_]
+   Float_t         Particle_momentumAtEndpoint_x[kMaxParticle];   //[Particle_]
+   Float_t         Particle_momentumAtEndpoint_y[kMaxParticle];   //[Particle_]
+   Float_t         Particle_momentumAtEndpoint_z[kMaxParticle];   //[Particle_]
    Float_t         Particle_spin_x[kMaxParticle];   //[Particle_]
    Float_t         Particle_spin_y[kMaxParticle];   //[Particle_]
    Float_t         Particle_spin_z[kMaxParticle];   //[Particle_]
@@ -311,7 +297,7 @@ public :
    UInt_t          Photon_objIdx_collectionID[kMaxPhoton_objIdx];   //[Photon_objIdx_]
    vector<float>   *Photon_IsolationVar;
    Int_t           ReconstructedParticles_;
-   Int_t           ReconstructedParticles_PDG[kMaxReconstructedParticles];   //[ReconstructedParticles_]
+   Int_t           ReconstructedParticles_type[kMaxReconstructedParticles];   //[ReconstructedParticles_]
    Float_t         ReconstructedParticles_energy[kMaxReconstructedParticles];   //[ReconstructedParticles_]
    Float_t         ReconstructedParticles_momentum_x[kMaxReconstructedParticles];   //[ReconstructedParticles_]
    Float_t         ReconstructedParticles_momentum_y[kMaxReconstructedParticles];   //[ReconstructedParticles_]
@@ -360,6 +346,11 @@ public :
    Double_t        TrackerHits_position_y[kMaxTrackerHits];   //[TrackerHits_]
    Double_t        TrackerHits_position_z[kMaxTrackerHits];   //[TrackerHits_]
    Float_t         TrackerHits_covMatrix[kMaxTrackerHits][6];   //[TrackerHits_]
+   UInt_t          TrackerHits_rawHits_begin[kMaxTrackerHits];   //[TrackerHits_]
+   UInt_t          TrackerHits_rawHits_end[kMaxTrackerHits];   //[TrackerHits_]
+   Int_t           _TrackerHits_rawHits_;
+   Int_t           _TrackerHits_rawHits_index[kMax_TrackerHits_rawHits];   //[_TrackerHits_rawHits_]
+   Int_t           _TrackerHits_rawHits_collectionID[kMax_TrackerHits_rawHits];   //[_TrackerHits_rawHits_]
  //podio::GenericParameters *PARAMETERS;
    Int_t           _intMap_;
    string          _intMap_first[kMax_intMap];
@@ -502,11 +493,8 @@ public :
    TBranch        *b_EventHeader_runNumber;   //!
    TBranch        *b_EventHeader_timeStamp;   //!
    TBranch        *b_EventHeader_weight;   //!
-   TBranch        *b_EventHeader_weights_begin;   //!
-   TBranch        *b_EventHeader_weights_end;   //!
-   TBranch        *b__EventHeader_weights;   //!
    TBranch        *b_Jet_;   //!
-   TBranch        *b_Jet_PDG;   //!
+   TBranch        *b_Jet_type;   //!
    TBranch        *b_Jet_energy;   //!
    TBranch        *b_Jet_momentum_x;   //!
    TBranch        *b_Jet_momentum_y;   //!
@@ -604,7 +592,7 @@ public :
    TBranch        *b_Photon_objIdx_collectionID;   //!
    TBranch        *b_Photon_IsolationVar;   //!
    TBranch        *b_ReconstructedParticles_;   //!
-   TBranch        *b_ReconstructedParticles_PDG;   //!
+   TBranch        *b_ReconstructedParticles_type;   //!
    TBranch        *b_ReconstructedParticles_energy;   //!
    TBranch        *b_ReconstructedParticles_momentum_x;   //!
    TBranch        *b_ReconstructedParticles_momentum_y;   //!
@@ -653,6 +641,11 @@ public :
    TBranch        *b_TrackerHits_position_y;   //!
    TBranch        *b_TrackerHits_position_z;   //!
    TBranch        *b_TrackerHits_covMatrix;   //!
+   TBranch        *b_TrackerHits_rawHits_begin;   //!
+   TBranch        *b_TrackerHits_rawHits_end;   //!
+   TBranch        *b__TrackerHits_rawHits_;   //!
+   TBranch        *b__TrackerHits_rawHits_index;   //!
+   TBranch        *b__TrackerHits_rawHits_collectionID;   //!
    TBranch        *b_PARAMETERS__intMap_;   //!
    TBranch        *b__intMap_first;   //!
    TBranch        *b__intMap_second;   //!
@@ -684,16 +677,16 @@ analysis::analysis(TTree *tree) : fChain(0)
 {
 // if parameter tree is not specified (or zero), connect the file
 // used to generate this class and read the Tree.
-/*
+   /*
    if (tree == 0) {
-      TFile *f = (TFile*)gROOT->GetListOfFiles()->FindObject("data/IDEA_DELPHES/p8_ee_mumuH_ecm240_IDEA.root");
+      TFile *f = (TFile*)gROOT->GetListOfFiles()->FindObject("data/py8_ZZ_idea_1.root");
       if (!f || !f->IsOpen()) {
-         f = new TFile("data/IDEA_DELPHES/p8_ee_mumuH_ecm240_IDEA.root");
+         f = new TFile("data/py8_ZZ_idea_1.root");
       }
       f->GetObject("events",tree);
 
    }
-*/
+  */
 
    Init(tree);
 }
@@ -741,7 +734,6 @@ void analysis::Init(TTree *tree)
    _EFlowTrack_subdetectorHitNumbers = 0;
    EFlowTrack_L = 0;
    Electron_IsolationVar = 0;
-   _EventHeader_weights = 0;
    magFieldBz = 0;
    Muon_IsolationVar = 0;
    _ParticleIDs_parameters = 0;
@@ -879,11 +871,8 @@ void analysis::Init(TTree *tree)
    fChain->SetBranchAddress("EventHeader.runNumber", EventHeader_runNumber, &b_EventHeader_runNumber);
    fChain->SetBranchAddress("EventHeader.timeStamp", EventHeader_timeStamp, &b_EventHeader_timeStamp);
    fChain->SetBranchAddress("EventHeader.weight", EventHeader_weight, &b_EventHeader_weight);
-   fChain->SetBranchAddress("EventHeader.weights_begin", EventHeader_weights_begin, &b_EventHeader_weights_begin);
-   fChain->SetBranchAddress("EventHeader.weights_end", EventHeader_weights_end, &b_EventHeader_weights_end);
-   fChain->SetBranchAddress("_EventHeader_weights", &_EventHeader_weights, &b__EventHeader_weights);
    fChain->SetBranchAddress("Jet", &Jet_, &b_Jet_);
-   fChain->SetBranchAddress("Jet.PDG", Jet_PDG, &b_Jet_PDG);
+   fChain->SetBranchAddress("Jet.type", Jet_type, &b_Jet_type);
    fChain->SetBranchAddress("Jet.energy", Jet_energy, &b_Jet_energy);
    fChain->SetBranchAddress("Jet.momentum.x", Jet_momentum_x, &b_Jet_momentum_x);
    fChain->SetBranchAddress("Jet.momentum.y", Jet_momentum_y, &b_Jet_momentum_y);
@@ -981,7 +970,7 @@ void analysis::Init(TTree *tree)
    fChain->SetBranchAddress("Photon_objIdx.collectionID", Photon_objIdx_collectionID, &b_Photon_objIdx_collectionID);
    fChain->SetBranchAddress("Photon_IsolationVar", &Photon_IsolationVar, &b_Photon_IsolationVar);
    fChain->SetBranchAddress("ReconstructedParticles", &ReconstructedParticles_, &b_ReconstructedParticles_);
-   fChain->SetBranchAddress("ReconstructedParticles.PDG", ReconstructedParticles_PDG, &b_ReconstructedParticles_PDG);
+   fChain->SetBranchAddress("ReconstructedParticles.type", ReconstructedParticles_type, &b_ReconstructedParticles_type);
    fChain->SetBranchAddress("ReconstructedParticles.energy", ReconstructedParticles_energy, &b_ReconstructedParticles_energy);
    fChain->SetBranchAddress("ReconstructedParticles.momentum.x", ReconstructedParticles_momentum_x, &b_ReconstructedParticles_momentum_x);
    fChain->SetBranchAddress("ReconstructedParticles.momentum.y", ReconstructedParticles_momentum_y, &b_ReconstructedParticles_momentum_y);
@@ -1030,6 +1019,11 @@ void analysis::Init(TTree *tree)
    fChain->SetBranchAddress("TrackerHits.position.y", TrackerHits_position_y, &b_TrackerHits_position_y);
    fChain->SetBranchAddress("TrackerHits.position.z", TrackerHits_position_z, &b_TrackerHits_position_z);
    fChain->SetBranchAddress("TrackerHits.covMatrix[6]", TrackerHits_covMatrix, &b_TrackerHits_covMatrix);
+   fChain->SetBranchAddress("TrackerHits.rawHits_begin", TrackerHits_rawHits_begin, &b_TrackerHits_rawHits_begin);
+   fChain->SetBranchAddress("TrackerHits.rawHits_end", TrackerHits_rawHits_end, &b_TrackerHits_rawHits_end);
+   fChain->SetBranchAddress("_TrackerHits_rawHits", &_TrackerHits_rawHits_, &b__TrackerHits_rawHits_);
+   fChain->SetBranchAddress("_TrackerHits_rawHits.index", &_TrackerHits_rawHits_index, &b__TrackerHits_rawHits_index);
+   fChain->SetBranchAddress("_TrackerHits_rawHits.collectionID", &_TrackerHits_rawHits_collectionID, &b__TrackerHits_rawHits_collectionID);
    fChain->SetBranchAddress("_intMap", &_intMap_, &b_PARAMETERS__intMap_);
    fChain->SetBranchAddress("_intMap.first", &_intMap_first, &b__intMap_first);
    fChain->SetBranchAddress("_intMap.second", &_intMap_second, &b__intMap_second);

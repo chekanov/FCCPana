@@ -28,6 +28,17 @@ make
 Can you create the executable "main"? If yes, now you can run over Delphes and Full simulation files.
 Put your input Delphes ROOT files to the directory "data/IDEA_DELPHES"  or  full simulation files to "data/CLD_FULL/". 
 
+Here is a small test:
+
+```
+make -p data/IDEA_DELPHES
+cd data/IDEA_DELPHES
+wget https://mc.hep.anl.gov/asc/hepsim/events/ee/240gev/py8_ZH_idea//rfast053/py8_ZH_idea_1.root
+wget https://mc.hep.anl.gov/asc/hepsim/events/ee/240gev/py8_ZH_idea//rfast053/py8_ZH_idea_2.root 
+cd ../../
+```
+Search for more events using "rfast053" reconstruction tag of HepSim. Or download from CERN. 
+
 You can create 2 types of executables: for fast simulation data (Delphes) and full simulation (CLD). This is how to make such executables:
 
 ```

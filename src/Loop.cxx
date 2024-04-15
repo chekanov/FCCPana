@@ -93,7 +93,7 @@ void Ana::Loop()
         tl.SetPxPyPzE(Jet_momentum_x[i],Jet_momentum_y[i],Jet_momentum_z[i],Jet_energy[i]);
         LParticle p;
         p.SetP(tl);
-        p.SetType( Jet_PDG[i]  );
+        p.SetType( Jet_type[i]  );
         p.SetStatus( 0 );
         p.SetParent( 0 ); // save EM pt in MeV units 
         p.SetCharge( Jet_charge[i] );
@@ -108,7 +108,7 @@ void Ana::Loop()
         tl.SetPxPyPzE(ReconstructedParticles_momentum_x[i],ReconstructedParticles_momentum_y[i],ReconstructedParticles_momentum_z[i],ReconstructedParticles_energy[i]);
         LParticle p;
         p.SetP(tl);
-        int pdg=ReconstructedParticles_PDG[i];
+        int pdg=ReconstructedParticles_type[i];
         //cout << ReconstructedParticles_type[i] << endl;
         p.SetType( pdg  );
         p.SetStatus( 0 );
