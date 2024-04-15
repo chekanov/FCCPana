@@ -31,7 +31,7 @@ Put your input Delphes ROOT files to the directory "data/IDEA_DELPHES"  or  full
 Here is a small test:
 
 ```
-make -p data/IDEA_DELPHES
+mkdir -p data/IDEA_DELPHES
 cd data/IDEA_DELPHES
 wget https://mc.hep.anl.gov/asc/hepsim/events/ee/240gev/py8_ZH_idea/rfast053/py8_ZH_idea_1.root
 wget https://mc.hep.anl.gov/asc/hepsim/events/ee/240gev/py8_ZH_idea/rfast053/py8_ZH_idea_2.root 
