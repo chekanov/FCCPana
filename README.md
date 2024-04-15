@@ -33,8 +33,8 @@ Here is a small test:
 ```
 make -p data/IDEA_DELPHES
 cd data/IDEA_DELPHES
-wget https://mc.hep.anl.gov/asc/hepsim/events/ee/240gev/py8_ZH_idea//rfast053/py8_ZH_idea_1.root
-wget https://mc.hep.anl.gov/asc/hepsim/events/ee/240gev/py8_ZH_idea//rfast053/py8_ZH_idea_2.root 
+wget https://mc.hep.anl.gov/asc/hepsim/events/ee/240gev/py8_ZH_idea/rfast053/py8_ZH_idea_1.root
+wget https://mc.hep.anl.gov/asc/hepsim/events/ee/240gev/py8_ZH_idea/rfast053/py8_ZH_idea_2.root 
 cd ../../
 ```
 Search for more events using "rfast053" reconstruction tag of HepSim. Or download from CERN. 
