@@ -15,8 +15,6 @@ Here are the main features:
 # How to test 
 Get the code:
 
-Get the code:
-
 `git clone https://github.com/chekanov/FCCPana`
 
 Make sure you can compile it. Setup the key4hep environment and compile:
@@ -26,10 +24,7 @@ cd FCCPana
 source setup.sh
 make
 ```
-Can you create the executable "main"? If yes, now you can run over Delphes and Full simulation files.
-Put your input Delphes ROOT files to the directory "data/IDEA_DELPHES"  or  full simulation files to "data/CLD_FULL/".
-
-Here is a small test using Delphes inputs:
+Can you create the executable "main"? If yes, now you can run over Delphes and Full simulation files. Put your input Delphes ROOT files to the directory "data/IDEA_DELPHES"  or  full simulation files to "data/CLD_FULL/". Here is a small test using Delphes inputs (ROOT/EDM):
 
 ```
 mkdir -p data/IDEA_DELPHES
