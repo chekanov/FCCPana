@@ -5,12 +5,13 @@ This code allows analysis of FCC-ee data (Delphes and full simulation in EDM ROO
 using multiple cores. You can program any histogram and attach any C++ library.
 Here are the main features:
 
-- Very simple and fast!
+- Very small (100KB), simple and fast!
 - Can run on multiple cores (tested on 72 cores)
-- Can define systematics via main.in input file
-- Can attach additional C++ libraries
-- Unified object definition, independent is this full or fast simulation.
-- Very flexible. You can create any analysis logic using any variable listed in analysis.h
+- Can define systematics + multiple outputs via main.in input file
+- Can attach additional C++ libraries (simply put them to inc/ or src/)
+- Unified object definition
+- Independent of full or fast simulation. Works for both without code change
+- Flexible. Create any analysis logic (even 4-level nested loops with arbitrary selections!) using variables listed in analysis.h
 
 # How to test 
 Get the code:
