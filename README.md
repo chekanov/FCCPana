@@ -42,7 +42,8 @@ Here is a test using full Geant4 simulation with the CLD detector:
 ```
 mkdir data/CLD_FULL/
 cd data/CLD_FULL/
-wget https://mc.hep.anl.gov/asc/hepsim/events/ee/240gev/pythia6_Heemm/rfull301/wzp6_ee_eeH_ecm240_CLD_RECO_edm4hep.root
+wget https://mc.hep.anl.gov/asc/hepsim/events/ee/91gev/pythia8_91gev/rfull302/gev91ee_zboson_002_CLD_RECO_edm4hep.root
+wget https://mc.hep.anl.gov/asc/hepsim/events/ee/91gev/pythia8_91gev/rfull302/gev91ee_zboson_003_CLD_RECO_edm4hep.root
 cd ../../
 ```
 Then uncomment the lines inside A_RUN as:

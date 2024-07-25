@@ -147,27 +147,32 @@ void Ana::Loop()
 
 
 
+
+
+
 // this is full simulation filler //////////////////////////////////////////////
 #if geant  
 
-      // Jets 
-      for(Int_t  i = 0; i < VertexJets_; i++){
-        TLorentzVector tl;
-        tl.SetPxPyPzE(VertexJets_momentum_x[i],VertexJets_momentum_y[i],VertexJets_momentum_z[i],VertexJets_energy[i]);
-        LParticle p;
-        p.SetP(tl);
-        p.SetType( VertexJets_PDG[i]  );
-        p.SetStatus( 0 );
-        p.SetParent( 0 ); 
-        p.SetCharge( VertexJets_charge[i] );
-        alljets.push_back(p);
-        Ljets.push_back(p);
-        Bjets.push_back(p);
-     };
+      map<int, int> tight;
+      //cout << "Nr of TightSelectedPandoraPFOs_objIdx=" << TightSelectedPandoraPFOs_objIdx_ << endl;
+      // fill identified particles 
+      for(Int_t  i = 0; i < TightSelectedPandoraPFOs_objIdx_; i++){
+         int ID=TightSelectedPandoraPFOs_objIdx_index[i];
+         tight[ID]=1;
+      };
 
+
+      //cout << "Nr of PandoraPFOs_=" << PandoraPFOs_  << endl;
       // fill identified particles 
       for(Int_t  i = 0; i < PandoraPFOs_; i++){
-        TLorentzVector tl;
+
+	// only get tight 
+        bool passTight=false;
+        if (tight.count(i) > 0)  passTight=true; 
+        if (passTight==false) continue;
+
+      
+	TLorentzVector tl;
         tl.SetPxPyPzE(PandoraPFOs_momentum_x[i],PandoraPFOs_momentum_y[i],PandoraPFOs_momentum_z[i],PandoraPFOs_energy[i]);
         LParticle p;
         p.SetP(tl);
@@ -177,7 +182,13 @@ void Ana::Loop()
         p.SetStatus( 0 );
         p.SetParent( 0 ); // save EM pt in MeV units 
         p.SetCharge( PandoraPFOs_charge[i]  );
-        if (abs(pdg)==11) electrons.push_back(p);
+
+        alljets.push_back(p);
+        Ljets.push_back(p);
+        Bjets.push_back(p);
+
+
+	if (abs(pdg)==11) electrons.push_back(p);
         if (abs(pdg)==13) muons.push_back(p);
         if (abs(pdg)==22) photons.push_back(p);
      };
@@ -207,6 +218,13 @@ void Ana::Loop()
 
 /////////////////////////////  end full simulations ////////////////////////////////////////////
 #endif
+
+
+
+
+
+
+
 
 
 

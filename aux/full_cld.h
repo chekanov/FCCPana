@@ -5,7 +5,7 @@ using namespace std;
 #include <TLorentzVector.h>
 //////////////////////////////////////////////////////////
 // This class has been automatically generated on
-// Wed Apr 10 18:00:30 2024 by ROOT version 6.28/10
+// Thu Jul 25 12:55:23 2024 by ROOT version 6.30/06
 // from TTree events/events data tree
 // found on file: data/CLD_FULL/wzp6_ee_mumuH_ecm240_CLD_RECO_edm4hep.root
 //////////////////////////////////////////////////////////
@@ -20,8 +20,8 @@ using namespace std;
 // Header file for the classes stored in the TTree if any.
 #include "edm4hep/VertexData.h"
 #include "podio/ObjectID.h"
+#include "edm4hep/RecoParticleVertexAssociationData.h"
 #include "edm4hep/ReconstructedParticleData.h"
-#include "edm4hep/ParticleIDData.h"
 #include "edm4hep/MCRecoCaloParticleAssociationData.h"
 #include "edm4hep/MCRecoClusterParticleAssociationData.h"
 #include "edm4hep/CalorimeterHitData.h"
@@ -29,13 +29,12 @@ using namespace std;
 #include "edm4hep/CaloHitContributionData.h"
 #include "edm4hep/EventHeaderData.h"
 #include "edm4hep/SimTrackerHitData.h"
-#include "edm4hep/MCRecoTrackerHitPlaneAssociationData.h"
+#include "edm4hep/MCRecoTrackerAssociationData.h"
 #include "edm4hep/TrackerHitPlaneData.h"
 #include "edm4hep/ClusterData.h"
 #include "edm4hep/MCParticleData.h"
 #include "edm4hep/MCRecoParticleAssociationData.h"
 #include "edm4hep/MCRecoTrackParticleAssociationData.h"
-#include "edm4hep/RecoParticleVertexAssociationData.h"
 #include "edm4hep/MCRecoCaloAssociationData.h"
 #include "edm4hep/TrackData.h"
 
@@ -46,253 +45,231 @@ public :
 
 // Fixed size dimensions of array or collections stored in the TTree if any.
    static constexpr Int_t kMaxBuildUpVertices = 2;
-   static constexpr Int_t kMax_BuildUpVertices_associatedParticle = 2;
+   static constexpr Int_t kMax_BuildUpVertices_particles = 5;
+   static constexpr Int_t kMaxBuildUpVertices_associatedParticles = 2;
+   static constexpr Int_t kMax_BuildUpVertices_associatedParticles_rec = 2;
+   static constexpr Int_t kMax_BuildUpVertices_associatedParticles_vertex = 2;
    static constexpr Int_t kMaxBuildUpVertices_RP = 2;
    static constexpr Int_t kMax_BuildUpVertices_RP_clusters = 1;
    static constexpr Int_t kMax_BuildUpVertices_RP_tracks = 1;
-   static constexpr Int_t kMax_BuildUpVertices_RP_particles = 6;
-   static constexpr Int_t kMax_BuildUpVertices_RP_particleIDs = 1;
-   static constexpr Int_t kMax_BuildUpVertices_RP_startVertex = 2;
-   static constexpr Int_t kMax_BuildUpVertices_RP_particleIDUsed = 2;
-   static constexpr Int_t kMaxBuildUpVertices_RP_particleIDs = 1;
+   static constexpr Int_t kMax_BuildUpVertices_RP_particles = 5;
+   static constexpr Int_t kMax_BuildUpVertices_RP_decayVertex = 2;
+   static constexpr Int_t kMaxBuildUpVertices_RP_startVertices = 1;
+   static constexpr Int_t kMax_BuildUpVertices_RP_startVertices_rec = 1;
+   static constexpr Int_t kMax_BuildUpVertices_RP_startVertices_vertex = 1;
    static constexpr Int_t kMaxBuildUpVertices_V0 = 1;
-   static constexpr Int_t kMax_BuildUpVertices_V0_associatedParticle = 1;
+   static constexpr Int_t kMax_BuildUpVertices_V0_particles = 1;
+   static constexpr Int_t kMaxBuildUpVertices_V0_associatedParticles = 1;
+   static constexpr Int_t kMax_BuildUpVertices_V0_associatedParticles_rec = 1;
+   static constexpr Int_t kMax_BuildUpVertices_V0_associatedParticles_vertex = 1;
    static constexpr Int_t kMaxBuildUpVertices_V0_RP = 1;
    static constexpr Int_t kMax_BuildUpVertices_V0_RP_clusters = 1;
    static constexpr Int_t kMax_BuildUpVertices_V0_RP_tracks = 1;
-   static constexpr Int_t kMax_BuildUpVertices_V0_RP_particles = 2;
-   static constexpr Int_t kMax_BuildUpVertices_V0_RP_particleIDs = 1;
-   static constexpr Int_t kMax_BuildUpVertices_V0_RP_startVertex = 1;
-   static constexpr Int_t kMax_BuildUpVertices_V0_RP_particleIDUsed = 1;
-   static constexpr Int_t kMaxBuildUpVertices_V0_RP_particleIDs = 1;
-   static constexpr Int_t kMaxCalohitMCTruthLink = 5343;
-   static constexpr Int_t kMax_CalohitMCTruthLink_rec = 5343;
-   static constexpr Int_t kMax_CalohitMCTruthLink_sim = 5343;
-   static constexpr Int_t kMaxClusterMCTruthLink = 111;
-   static constexpr Int_t kMax_ClusterMCTruthLink_rec = 111;
-   static constexpr Int_t kMax_ClusterMCTruthLink_sim = 111;
+   static constexpr Int_t kMax_BuildUpVertices_V0_RP_particles = 1;
+   static constexpr Int_t kMax_BuildUpVertices_V0_RP_decayVertex = 1;
+   static constexpr Int_t kMaxBuildUpVertices_V0_RP_startVertices = 1;
+   static constexpr Int_t kMax_BuildUpVertices_V0_RP_startVertices_rec = 1;
+   static constexpr Int_t kMax_BuildUpVertices_V0_RP_startVertices_vertex = 1;
+   static constexpr Int_t kMaxCalohitMCTruthLink = 5367;
+   static constexpr Int_t kMax_CalohitMCTruthLink_rec = 5367;
+   static constexpr Int_t kMax_CalohitMCTruthLink_sim = 5367;
+   static constexpr Int_t kMaxClusterMCTruthLink = 119;
+   static constexpr Int_t kMax_ClusterMCTruthLink_rec = 119;
+   static constexpr Int_t kMax_ClusterMCTruthLink_sim = 119;
    static constexpr Int_t kMaxDebugHits_objIdx = 1;
-   static constexpr Int_t kMaxECALBarrel = 3451;
-   static constexpr Int_t kMaxECalBarrelCollection = 4085;
-   static constexpr Int_t kMax_ECalBarrelCollection_contributions = 29342;
-   static constexpr Int_t kMaxECalBarrelCollectionContributions = 29342;
-   static constexpr Int_t kMax_ECalBarrelCollectionContributions_particle = 29342;
-   static constexpr Int_t kMaxECALEndcap = 3232;
-   static constexpr Int_t kMaxECalEndcapCollection = 4126;
-   static constexpr Int_t kMax_ECalEndcapCollection_contributions = 25080;
-   static constexpr Int_t kMaxECalEndcapCollectionContributions = 25080;
-   static constexpr Int_t kMax_ECalEndcapCollectionContributions_particle = 25080;
+   static constexpr Int_t kMaxECALBarrel = 3111;
+   static constexpr Int_t kMaxECalBarrelCollection = 3772;
+   static constexpr Int_t kMax_ECalBarrelCollection_contributions = 27323;
+   static constexpr Int_t kMaxECalBarrelCollectionContributions = 27323;
+   static constexpr Int_t kMax_ECalBarrelCollectionContributions_particle = 27323;
+   static constexpr Int_t kMaxECALEndcap = 2876;
+   static constexpr Int_t kMaxECalEndcapCollection = 3539;
+   static constexpr Int_t kMax_ECalEndcapCollection_contributions = 22864;
+   static constexpr Int_t kMaxECalEndcapCollectionContributions = 22864;
+   static constexpr Int_t kMax_ECalEndcapCollectionContributions_particle = 22864;
    static constexpr Int_t kMaxEfficientMCParticles_objIdx = 29;
    static constexpr Int_t kMaxEventHeader = 1;
-   static constexpr Int_t kMaxHCALBarrel = 638;
-   static constexpr Int_t kMaxHCalBarrelCollection = 3885;
-   static constexpr Int_t kMax_HCalBarrelCollection_contributions = 9172;
-   static constexpr Int_t kMaxHCalBarrelCollectionContributions = 9172;
-   static constexpr Int_t kMax_HCalBarrelCollectionContributions_particle = 9172;
-   static constexpr Int_t kMaxHCALEndcap = 549;
-   static constexpr Int_t kMaxHCalEndcapCollection = 3512;
-   static constexpr Int_t kMax_HCalEndcapCollection_contributions = 7627;
-   static constexpr Int_t kMaxHCalEndcapCollectionContributions = 7627;
-   static constexpr Int_t kMax_HCalEndcapCollectionContributions_particle = 7627;
-   static constexpr Int_t kMaxHCALOther = 40;
-   static constexpr Int_t kMaxHCalRingCollection = 412;
-   static constexpr Int_t kMax_HCalRingCollection_contributions = 760;
-   static constexpr Int_t kMaxHCalRingCollectionContributions = 760;
-   static constexpr Int_t kMax_HCalRingCollectionContributions_particle = 760;
+   static constexpr Int_t kMaxHCALBarrel = 572;
+   static constexpr Int_t kMaxHCalBarrelCollection = 4379;
+   static constexpr Int_t kMax_HCalBarrelCollection_contributions = 8937;
+   static constexpr Int_t kMaxHCalBarrelCollectionContributions = 8937;
+   static constexpr Int_t kMax_HCalBarrelCollectionContributions_particle = 8937;
+   static constexpr Int_t kMaxHCALEndcap = 577;
+   static constexpr Int_t kMaxHCalEndcapCollection = 4041;
+   static constexpr Int_t kMax_HCalEndcapCollection_contributions = 8697;
+   static constexpr Int_t kMaxHCalEndcapCollectionContributions = 8697;
+   static constexpr Int_t kMax_HCalEndcapCollectionContributions_particle = 8697;
+   static constexpr Int_t kMaxHCALOther = 87;
+   static constexpr Int_t kMaxHCalRingCollection = 617;
+   static constexpr Int_t kMax_HCalRingCollection_contributions = 1217;
+   static constexpr Int_t kMaxHCalRingCollectionContributions = 1217;
+   static constexpr Int_t kMax_HCalRingCollectionContributions_particle = 1217;
    static constexpr Int_t kMaxInefficientMCParticles_objIdx = 1;
-   static constexpr Int_t kMaxInnerTrackerBarrelCollection = 126;
-   static constexpr Int_t kMax_InnerTrackerBarrelCollection_particle = 126;
-   static constexpr Int_t kMaxInnerTrackerBarrelHitsRelations = 122;
-   static constexpr Int_t kMax_InnerTrackerBarrelHitsRelations_rec = 122;
-   static constexpr Int_t kMax_InnerTrackerBarrelHitsRelations_sim = 122;
-   static constexpr Int_t kMaxInnerTrackerEndcapCollection = 125;
-   static constexpr Int_t kMax_InnerTrackerEndcapCollection_particle = 125;
-   static constexpr Int_t kMaxInnerTrackerEndcapHitsRelations = 112;
-   static constexpr Int_t kMax_InnerTrackerEndcapHitsRelations_rec = 112;
-   static constexpr Int_t kMax_InnerTrackerEndcapHitsRelations_sim = 112;
-   static constexpr Int_t kMaxITrackerEndcapHits = 112;
-   static constexpr Int_t kMaxITrackerHits = 122;
-   static constexpr Int_t kMaxLooseSelectedPandoraPFOs_objIdx = 62;
+   static constexpr Int_t kMaxInnerTrackerBarrelCollection = 177;
+   static constexpr Int_t kMax_InnerTrackerBarrelCollection_particle = 177;
+   static constexpr Int_t kMaxInnerTrackerBarrelHitsRelations = 170;
+   static constexpr Int_t kMax_InnerTrackerBarrelHitsRelations_rec = 170;
+   static constexpr Int_t kMax_InnerTrackerBarrelHitsRelations_sim = 170;
+   static constexpr Int_t kMaxInnerTrackerEndcapCollection = 118;
+   static constexpr Int_t kMax_InnerTrackerEndcapCollection_particle = 118;
+   static constexpr Int_t kMaxInnerTrackerEndcapHitsRelations = 113;
+   static constexpr Int_t kMax_InnerTrackerEndcapHitsRelations_rec = 113;
+   static constexpr Int_t kMax_InnerTrackerEndcapHitsRelations_sim = 113;
+   static constexpr Int_t kMaxITrackerEndcapHits = 113;
+   static constexpr Int_t kMaxITrackerHits = 170;
+   static constexpr Int_t kMaxLooseSelectedPandoraPFOs_objIdx = 66;
    static constexpr Int_t kMaxLumiCalClusters = 1;
    static constexpr Int_t kMax_LumiCalClusters_clusters = 1;
-   static constexpr Int_t kMax_LumiCalClusters_hits = 78;
-   static constexpr Int_t kMax_LumiCalClusters_particleIDs = 1;
-   static constexpr Int_t kMaxLumiCalClusters_particleIDs = 1;
-   static constexpr Int_t kMaxLumiCalCollection = 78;
-   static constexpr Int_t kMax_LumiCalCollection_contributions = 542;
-   static constexpr Int_t kMaxLumiCalCollectionContributions = 542;
-   static constexpr Int_t kMax_LumiCalCollectionContributions_particle = 542;
-   static constexpr Int_t kMaxLumiCalHits = 78;
+   static constexpr Int_t kMax_LumiCalClusters_hits = 84;
+   static constexpr Int_t kMaxLumiCalCollection = 84;
+   static constexpr Int_t kMax_LumiCalCollection_contributions = 591;
+   static constexpr Int_t kMaxLumiCalCollectionContributions = 591;
+   static constexpr Int_t kMax_LumiCalCollectionContributions_particle = 591;
+   static constexpr Int_t kMaxLumiCalHits = 84;
    static constexpr Int_t kMaxLumiCalRecoParticles = 1;
    static constexpr Int_t kMax_LumiCalRecoParticles_clusters = 1;
    static constexpr Int_t kMax_LumiCalRecoParticles_tracks = 1;
    static constexpr Int_t kMax_LumiCalRecoParticles_particles = 1;
-   static constexpr Int_t kMax_LumiCalRecoParticles_particleIDs = 1;
-   static constexpr Int_t kMax_LumiCalRecoParticles_startVertex = 1;
-   static constexpr Int_t kMax_LumiCalRecoParticles_particleIDUsed = 1;
-   static constexpr Int_t kMaxLumiCalRecoParticles_particleIDs = 1;
-   static constexpr Int_t kMaxMCParticles = 1204;
-   static constexpr Int_t kMax_MCParticles_parents = 1217;
-   static constexpr Int_t kMax_MCParticles_daughters = 1217;
-   static constexpr Int_t kMaxMCParticlesSkimmed_objIdx = 191;
-   static constexpr Int_t kMaxMCPhysicsParticles_objIdx = 1204;
-   static constexpr Int_t kMaxMCTruthClusterLink = 111;
-   static constexpr Int_t kMax_MCTruthClusterLink_rec = 111;
-   static constexpr Int_t kMax_MCTruthClusterLink_sim = 111;
-   static constexpr Int_t kMaxMCTruthRecoLink = 126;
-   static constexpr Int_t kMax_MCTruthRecoLink_rec = 126;
-   static constexpr Int_t kMax_MCTruthRecoLink_sim = 126;
-   static constexpr Int_t kMaxMCTruthSiTracksLink = 37;
-   static constexpr Int_t kMax_MCTruthSiTracksLink_rec = 37;
-   static constexpr Int_t kMax_MCTruthSiTracksLink_sim = 37;
-   static constexpr Int_t kMaxMUON = 29;
-   static constexpr Int_t kMaxOTrackerEndcapHits = 126;
-   static constexpr Int_t kMaxOTrackerHits = 150;
-   static constexpr Int_t kMaxOuterTrackerBarrelCollection = 269;
-   static constexpr Int_t kMax_OuterTrackerBarrelCollection_particle = 269;
-   static constexpr Int_t kMaxOuterTrackerBarrelHitsRelations = 150;
-   static constexpr Int_t kMax_OuterTrackerBarrelHitsRelations_rec = 150;
-   static constexpr Int_t kMax_OuterTrackerBarrelHitsRelations_sim = 150;
-   static constexpr Int_t kMaxOuterTrackerEndcapCollection = 141;
-   static constexpr Int_t kMax_OuterTrackerEndcapCollection_particle = 141;
-   static constexpr Int_t kMaxOuterTrackerEndcapHitsRelations = 126;
-   static constexpr Int_t kMax_OuterTrackerEndcapHitsRelations_rec = 126;
-   static constexpr Int_t kMax_OuterTrackerEndcapHitsRelations_sim = 126;
-   static constexpr Int_t kMaxPandoraClusters = 64;
+   static constexpr Int_t kMax_LumiCalRecoParticles_decayVertex = 1;
+   static constexpr Int_t kMaxLumiCalRecoParticles_startVertices = 1;
+   static constexpr Int_t kMax_LumiCalRecoParticles_startVertices_rec = 1;
+   static constexpr Int_t kMax_LumiCalRecoParticles_startVertices_vertex = 1;
+   static constexpr Int_t kMaxMCParticles = 1303;
+   static constexpr Int_t kMax_MCParticles_parents = 1316;
+   static constexpr Int_t kMax_MCParticles_daughters = 1316;
+   static constexpr Int_t kMaxMCParticlesSkimmed_objIdx = 200;
+   static constexpr Int_t kMaxMCPhysicsParticles_objIdx = 1303;
+   static constexpr Int_t kMaxMCTruthClusterLink = 119;
+   static constexpr Int_t kMax_MCTruthClusterLink_rec = 119;
+   static constexpr Int_t kMax_MCTruthClusterLink_sim = 119;
+   static constexpr Int_t kMaxMCTruthRecoLink = 129;
+   static constexpr Int_t kMax_MCTruthRecoLink_rec = 129;
+   static constexpr Int_t kMax_MCTruthRecoLink_sim = 129;
+   static constexpr Int_t kMaxMCTruthSiTracksLink = 38;
+   static constexpr Int_t kMax_MCTruthSiTracksLink_rec = 38;
+   static constexpr Int_t kMax_MCTruthSiTracksLink_sim = 38;
+   static constexpr Int_t kMaxMUON = 26;
+   static constexpr Int_t kMaxOTrackerEndcapHits = 130;
+   static constexpr Int_t kMaxOTrackerHits = 117;
+   static constexpr Int_t kMaxOuterTrackerBarrelCollection = 126;
+   static constexpr Int_t kMax_OuterTrackerBarrelCollection_particle = 126;
+   static constexpr Int_t kMaxOuterTrackerBarrelHitsRelations = 117;
+   static constexpr Int_t kMax_OuterTrackerBarrelHitsRelations_rec = 117;
+   static constexpr Int_t kMax_OuterTrackerBarrelHitsRelations_sim = 117;
+   static constexpr Int_t kMaxOuterTrackerEndcapCollection = 148;
+   static constexpr Int_t kMax_OuterTrackerEndcapCollection_particle = 148;
+   static constexpr Int_t kMaxOuterTrackerEndcapHitsRelations = 130;
+   static constexpr Int_t kMax_OuterTrackerEndcapHitsRelations_rec = 130;
+   static constexpr Int_t kMax_OuterTrackerEndcapHitsRelations_sim = 130;
+   static constexpr Int_t kMaxPandoraClusters = 71;
    static constexpr Int_t kMax_PandoraClusters_clusters = 1;
-   static constexpr Int_t kMax_PandoraClusters_hits = 4622;
-   static constexpr Int_t kMax_PandoraClusters_particleIDs = 1;
-   static constexpr Int_t kMaxPandoraClusters_particleIDs = 1;
-   static constexpr Int_t kMaxPandoraPFOs = 66;
-   static constexpr Int_t kMax_PandoraPFOs_clusters = 64;
+   static constexpr Int_t kMax_PandoraClusters_hits = 4502;
+   static constexpr Int_t kMaxPandoraPFOs = 72;
+   static constexpr Int_t kMax_PandoraPFOs_clusters = 71;
    static constexpr Int_t kMax_PandoraPFOs_tracks = 31;
    static constexpr Int_t kMax_PandoraPFOs_particles = 1;
-   static constexpr Int_t kMax_PandoraPFOs_particleIDs = 1;
-   static constexpr Int_t kMax_PandoraPFOs_startVertex = 66;
-   static constexpr Int_t kMax_PandoraPFOs_particleIDUsed = 66;
-   static constexpr Int_t kMaxPandoraPFOs_particleIDs = 1;
-   static constexpr Int_t kMaxPandoraStartVertices = 66;
-   static constexpr Int_t kMax_PandoraStartVertices_associatedParticle = 66;
-   static constexpr Int_t kMaxPFOsFromJets_objIdx = 66;
+   static constexpr Int_t kMax_PandoraPFOs_decayVertex = 72;
+   static constexpr Int_t kMaxPandoraPFOs_startVertices = 1;
+   static constexpr Int_t kMax_PandoraPFOs_startVertices_rec = 1;
+   static constexpr Int_t kMax_PandoraPFOs_startVertices_vertex = 1;
+   static constexpr Int_t kMaxPandoraStartVertices = 72;
+   static constexpr Int_t kMax_PandoraStartVertices_particles = 1;
+   static constexpr Int_t kMaxPandoraStartVertices_associatedParticles = 72;
+   static constexpr Int_t kMax_PandoraStartVertices_associatedParticles_rec = 72;
+   static constexpr Int_t kMax_PandoraStartVertices_associatedParticles_vertex = 72;
+   static constexpr Int_t kMaxPFOsFromJets_objIdx = 72;
    static constexpr Int_t kMaxPrimaryVertices = 1;
-   static constexpr Int_t kMax_PrimaryVertices_associatedParticle = 1;
+   static constexpr Int_t kMax_PrimaryVertices_particles = 28;
+   static constexpr Int_t kMaxPrimaryVertices_associatedParticles = 1;
+   static constexpr Int_t kMax_PrimaryVertices_associatedParticles_rec = 1;
+   static constexpr Int_t kMax_PrimaryVertices_associatedParticles_vertex = 1;
    static constexpr Int_t kMaxPrimaryVertices_RP = 1;
    static constexpr Int_t kMax_PrimaryVertices_RP_clusters = 1;
    static constexpr Int_t kMax_PrimaryVertices_RP_tracks = 1;
    static constexpr Int_t kMax_PrimaryVertices_RP_particles = 28;
-   static constexpr Int_t kMax_PrimaryVertices_RP_particleIDs = 1;
-   static constexpr Int_t kMax_PrimaryVertices_RP_startVertex = 1;
-   static constexpr Int_t kMax_PrimaryVertices_RP_particleIDUsed = 1;
-   static constexpr Int_t kMaxPrimaryVertices_RP_particleIDs = 1;
-   static constexpr Int_t kMaxRecoMCTruthLink = 126;
-   static constexpr Int_t kMax_RecoMCTruthLink_rec = 126;
-   static constexpr Int_t kMax_RecoMCTruthLink_sim = 126;
-   static constexpr Int_t kMaxRefinedVertexJets = 2;
-   static constexpr Int_t kMax_RefinedVertexJets_clusters = 1;
-   static constexpr Int_t kMax_RefinedVertexJets_tracks = 1;
-   static constexpr Int_t kMax_RefinedVertexJets_particles = 57;
-   static constexpr Int_t kMax_RefinedVertexJets_particleIDs = 3;
-   static constexpr Int_t kMax_RefinedVertexJets_startVertex = 2;
-   static constexpr Int_t kMax_RefinedVertexJets_particleIDUsed = 2;
-   static constexpr Int_t kMaxRefinedVertexJets_particleIDs = 3;
-   static constexpr Int_t kMaxRefinedVertexJets_rel = 2;
-   static constexpr Int_t kMax_RefinedVertexJets_rel_rec = 2;
-   static constexpr Int_t kMax_RefinedVertexJets_rel_vertex = 2;
-   static constexpr Int_t kMaxRefinedVertexJets_vtx = 2;
-   static constexpr Int_t kMax_RefinedVertexJets_vtx_associatedParticle = 2;
-   static constexpr Int_t kMaxRefinedVertexJets_vtx_RP = 2;
-   static constexpr Int_t kMax_RefinedVertexJets_vtx_RP_clusters = 1;
-   static constexpr Int_t kMax_RefinedVertexJets_vtx_RP_tracks = 1;
-   static constexpr Int_t kMax_RefinedVertexJets_vtx_RP_particles = 7;
-   static constexpr Int_t kMax_RefinedVertexJets_vtx_RP_particleIDs = 1;
-   static constexpr Int_t kMax_RefinedVertexJets_vtx_RP_startVertex = 2;
-   static constexpr Int_t kMax_RefinedVertexJets_vtx_RP_particleIDUsed = 2;
-   static constexpr Int_t kMaxRefinedVertexJets_vtx_RP_particleIDs = 1;
-   static constexpr Int_t kMaxRefinedVertices = 2;
-   static constexpr Int_t kMax_RefinedVertices_associatedParticle = 2;
-   static constexpr Int_t kMaxRefinedVertices_RP = 2;
-   static constexpr Int_t kMax_RefinedVertices_RP_clusters = 1;
-   static constexpr Int_t kMax_RefinedVertices_RP_tracks = 1;
-   static constexpr Int_t kMax_RefinedVertices_RP_particles = 7;
-   static constexpr Int_t kMax_RefinedVertices_RP_particleIDs = 1;
-   static constexpr Int_t kMax_RefinedVertices_RP_startVertex = 2;
-   static constexpr Int_t kMax_RefinedVertices_RP_particleIDUsed = 2;
-   static constexpr Int_t kMaxRefinedVertices_RP_particleIDs = 1;
-   static constexpr Int_t kMaxRelationCaloHit = 5323;
-   static constexpr Int_t kMax_RelationCaloHit_rec = 5323;
-   static constexpr Int_t kMax_RelationCaloHit_sim = 5323;
-   static constexpr Int_t kMaxRelationMuonHit = 29;
-   static constexpr Int_t kMax_RelationMuonHit_rec = 29;
-   static constexpr Int_t kMax_RelationMuonHit_sim = 29;
-   static constexpr Int_t kMaxSelectedPandoraPFOs_objIdx = 60;
-   static constexpr Int_t kMaxSiTracks = 33;
-   static constexpr Int_t kMax_SiTracks_trackerHits = 369;
+   static constexpr Int_t kMax_PrimaryVertices_RP_decayVertex = 1;
+   static constexpr Int_t kMaxPrimaryVertices_RP_startVertices = 1;
+   static constexpr Int_t kMax_PrimaryVertices_RP_startVertices_rec = 1;
+   static constexpr Int_t kMax_PrimaryVertices_RP_startVertices_vertex = 1;
+   static constexpr Int_t kMaxRecoMCTruthLink = 129;
+   static constexpr Int_t kMax_RecoMCTruthLink_rec = 129;
+   static constexpr Int_t kMax_RecoMCTruthLink_sim = 129;
+   static constexpr Int_t kMaxRelationCaloHit = 5339;
+   static constexpr Int_t kMax_RelationCaloHit_rec = 5339;
+   static constexpr Int_t kMax_RelationCaloHit_sim = 5339;
+   static constexpr Int_t kMaxRelationMuonHit = 26;
+   static constexpr Int_t kMax_RelationMuonHit_rec = 26;
+   static constexpr Int_t kMax_RelationMuonHit_sim = 26;
+   static constexpr Int_t kMaxSelectedPandoraPFOs_objIdx = 64;
+   static constexpr Int_t kMaxSiTracks = 34;
+   static constexpr Int_t kMax_SiTracks_trackerHits = 355;
    static constexpr Int_t kMax_SiTracks_tracks = 1;
-   static constexpr Int_t kMax_SiTracks_trackStates = 132;
-   static constexpr Int_t kMax_SiTracks_dxQuantities = 33;
-   static constexpr Int_t kMaxSiTracks_Refitted = 33;
-   static constexpr Int_t kMax_SiTracks_Refitted_trackerHits = 369;
+   static constexpr Int_t kMax_SiTracks_trackStates = 136;
+   static constexpr Int_t kMaxSiTracks_dQdx = 34;
+   static constexpr Int_t kMax_SiTracks_dQdx_track = 34;
+   static constexpr Int_t kMaxSiTracks_Refitted = 34;
+   static constexpr Int_t kMax_SiTracks_Refitted_trackerHits = 355;
    static constexpr Int_t kMax_SiTracks_Refitted_tracks = 1;
-   static constexpr Int_t kMax_SiTracks_Refitted_trackStates = 132;
-   static constexpr Int_t kMax_SiTracks_Refitted_dxQuantities = 33;
-   static constexpr Int_t kMaxSiTracksCT = 33;
-   static constexpr Int_t kMax_SiTracksCT_trackerHits = 369;
+   static constexpr Int_t kMax_SiTracks_Refitted_trackStates = 136;
+   static constexpr Int_t kMaxSiTracks_Refitted_dQdx = 34;
+   static constexpr Int_t kMax_SiTracks_Refitted_dQdx_track = 34;
+   static constexpr Int_t kMaxSiTracksCT = 34;
+   static constexpr Int_t kMax_SiTracksCT_trackerHits = 355;
    static constexpr Int_t kMax_SiTracksCT_tracks = 1;
-   static constexpr Int_t kMax_SiTracksCT_trackStates = 132;
-   static constexpr Int_t kMax_SiTracksCT_dxQuantities = 33;
-   static constexpr Int_t kMaxSiTracksMCTruthLink = 37;
-   static constexpr Int_t kMax_SiTracksMCTruthLink_rec = 37;
-   static constexpr Int_t kMax_SiTracksMCTruthLink_sim = 37;
+   static constexpr Int_t kMax_SiTracksCT_trackStates = 136;
+   static constexpr Int_t kMaxSiTracksCT_dQdx = 34;
+   static constexpr Int_t kMax_SiTracksCT_dQdx_track = 34;
+   static constexpr Int_t kMaxSiTracksMCTruthLink = 38;
+   static constexpr Int_t kMax_SiTracksMCTruthLink_rec = 38;
+   static constexpr Int_t kMax_SiTracksMCTruthLink_sim = 38;
    static constexpr Int_t kMaxTightSelectedPandoraPFOs_objIdx = 54;
-   static constexpr Int_t kMaxVertexBarrelCollection = 186;
-   static constexpr Int_t kMax_VertexBarrelCollection_particle = 186;
-   static constexpr Int_t kMaxVertexEndcapCollection = 87;
-   static constexpr Int_t kMax_VertexEndcapCollection_particle = 87;
-   static constexpr Int_t kMaxVertexJets = 2;
-   static constexpr Int_t kMax_VertexJets_clusters = 1;
-   static constexpr Int_t kMax_VertexJets_tracks = 1;
-   static constexpr Int_t kMax_VertexJets_particles = 57;
-   static constexpr Int_t kMax_VertexJets_particleIDs = 2;
-   static constexpr Int_t kMax_VertexJets_startVertex = 2;
-   static constexpr Int_t kMax_VertexJets_particleIDUsed = 2;
-   static constexpr Int_t kMaxVertexJets_particleIDs = 2;
-   static constexpr Int_t kMaxVXDEndcapTrackerHitRelations = 86;
-   static constexpr Int_t kMax_VXDEndcapTrackerHitRelations_rec = 86;
-   static constexpr Int_t kMax_VXDEndcapTrackerHitRelations_sim = 86;
-   static constexpr Int_t kMaxVXDEndcapTrackerHits = 86;
-   static constexpr Int_t kMaxVXDTrackerHitRelations = 183;
-   static constexpr Int_t kMax_VXDTrackerHitRelations_rec = 183;
-   static constexpr Int_t kMax_VXDTrackerHitRelations_sim = 183;
-   static constexpr Int_t kMaxVXDTrackerHits = 183;
-   static constexpr Int_t kMaxYokeBarrelCollection = 24;
+   static constexpr Int_t kMaxVertexBarrelCollection = 191;
+   static constexpr Int_t kMax_VertexBarrelCollection_particle = 191;
+   static constexpr Int_t kMaxVertexEndcapCollection = 58;
+   static constexpr Int_t kMax_VertexEndcapCollection_particle = 58;
+   static constexpr Int_t kMaxVXDEndcapTrackerHitRelations = 58;
+   static constexpr Int_t kMax_VXDEndcapTrackerHitRelations_rec = 58;
+   static constexpr Int_t kMax_VXDEndcapTrackerHitRelations_sim = 58;
+   static constexpr Int_t kMaxVXDEndcapTrackerHits = 58;
+   static constexpr Int_t kMaxVXDTrackerHitRelations = 186;
+   static constexpr Int_t kMax_VXDTrackerHitRelations_rec = 186;
+   static constexpr Int_t kMax_VXDTrackerHitRelations_sim = 186;
+   static constexpr Int_t kMaxVXDTrackerHits = 186;
+   static constexpr Int_t kMaxYokeBarrelCollection = 25;
    static constexpr Int_t kMax_YokeBarrelCollection_contributions = 33;
    static constexpr Int_t kMaxYokeBarrelCollectionContributions = 33;
    static constexpr Int_t kMax_YokeBarrelCollectionContributions_particle = 33;
-   static constexpr Int_t kMaxYokeEndcapCollection = 17;
-   static constexpr Int_t kMax_YokeEndcapCollection_contributions = 23;
-   static constexpr Int_t kMaxYokeEndcapCollectionContributions = 23;
-   static constexpr Int_t kMax_YokeEndcapCollectionContributions_particle = 23;
-   static constexpr Int_t kMax_intMap = 1;
-   static constexpr Int_t kMax_floatMap = 1;
-   static constexpr Int_t kMax_stringMap = 1;
-   static constexpr Int_t kMax_doubleMap = 1;
+   static constexpr Int_t kMaxYokeEndcapCollection = 12;
+   static constexpr Int_t kMax_YokeEndcapCollection_contributions = 19;
+   static constexpr Int_t kMaxYokeEndcapCollectionContributions = 19;
+   static constexpr Int_t kMax_YokeEndcapCollectionContributions_particle = 19;
 
    // Declaration of leaf types
    Int_t           BuildUpVertices_;
-   Int_t           BuildUpVertices_primary[kMaxBuildUpVertices];   //[BuildUpVertices_]
+   UInt_t          BuildUpVertices_type[kMaxBuildUpVertices];   //[BuildUpVertices_]
    Float_t         BuildUpVertices_chi2[kMaxBuildUpVertices];   //[BuildUpVertices_]
-   Float_t         BuildUpVertices_probability[kMaxBuildUpVertices];   //[BuildUpVertices_]
+   Int_t           BuildUpVertices_ndf[kMaxBuildUpVertices];   //[BuildUpVertices_]
    Float_t         BuildUpVertices_position_x[kMaxBuildUpVertices];   //[BuildUpVertices_]
    Float_t         BuildUpVertices_position_y[kMaxBuildUpVertices];   //[BuildUpVertices_]
    Float_t         BuildUpVertices_position_z[kMaxBuildUpVertices];   //[BuildUpVertices_]
-   Float_t         BuildUpVertices_covMatrix[kMaxBuildUpVertices][6];   //[BuildUpVertices_]
+   Float_t         BuildUpVertices_covMatrix_values[kMaxBuildUpVertices][6];   //[BuildUpVertices_]
    Int_t           BuildUpVertices_algorithmType[kMaxBuildUpVertices];   //[BuildUpVertices_]
    UInt_t          BuildUpVertices_parameters_begin[kMaxBuildUpVertices];   //[BuildUpVertices_]
    UInt_t          BuildUpVertices_parameters_end[kMaxBuildUpVertices];   //[BuildUpVertices_]
-   Int_t           _BuildUpVertices_associatedParticle_;
-   Int_t           _BuildUpVertices_associatedParticle_index[kMax_BuildUpVertices_associatedParticle];   //[_BuildUpVertices_associatedParticle_]
-   UInt_t          _BuildUpVertices_associatedParticle_collectionID[kMax_BuildUpVertices_associatedParticle];   //[_BuildUpVertices_associatedParticle_]
+   UInt_t          BuildUpVertices_particles_begin[kMaxBuildUpVertices];   //[BuildUpVertices_]
+   UInt_t          BuildUpVertices_particles_end[kMaxBuildUpVertices];   //[BuildUpVertices_]
+   Int_t           _BuildUpVertices_particles_;
+   Int_t           _BuildUpVertices_particles_index[kMax_BuildUpVertices_particles];   //[_BuildUpVertices_particles_]
+   UInt_t          _BuildUpVertices_particles_collectionID[kMax_BuildUpVertices_particles];   //[_BuildUpVertices_particles_]
    vector<float>   *_BuildUpVertices_parameters;
+   Int_t           BuildUpVertices_associatedParticles_;
+   Float_t         BuildUpVertices_associatedParticles_weight[kMaxBuildUpVertices_associatedParticles];   //[BuildUpVertices_associatedParticles_]
+   Int_t           _BuildUpVertices_associatedParticles_rec_;
+   Int_t           _BuildUpVertices_associatedParticles_rec_index[kMax_BuildUpVertices_associatedParticles_rec];   //[_BuildUpVertices_associatedParticles_rec_]
+   UInt_t          _BuildUpVertices_associatedParticles_rec_collectionID[kMax_BuildUpVertices_associatedParticles_rec];   //[_BuildUpVertices_associatedParticles_rec_]
+   Int_t           _BuildUpVertices_associatedParticles_vertex_;
+   Int_t           _BuildUpVertices_associatedParticles_vertex_index[kMax_BuildUpVertices_associatedParticles_vertex];   //[_BuildUpVertices_associatedParticles_vertex_]
+   UInt_t          _BuildUpVertices_associatedParticles_vertex_collectionID[kMax_BuildUpVertices_associatedParticles_vertex];   //[_BuildUpVertices_associatedParticles_vertex_]
    Int_t           BuildUpVertices_RP_;
    Int_t           BuildUpVertices_RP_PDG[kMaxBuildUpVertices_RP];   //[BuildUpVertices_RP_]
    Float_t         BuildUpVertices_RP_energy[kMaxBuildUpVertices_RP];   //[BuildUpVertices_RP_]
@@ -305,15 +282,13 @@ public :
    Float_t         BuildUpVertices_RP_charge[kMaxBuildUpVertices_RP];   //[BuildUpVertices_RP_]
    Float_t         BuildUpVertices_RP_mass[kMaxBuildUpVertices_RP];   //[BuildUpVertices_RP_]
    Float_t         BuildUpVertices_RP_goodnessOfPID[kMaxBuildUpVertices_RP];   //[BuildUpVertices_RP_]
-   Float_t         BuildUpVertices_RP_covMatrix[kMaxBuildUpVertices_RP][10];   //[BuildUpVertices_RP_]
+   Float_t         BuildUpVertices_RP_covMatrix_values[kMaxBuildUpVertices_RP][10];   //[BuildUpVertices_RP_]
    UInt_t          BuildUpVertices_RP_clusters_begin[kMaxBuildUpVertices_RP];   //[BuildUpVertices_RP_]
    UInt_t          BuildUpVertices_RP_clusters_end[kMaxBuildUpVertices_RP];   //[BuildUpVertices_RP_]
    UInt_t          BuildUpVertices_RP_tracks_begin[kMaxBuildUpVertices_RP];   //[BuildUpVertices_RP_]
    UInt_t          BuildUpVertices_RP_tracks_end[kMaxBuildUpVertices_RP];   //[BuildUpVertices_RP_]
    UInt_t          BuildUpVertices_RP_particles_begin[kMaxBuildUpVertices_RP];   //[BuildUpVertices_RP_]
    UInt_t          BuildUpVertices_RP_particles_end[kMaxBuildUpVertices_RP];   //[BuildUpVertices_RP_]
-   UInt_t          BuildUpVertices_RP_particleIDs_begin[kMaxBuildUpVertices_RP];   //[BuildUpVertices_RP_]
-   UInt_t          BuildUpVertices_RP_particleIDs_end[kMaxBuildUpVertices_RP];   //[BuildUpVertices_RP_]
    Int_t           _BuildUpVertices_RP_clusters_;
    Int_t           _BuildUpVertices_RP_clusters_index[kMax_BuildUpVertices_RP_clusters];   //[_BuildUpVertices_RP_clusters_]
    UInt_t          _BuildUpVertices_RP_clusters_collectionID[kMax_BuildUpVertices_RP_clusters];   //[_BuildUpVertices_RP_clusters_]
@@ -323,38 +298,42 @@ public :
    Int_t           _BuildUpVertices_RP_particles_;
    Int_t           _BuildUpVertices_RP_particles_index[kMax_BuildUpVertices_RP_particles];   //[_BuildUpVertices_RP_particles_]
    UInt_t          _BuildUpVertices_RP_particles_collectionID[kMax_BuildUpVertices_RP_particles];   //[_BuildUpVertices_RP_particles_]
-   Int_t           _BuildUpVertices_RP_particleIDs_;
-   Int_t           _BuildUpVertices_RP_particleIDs_index[kMax_BuildUpVertices_RP_particleIDs];   //[_BuildUpVertices_RP_particleIDs_]
-   UInt_t          _BuildUpVertices_RP_particleIDs_collectionID[kMax_BuildUpVertices_RP_particleIDs];   //[_BuildUpVertices_RP_particleIDs_]
-   Int_t           _BuildUpVertices_RP_startVertex_;
-   Int_t           _BuildUpVertices_RP_startVertex_index[kMax_BuildUpVertices_RP_startVertex];   //[_BuildUpVertices_RP_startVertex_]
-   UInt_t          _BuildUpVertices_RP_startVertex_collectionID[kMax_BuildUpVertices_RP_startVertex];   //[_BuildUpVertices_RP_startVertex_]
-   Int_t           _BuildUpVertices_RP_particleIDUsed_;
-   Int_t           _BuildUpVertices_RP_particleIDUsed_index[kMax_BuildUpVertices_RP_particleIDUsed];   //[_BuildUpVertices_RP_particleIDUsed_]
-   UInt_t          _BuildUpVertices_RP_particleIDUsed_collectionID[kMax_BuildUpVertices_RP_particleIDUsed];   //[_BuildUpVertices_RP_particleIDUsed_]
-   Int_t           BuildUpVertices_RP_particleIDs_;
-   Int_t           BuildUpVertices_RP_particleIDs_type[kMaxBuildUpVertices_RP_particleIDs];   //[BuildUpVertices_RP_particleIDs_]
-   Int_t           BuildUpVertices_RP_particleIDs_PDG[kMaxBuildUpVertices_RP_particleIDs];   //[BuildUpVertices_RP_particleIDs_]
-   Int_t           BuildUpVertices_RP_particleIDs_algorithmType[kMaxBuildUpVertices_RP_particleIDs];   //[BuildUpVertices_RP_particleIDs_]
-   Float_t         BuildUpVertices_RP_particleIDs_likelihood[kMaxBuildUpVertices_RP_particleIDs];   //[BuildUpVertices_RP_particleIDs_]
-   UInt_t          BuildUpVertices_RP_particleIDs_parameters_begin[kMaxBuildUpVertices_RP_particleIDs];   //[BuildUpVertices_RP_particleIDs_]
-   UInt_t          BuildUpVertices_RP_particleIDs_parameters_end[kMaxBuildUpVertices_RP_particleIDs];   //[BuildUpVertices_RP_particleIDs_]
-   vector<float>   *_BuildUpVertices_RP_particleIDs_parameters;
+   Int_t           _BuildUpVertices_RP_decayVertex_;
+   Int_t           _BuildUpVertices_RP_decayVertex_index[kMax_BuildUpVertices_RP_decayVertex];   //[_BuildUpVertices_RP_decayVertex_]
+   UInt_t          _BuildUpVertices_RP_decayVertex_collectionID[kMax_BuildUpVertices_RP_decayVertex];   //[_BuildUpVertices_RP_decayVertex_]
+   Int_t           BuildUpVertices_RP_startVertices_;
+   Float_t         BuildUpVertices_RP_startVertices_weight[kMaxBuildUpVertices_RP_startVertices];   //[BuildUpVertices_RP_startVertices_]
+   Int_t           _BuildUpVertices_RP_startVertices_rec_;
+   Int_t           _BuildUpVertices_RP_startVertices_rec_index[kMax_BuildUpVertices_RP_startVertices_rec];   //[_BuildUpVertices_RP_startVertices_rec_]
+   UInt_t          _BuildUpVertices_RP_startVertices_rec_collectionID[kMax_BuildUpVertices_RP_startVertices_rec];   //[_BuildUpVertices_RP_startVertices_rec_]
+   Int_t           _BuildUpVertices_RP_startVertices_vertex_;
+   Int_t           _BuildUpVertices_RP_startVertices_vertex_index[kMax_BuildUpVertices_RP_startVertices_vertex];   //[_BuildUpVertices_RP_startVertices_vertex_]
+   UInt_t          _BuildUpVertices_RP_startVertices_vertex_collectionID[kMax_BuildUpVertices_RP_startVertices_vertex];   //[_BuildUpVertices_RP_startVertices_vertex_]
    Int_t           BuildUpVertices_V0_;
-   Int_t           BuildUpVertices_V0_primary[kMaxBuildUpVertices_V0];   //[BuildUpVertices_V0_]
+   UInt_t          BuildUpVertices_V0_type[kMaxBuildUpVertices_V0];   //[BuildUpVertices_V0_]
    Float_t         BuildUpVertices_V0_chi2[kMaxBuildUpVertices_V0];   //[BuildUpVertices_V0_]
-   Float_t         BuildUpVertices_V0_probability[kMaxBuildUpVertices_V0];   //[BuildUpVertices_V0_]
+   Int_t           BuildUpVertices_V0_ndf[kMaxBuildUpVertices_V0];   //[BuildUpVertices_V0_]
    Float_t         BuildUpVertices_V0_position_x[kMaxBuildUpVertices_V0];   //[BuildUpVertices_V0_]
    Float_t         BuildUpVertices_V0_position_y[kMaxBuildUpVertices_V0];   //[BuildUpVertices_V0_]
    Float_t         BuildUpVertices_V0_position_z[kMaxBuildUpVertices_V0];   //[BuildUpVertices_V0_]
-   Float_t         BuildUpVertices_V0_covMatrix[kMaxBuildUpVertices_V0][6];   //[BuildUpVertices_V0_]
+   Float_t         BuildUpVertices_V0_covMatrix_values[kMaxBuildUpVertices_V0][6];   //[BuildUpVertices_V0_]
    Int_t           BuildUpVertices_V0_algorithmType[kMaxBuildUpVertices_V0];   //[BuildUpVertices_V0_]
    UInt_t          BuildUpVertices_V0_parameters_begin[kMaxBuildUpVertices_V0];   //[BuildUpVertices_V0_]
    UInt_t          BuildUpVertices_V0_parameters_end[kMaxBuildUpVertices_V0];   //[BuildUpVertices_V0_]
-   Int_t           _BuildUpVertices_V0_associatedParticle_;
-   Int_t           _BuildUpVertices_V0_associatedParticle_index[kMax_BuildUpVertices_V0_associatedParticle];   //[_BuildUpVertices_V0_associatedParticle_]
-   UInt_t          _BuildUpVertices_V0_associatedParticle_collectionID[kMax_BuildUpVertices_V0_associatedParticle];   //[_BuildUpVertices_V0_associatedParticle_]
+   UInt_t          BuildUpVertices_V0_particles_begin[kMaxBuildUpVertices_V0];   //[BuildUpVertices_V0_]
+   UInt_t          BuildUpVertices_V0_particles_end[kMaxBuildUpVertices_V0];   //[BuildUpVertices_V0_]
+   Int_t           _BuildUpVertices_V0_particles_;
+   Int_t           _BuildUpVertices_V0_particles_index[kMax_BuildUpVertices_V0_particles];   //[_BuildUpVertices_V0_particles_]
+   UInt_t          _BuildUpVertices_V0_particles_collectionID[kMax_BuildUpVertices_V0_particles];   //[_BuildUpVertices_V0_particles_]
    vector<float>   *_BuildUpVertices_V0_parameters;
+   Int_t           BuildUpVertices_V0_associatedParticles_;
+   Float_t         BuildUpVertices_V0_associatedParticles_weight[kMaxBuildUpVertices_V0_associatedParticles];   //[BuildUpVertices_V0_associatedParticles_]
+   Int_t           _BuildUpVertices_V0_associatedParticles_rec_;
+   Int_t           _BuildUpVertices_V0_associatedParticles_rec_index[kMax_BuildUpVertices_V0_associatedParticles_rec];   //[_BuildUpVertices_V0_associatedParticles_rec_]
+   UInt_t          _BuildUpVertices_V0_associatedParticles_rec_collectionID[kMax_BuildUpVertices_V0_associatedParticles_rec];   //[_BuildUpVertices_V0_associatedParticles_rec_]
+   Int_t           _BuildUpVertices_V0_associatedParticles_vertex_;
+   Int_t           _BuildUpVertices_V0_associatedParticles_vertex_index[kMax_BuildUpVertices_V0_associatedParticles_vertex];   //[_BuildUpVertices_V0_associatedParticles_vertex_]
+   UInt_t          _BuildUpVertices_V0_associatedParticles_vertex_collectionID[kMax_BuildUpVertices_V0_associatedParticles_vertex];   //[_BuildUpVertices_V0_associatedParticles_vertex_]
    Int_t           BuildUpVertices_V0_RP_;
    Int_t           BuildUpVertices_V0_RP_PDG[kMaxBuildUpVertices_V0_RP];   //[BuildUpVertices_V0_RP_]
    Float_t         BuildUpVertices_V0_RP_energy[kMaxBuildUpVertices_V0_RP];   //[BuildUpVertices_V0_RP_]
@@ -367,15 +346,13 @@ public :
    Float_t         BuildUpVertices_V0_RP_charge[kMaxBuildUpVertices_V0_RP];   //[BuildUpVertices_V0_RP_]
    Float_t         BuildUpVertices_V0_RP_mass[kMaxBuildUpVertices_V0_RP];   //[BuildUpVertices_V0_RP_]
    Float_t         BuildUpVertices_V0_RP_goodnessOfPID[kMaxBuildUpVertices_V0_RP];   //[BuildUpVertices_V0_RP_]
-   Float_t         BuildUpVertices_V0_RP_covMatrix[kMaxBuildUpVertices_V0_RP][10];   //[BuildUpVertices_V0_RP_]
+   Float_t         BuildUpVertices_V0_RP_covMatrix_values[kMaxBuildUpVertices_V0_RP][10];   //[BuildUpVertices_V0_RP_]
    UInt_t          BuildUpVertices_V0_RP_clusters_begin[kMaxBuildUpVertices_V0_RP];   //[BuildUpVertices_V0_RP_]
    UInt_t          BuildUpVertices_V0_RP_clusters_end[kMaxBuildUpVertices_V0_RP];   //[BuildUpVertices_V0_RP_]
    UInt_t          BuildUpVertices_V0_RP_tracks_begin[kMaxBuildUpVertices_V0_RP];   //[BuildUpVertices_V0_RP_]
    UInt_t          BuildUpVertices_V0_RP_tracks_end[kMaxBuildUpVertices_V0_RP];   //[BuildUpVertices_V0_RP_]
    UInt_t          BuildUpVertices_V0_RP_particles_begin[kMaxBuildUpVertices_V0_RP];   //[BuildUpVertices_V0_RP_]
    UInt_t          BuildUpVertices_V0_RP_particles_end[kMaxBuildUpVertices_V0_RP];   //[BuildUpVertices_V0_RP_]
-   UInt_t          BuildUpVertices_V0_RP_particleIDs_begin[kMaxBuildUpVertices_V0_RP];   //[BuildUpVertices_V0_RP_]
-   UInt_t          BuildUpVertices_V0_RP_particleIDs_end[kMaxBuildUpVertices_V0_RP];   //[BuildUpVertices_V0_RP_]
    Int_t           _BuildUpVertices_V0_RP_clusters_;
    Int_t           _BuildUpVertices_V0_RP_clusters_index[kMax_BuildUpVertices_V0_RP_clusters];   //[_BuildUpVertices_V0_RP_clusters_]
    UInt_t          _BuildUpVertices_V0_RP_clusters_collectionID[kMax_BuildUpVertices_V0_RP_clusters];   //[_BuildUpVertices_V0_RP_clusters_]
@@ -385,23 +362,17 @@ public :
    Int_t           _BuildUpVertices_V0_RP_particles_;
    Int_t           _BuildUpVertices_V0_RP_particles_index[kMax_BuildUpVertices_V0_RP_particles];   //[_BuildUpVertices_V0_RP_particles_]
    UInt_t          _BuildUpVertices_V0_RP_particles_collectionID[kMax_BuildUpVertices_V0_RP_particles];   //[_BuildUpVertices_V0_RP_particles_]
-   Int_t           _BuildUpVertices_V0_RP_particleIDs_;
-   Int_t           _BuildUpVertices_V0_RP_particleIDs_index[kMax_BuildUpVertices_V0_RP_particleIDs];   //[_BuildUpVertices_V0_RP_particleIDs_]
-   UInt_t          _BuildUpVertices_V0_RP_particleIDs_collectionID[kMax_BuildUpVertices_V0_RP_particleIDs];   //[_BuildUpVertices_V0_RP_particleIDs_]
-   Int_t           _BuildUpVertices_V0_RP_startVertex_;
-   Int_t           _BuildUpVertices_V0_RP_startVertex_index[kMax_BuildUpVertices_V0_RP_startVertex];   //[_BuildUpVertices_V0_RP_startVertex_]
-   UInt_t          _BuildUpVertices_V0_RP_startVertex_collectionID[kMax_BuildUpVertices_V0_RP_startVertex];   //[_BuildUpVertices_V0_RP_startVertex_]
-   Int_t           _BuildUpVertices_V0_RP_particleIDUsed_;
-   Int_t           _BuildUpVertices_V0_RP_particleIDUsed_index[kMax_BuildUpVertices_V0_RP_particleIDUsed];   //[_BuildUpVertices_V0_RP_particleIDUsed_]
-   UInt_t          _BuildUpVertices_V0_RP_particleIDUsed_collectionID[kMax_BuildUpVertices_V0_RP_particleIDUsed];   //[_BuildUpVertices_V0_RP_particleIDUsed_]
-   Int_t           BuildUpVertices_V0_RP_particleIDs_;
-   Int_t           BuildUpVertices_V0_RP_particleIDs_type[kMaxBuildUpVertices_V0_RP_particleIDs];   //[BuildUpVertices_V0_RP_particleIDs_]
-   Int_t           BuildUpVertices_V0_RP_particleIDs_PDG[kMaxBuildUpVertices_V0_RP_particleIDs];   //[BuildUpVertices_V0_RP_particleIDs_]
-   Int_t           BuildUpVertices_V0_RP_particleIDs_algorithmType[kMaxBuildUpVertices_V0_RP_particleIDs];   //[BuildUpVertices_V0_RP_particleIDs_]
-   Float_t         BuildUpVertices_V0_RP_particleIDs_likelihood[kMaxBuildUpVertices_V0_RP_particleIDs];   //[BuildUpVertices_V0_RP_particleIDs_]
-   UInt_t          BuildUpVertices_V0_RP_particleIDs_parameters_begin[kMaxBuildUpVertices_V0_RP_particleIDs];   //[BuildUpVertices_V0_RP_particleIDs_]
-   UInt_t          BuildUpVertices_V0_RP_particleIDs_parameters_end[kMaxBuildUpVertices_V0_RP_particleIDs];   //[BuildUpVertices_V0_RP_particleIDs_]
-   vector<float>   *_BuildUpVertices_V0_RP_particleIDs_parameters;
+   Int_t           _BuildUpVertices_V0_RP_decayVertex_;
+   Int_t           _BuildUpVertices_V0_RP_decayVertex_index[kMax_BuildUpVertices_V0_RP_decayVertex];   //[_BuildUpVertices_V0_RP_decayVertex_]
+   UInt_t          _BuildUpVertices_V0_RP_decayVertex_collectionID[kMax_BuildUpVertices_V0_RP_decayVertex];   //[_BuildUpVertices_V0_RP_decayVertex_]
+   Int_t           BuildUpVertices_V0_RP_startVertices_;
+   Float_t         BuildUpVertices_V0_RP_startVertices_weight[kMaxBuildUpVertices_V0_RP_startVertices];   //[BuildUpVertices_V0_RP_startVertices_]
+   Int_t           _BuildUpVertices_V0_RP_startVertices_rec_;
+   Int_t           _BuildUpVertices_V0_RP_startVertices_rec_index[kMax_BuildUpVertices_V0_RP_startVertices_rec];   //[_BuildUpVertices_V0_RP_startVertices_rec_]
+   UInt_t          _BuildUpVertices_V0_RP_startVertices_rec_collectionID[kMax_BuildUpVertices_V0_RP_startVertices_rec];   //[_BuildUpVertices_V0_RP_startVertices_rec_]
+   Int_t           _BuildUpVertices_V0_RP_startVertices_vertex_;
+   Int_t           _BuildUpVertices_V0_RP_startVertices_vertex_index[kMax_BuildUpVertices_V0_RP_startVertices_vertex];   //[_BuildUpVertices_V0_RP_startVertices_vertex_]
+   UInt_t          _BuildUpVertices_V0_RP_startVertices_vertex_collectionID[kMax_BuildUpVertices_V0_RP_startVertices_vertex];   //[_BuildUpVertices_V0_RP_startVertices_vertex_]
    Int_t           CalohitMCTruthLink_;
    Float_t         CalohitMCTruthLink_weight[kMaxCalohitMCTruthLink];   //[CalohitMCTruthLink_]
    Int_t           _CalohitMCTruthLink_rec_;
@@ -647,7 +618,7 @@ public :
    Double_t        ITrackerEndcapHits_position_x[kMaxITrackerEndcapHits];   //[ITrackerEndcapHits_]
    Double_t        ITrackerEndcapHits_position_y[kMaxITrackerEndcapHits];   //[ITrackerEndcapHits_]
    Double_t        ITrackerEndcapHits_position_z[kMaxITrackerEndcapHits];   //[ITrackerEndcapHits_]
-   Float_t         ITrackerEndcapHits_covMatrix[kMaxITrackerEndcapHits][6];   //[ITrackerEndcapHits_]
+   Float_t         ITrackerEndcapHits_covMatrix_values[kMaxITrackerEndcapHits][6];   //[ITrackerEndcapHits_]
    Int_t           ITrackerHits_;
    ULong_t         ITrackerHits_cellID[kMaxITrackerHits];   //[ITrackerHits_]
    Int_t           ITrackerHits_type[kMaxITrackerHits];   //[ITrackerHits_]
@@ -664,7 +635,7 @@ public :
    Double_t        ITrackerHits_position_x[kMaxITrackerHits];   //[ITrackerHits_]
    Double_t        ITrackerHits_position_y[kMaxITrackerHits];   //[ITrackerHits_]
    Double_t        ITrackerHits_position_z[kMaxITrackerHits];   //[ITrackerHits_]
-   Float_t         ITrackerHits_covMatrix[kMaxITrackerHits][6];   //[ITrackerHits_]
+   Float_t         ITrackerHits_covMatrix_values[kMaxITrackerHits][6];   //[ITrackerHits_]
    Int_t           LooseSelectedPandoraPFOs_objIdx_;
    Int_t           LooseSelectedPandoraPFOs_objIdx_index[kMaxLooseSelectedPandoraPFOs_objIdx];   //[LooseSelectedPandoraPFOs_objIdx_]
    UInt_t          LooseSelectedPandoraPFOs_objIdx_collectionID[kMaxLooseSelectedPandoraPFOs_objIdx];   //[LooseSelectedPandoraPFOs_objIdx_]
@@ -675,7 +646,7 @@ public :
    Float_t         LumiCalClusters_position_x[kMaxLumiCalClusters];   //[LumiCalClusters_]
    Float_t         LumiCalClusters_position_y[kMaxLumiCalClusters];   //[LumiCalClusters_]
    Float_t         LumiCalClusters_position_z[kMaxLumiCalClusters];   //[LumiCalClusters_]
-   Float_t         LumiCalClusters_positionError[kMaxLumiCalClusters][6];   //[LumiCalClusters_]
+   Float_t         LumiCalClusters_positionError_values[kMaxLumiCalClusters][6];   //[LumiCalClusters_]
    Float_t         LumiCalClusters_iTheta[kMaxLumiCalClusters];   //[LumiCalClusters_]
    Float_t         LumiCalClusters_phi[kMaxLumiCalClusters];   //[LumiCalClusters_]
    Float_t         LumiCalClusters_directionError_x[kMaxLumiCalClusters];   //[LumiCalClusters_]
@@ -689,27 +660,14 @@ public :
    UInt_t          LumiCalClusters_clusters_end[kMaxLumiCalClusters];   //[LumiCalClusters_]
    UInt_t          LumiCalClusters_hits_begin[kMaxLumiCalClusters];   //[LumiCalClusters_]
    UInt_t          LumiCalClusters_hits_end[kMaxLumiCalClusters];   //[LumiCalClusters_]
-   UInt_t          LumiCalClusters_particleIDs_begin[kMaxLumiCalClusters];   //[LumiCalClusters_]
-   UInt_t          LumiCalClusters_particleIDs_end[kMaxLumiCalClusters];   //[LumiCalClusters_]
    Int_t           _LumiCalClusters_clusters_;
    Int_t           _LumiCalClusters_clusters_index[kMax_LumiCalClusters_clusters];   //[_LumiCalClusters_clusters_]
    UInt_t          _LumiCalClusters_clusters_collectionID[kMax_LumiCalClusters_clusters];   //[_LumiCalClusters_clusters_]
    Int_t           _LumiCalClusters_hits_;
    Int_t           _LumiCalClusters_hits_index[kMax_LumiCalClusters_hits];   //[_LumiCalClusters_hits_]
    UInt_t          _LumiCalClusters_hits_collectionID[kMax_LumiCalClusters_hits];   //[_LumiCalClusters_hits_]
-   Int_t           _LumiCalClusters_particleIDs_;
-   Int_t           _LumiCalClusters_particleIDs_index[kMax_LumiCalClusters_particleIDs];   //[_LumiCalClusters_particleIDs_]
-   UInt_t          _LumiCalClusters_particleIDs_collectionID[kMax_LumiCalClusters_particleIDs];   //[_LumiCalClusters_particleIDs_]
    vector<float>   *_LumiCalClusters_shapeParameters;
    vector<float>   *_LumiCalClusters_subdetectorEnergies;
-   Int_t           LumiCalClusters_particleIDs_;
-   Int_t           LumiCalClusters_particleIDs_type[kMaxLumiCalClusters_particleIDs];   //[LumiCalClusters_particleIDs_]
-   Int_t           LumiCalClusters_particleIDs_PDG[kMaxLumiCalClusters_particleIDs];   //[LumiCalClusters_particleIDs_]
-   Int_t           LumiCalClusters_particleIDs_algorithmType[kMaxLumiCalClusters_particleIDs];   //[LumiCalClusters_particleIDs_]
-   Float_t         LumiCalClusters_particleIDs_likelihood[kMaxLumiCalClusters_particleIDs];   //[LumiCalClusters_particleIDs_]
-   UInt_t          LumiCalClusters_particleIDs_parameters_begin[kMaxLumiCalClusters_particleIDs];   //[LumiCalClusters_particleIDs_]
-   UInt_t          LumiCalClusters_particleIDs_parameters_end[kMaxLumiCalClusters_particleIDs];   //[LumiCalClusters_particleIDs_]
-   vector<float>   *_LumiCalClusters_particleIDs_parameters;
    Int_t           LumiCalCollection_;
    ULong_t         LumiCalCollection_cellID[kMaxLumiCalCollection];   //[LumiCalCollection_]
    Float_t         LumiCalCollection_energy[kMaxLumiCalCollection];   //[LumiCalCollection_]
@@ -752,15 +710,13 @@ public :
    Float_t         LumiCalRecoParticles_charge[kMaxLumiCalRecoParticles];   //[LumiCalRecoParticles_]
    Float_t         LumiCalRecoParticles_mass[kMaxLumiCalRecoParticles];   //[LumiCalRecoParticles_]
    Float_t         LumiCalRecoParticles_goodnessOfPID[kMaxLumiCalRecoParticles];   //[LumiCalRecoParticles_]
-   Float_t         LumiCalRecoParticles_covMatrix[kMaxLumiCalRecoParticles][10];   //[LumiCalRecoParticles_]
+   Float_t         LumiCalRecoParticles_covMatrix_values[kMaxLumiCalRecoParticles][10];   //[LumiCalRecoParticles_]
    UInt_t          LumiCalRecoParticles_clusters_begin[kMaxLumiCalRecoParticles];   //[LumiCalRecoParticles_]
    UInt_t          LumiCalRecoParticles_clusters_end[kMaxLumiCalRecoParticles];   //[LumiCalRecoParticles_]
    UInt_t          LumiCalRecoParticles_tracks_begin[kMaxLumiCalRecoParticles];   //[LumiCalRecoParticles_]
    UInt_t          LumiCalRecoParticles_tracks_end[kMaxLumiCalRecoParticles];   //[LumiCalRecoParticles_]
    UInt_t          LumiCalRecoParticles_particles_begin[kMaxLumiCalRecoParticles];   //[LumiCalRecoParticles_]
    UInt_t          LumiCalRecoParticles_particles_end[kMaxLumiCalRecoParticles];   //[LumiCalRecoParticles_]
-   UInt_t          LumiCalRecoParticles_particleIDs_begin[kMaxLumiCalRecoParticles];   //[LumiCalRecoParticles_]
-   UInt_t          LumiCalRecoParticles_particleIDs_end[kMaxLumiCalRecoParticles];   //[LumiCalRecoParticles_]
    Int_t           _LumiCalRecoParticles_clusters_;
    Int_t           _LumiCalRecoParticles_clusters_index[kMax_LumiCalRecoParticles_clusters];   //[_LumiCalRecoParticles_clusters_]
    UInt_t          _LumiCalRecoParticles_clusters_collectionID[kMax_LumiCalRecoParticles_clusters];   //[_LumiCalRecoParticles_clusters_]
@@ -770,23 +726,17 @@ public :
    Int_t           _LumiCalRecoParticles_particles_;
    Int_t           _LumiCalRecoParticles_particles_index[kMax_LumiCalRecoParticles_particles];   //[_LumiCalRecoParticles_particles_]
    UInt_t          _LumiCalRecoParticles_particles_collectionID[kMax_LumiCalRecoParticles_particles];   //[_LumiCalRecoParticles_particles_]
-   Int_t           _LumiCalRecoParticles_particleIDs_;
-   Int_t           _LumiCalRecoParticles_particleIDs_index[kMax_LumiCalRecoParticles_particleIDs];   //[_LumiCalRecoParticles_particleIDs_]
-   UInt_t          _LumiCalRecoParticles_particleIDs_collectionID[kMax_LumiCalRecoParticles_particleIDs];   //[_LumiCalRecoParticles_particleIDs_]
-   Int_t           _LumiCalRecoParticles_startVertex_;
-   Int_t           _LumiCalRecoParticles_startVertex_index[kMax_LumiCalRecoParticles_startVertex];   //[_LumiCalRecoParticles_startVertex_]
-   UInt_t          _LumiCalRecoParticles_startVertex_collectionID[kMax_LumiCalRecoParticles_startVertex];   //[_LumiCalRecoParticles_startVertex_]
-   Int_t           _LumiCalRecoParticles_particleIDUsed_;
-   Int_t           _LumiCalRecoParticles_particleIDUsed_index[kMax_LumiCalRecoParticles_particleIDUsed];   //[_LumiCalRecoParticles_particleIDUsed_]
-   UInt_t          _LumiCalRecoParticles_particleIDUsed_collectionID[kMax_LumiCalRecoParticles_particleIDUsed];   //[_LumiCalRecoParticles_particleIDUsed_]
-   Int_t           LumiCalRecoParticles_particleIDs_;
-   Int_t           LumiCalRecoParticles_particleIDs_type[kMaxLumiCalRecoParticles_particleIDs];   //[LumiCalRecoParticles_particleIDs_]
-   Int_t           LumiCalRecoParticles_particleIDs_PDG[kMaxLumiCalRecoParticles_particleIDs];   //[LumiCalRecoParticles_particleIDs_]
-   Int_t           LumiCalRecoParticles_particleIDs_algorithmType[kMaxLumiCalRecoParticles_particleIDs];   //[LumiCalRecoParticles_particleIDs_]
-   Float_t         LumiCalRecoParticles_particleIDs_likelihood[kMaxLumiCalRecoParticles_particleIDs];   //[LumiCalRecoParticles_particleIDs_]
-   UInt_t          LumiCalRecoParticles_particleIDs_parameters_begin[kMaxLumiCalRecoParticles_particleIDs];   //[LumiCalRecoParticles_particleIDs_]
-   UInt_t          LumiCalRecoParticles_particleIDs_parameters_end[kMaxLumiCalRecoParticles_particleIDs];   //[LumiCalRecoParticles_particleIDs_]
-   vector<float>   *_LumiCalRecoParticles_particleIDs_parameters;
+   Int_t           _LumiCalRecoParticles_decayVertex_;
+   Int_t           _LumiCalRecoParticles_decayVertex_index[kMax_LumiCalRecoParticles_decayVertex];   //[_LumiCalRecoParticles_decayVertex_]
+   UInt_t          _LumiCalRecoParticles_decayVertex_collectionID[kMax_LumiCalRecoParticles_decayVertex];   //[_LumiCalRecoParticles_decayVertex_]
+   Int_t           LumiCalRecoParticles_startVertices_;
+   Float_t         LumiCalRecoParticles_startVertices_weight[kMaxLumiCalRecoParticles_startVertices];   //[LumiCalRecoParticles_startVertices_]
+   Int_t           _LumiCalRecoParticles_startVertices_rec_;
+   Int_t           _LumiCalRecoParticles_startVertices_rec_index[kMax_LumiCalRecoParticles_startVertices_rec];   //[_LumiCalRecoParticles_startVertices_rec_]
+   UInt_t          _LumiCalRecoParticles_startVertices_rec_collectionID[kMax_LumiCalRecoParticles_startVertices_rec];   //[_LumiCalRecoParticles_startVertices_rec_]
+   Int_t           _LumiCalRecoParticles_startVertices_vertex_;
+   Int_t           _LumiCalRecoParticles_startVertices_vertex_index[kMax_LumiCalRecoParticles_startVertices_vertex];   //[_LumiCalRecoParticles_startVertices_vertex_]
+   UInt_t          _LumiCalRecoParticles_startVertices_vertex_collectionID[kMax_LumiCalRecoParticles_startVertices_vertex];   //[_LumiCalRecoParticles_startVertices_vertex_]
    Int_t           MCParticles_;
    Int_t           MCParticles_PDG[kMaxMCParticles];   //[MCParticles_]
    Int_t           MCParticles_generatorStatus[kMaxMCParticles];   //[MCParticles_]
@@ -876,7 +826,7 @@ public :
    Double_t        OTrackerEndcapHits_position_x[kMaxOTrackerEndcapHits];   //[OTrackerEndcapHits_]
    Double_t        OTrackerEndcapHits_position_y[kMaxOTrackerEndcapHits];   //[OTrackerEndcapHits_]
    Double_t        OTrackerEndcapHits_position_z[kMaxOTrackerEndcapHits];   //[OTrackerEndcapHits_]
-   Float_t         OTrackerEndcapHits_covMatrix[kMaxOTrackerEndcapHits][6];   //[OTrackerEndcapHits_]
+   Float_t         OTrackerEndcapHits_covMatrix_values[kMaxOTrackerEndcapHits][6];   //[OTrackerEndcapHits_]
    Int_t           OTrackerHits_;
    ULong_t         OTrackerHits_cellID[kMaxOTrackerHits];   //[OTrackerHits_]
    Int_t           OTrackerHits_type[kMaxOTrackerHits];   //[OTrackerHits_]
@@ -893,7 +843,7 @@ public :
    Double_t        OTrackerHits_position_x[kMaxOTrackerHits];   //[OTrackerHits_]
    Double_t        OTrackerHits_position_y[kMaxOTrackerHits];   //[OTrackerHits_]
    Double_t        OTrackerHits_position_z[kMaxOTrackerHits];   //[OTrackerHits_]
-   Float_t         OTrackerHits_covMatrix[kMaxOTrackerHits][6];   //[OTrackerHits_]
+   Float_t         OTrackerHits_covMatrix_values[kMaxOTrackerHits][6];   //[OTrackerHits_]
    Int_t           OuterTrackerBarrelCollection_;
    ULong_t         OuterTrackerBarrelCollection_cellID[kMaxOuterTrackerBarrelCollection];   //[OuterTrackerBarrelCollection_]
    Float_t         OuterTrackerBarrelCollection_eDep[kMaxOuterTrackerBarrelCollection];   //[OuterTrackerBarrelCollection_]
@@ -947,7 +897,7 @@ public :
    Float_t         PandoraClusters_position_x[kMaxPandoraClusters];   //[PandoraClusters_]
    Float_t         PandoraClusters_position_y[kMaxPandoraClusters];   //[PandoraClusters_]
    Float_t         PandoraClusters_position_z[kMaxPandoraClusters];   //[PandoraClusters_]
-   Float_t         PandoraClusters_positionError[kMaxPandoraClusters][6];   //[PandoraClusters_]
+   Float_t         PandoraClusters_positionError_values[kMaxPandoraClusters][6];   //[PandoraClusters_]
    Float_t         PandoraClusters_iTheta[kMaxPandoraClusters];   //[PandoraClusters_]
    Float_t         PandoraClusters_phi[kMaxPandoraClusters];   //[PandoraClusters_]
    Float_t         PandoraClusters_directionError_x[kMaxPandoraClusters];   //[PandoraClusters_]
@@ -961,27 +911,14 @@ public :
    UInt_t          PandoraClusters_clusters_end[kMaxPandoraClusters];   //[PandoraClusters_]
    UInt_t          PandoraClusters_hits_begin[kMaxPandoraClusters];   //[PandoraClusters_]
    UInt_t          PandoraClusters_hits_end[kMaxPandoraClusters];   //[PandoraClusters_]
-   UInt_t          PandoraClusters_particleIDs_begin[kMaxPandoraClusters];   //[PandoraClusters_]
-   UInt_t          PandoraClusters_particleIDs_end[kMaxPandoraClusters];   //[PandoraClusters_]
    Int_t           _PandoraClusters_clusters_;
    Int_t           _PandoraClusters_clusters_index[kMax_PandoraClusters_clusters];   //[_PandoraClusters_clusters_]
    UInt_t          _PandoraClusters_clusters_collectionID[kMax_PandoraClusters_clusters];   //[_PandoraClusters_clusters_]
    Int_t           _PandoraClusters_hits_;
    Int_t           _PandoraClusters_hits_index[kMax_PandoraClusters_hits];   //[_PandoraClusters_hits_]
    UInt_t          _PandoraClusters_hits_collectionID[kMax_PandoraClusters_hits];   //[_PandoraClusters_hits_]
-   Int_t           _PandoraClusters_particleIDs_;
-   Int_t           _PandoraClusters_particleIDs_index[kMax_PandoraClusters_particleIDs];   //[_PandoraClusters_particleIDs_]
-   UInt_t          _PandoraClusters_particleIDs_collectionID[kMax_PandoraClusters_particleIDs];   //[_PandoraClusters_particleIDs_]
    vector<float>   *_PandoraClusters_shapeParameters;
    vector<float>   *_PandoraClusters_subdetectorEnergies;
-   Int_t           PandoraClusters_particleIDs_;
-   Int_t           PandoraClusters_particleIDs_type[kMaxPandoraClusters_particleIDs];   //[PandoraClusters_particleIDs_]
-   Int_t           PandoraClusters_particleIDs_PDG[kMaxPandoraClusters_particleIDs];   //[PandoraClusters_particleIDs_]
-   Int_t           PandoraClusters_particleIDs_algorithmType[kMaxPandoraClusters_particleIDs];   //[PandoraClusters_particleIDs_]
-   Float_t         PandoraClusters_particleIDs_likelihood[kMaxPandoraClusters_particleIDs];   //[PandoraClusters_particleIDs_]
-   UInt_t          PandoraClusters_particleIDs_parameters_begin[kMaxPandoraClusters_particleIDs];   //[PandoraClusters_particleIDs_]
-   UInt_t          PandoraClusters_particleIDs_parameters_end[kMaxPandoraClusters_particleIDs];   //[PandoraClusters_particleIDs_]
-   vector<float>   *_PandoraClusters_particleIDs_parameters;
    Int_t           PandoraPFOs_;
    Int_t           PandoraPFOs_PDG[kMaxPandoraPFOs];   //[PandoraPFOs_]
    Float_t         PandoraPFOs_energy[kMaxPandoraPFOs];   //[PandoraPFOs_]
@@ -994,15 +931,13 @@ public :
    Float_t         PandoraPFOs_charge[kMaxPandoraPFOs];   //[PandoraPFOs_]
    Float_t         PandoraPFOs_mass[kMaxPandoraPFOs];   //[PandoraPFOs_]
    Float_t         PandoraPFOs_goodnessOfPID[kMaxPandoraPFOs];   //[PandoraPFOs_]
-   Float_t         PandoraPFOs_covMatrix[kMaxPandoraPFOs][10];   //[PandoraPFOs_]
+   Float_t         PandoraPFOs_covMatrix_values[kMaxPandoraPFOs][10];   //[PandoraPFOs_]
    UInt_t          PandoraPFOs_clusters_begin[kMaxPandoraPFOs];   //[PandoraPFOs_]
    UInt_t          PandoraPFOs_clusters_end[kMaxPandoraPFOs];   //[PandoraPFOs_]
    UInt_t          PandoraPFOs_tracks_begin[kMaxPandoraPFOs];   //[PandoraPFOs_]
    UInt_t          PandoraPFOs_tracks_end[kMaxPandoraPFOs];   //[PandoraPFOs_]
    UInt_t          PandoraPFOs_particles_begin[kMaxPandoraPFOs];   //[PandoraPFOs_]
    UInt_t          PandoraPFOs_particles_end[kMaxPandoraPFOs];   //[PandoraPFOs_]
-   UInt_t          PandoraPFOs_particleIDs_begin[kMaxPandoraPFOs];   //[PandoraPFOs_]
-   UInt_t          PandoraPFOs_particleIDs_end[kMaxPandoraPFOs];   //[PandoraPFOs_]
    Int_t           _PandoraPFOs_clusters_;
    Int_t           _PandoraPFOs_clusters_index[kMax_PandoraPFOs_clusters];   //[_PandoraPFOs_clusters_]
    UInt_t          _PandoraPFOs_clusters_collectionID[kMax_PandoraPFOs_clusters];   //[_PandoraPFOs_clusters_]
@@ -1012,56 +947,70 @@ public :
    Int_t           _PandoraPFOs_particles_;
    Int_t           _PandoraPFOs_particles_index[kMax_PandoraPFOs_particles];   //[_PandoraPFOs_particles_]
    UInt_t          _PandoraPFOs_particles_collectionID[kMax_PandoraPFOs_particles];   //[_PandoraPFOs_particles_]
-   Int_t           _PandoraPFOs_particleIDs_;
-   Int_t           _PandoraPFOs_particleIDs_index[kMax_PandoraPFOs_particleIDs];   //[_PandoraPFOs_particleIDs_]
-   UInt_t          _PandoraPFOs_particleIDs_collectionID[kMax_PandoraPFOs_particleIDs];   //[_PandoraPFOs_particleIDs_]
-   Int_t           _PandoraPFOs_startVertex_;
-   Int_t           _PandoraPFOs_startVertex_index[kMax_PandoraPFOs_startVertex];   //[_PandoraPFOs_startVertex_]
-   UInt_t          _PandoraPFOs_startVertex_collectionID[kMax_PandoraPFOs_startVertex];   //[_PandoraPFOs_startVertex_]
-   Int_t           _PandoraPFOs_particleIDUsed_;
-   Int_t           _PandoraPFOs_particleIDUsed_index[kMax_PandoraPFOs_particleIDUsed];   //[_PandoraPFOs_particleIDUsed_]
-   UInt_t          _PandoraPFOs_particleIDUsed_collectionID[kMax_PandoraPFOs_particleIDUsed];   //[_PandoraPFOs_particleIDUsed_]
-   Int_t           PandoraPFOs_particleIDs_;
-   Int_t           PandoraPFOs_particleIDs_type[kMaxPandoraPFOs_particleIDs];   //[PandoraPFOs_particleIDs_]
-   Int_t           PandoraPFOs_particleIDs_PDG[kMaxPandoraPFOs_particleIDs];   //[PandoraPFOs_particleIDs_]
-   Int_t           PandoraPFOs_particleIDs_algorithmType[kMaxPandoraPFOs_particleIDs];   //[PandoraPFOs_particleIDs_]
-   Float_t         PandoraPFOs_particleIDs_likelihood[kMaxPandoraPFOs_particleIDs];   //[PandoraPFOs_particleIDs_]
-   UInt_t          PandoraPFOs_particleIDs_parameters_begin[kMaxPandoraPFOs_particleIDs];   //[PandoraPFOs_particleIDs_]
-   UInt_t          PandoraPFOs_particleIDs_parameters_end[kMaxPandoraPFOs_particleIDs];   //[PandoraPFOs_particleIDs_]
-   vector<float>   *_PandoraPFOs_particleIDs_parameters;
+   Int_t           _PandoraPFOs_decayVertex_;
+   Int_t           _PandoraPFOs_decayVertex_index[kMax_PandoraPFOs_decayVertex];   //[_PandoraPFOs_decayVertex_]
+   UInt_t          _PandoraPFOs_decayVertex_collectionID[kMax_PandoraPFOs_decayVertex];   //[_PandoraPFOs_decayVertex_]
+   Int_t           PandoraPFOs_startVertices_;
+   Float_t         PandoraPFOs_startVertices_weight[kMaxPandoraPFOs_startVertices];   //[PandoraPFOs_startVertices_]
+   Int_t           _PandoraPFOs_startVertices_rec_;
+   Int_t           _PandoraPFOs_startVertices_rec_index[kMax_PandoraPFOs_startVertices_rec];   //[_PandoraPFOs_startVertices_rec_]
+   UInt_t          _PandoraPFOs_startVertices_rec_collectionID[kMax_PandoraPFOs_startVertices_rec];   //[_PandoraPFOs_startVertices_rec_]
+   Int_t           _PandoraPFOs_startVertices_vertex_;
+   Int_t           _PandoraPFOs_startVertices_vertex_index[kMax_PandoraPFOs_startVertices_vertex];   //[_PandoraPFOs_startVertices_vertex_]
+   UInt_t          _PandoraPFOs_startVertices_vertex_collectionID[kMax_PandoraPFOs_startVertices_vertex];   //[_PandoraPFOs_startVertices_vertex_]
    Int_t           PandoraStartVertices_;
-   Int_t           PandoraStartVertices_primary[kMaxPandoraStartVertices];   //[PandoraStartVertices_]
+   UInt_t          PandoraStartVertices_type[kMaxPandoraStartVertices];   //[PandoraStartVertices_]
    Float_t         PandoraStartVertices_chi2[kMaxPandoraStartVertices];   //[PandoraStartVertices_]
-   Float_t         PandoraStartVertices_probability[kMaxPandoraStartVertices];   //[PandoraStartVertices_]
+   Int_t           PandoraStartVertices_ndf[kMaxPandoraStartVertices];   //[PandoraStartVertices_]
    Float_t         PandoraStartVertices_position_x[kMaxPandoraStartVertices];   //[PandoraStartVertices_]
    Float_t         PandoraStartVertices_position_y[kMaxPandoraStartVertices];   //[PandoraStartVertices_]
    Float_t         PandoraStartVertices_position_z[kMaxPandoraStartVertices];   //[PandoraStartVertices_]
-   Float_t         PandoraStartVertices_covMatrix[kMaxPandoraStartVertices][6];   //[PandoraStartVertices_]
+   Float_t         PandoraStartVertices_covMatrix_values[kMaxPandoraStartVertices][6];   //[PandoraStartVertices_]
    Int_t           PandoraStartVertices_algorithmType[kMaxPandoraStartVertices];   //[PandoraStartVertices_]
    UInt_t          PandoraStartVertices_parameters_begin[kMaxPandoraStartVertices];   //[PandoraStartVertices_]
    UInt_t          PandoraStartVertices_parameters_end[kMaxPandoraStartVertices];   //[PandoraStartVertices_]
-   Int_t           _PandoraStartVertices_associatedParticle_;
-   Int_t           _PandoraStartVertices_associatedParticle_index[kMax_PandoraStartVertices_associatedParticle];   //[_PandoraStartVertices_associatedParticle_]
-   UInt_t          _PandoraStartVertices_associatedParticle_collectionID[kMax_PandoraStartVertices_associatedParticle];   //[_PandoraStartVertices_associatedParticle_]
+   UInt_t          PandoraStartVertices_particles_begin[kMaxPandoraStartVertices];   //[PandoraStartVertices_]
+   UInt_t          PandoraStartVertices_particles_end[kMaxPandoraStartVertices];   //[PandoraStartVertices_]
+   Int_t           _PandoraStartVertices_particles_;
+   Int_t           _PandoraStartVertices_particles_index[kMax_PandoraStartVertices_particles];   //[_PandoraStartVertices_particles_]
+   UInt_t          _PandoraStartVertices_particles_collectionID[kMax_PandoraStartVertices_particles];   //[_PandoraStartVertices_particles_]
    vector<float>   *_PandoraStartVertices_parameters;
+   Int_t           PandoraStartVertices_associatedParticles_;
+   Float_t         PandoraStartVertices_associatedParticles_weight[kMaxPandoraStartVertices_associatedParticles];   //[PandoraStartVertices_associatedParticles_]
+   Int_t           _PandoraStartVertices_associatedParticles_rec_;
+   Int_t           _PandoraStartVertices_associatedParticles_rec_index[kMax_PandoraStartVertices_associatedParticles_rec];   //[_PandoraStartVertices_associatedParticles_rec_]
+   UInt_t          _PandoraStartVertices_associatedParticles_rec_collectionID[kMax_PandoraStartVertices_associatedParticles_rec];   //[_PandoraStartVertices_associatedParticles_rec_]
+   Int_t           _PandoraStartVertices_associatedParticles_vertex_;
+   Int_t           _PandoraStartVertices_associatedParticles_vertex_index[kMax_PandoraStartVertices_associatedParticles_vertex];   //[_PandoraStartVertices_associatedParticles_vertex_]
+   UInt_t          _PandoraStartVertices_associatedParticles_vertex_collectionID[kMax_PandoraStartVertices_associatedParticles_vertex];   //[_PandoraStartVertices_associatedParticles_vertex_]
    Int_t           PFOsFromJets_objIdx_;
    Int_t           PFOsFromJets_objIdx_index[kMaxPFOsFromJets_objIdx];   //[PFOsFromJets_objIdx_]
    UInt_t          PFOsFromJets_objIdx_collectionID[kMaxPFOsFromJets_objIdx];   //[PFOsFromJets_objIdx_]
    Int_t           PrimaryVertices_;
-   Int_t           PrimaryVertices_primary[kMaxPrimaryVertices];   //[PrimaryVertices_]
+   UInt_t          PrimaryVertices_type[kMaxPrimaryVertices];   //[PrimaryVertices_]
    Float_t         PrimaryVertices_chi2[kMaxPrimaryVertices];   //[PrimaryVertices_]
-   Float_t         PrimaryVertices_probability[kMaxPrimaryVertices];   //[PrimaryVertices_]
+   Int_t           PrimaryVertices_ndf[kMaxPrimaryVertices];   //[PrimaryVertices_]
    Float_t         PrimaryVertices_position_x[kMaxPrimaryVertices];   //[PrimaryVertices_]
    Float_t         PrimaryVertices_position_y[kMaxPrimaryVertices];   //[PrimaryVertices_]
    Float_t         PrimaryVertices_position_z[kMaxPrimaryVertices];   //[PrimaryVertices_]
-   Float_t         PrimaryVertices_covMatrix[kMaxPrimaryVertices][6];   //[PrimaryVertices_]
+   Float_t         PrimaryVertices_covMatrix_values[kMaxPrimaryVertices][6];   //[PrimaryVertices_]
    Int_t           PrimaryVertices_algorithmType[kMaxPrimaryVertices];   //[PrimaryVertices_]
    UInt_t          PrimaryVertices_parameters_begin[kMaxPrimaryVertices];   //[PrimaryVertices_]
    UInt_t          PrimaryVertices_parameters_end[kMaxPrimaryVertices];   //[PrimaryVertices_]
-   Int_t           _PrimaryVertices_associatedParticle_;
-   Int_t           _PrimaryVertices_associatedParticle_index[kMax_PrimaryVertices_associatedParticle];   //[_PrimaryVertices_associatedParticle_]
-   UInt_t          _PrimaryVertices_associatedParticle_collectionID[kMax_PrimaryVertices_associatedParticle];   //[_PrimaryVertices_associatedParticle_]
+   UInt_t          PrimaryVertices_particles_begin[kMaxPrimaryVertices];   //[PrimaryVertices_]
+   UInt_t          PrimaryVertices_particles_end[kMaxPrimaryVertices];   //[PrimaryVertices_]
+   Int_t           _PrimaryVertices_particles_;
+   Int_t           _PrimaryVertices_particles_index[kMax_PrimaryVertices_particles];   //[_PrimaryVertices_particles_]
+   UInt_t          _PrimaryVertices_particles_collectionID[kMax_PrimaryVertices_particles];   //[_PrimaryVertices_particles_]
    vector<float>   *_PrimaryVertices_parameters;
+   Int_t           PrimaryVertices_associatedParticles_;
+   Float_t         PrimaryVertices_associatedParticles_weight[kMaxPrimaryVertices_associatedParticles];   //[PrimaryVertices_associatedParticles_]
+   Int_t           _PrimaryVertices_associatedParticles_rec_;
+   Int_t           _PrimaryVertices_associatedParticles_rec_index[kMax_PrimaryVertices_associatedParticles_rec];   //[_PrimaryVertices_associatedParticles_rec_]
+   UInt_t          _PrimaryVertices_associatedParticles_rec_collectionID[kMax_PrimaryVertices_associatedParticles_rec];   //[_PrimaryVertices_associatedParticles_rec_]
+   Int_t           _PrimaryVertices_associatedParticles_vertex_;
+   Int_t           _PrimaryVertices_associatedParticles_vertex_index[kMax_PrimaryVertices_associatedParticles_vertex];   //[_PrimaryVertices_associatedParticles_vertex_]
+   UInt_t          _PrimaryVertices_associatedParticles_vertex_collectionID[kMax_PrimaryVertices_associatedParticles_vertex];   //[_PrimaryVertices_associatedParticles_vertex_]
    Int_t           PrimaryVertices_RP_;
    Int_t           PrimaryVertices_RP_PDG[kMaxPrimaryVertices_RP];   //[PrimaryVertices_RP_]
    Float_t         PrimaryVertices_RP_energy[kMaxPrimaryVertices_RP];   //[PrimaryVertices_RP_]
@@ -1074,15 +1023,13 @@ public :
    Float_t         PrimaryVertices_RP_charge[kMaxPrimaryVertices_RP];   //[PrimaryVertices_RP_]
    Float_t         PrimaryVertices_RP_mass[kMaxPrimaryVertices_RP];   //[PrimaryVertices_RP_]
    Float_t         PrimaryVertices_RP_goodnessOfPID[kMaxPrimaryVertices_RP];   //[PrimaryVertices_RP_]
-   Float_t         PrimaryVertices_RP_covMatrix[kMaxPrimaryVertices_RP][10];   //[PrimaryVertices_RP_]
+   Float_t         PrimaryVertices_RP_covMatrix_values[kMaxPrimaryVertices_RP][10];   //[PrimaryVertices_RP_]
    UInt_t          PrimaryVertices_RP_clusters_begin[kMaxPrimaryVertices_RP];   //[PrimaryVertices_RP_]
    UInt_t          PrimaryVertices_RP_clusters_end[kMaxPrimaryVertices_RP];   //[PrimaryVertices_RP_]
    UInt_t          PrimaryVertices_RP_tracks_begin[kMaxPrimaryVertices_RP];   //[PrimaryVertices_RP_]
    UInt_t          PrimaryVertices_RP_tracks_end[kMaxPrimaryVertices_RP];   //[PrimaryVertices_RP_]
    UInt_t          PrimaryVertices_RP_particles_begin[kMaxPrimaryVertices_RP];   //[PrimaryVertices_RP_]
    UInt_t          PrimaryVertices_RP_particles_end[kMaxPrimaryVertices_RP];   //[PrimaryVertices_RP_]
-   UInt_t          PrimaryVertices_RP_particleIDs_begin[kMaxPrimaryVertices_RP];   //[PrimaryVertices_RP_]
-   UInt_t          PrimaryVertices_RP_particleIDs_end[kMaxPrimaryVertices_RP];   //[PrimaryVertices_RP_]
    Int_t           _PrimaryVertices_RP_clusters_;
    Int_t           _PrimaryVertices_RP_clusters_index[kMax_PrimaryVertices_RP_clusters];   //[_PrimaryVertices_RP_clusters_]
    UInt_t          _PrimaryVertices_RP_clusters_collectionID[kMax_PrimaryVertices_RP_clusters];   //[_PrimaryVertices_RP_clusters_]
@@ -1092,23 +1039,17 @@ public :
    Int_t           _PrimaryVertices_RP_particles_;
    Int_t           _PrimaryVertices_RP_particles_index[kMax_PrimaryVertices_RP_particles];   //[_PrimaryVertices_RP_particles_]
    UInt_t          _PrimaryVertices_RP_particles_collectionID[kMax_PrimaryVertices_RP_particles];   //[_PrimaryVertices_RP_particles_]
-   Int_t           _PrimaryVertices_RP_particleIDs_;
-   Int_t           _PrimaryVertices_RP_particleIDs_index[kMax_PrimaryVertices_RP_particleIDs];   //[_PrimaryVertices_RP_particleIDs_]
-   UInt_t          _PrimaryVertices_RP_particleIDs_collectionID[kMax_PrimaryVertices_RP_particleIDs];   //[_PrimaryVertices_RP_particleIDs_]
-   Int_t           _PrimaryVertices_RP_startVertex_;
-   Int_t           _PrimaryVertices_RP_startVertex_index[kMax_PrimaryVertices_RP_startVertex];   //[_PrimaryVertices_RP_startVertex_]
-   UInt_t          _PrimaryVertices_RP_startVertex_collectionID[kMax_PrimaryVertices_RP_startVertex];   //[_PrimaryVertices_RP_startVertex_]
-   Int_t           _PrimaryVertices_RP_particleIDUsed_;
-   Int_t           _PrimaryVertices_RP_particleIDUsed_index[kMax_PrimaryVertices_RP_particleIDUsed];   //[_PrimaryVertices_RP_particleIDUsed_]
-   UInt_t          _PrimaryVertices_RP_particleIDUsed_collectionID[kMax_PrimaryVertices_RP_particleIDUsed];   //[_PrimaryVertices_RP_particleIDUsed_]
-   Int_t           PrimaryVertices_RP_particleIDs_;
-   Int_t           PrimaryVertices_RP_particleIDs_type[kMaxPrimaryVertices_RP_particleIDs];   //[PrimaryVertices_RP_particleIDs_]
-   Int_t           PrimaryVertices_RP_particleIDs_PDG[kMaxPrimaryVertices_RP_particleIDs];   //[PrimaryVertices_RP_particleIDs_]
-   Int_t           PrimaryVertices_RP_particleIDs_algorithmType[kMaxPrimaryVertices_RP_particleIDs];   //[PrimaryVertices_RP_particleIDs_]
-   Float_t         PrimaryVertices_RP_particleIDs_likelihood[kMaxPrimaryVertices_RP_particleIDs];   //[PrimaryVertices_RP_particleIDs_]
-   UInt_t          PrimaryVertices_RP_particleIDs_parameters_begin[kMaxPrimaryVertices_RP_particleIDs];   //[PrimaryVertices_RP_particleIDs_]
-   UInt_t          PrimaryVertices_RP_particleIDs_parameters_end[kMaxPrimaryVertices_RP_particleIDs];   //[PrimaryVertices_RP_particleIDs_]
-   vector<float>   *_PrimaryVertices_RP_particleIDs_parameters;
+   Int_t           _PrimaryVertices_RP_decayVertex_;
+   Int_t           _PrimaryVertices_RP_decayVertex_index[kMax_PrimaryVertices_RP_decayVertex];   //[_PrimaryVertices_RP_decayVertex_]
+   UInt_t          _PrimaryVertices_RP_decayVertex_collectionID[kMax_PrimaryVertices_RP_decayVertex];   //[_PrimaryVertices_RP_decayVertex_]
+   Int_t           PrimaryVertices_RP_startVertices_;
+   Float_t         PrimaryVertices_RP_startVertices_weight[kMaxPrimaryVertices_RP_startVertices];   //[PrimaryVertices_RP_startVertices_]
+   Int_t           _PrimaryVertices_RP_startVertices_rec_;
+   Int_t           _PrimaryVertices_RP_startVertices_rec_index[kMax_PrimaryVertices_RP_startVertices_rec];   //[_PrimaryVertices_RP_startVertices_rec_]
+   UInt_t          _PrimaryVertices_RP_startVertices_rec_collectionID[kMax_PrimaryVertices_RP_startVertices_rec];   //[_PrimaryVertices_RP_startVertices_rec_]
+   Int_t           _PrimaryVertices_RP_startVertices_vertex_;
+   Int_t           _PrimaryVertices_RP_startVertices_vertex_index[kMax_PrimaryVertices_RP_startVertices_vertex];   //[_PrimaryVertices_RP_startVertices_vertex_]
+   UInt_t          _PrimaryVertices_RP_startVertices_vertex_collectionID[kMax_PrimaryVertices_RP_startVertices_vertex];   //[_PrimaryVertices_RP_startVertices_vertex_]
    Int_t           RecoMCTruthLink_;
    Float_t         RecoMCTruthLink_weight[kMaxRecoMCTruthLink];   //[RecoMCTruthLink_]
    Int_t           _RecoMCTruthLink_rec_;
@@ -1117,185 +1058,6 @@ public :
    Int_t           _RecoMCTruthLink_sim_;
    Int_t           _RecoMCTruthLink_sim_index[kMax_RecoMCTruthLink_sim];   //[_RecoMCTruthLink_sim_]
    UInt_t          _RecoMCTruthLink_sim_collectionID[kMax_RecoMCTruthLink_sim];   //[_RecoMCTruthLink_sim_]
-   Int_t           RefinedVertexJets_;
-   Int_t           RefinedVertexJets_PDG[kMaxRefinedVertexJets];   //[RefinedVertexJets_]
-   Float_t         RefinedVertexJets_energy[kMaxRefinedVertexJets];   //[RefinedVertexJets_]
-   Float_t         RefinedVertexJets_momentum_x[kMaxRefinedVertexJets];   //[RefinedVertexJets_]
-   Float_t         RefinedVertexJets_momentum_y[kMaxRefinedVertexJets];   //[RefinedVertexJets_]
-   Float_t         RefinedVertexJets_momentum_z[kMaxRefinedVertexJets];   //[RefinedVertexJets_]
-   Float_t         RefinedVertexJets_referencePoint_x[kMaxRefinedVertexJets];   //[RefinedVertexJets_]
-   Float_t         RefinedVertexJets_referencePoint_y[kMaxRefinedVertexJets];   //[RefinedVertexJets_]
-   Float_t         RefinedVertexJets_referencePoint_z[kMaxRefinedVertexJets];   //[RefinedVertexJets_]
-   Float_t         RefinedVertexJets_charge[kMaxRefinedVertexJets];   //[RefinedVertexJets_]
-   Float_t         RefinedVertexJets_mass[kMaxRefinedVertexJets];   //[RefinedVertexJets_]
-   Float_t         RefinedVertexJets_goodnessOfPID[kMaxRefinedVertexJets];   //[RefinedVertexJets_]
-   Float_t         RefinedVertexJets_covMatrix[kMaxRefinedVertexJets][10];   //[RefinedVertexJets_]
-   UInt_t          RefinedVertexJets_clusters_begin[kMaxRefinedVertexJets];   //[RefinedVertexJets_]
-   UInt_t          RefinedVertexJets_clusters_end[kMaxRefinedVertexJets];   //[RefinedVertexJets_]
-   UInt_t          RefinedVertexJets_tracks_begin[kMaxRefinedVertexJets];   //[RefinedVertexJets_]
-   UInt_t          RefinedVertexJets_tracks_end[kMaxRefinedVertexJets];   //[RefinedVertexJets_]
-   UInt_t          RefinedVertexJets_particles_begin[kMaxRefinedVertexJets];   //[RefinedVertexJets_]
-   UInt_t          RefinedVertexJets_particles_end[kMaxRefinedVertexJets];   //[RefinedVertexJets_]
-   UInt_t          RefinedVertexJets_particleIDs_begin[kMaxRefinedVertexJets];   //[RefinedVertexJets_]
-   UInt_t          RefinedVertexJets_particleIDs_end[kMaxRefinedVertexJets];   //[RefinedVertexJets_]
-   Int_t           _RefinedVertexJets_clusters_;
-   Int_t           _RefinedVertexJets_clusters_index[kMax_RefinedVertexJets_clusters];   //[_RefinedVertexJets_clusters_]
-   UInt_t          _RefinedVertexJets_clusters_collectionID[kMax_RefinedVertexJets_clusters];   //[_RefinedVertexJets_clusters_]
-   Int_t           _RefinedVertexJets_tracks_;
-   Int_t           _RefinedVertexJets_tracks_index[kMax_RefinedVertexJets_tracks];   //[_RefinedVertexJets_tracks_]
-   UInt_t          _RefinedVertexJets_tracks_collectionID[kMax_RefinedVertexJets_tracks];   //[_RefinedVertexJets_tracks_]
-   Int_t           _RefinedVertexJets_particles_;
-   Int_t           _RefinedVertexJets_particles_index[kMax_RefinedVertexJets_particles];   //[_RefinedVertexJets_particles_]
-   UInt_t          _RefinedVertexJets_particles_collectionID[kMax_RefinedVertexJets_particles];   //[_RefinedVertexJets_particles_]
-   Int_t           _RefinedVertexJets_particleIDs_;
-   Int_t           _RefinedVertexJets_particleIDs_index[kMax_RefinedVertexJets_particleIDs];   //[_RefinedVertexJets_particleIDs_]
-   UInt_t          _RefinedVertexJets_particleIDs_collectionID[kMax_RefinedVertexJets_particleIDs];   //[_RefinedVertexJets_particleIDs_]
-   Int_t           _RefinedVertexJets_startVertex_;
-   Int_t           _RefinedVertexJets_startVertex_index[kMax_RefinedVertexJets_startVertex];   //[_RefinedVertexJets_startVertex_]
-   UInt_t          _RefinedVertexJets_startVertex_collectionID[kMax_RefinedVertexJets_startVertex];   //[_RefinedVertexJets_startVertex_]
-   Int_t           _RefinedVertexJets_particleIDUsed_;
-   Int_t           _RefinedVertexJets_particleIDUsed_index[kMax_RefinedVertexJets_particleIDUsed];   //[_RefinedVertexJets_particleIDUsed_]
-   UInt_t          _RefinedVertexJets_particleIDUsed_collectionID[kMax_RefinedVertexJets_particleIDUsed];   //[_RefinedVertexJets_particleIDUsed_]
-   Int_t           RefinedVertexJets_particleIDs_;
-   Int_t           RefinedVertexJets_particleIDs_type[kMaxRefinedVertexJets_particleIDs];   //[RefinedVertexJets_particleIDs_]
-   Int_t           RefinedVertexJets_particleIDs_PDG[kMaxRefinedVertexJets_particleIDs];   //[RefinedVertexJets_particleIDs_]
-   Int_t           RefinedVertexJets_particleIDs_algorithmType[kMaxRefinedVertexJets_particleIDs];   //[RefinedVertexJets_particleIDs_]
-   Float_t         RefinedVertexJets_particleIDs_likelihood[kMaxRefinedVertexJets_particleIDs];   //[RefinedVertexJets_particleIDs_]
-   UInt_t          RefinedVertexJets_particleIDs_parameters_begin[kMaxRefinedVertexJets_particleIDs];   //[RefinedVertexJets_particleIDs_]
-   UInt_t          RefinedVertexJets_particleIDs_parameters_end[kMaxRefinedVertexJets_particleIDs];   //[RefinedVertexJets_particleIDs_]
-   vector<float>   *_RefinedVertexJets_particleIDs_parameters;
-   Int_t           RefinedVertexJets_rel_;
-   Float_t         RefinedVertexJets_rel_weight[kMaxRefinedVertexJets_rel];   //[RefinedVertexJets_rel_]
-   Int_t           _RefinedVertexJets_rel_rec_;
-   Int_t           _RefinedVertexJets_rel_rec_index[kMax_RefinedVertexJets_rel_rec];   //[_RefinedVertexJets_rel_rec_]
-   UInt_t          _RefinedVertexJets_rel_rec_collectionID[kMax_RefinedVertexJets_rel_rec];   //[_RefinedVertexJets_rel_rec_]
-   Int_t           _RefinedVertexJets_rel_vertex_;
-   Int_t           _RefinedVertexJets_rel_vertex_index[kMax_RefinedVertexJets_rel_vertex];   //[_RefinedVertexJets_rel_vertex_]
-   UInt_t          _RefinedVertexJets_rel_vertex_collectionID[kMax_RefinedVertexJets_rel_vertex];   //[_RefinedVertexJets_rel_vertex_]
-   Int_t           RefinedVertexJets_vtx_;
-   Int_t           RefinedVertexJets_vtx_primary[kMaxRefinedVertexJets_vtx];   //[RefinedVertexJets_vtx_]
-   Float_t         RefinedVertexJets_vtx_chi2[kMaxRefinedVertexJets_vtx];   //[RefinedVertexJets_vtx_]
-   Float_t         RefinedVertexJets_vtx_probability[kMaxRefinedVertexJets_vtx];   //[RefinedVertexJets_vtx_]
-   Float_t         RefinedVertexJets_vtx_position_x[kMaxRefinedVertexJets_vtx];   //[RefinedVertexJets_vtx_]
-   Float_t         RefinedVertexJets_vtx_position_y[kMaxRefinedVertexJets_vtx];   //[RefinedVertexJets_vtx_]
-   Float_t         RefinedVertexJets_vtx_position_z[kMaxRefinedVertexJets_vtx];   //[RefinedVertexJets_vtx_]
-   Float_t         RefinedVertexJets_vtx_covMatrix[kMaxRefinedVertexJets_vtx][6];   //[RefinedVertexJets_vtx_]
-   Int_t           RefinedVertexJets_vtx_algorithmType[kMaxRefinedVertexJets_vtx];   //[RefinedVertexJets_vtx_]
-   UInt_t          RefinedVertexJets_vtx_parameters_begin[kMaxRefinedVertexJets_vtx];   //[RefinedVertexJets_vtx_]
-   UInt_t          RefinedVertexJets_vtx_parameters_end[kMaxRefinedVertexJets_vtx];   //[RefinedVertexJets_vtx_]
-   Int_t           _RefinedVertexJets_vtx_associatedParticle_;
-   Int_t           _RefinedVertexJets_vtx_associatedParticle_index[kMax_RefinedVertexJets_vtx_associatedParticle];   //[_RefinedVertexJets_vtx_associatedParticle_]
-   UInt_t          _RefinedVertexJets_vtx_associatedParticle_collectionID[kMax_RefinedVertexJets_vtx_associatedParticle];   //[_RefinedVertexJets_vtx_associatedParticle_]
-   vector<float>   *_RefinedVertexJets_vtx_parameters;
-   Int_t           RefinedVertexJets_vtx_RP_;
-   Int_t           RefinedVertexJets_vtx_RP_PDG[kMaxRefinedVertexJets_vtx_RP];   //[RefinedVertexJets_vtx_RP_]
-   Float_t         RefinedVertexJets_vtx_RP_energy[kMaxRefinedVertexJets_vtx_RP];   //[RefinedVertexJets_vtx_RP_]
-   Float_t         RefinedVertexJets_vtx_RP_momentum_x[kMaxRefinedVertexJets_vtx_RP];   //[RefinedVertexJets_vtx_RP_]
-   Float_t         RefinedVertexJets_vtx_RP_momentum_y[kMaxRefinedVertexJets_vtx_RP];   //[RefinedVertexJets_vtx_RP_]
-   Float_t         RefinedVertexJets_vtx_RP_momentum_z[kMaxRefinedVertexJets_vtx_RP];   //[RefinedVertexJets_vtx_RP_]
-   Float_t         RefinedVertexJets_vtx_RP_referencePoint_x[kMaxRefinedVertexJets_vtx_RP];   //[RefinedVertexJets_vtx_RP_]
-   Float_t         RefinedVertexJets_vtx_RP_referencePoint_y[kMaxRefinedVertexJets_vtx_RP];   //[RefinedVertexJets_vtx_RP_]
-   Float_t         RefinedVertexJets_vtx_RP_referencePoint_z[kMaxRefinedVertexJets_vtx_RP];   //[RefinedVertexJets_vtx_RP_]
-   Float_t         RefinedVertexJets_vtx_RP_charge[kMaxRefinedVertexJets_vtx_RP];   //[RefinedVertexJets_vtx_RP_]
-   Float_t         RefinedVertexJets_vtx_RP_mass[kMaxRefinedVertexJets_vtx_RP];   //[RefinedVertexJets_vtx_RP_]
-   Float_t         RefinedVertexJets_vtx_RP_goodnessOfPID[kMaxRefinedVertexJets_vtx_RP];   //[RefinedVertexJets_vtx_RP_]
-   Float_t         RefinedVertexJets_vtx_RP_covMatrix[kMaxRefinedVertexJets_vtx_RP][10];   //[RefinedVertexJets_vtx_RP_]
-   UInt_t          RefinedVertexJets_vtx_RP_clusters_begin[kMaxRefinedVertexJets_vtx_RP];   //[RefinedVertexJets_vtx_RP_]
-   UInt_t          RefinedVertexJets_vtx_RP_clusters_end[kMaxRefinedVertexJets_vtx_RP];   //[RefinedVertexJets_vtx_RP_]
-   UInt_t          RefinedVertexJets_vtx_RP_tracks_begin[kMaxRefinedVertexJets_vtx_RP];   //[RefinedVertexJets_vtx_RP_]
-   UInt_t          RefinedVertexJets_vtx_RP_tracks_end[kMaxRefinedVertexJets_vtx_RP];   //[RefinedVertexJets_vtx_RP_]
-   UInt_t          RefinedVertexJets_vtx_RP_particles_begin[kMaxRefinedVertexJets_vtx_RP];   //[RefinedVertexJets_vtx_RP_]
-   UInt_t          RefinedVertexJets_vtx_RP_particles_end[kMaxRefinedVertexJets_vtx_RP];   //[RefinedVertexJets_vtx_RP_]
-   UInt_t          RefinedVertexJets_vtx_RP_particleIDs_begin[kMaxRefinedVertexJets_vtx_RP];   //[RefinedVertexJets_vtx_RP_]
-   UInt_t          RefinedVertexJets_vtx_RP_particleIDs_end[kMaxRefinedVertexJets_vtx_RP];   //[RefinedVertexJets_vtx_RP_]
-   Int_t           _RefinedVertexJets_vtx_RP_clusters_;
-   Int_t           _RefinedVertexJets_vtx_RP_clusters_index[kMax_RefinedVertexJets_vtx_RP_clusters];   //[_RefinedVertexJets_vtx_RP_clusters_]
-   UInt_t          _RefinedVertexJets_vtx_RP_clusters_collectionID[kMax_RefinedVertexJets_vtx_RP_clusters];   //[_RefinedVertexJets_vtx_RP_clusters_]
-   Int_t           _RefinedVertexJets_vtx_RP_tracks_;
-   Int_t           _RefinedVertexJets_vtx_RP_tracks_index[kMax_RefinedVertexJets_vtx_RP_tracks];   //[_RefinedVertexJets_vtx_RP_tracks_]
-   UInt_t          _RefinedVertexJets_vtx_RP_tracks_collectionID[kMax_RefinedVertexJets_vtx_RP_tracks];   //[_RefinedVertexJets_vtx_RP_tracks_]
-   Int_t           _RefinedVertexJets_vtx_RP_particles_;
-   Int_t           _RefinedVertexJets_vtx_RP_particles_index[kMax_RefinedVertexJets_vtx_RP_particles];   //[_RefinedVertexJets_vtx_RP_particles_]
-   UInt_t          _RefinedVertexJets_vtx_RP_particles_collectionID[kMax_RefinedVertexJets_vtx_RP_particles];   //[_RefinedVertexJets_vtx_RP_particles_]
-   Int_t           _RefinedVertexJets_vtx_RP_particleIDs_;
-   Int_t           _RefinedVertexJets_vtx_RP_particleIDs_index[kMax_RefinedVertexJets_vtx_RP_particleIDs];   //[_RefinedVertexJets_vtx_RP_particleIDs_]
-   UInt_t          _RefinedVertexJets_vtx_RP_particleIDs_collectionID[kMax_RefinedVertexJets_vtx_RP_particleIDs];   //[_RefinedVertexJets_vtx_RP_particleIDs_]
-   Int_t           _RefinedVertexJets_vtx_RP_startVertex_;
-   Int_t           _RefinedVertexJets_vtx_RP_startVertex_index[kMax_RefinedVertexJets_vtx_RP_startVertex];   //[_RefinedVertexJets_vtx_RP_startVertex_]
-   UInt_t          _RefinedVertexJets_vtx_RP_startVertex_collectionID[kMax_RefinedVertexJets_vtx_RP_startVertex];   //[_RefinedVertexJets_vtx_RP_startVertex_]
-   Int_t           _RefinedVertexJets_vtx_RP_particleIDUsed_;
-   Int_t           _RefinedVertexJets_vtx_RP_particleIDUsed_index[kMax_RefinedVertexJets_vtx_RP_particleIDUsed];   //[_RefinedVertexJets_vtx_RP_particleIDUsed_]
-   UInt_t          _RefinedVertexJets_vtx_RP_particleIDUsed_collectionID[kMax_RefinedVertexJets_vtx_RP_particleIDUsed];   //[_RefinedVertexJets_vtx_RP_particleIDUsed_]
-   Int_t           RefinedVertexJets_vtx_RP_particleIDs_;
-   Int_t           RefinedVertexJets_vtx_RP_particleIDs_type[kMaxRefinedVertexJets_vtx_RP_particleIDs];   //[RefinedVertexJets_vtx_RP_particleIDs_]
-   Int_t           RefinedVertexJets_vtx_RP_particleIDs_PDG[kMaxRefinedVertexJets_vtx_RP_particleIDs];   //[RefinedVertexJets_vtx_RP_particleIDs_]
-   Int_t           RefinedVertexJets_vtx_RP_particleIDs_algorithmType[kMaxRefinedVertexJets_vtx_RP_particleIDs];   //[RefinedVertexJets_vtx_RP_particleIDs_]
-   Float_t         RefinedVertexJets_vtx_RP_particleIDs_likelihood[kMaxRefinedVertexJets_vtx_RP_particleIDs];   //[RefinedVertexJets_vtx_RP_particleIDs_]
-   UInt_t          RefinedVertexJets_vtx_RP_particleIDs_parameters_begin[kMaxRefinedVertexJets_vtx_RP_particleIDs];   //[RefinedVertexJets_vtx_RP_particleIDs_]
-   UInt_t          RefinedVertexJets_vtx_RP_particleIDs_parameters_end[kMaxRefinedVertexJets_vtx_RP_particleIDs];   //[RefinedVertexJets_vtx_RP_particleIDs_]
-   vector<float>   *_RefinedVertexJets_vtx_RP_particleIDs_parameters;
-   Int_t           RefinedVertices_;
-   Int_t           RefinedVertices_primary[kMaxRefinedVertices];   //[RefinedVertices_]
-   Float_t         RefinedVertices_chi2[kMaxRefinedVertices];   //[RefinedVertices_]
-   Float_t         RefinedVertices_probability[kMaxRefinedVertices];   //[RefinedVertices_]
-   Float_t         RefinedVertices_position_x[kMaxRefinedVertices];   //[RefinedVertices_]
-   Float_t         RefinedVertices_position_y[kMaxRefinedVertices];   //[RefinedVertices_]
-   Float_t         RefinedVertices_position_z[kMaxRefinedVertices];   //[RefinedVertices_]
-   Float_t         RefinedVertices_covMatrix[kMaxRefinedVertices][6];   //[RefinedVertices_]
-   Int_t           RefinedVertices_algorithmType[kMaxRefinedVertices];   //[RefinedVertices_]
-   UInt_t          RefinedVertices_parameters_begin[kMaxRefinedVertices];   //[RefinedVertices_]
-   UInt_t          RefinedVertices_parameters_end[kMaxRefinedVertices];   //[RefinedVertices_]
-   Int_t           _RefinedVertices_associatedParticle_;
-   Int_t           _RefinedVertices_associatedParticle_index[kMax_RefinedVertices_associatedParticle];   //[_RefinedVertices_associatedParticle_]
-   UInt_t          _RefinedVertices_associatedParticle_collectionID[kMax_RefinedVertices_associatedParticle];   //[_RefinedVertices_associatedParticle_]
-   vector<float>   *_RefinedVertices_parameters;
-   Int_t           RefinedVertices_RP_;
-   Int_t           RefinedVertices_RP_PDG[kMaxRefinedVertices_RP];   //[RefinedVertices_RP_]
-   Float_t         RefinedVertices_RP_energy[kMaxRefinedVertices_RP];   //[RefinedVertices_RP_]
-   Float_t         RefinedVertices_RP_momentum_x[kMaxRefinedVertices_RP];   //[RefinedVertices_RP_]
-   Float_t         RefinedVertices_RP_momentum_y[kMaxRefinedVertices_RP];   //[RefinedVertices_RP_]
-   Float_t         RefinedVertices_RP_momentum_z[kMaxRefinedVertices_RP];   //[RefinedVertices_RP_]
-   Float_t         RefinedVertices_RP_referencePoint_x[kMaxRefinedVertices_RP];   //[RefinedVertices_RP_]
-   Float_t         RefinedVertices_RP_referencePoint_y[kMaxRefinedVertices_RP];   //[RefinedVertices_RP_]
-   Float_t         RefinedVertices_RP_referencePoint_z[kMaxRefinedVertices_RP];   //[RefinedVertices_RP_]
-   Float_t         RefinedVertices_RP_charge[kMaxRefinedVertices_RP];   //[RefinedVertices_RP_]
-   Float_t         RefinedVertices_RP_mass[kMaxRefinedVertices_RP];   //[RefinedVertices_RP_]
-   Float_t         RefinedVertices_RP_goodnessOfPID[kMaxRefinedVertices_RP];   //[RefinedVertices_RP_]
-   Float_t         RefinedVertices_RP_covMatrix[kMaxRefinedVertices_RP][10];   //[RefinedVertices_RP_]
-   UInt_t          RefinedVertices_RP_clusters_begin[kMaxRefinedVertices_RP];   //[RefinedVertices_RP_]
-   UInt_t          RefinedVertices_RP_clusters_end[kMaxRefinedVertices_RP];   //[RefinedVertices_RP_]
-   UInt_t          RefinedVertices_RP_tracks_begin[kMaxRefinedVertices_RP];   //[RefinedVertices_RP_]
-   UInt_t          RefinedVertices_RP_tracks_end[kMaxRefinedVertices_RP];   //[RefinedVertices_RP_]
-   UInt_t          RefinedVertices_RP_particles_begin[kMaxRefinedVertices_RP];   //[RefinedVertices_RP_]
-   UInt_t          RefinedVertices_RP_particles_end[kMaxRefinedVertices_RP];   //[RefinedVertices_RP_]
-   UInt_t          RefinedVertices_RP_particleIDs_begin[kMaxRefinedVertices_RP];   //[RefinedVertices_RP_]
-   UInt_t          RefinedVertices_RP_particleIDs_end[kMaxRefinedVertices_RP];   //[RefinedVertices_RP_]
-   Int_t           _RefinedVertices_RP_clusters_;
-   Int_t           _RefinedVertices_RP_clusters_index[kMax_RefinedVertices_RP_clusters];   //[_RefinedVertices_RP_clusters_]
-   UInt_t          _RefinedVertices_RP_clusters_collectionID[kMax_RefinedVertices_RP_clusters];   //[_RefinedVertices_RP_clusters_]
-   Int_t           _RefinedVertices_RP_tracks_;
-   Int_t           _RefinedVertices_RP_tracks_index[kMax_RefinedVertices_RP_tracks];   //[_RefinedVertices_RP_tracks_]
-   UInt_t          _RefinedVertices_RP_tracks_collectionID[kMax_RefinedVertices_RP_tracks];   //[_RefinedVertices_RP_tracks_]
-   Int_t           _RefinedVertices_RP_particles_;
-   Int_t           _RefinedVertices_RP_particles_index[kMax_RefinedVertices_RP_particles];   //[_RefinedVertices_RP_particles_]
-   UInt_t          _RefinedVertices_RP_particles_collectionID[kMax_RefinedVertices_RP_particles];   //[_RefinedVertices_RP_particles_]
-   Int_t           _RefinedVertices_RP_particleIDs_;
-   Int_t           _RefinedVertices_RP_particleIDs_index[kMax_RefinedVertices_RP_particleIDs];   //[_RefinedVertices_RP_particleIDs_]
-   UInt_t          _RefinedVertices_RP_particleIDs_collectionID[kMax_RefinedVertices_RP_particleIDs];   //[_RefinedVertices_RP_particleIDs_]
-   Int_t           _RefinedVertices_RP_startVertex_;
-   Int_t           _RefinedVertices_RP_startVertex_index[kMax_RefinedVertices_RP_startVertex];   //[_RefinedVertices_RP_startVertex_]
-   UInt_t          _RefinedVertices_RP_startVertex_collectionID[kMax_RefinedVertices_RP_startVertex];   //[_RefinedVertices_RP_startVertex_]
-   Int_t           _RefinedVertices_RP_particleIDUsed_;
-   Int_t           _RefinedVertices_RP_particleIDUsed_index[kMax_RefinedVertices_RP_particleIDUsed];   //[_RefinedVertices_RP_particleIDUsed_]
-   UInt_t          _RefinedVertices_RP_particleIDUsed_collectionID[kMax_RefinedVertices_RP_particleIDUsed];   //[_RefinedVertices_RP_particleIDUsed_]
-   Int_t           RefinedVertices_RP_particleIDs_;
-   Int_t           RefinedVertices_RP_particleIDs_type[kMaxRefinedVertices_RP_particleIDs];   //[RefinedVertices_RP_particleIDs_]
-   Int_t           RefinedVertices_RP_particleIDs_PDG[kMaxRefinedVertices_RP_particleIDs];   //[RefinedVertices_RP_particleIDs_]
-   Int_t           RefinedVertices_RP_particleIDs_algorithmType[kMaxRefinedVertices_RP_particleIDs];   //[RefinedVertices_RP_particleIDs_]
-   Float_t         RefinedVertices_RP_particleIDs_likelihood[kMaxRefinedVertices_RP_particleIDs];   //[RefinedVertices_RP_particleIDs_]
-   UInt_t          RefinedVertices_RP_particleIDs_parameters_begin[kMaxRefinedVertices_RP_particleIDs];   //[RefinedVertices_RP_particleIDs_]
-   UInt_t          RefinedVertices_RP_particleIDs_parameters_end[kMaxRefinedVertices_RP_particleIDs];   //[RefinedVertices_RP_particleIDs_]
-   vector<float>   *_RefinedVertices_RP_particleIDs_parameters;
    Int_t           RelationCaloHit_;
    Float_t         RelationCaloHit_weight[kMaxRelationCaloHit];   //[RelationCaloHit_]
    Int_t           _RelationCaloHit_rec_;
@@ -1319,15 +1081,10 @@ public :
    Int_t           SiTracks_type[kMaxSiTracks];   //[SiTracks_]
    Float_t         SiTracks_chi2[kMaxSiTracks];   //[SiTracks_]
    Int_t           SiTracks_ndf[kMaxSiTracks];   //[SiTracks_]
-   Float_t         SiTracks_dEdx[kMaxSiTracks];   //[SiTracks_]
-   Float_t         SiTracks_dEdxError[kMaxSiTracks];   //[SiTracks_]
-   Float_t         SiTracks_radiusOfInnermostHit[kMaxSiTracks];   //[SiTracks_]
    UInt_t          SiTracks_subdetectorHitNumbers_begin[kMaxSiTracks];   //[SiTracks_]
    UInt_t          SiTracks_subdetectorHitNumbers_end[kMaxSiTracks];   //[SiTracks_]
    UInt_t          SiTracks_trackStates_begin[kMaxSiTracks];   //[SiTracks_]
    UInt_t          SiTracks_trackStates_end[kMaxSiTracks];   //[SiTracks_]
-   UInt_t          SiTracks_dxQuantities_begin[kMaxSiTracks];   //[SiTracks_]
-   UInt_t          SiTracks_dxQuantities_end[kMaxSiTracks];   //[SiTracks_]
    UInt_t          SiTracks_trackerHits_begin[kMaxSiTracks];   //[SiTracks_]
    UInt_t          SiTracks_trackerHits_end[kMaxSiTracks];   //[SiTracks_]
    UInt_t          SiTracks_tracks_begin[kMaxSiTracks];   //[SiTracks_]
@@ -1350,24 +1107,22 @@ public :
    Float_t         _SiTracks_trackStates_referencePoint_x[kMax_SiTracks_trackStates];   //[_SiTracks_trackStates_]
    Float_t         _SiTracks_trackStates_referencePoint_y[kMax_SiTracks_trackStates];   //[_SiTracks_trackStates_]
    Float_t         _SiTracks_trackStates_referencePoint_z[kMax_SiTracks_trackStates];   //[_SiTracks_trackStates_]
-   Float_t         _SiTracks_trackStates_covMatrix[kMax_SiTracks_trackStates][21];   //[_SiTracks_trackStates_]
-   Int_t           _SiTracks_dxQuantities_;
-   Short_t         _SiTracks_dxQuantities_type[kMax_SiTracks_dxQuantities];   //[_SiTracks_dxQuantities_]
-   Float_t         _SiTracks_dxQuantities_value[kMax_SiTracks_dxQuantities];   //[_SiTracks_dxQuantities_]
-   Float_t         _SiTracks_dxQuantities_error[kMax_SiTracks_dxQuantities];   //[_SiTracks_dxQuantities_]
+   Float_t         _SiTracks_trackStates_covMatrix_values[kMax_SiTracks_trackStates][21];   //[_SiTracks_trackStates_]
+   Int_t           SiTracks_dQdx_;
+   Short_t         SiTracks_dQdx_dQdx_type[kMaxSiTracks_dQdx];   //[SiTracks_dQdx_]
+   Float_t         SiTracks_dQdx_dQdx_value[kMaxSiTracks_dQdx];   //[SiTracks_dQdx_]
+   Float_t         SiTracks_dQdx_dQdx_error[kMaxSiTracks_dQdx];   //[SiTracks_dQdx_]
+   Int_t           _SiTracks_dQdx_track_;
+   Int_t           _SiTracks_dQdx_track_index[kMax_SiTracks_dQdx_track];   //[_SiTracks_dQdx_track_]
+   UInt_t          _SiTracks_dQdx_track_collectionID[kMax_SiTracks_dQdx_track];   //[_SiTracks_dQdx_track_]
    Int_t           SiTracks_Refitted_;
    Int_t           SiTracks_Refitted_type[kMaxSiTracks_Refitted];   //[SiTracks_Refitted_]
    Float_t         SiTracks_Refitted_chi2[kMaxSiTracks_Refitted];   //[SiTracks_Refitted_]
    Int_t           SiTracks_Refitted_ndf[kMaxSiTracks_Refitted];   //[SiTracks_Refitted_]
-   Float_t         SiTracks_Refitted_dEdx[kMaxSiTracks_Refitted];   //[SiTracks_Refitted_]
-   Float_t         SiTracks_Refitted_dEdxError[kMaxSiTracks_Refitted];   //[SiTracks_Refitted_]
-   Float_t         SiTracks_Refitted_radiusOfInnermostHit[kMaxSiTracks_Refitted];   //[SiTracks_Refitted_]
    UInt_t          SiTracks_Refitted_subdetectorHitNumbers_begin[kMaxSiTracks_Refitted];   //[SiTracks_Refitted_]
    UInt_t          SiTracks_Refitted_subdetectorHitNumbers_end[kMaxSiTracks_Refitted];   //[SiTracks_Refitted_]
    UInt_t          SiTracks_Refitted_trackStates_begin[kMaxSiTracks_Refitted];   //[SiTracks_Refitted_]
    UInt_t          SiTracks_Refitted_trackStates_end[kMaxSiTracks_Refitted];   //[SiTracks_Refitted_]
-   UInt_t          SiTracks_Refitted_dxQuantities_begin[kMaxSiTracks_Refitted];   //[SiTracks_Refitted_]
-   UInt_t          SiTracks_Refitted_dxQuantities_end[kMaxSiTracks_Refitted];   //[SiTracks_Refitted_]
    UInt_t          SiTracks_Refitted_trackerHits_begin[kMaxSiTracks_Refitted];   //[SiTracks_Refitted_]
    UInt_t          SiTracks_Refitted_trackerHits_end[kMaxSiTracks_Refitted];   //[SiTracks_Refitted_]
    UInt_t          SiTracks_Refitted_tracks_begin[kMaxSiTracks_Refitted];   //[SiTracks_Refitted_]
@@ -1390,24 +1145,22 @@ public :
    Float_t         _SiTracks_Refitted_trackStates_referencePoint_x[kMax_SiTracks_Refitted_trackStates];   //[_SiTracks_Refitted_trackStates_]
    Float_t         _SiTracks_Refitted_trackStates_referencePoint_y[kMax_SiTracks_Refitted_trackStates];   //[_SiTracks_Refitted_trackStates_]
    Float_t         _SiTracks_Refitted_trackStates_referencePoint_z[kMax_SiTracks_Refitted_trackStates];   //[_SiTracks_Refitted_trackStates_]
-   Float_t         _SiTracks_Refitted_trackStates_covMatrix[kMax_SiTracks_Refitted_trackStates][21];   //[_SiTracks_Refitted_trackStates_]
-   Int_t           _SiTracks_Refitted_dxQuantities_;
-   Short_t         _SiTracks_Refitted_dxQuantities_type[kMax_SiTracks_Refitted_dxQuantities];   //[_SiTracks_Refitted_dxQuantities_]
-   Float_t         _SiTracks_Refitted_dxQuantities_value[kMax_SiTracks_Refitted_dxQuantities];   //[_SiTracks_Refitted_dxQuantities_]
-   Float_t         _SiTracks_Refitted_dxQuantities_error[kMax_SiTracks_Refitted_dxQuantities];   //[_SiTracks_Refitted_dxQuantities_]
+   Float_t         _SiTracks_Refitted_trackStates_covMatrix_values[kMax_SiTracks_Refitted_trackStates][21];   //[_SiTracks_Refitted_trackStates_]
+   Int_t           SiTracks_Refitted_dQdx_;
+   Short_t         SiTracks_Refitted_dQdx_dQdx_type[kMaxSiTracks_Refitted_dQdx];   //[SiTracks_Refitted_dQdx_]
+   Float_t         SiTracks_Refitted_dQdx_dQdx_value[kMaxSiTracks_Refitted_dQdx];   //[SiTracks_Refitted_dQdx_]
+   Float_t         SiTracks_Refitted_dQdx_dQdx_error[kMaxSiTracks_Refitted_dQdx];   //[SiTracks_Refitted_dQdx_]
+   Int_t           _SiTracks_Refitted_dQdx_track_;
+   Int_t           _SiTracks_Refitted_dQdx_track_index[kMax_SiTracks_Refitted_dQdx_track];   //[_SiTracks_Refitted_dQdx_track_]
+   UInt_t          _SiTracks_Refitted_dQdx_track_collectionID[kMax_SiTracks_Refitted_dQdx_track];   //[_SiTracks_Refitted_dQdx_track_]
    Int_t           SiTracksCT_;
    Int_t           SiTracksCT_type[kMaxSiTracksCT];   //[SiTracksCT_]
    Float_t         SiTracksCT_chi2[kMaxSiTracksCT];   //[SiTracksCT_]
    Int_t           SiTracksCT_ndf[kMaxSiTracksCT];   //[SiTracksCT_]
-   Float_t         SiTracksCT_dEdx[kMaxSiTracksCT];   //[SiTracksCT_]
-   Float_t         SiTracksCT_dEdxError[kMaxSiTracksCT];   //[SiTracksCT_]
-   Float_t         SiTracksCT_radiusOfInnermostHit[kMaxSiTracksCT];   //[SiTracksCT_]
    UInt_t          SiTracksCT_subdetectorHitNumbers_begin[kMaxSiTracksCT];   //[SiTracksCT_]
    UInt_t          SiTracksCT_subdetectorHitNumbers_end[kMaxSiTracksCT];   //[SiTracksCT_]
    UInt_t          SiTracksCT_trackStates_begin[kMaxSiTracksCT];   //[SiTracksCT_]
    UInt_t          SiTracksCT_trackStates_end[kMaxSiTracksCT];   //[SiTracksCT_]
-   UInt_t          SiTracksCT_dxQuantities_begin[kMaxSiTracksCT];   //[SiTracksCT_]
-   UInt_t          SiTracksCT_dxQuantities_end[kMaxSiTracksCT];   //[SiTracksCT_]
    UInt_t          SiTracksCT_trackerHits_begin[kMaxSiTracksCT];   //[SiTracksCT_]
    UInt_t          SiTracksCT_trackerHits_end[kMaxSiTracksCT];   //[SiTracksCT_]
    UInt_t          SiTracksCT_tracks_begin[kMaxSiTracksCT];   //[SiTracksCT_]
@@ -1430,11 +1183,14 @@ public :
    Float_t         _SiTracksCT_trackStates_referencePoint_x[kMax_SiTracksCT_trackStates];   //[_SiTracksCT_trackStates_]
    Float_t         _SiTracksCT_trackStates_referencePoint_y[kMax_SiTracksCT_trackStates];   //[_SiTracksCT_trackStates_]
    Float_t         _SiTracksCT_trackStates_referencePoint_z[kMax_SiTracksCT_trackStates];   //[_SiTracksCT_trackStates_]
-   Float_t         _SiTracksCT_trackStates_covMatrix[kMax_SiTracksCT_trackStates][21];   //[_SiTracksCT_trackStates_]
-   Int_t           _SiTracksCT_dxQuantities_;
-   Short_t         _SiTracksCT_dxQuantities_type[kMax_SiTracksCT_dxQuantities];   //[_SiTracksCT_dxQuantities_]
-   Float_t         _SiTracksCT_dxQuantities_value[kMax_SiTracksCT_dxQuantities];   //[_SiTracksCT_dxQuantities_]
-   Float_t         _SiTracksCT_dxQuantities_error[kMax_SiTracksCT_dxQuantities];   //[_SiTracksCT_dxQuantities_]
+   Float_t         _SiTracksCT_trackStates_covMatrix_values[kMax_SiTracksCT_trackStates][21];   //[_SiTracksCT_trackStates_]
+   Int_t           SiTracksCT_dQdx_;
+   Short_t         SiTracksCT_dQdx_dQdx_type[kMaxSiTracksCT_dQdx];   //[SiTracksCT_dQdx_]
+   Float_t         SiTracksCT_dQdx_dQdx_value[kMaxSiTracksCT_dQdx];   //[SiTracksCT_dQdx_]
+   Float_t         SiTracksCT_dQdx_dQdx_error[kMaxSiTracksCT_dQdx];   //[SiTracksCT_dQdx_]
+   Int_t           _SiTracksCT_dQdx_track_;
+   Int_t           _SiTracksCT_dQdx_track_index[kMax_SiTracksCT_dQdx_track];   //[_SiTracksCT_dQdx_track_]
+   UInt_t          _SiTracksCT_dQdx_track_collectionID[kMax_SiTracksCT_dQdx_track];   //[_SiTracksCT_dQdx_track_]
    Int_t           SiTracksMCTruthLink_;
    Float_t         SiTracksMCTruthLink_weight[kMaxSiTracksMCTruthLink];   //[SiTracksMCTruthLink_]
    Int_t           _SiTracksMCTruthLink_rec_;
@@ -1476,53 +1232,6 @@ public :
    Int_t           _VertexEndcapCollection_particle_;
    Int_t           _VertexEndcapCollection_particle_index[kMax_VertexEndcapCollection_particle];   //[_VertexEndcapCollection_particle_]
    UInt_t          _VertexEndcapCollection_particle_collectionID[kMax_VertexEndcapCollection_particle];   //[_VertexEndcapCollection_particle_]
-   Int_t           VertexJets_;
-   Int_t           VertexJets_PDG[kMaxVertexJets];   //[VertexJets_]
-   Float_t         VertexJets_energy[kMaxVertexJets];   //[VertexJets_]
-   Float_t         VertexJets_momentum_x[kMaxVertexJets];   //[VertexJets_]
-   Float_t         VertexJets_momentum_y[kMaxVertexJets];   //[VertexJets_]
-   Float_t         VertexJets_momentum_z[kMaxVertexJets];   //[VertexJets_]
-   Float_t         VertexJets_referencePoint_x[kMaxVertexJets];   //[VertexJets_]
-   Float_t         VertexJets_referencePoint_y[kMaxVertexJets];   //[VertexJets_]
-   Float_t         VertexJets_referencePoint_z[kMaxVertexJets];   //[VertexJets_]
-   Float_t         VertexJets_charge[kMaxVertexJets];   //[VertexJets_]
-   Float_t         VertexJets_mass[kMaxVertexJets];   //[VertexJets_]
-   Float_t         VertexJets_goodnessOfPID[kMaxVertexJets];   //[VertexJets_]
-   Float_t         VertexJets_covMatrix[kMaxVertexJets][10];   //[VertexJets_]
-   UInt_t          VertexJets_clusters_begin[kMaxVertexJets];   //[VertexJets_]
-   UInt_t          VertexJets_clusters_end[kMaxVertexJets];   //[VertexJets_]
-   UInt_t          VertexJets_tracks_begin[kMaxVertexJets];   //[VertexJets_]
-   UInt_t          VertexJets_tracks_end[kMaxVertexJets];   //[VertexJets_]
-   UInt_t          VertexJets_particles_begin[kMaxVertexJets];   //[VertexJets_]
-   UInt_t          VertexJets_particles_end[kMaxVertexJets];   //[VertexJets_]
-   UInt_t          VertexJets_particleIDs_begin[kMaxVertexJets];   //[VertexJets_]
-   UInt_t          VertexJets_particleIDs_end[kMaxVertexJets];   //[VertexJets_]
-   Int_t           _VertexJets_clusters_;
-   Int_t           _VertexJets_clusters_index[kMax_VertexJets_clusters];   //[_VertexJets_clusters_]
-   UInt_t          _VertexJets_clusters_collectionID[kMax_VertexJets_clusters];   //[_VertexJets_clusters_]
-   Int_t           _VertexJets_tracks_;
-   Int_t           _VertexJets_tracks_index[kMax_VertexJets_tracks];   //[_VertexJets_tracks_]
-   UInt_t          _VertexJets_tracks_collectionID[kMax_VertexJets_tracks];   //[_VertexJets_tracks_]
-   Int_t           _VertexJets_particles_;
-   Int_t           _VertexJets_particles_index[kMax_VertexJets_particles];   //[_VertexJets_particles_]
-   UInt_t          _VertexJets_particles_collectionID[kMax_VertexJets_particles];   //[_VertexJets_particles_]
-   Int_t           _VertexJets_particleIDs_;
-   Int_t           _VertexJets_particleIDs_index[kMax_VertexJets_particleIDs];   //[_VertexJets_particleIDs_]
-   UInt_t          _VertexJets_particleIDs_collectionID[kMax_VertexJets_particleIDs];   //[_VertexJets_particleIDs_]
-   Int_t           _VertexJets_startVertex_;
-   Int_t           _VertexJets_startVertex_index[kMax_VertexJets_startVertex];   //[_VertexJets_startVertex_]
-   UInt_t          _VertexJets_startVertex_collectionID[kMax_VertexJets_startVertex];   //[_VertexJets_startVertex_]
-   Int_t           _VertexJets_particleIDUsed_;
-   Int_t           _VertexJets_particleIDUsed_index[kMax_VertexJets_particleIDUsed];   //[_VertexJets_particleIDUsed_]
-   UInt_t          _VertexJets_particleIDUsed_collectionID[kMax_VertexJets_particleIDUsed];   //[_VertexJets_particleIDUsed_]
-   Int_t           VertexJets_particleIDs_;
-   Int_t           VertexJets_particleIDs_type[kMaxVertexJets_particleIDs];   //[VertexJets_particleIDs_]
-   Int_t           VertexJets_particleIDs_PDG[kMaxVertexJets_particleIDs];   //[VertexJets_particleIDs_]
-   Int_t           VertexJets_particleIDs_algorithmType[kMaxVertexJets_particleIDs];   //[VertexJets_particleIDs_]
-   Float_t         VertexJets_particleIDs_likelihood[kMaxVertexJets_particleIDs];   //[VertexJets_particleIDs_]
-   UInt_t          VertexJets_particleIDs_parameters_begin[kMaxVertexJets_particleIDs];   //[VertexJets_particleIDs_]
-   UInt_t          VertexJets_particleIDs_parameters_end[kMaxVertexJets_particleIDs];   //[VertexJets_particleIDs_]
-   vector<float>   *_VertexJets_particleIDs_parameters;
    Int_t           VXDEndcapTrackerHitRelations_;
    Float_t         VXDEndcapTrackerHitRelations_weight[kMaxVXDEndcapTrackerHitRelations];   //[VXDEndcapTrackerHitRelations_]
    Int_t           _VXDEndcapTrackerHitRelations_rec_;
@@ -1547,7 +1256,7 @@ public :
    Double_t        VXDEndcapTrackerHits_position_x[kMaxVXDEndcapTrackerHits];   //[VXDEndcapTrackerHits_]
    Double_t        VXDEndcapTrackerHits_position_y[kMaxVXDEndcapTrackerHits];   //[VXDEndcapTrackerHits_]
    Double_t        VXDEndcapTrackerHits_position_z[kMaxVXDEndcapTrackerHits];   //[VXDEndcapTrackerHits_]
-   Float_t         VXDEndcapTrackerHits_covMatrix[kMaxVXDEndcapTrackerHits][6];   //[VXDEndcapTrackerHits_]
+   Float_t         VXDEndcapTrackerHits_covMatrix_values[kMaxVXDEndcapTrackerHits][6];   //[VXDEndcapTrackerHits_]
    Int_t           VXDTrackerHitRelations_;
    Float_t         VXDTrackerHitRelations_weight[kMaxVXDTrackerHitRelations];   //[VXDTrackerHitRelations_]
    Int_t           _VXDTrackerHitRelations_rec_;
@@ -1572,7 +1281,7 @@ public :
    Double_t        VXDTrackerHits_position_x[kMaxVXDTrackerHits];   //[VXDTrackerHits_]
    Double_t        VXDTrackerHits_position_y[kMaxVXDTrackerHits];   //[VXDTrackerHits_]
    Double_t        VXDTrackerHits_position_z[kMaxVXDTrackerHits];   //[VXDTrackerHits_]
-   Float_t         VXDTrackerHits_covMatrix[kMaxVXDTrackerHits][6];   //[VXDTrackerHits_]
+   Float_t         VXDTrackerHits_covMatrix_values[kMaxVXDTrackerHits][6];   //[VXDTrackerHits_]
    Int_t           YokeBarrelCollection_;
    ULong_t         YokeBarrelCollection_cellID[kMaxYokeBarrelCollection];   //[YokeBarrelCollection_]
    Float_t         YokeBarrelCollection_energy[kMaxYokeBarrelCollection];   //[YokeBarrelCollection_]
@@ -1615,36 +1324,41 @@ public :
    Int_t           _YokeEndcapCollectionContributions_particle_;
    Int_t           _YokeEndcapCollectionContributions_particle_index[kMax_YokeEndcapCollectionContributions_particle];   //[_YokeEndcapCollectionContributions_particle_]
    UInt_t          _YokeEndcapCollectionContributions_particle_collectionID[kMax_YokeEndcapCollectionContributions_particle];   //[_YokeEndcapCollectionContributions_particle_]
- //podio::GenericParameters *PARAMETERS;
-   Int_t           _intMap_;
-   string          _intMap_first[kMax_intMap];
-   vector<int>     _intMap_second[kMax_intMap];
-   Int_t           _floatMap_;
-   string          _floatMap_first[kMax_floatMap];
-   vector<float>   _floatMap_second[kMax_floatMap];
-   Int_t           _stringMap_;
-   string          _stringMap_first[kMax_stringMap];
-   vector<string>  _stringMap_second[kMax_stringMap];
-   Int_t           _doubleMap_;
-   string          _doubleMap_first[kMax_doubleMap];
-   vector<double>  _doubleMap_second[kMax_doubleMap];
+   vector<string>  *GPIntKeys;
+   vector<vector<int> > *GPIntValues;
+   vector<string>  *GPFloatKeys;
+   vector<vector<float> > *GPFloatValues;
+   vector<string>  *GPDoubleKeys;
+   vector<vector<double> > *GPDoubleValues;
+   vector<string>  *GPStringKeys;
+   vector<vector<string> > *GPStringValues;
 
    // List of branches
    TBranch        *b_BuildUpVertices_;   //!
-   TBranch        *b_BuildUpVertices_primary;   //!
+   TBranch        *b_BuildUpVertices_type;   //!
    TBranch        *b_BuildUpVertices_chi2;   //!
-   TBranch        *b_BuildUpVertices_probability;   //!
+   TBranch        *b_BuildUpVertices_ndf;   //!
    TBranch        *b_BuildUpVertices_position_x;   //!
    TBranch        *b_BuildUpVertices_position_y;   //!
    TBranch        *b_BuildUpVertices_position_z;   //!
-   TBranch        *b_BuildUpVertices_covMatrix;   //!
+   TBranch        *b_BuildUpVertices_covMatrix_values;   //!
    TBranch        *b_BuildUpVertices_algorithmType;   //!
    TBranch        *b_BuildUpVertices_parameters_begin;   //!
    TBranch        *b_BuildUpVertices_parameters_end;   //!
-   TBranch        *b__BuildUpVertices_associatedParticle_;   //!
-   TBranch        *b__BuildUpVertices_associatedParticle_index;   //!
-   TBranch        *b__BuildUpVertices_associatedParticle_collectionID;   //!
+   TBranch        *b_BuildUpVertices_particles_begin;   //!
+   TBranch        *b_BuildUpVertices_particles_end;   //!
+   TBranch        *b__BuildUpVertices_particles_;   //!
+   TBranch        *b__BuildUpVertices_particles_index;   //!
+   TBranch        *b__BuildUpVertices_particles_collectionID;   //!
    TBranch        *b__BuildUpVertices_parameters;   //!
+   TBranch        *b_BuildUpVertices_associatedParticles_;   //!
+   TBranch        *b_BuildUpVertices_associatedParticles_weight;   //!
+   TBranch        *b__BuildUpVertices_associatedParticles_rec_;   //!
+   TBranch        *b__BuildUpVertices_associatedParticles_rec_index;   //!
+   TBranch        *b__BuildUpVertices_associatedParticles_rec_collectionID;   //!
+   TBranch        *b__BuildUpVertices_associatedParticles_vertex_;   //!
+   TBranch        *b__BuildUpVertices_associatedParticles_vertex_index;   //!
+   TBranch        *b__BuildUpVertices_associatedParticles_vertex_collectionID;   //!
    TBranch        *b_BuildUpVertices_RP_;   //!
    TBranch        *b_BuildUpVertices_RP_PDG;   //!
    TBranch        *b_BuildUpVertices_RP_energy;   //!
@@ -1657,15 +1371,13 @@ public :
    TBranch        *b_BuildUpVertices_RP_charge;   //!
    TBranch        *b_BuildUpVertices_RP_mass;   //!
    TBranch        *b_BuildUpVertices_RP_goodnessOfPID;   //!
-   TBranch        *b_BuildUpVertices_RP_covMatrix;   //!
+   TBranch        *b_BuildUpVertices_RP_covMatrix_values;   //!
    TBranch        *b_BuildUpVertices_RP_clusters_begin;   //!
    TBranch        *b_BuildUpVertices_RP_clusters_end;   //!
    TBranch        *b_BuildUpVertices_RP_tracks_begin;   //!
    TBranch        *b_BuildUpVertices_RP_tracks_end;   //!
    TBranch        *b_BuildUpVertices_RP_particles_begin;   //!
    TBranch        *b_BuildUpVertices_RP_particles_end;   //!
-   TBranch        *b_BuildUpVertices_RP_particleIDs_begin;   //!
-   TBranch        *b_BuildUpVertices_RP_particleIDs_end;   //!
    TBranch        *b__BuildUpVertices_RP_clusters_;   //!
    TBranch        *b__BuildUpVertices_RP_clusters_index;   //!
    TBranch        *b__BuildUpVertices_RP_clusters_collectionID;   //!
@@ -1675,38 +1387,42 @@ public :
    TBranch        *b__BuildUpVertices_RP_particles_;   //!
    TBranch        *b__BuildUpVertices_RP_particles_index;   //!
    TBranch        *b__BuildUpVertices_RP_particles_collectionID;   //!
-   TBranch        *b__BuildUpVertices_RP_particleIDs_;   //!
-   TBranch        *b__BuildUpVertices_RP_particleIDs_index;   //!
-   TBranch        *b__BuildUpVertices_RP_particleIDs_collectionID;   //!
-   TBranch        *b__BuildUpVertices_RP_startVertex_;   //!
-   TBranch        *b__BuildUpVertices_RP_startVertex_index;   //!
-   TBranch        *b__BuildUpVertices_RP_startVertex_collectionID;   //!
-   TBranch        *b__BuildUpVertices_RP_particleIDUsed_;   //!
-   TBranch        *b__BuildUpVertices_RP_particleIDUsed_index;   //!
-   TBranch        *b__BuildUpVertices_RP_particleIDUsed_collectionID;   //!
-   TBranch        *b_BuildUpVertices_RP_particleIDs_;   //!
-   TBranch        *b_BuildUpVertices_RP_particleIDs_type;   //!
-   TBranch        *b_BuildUpVertices_RP_particleIDs_PDG;   //!
-   TBranch        *b_BuildUpVertices_RP_particleIDs_algorithmType;   //!
-   TBranch        *b_BuildUpVertices_RP_particleIDs_likelihood;   //!
-   TBranch        *b_BuildUpVertices_RP_particleIDs_parameters_begin;   //!
-   TBranch        *b_BuildUpVertices_RP_particleIDs_parameters_end;   //!
-   TBranch        *b__BuildUpVertices_RP_particleIDs_parameters;   //!
+   TBranch        *b__BuildUpVertices_RP_decayVertex_;   //!
+   TBranch        *b__BuildUpVertices_RP_decayVertex_index;   //!
+   TBranch        *b__BuildUpVertices_RP_decayVertex_collectionID;   //!
+   TBranch        *b_BuildUpVertices_RP_startVertices_;   //!
+   TBranch        *b_BuildUpVertices_RP_startVertices_weight;   //!
+   TBranch        *b__BuildUpVertices_RP_startVertices_rec_;   //!
+   TBranch        *b__BuildUpVertices_RP_startVertices_rec_index;   //!
+   TBranch        *b__BuildUpVertices_RP_startVertices_rec_collectionID;   //!
+   TBranch        *b__BuildUpVertices_RP_startVertices_vertex_;   //!
+   TBranch        *b__BuildUpVertices_RP_startVertices_vertex_index;   //!
+   TBranch        *b__BuildUpVertices_RP_startVertices_vertex_collectionID;   //!
    TBranch        *b_BuildUpVertices_V0_;   //!
-   TBranch        *b_BuildUpVertices_V0_primary;   //!
+   TBranch        *b_BuildUpVertices_V0_type;   //!
    TBranch        *b_BuildUpVertices_V0_chi2;   //!
-   TBranch        *b_BuildUpVertices_V0_probability;   //!
+   TBranch        *b_BuildUpVertices_V0_ndf;   //!
    TBranch        *b_BuildUpVertices_V0_position_x;   //!
    TBranch        *b_BuildUpVertices_V0_position_y;   //!
    TBranch        *b_BuildUpVertices_V0_position_z;   //!
-   TBranch        *b_BuildUpVertices_V0_covMatrix;   //!
+   TBranch        *b_BuildUpVertices_V0_covMatrix_values;   //!
    TBranch        *b_BuildUpVertices_V0_algorithmType;   //!
    TBranch        *b_BuildUpVertices_V0_parameters_begin;   //!
    TBranch        *b_BuildUpVertices_V0_parameters_end;   //!
-   TBranch        *b__BuildUpVertices_V0_associatedParticle_;   //!
-   TBranch        *b__BuildUpVertices_V0_associatedParticle_index;   //!
-   TBranch        *b__BuildUpVertices_V0_associatedParticle_collectionID;   //!
+   TBranch        *b_BuildUpVertices_V0_particles_begin;   //!
+   TBranch        *b_BuildUpVertices_V0_particles_end;   //!
+   TBranch        *b__BuildUpVertices_V0_particles_;   //!
+   TBranch        *b__BuildUpVertices_V0_particles_index;   //!
+   TBranch        *b__BuildUpVertices_V0_particles_collectionID;   //!
    TBranch        *b__BuildUpVertices_V0_parameters;   //!
+   TBranch        *b_BuildUpVertices_V0_associatedParticles_;   //!
+   TBranch        *b_BuildUpVertices_V0_associatedParticles_weight;   //!
+   TBranch        *b__BuildUpVertices_V0_associatedParticles_rec_;   //!
+   TBranch        *b__BuildUpVertices_V0_associatedParticles_rec_index;   //!
+   TBranch        *b__BuildUpVertices_V0_associatedParticles_rec_collectionID;   //!
+   TBranch        *b__BuildUpVertices_V0_associatedParticles_vertex_;   //!
+   TBranch        *b__BuildUpVertices_V0_associatedParticles_vertex_index;   //!
+   TBranch        *b__BuildUpVertices_V0_associatedParticles_vertex_collectionID;   //!
    TBranch        *b_BuildUpVertices_V0_RP_;   //!
    TBranch        *b_BuildUpVertices_V0_RP_PDG;   //!
    TBranch        *b_BuildUpVertices_V0_RP_energy;   //!
@@ -1719,15 +1435,13 @@ public :
    TBranch        *b_BuildUpVertices_V0_RP_charge;   //!
    TBranch        *b_BuildUpVertices_V0_RP_mass;   //!
    TBranch        *b_BuildUpVertices_V0_RP_goodnessOfPID;   //!
-   TBranch        *b_BuildUpVertices_V0_RP_covMatrix;   //!
+   TBranch        *b_BuildUpVertices_V0_RP_covMatrix_values;   //!
    TBranch        *b_BuildUpVertices_V0_RP_clusters_begin;   //!
    TBranch        *b_BuildUpVertices_V0_RP_clusters_end;   //!
    TBranch        *b_BuildUpVertices_V0_RP_tracks_begin;   //!
    TBranch        *b_BuildUpVertices_V0_RP_tracks_end;   //!
    TBranch        *b_BuildUpVertices_V0_RP_particles_begin;   //!
    TBranch        *b_BuildUpVertices_V0_RP_particles_end;   //!
-   TBranch        *b_BuildUpVertices_V0_RP_particleIDs_begin;   //!
-   TBranch        *b_BuildUpVertices_V0_RP_particleIDs_end;   //!
    TBranch        *b__BuildUpVertices_V0_RP_clusters_;   //!
    TBranch        *b__BuildUpVertices_V0_RP_clusters_index;   //!
    TBranch        *b__BuildUpVertices_V0_RP_clusters_collectionID;   //!
@@ -1737,23 +1451,17 @@ public :
    TBranch        *b__BuildUpVertices_V0_RP_particles_;   //!
    TBranch        *b__BuildUpVertices_V0_RP_particles_index;   //!
    TBranch        *b__BuildUpVertices_V0_RP_particles_collectionID;   //!
-   TBranch        *b__BuildUpVertices_V0_RP_particleIDs_;   //!
-   TBranch        *b__BuildUpVertices_V0_RP_particleIDs_index;   //!
-   TBranch        *b__BuildUpVertices_V0_RP_particleIDs_collectionID;   //!
-   TBranch        *b__BuildUpVertices_V0_RP_startVertex_;   //!
-   TBranch        *b__BuildUpVertices_V0_RP_startVertex_index;   //!
-   TBranch        *b__BuildUpVertices_V0_RP_startVertex_collectionID;   //!
-   TBranch        *b__BuildUpVertices_V0_RP_particleIDUsed_;   //!
-   TBranch        *b__BuildUpVertices_V0_RP_particleIDUsed_index;   //!
-   TBranch        *b__BuildUpVertices_V0_RP_particleIDUsed_collectionID;   //!
-   TBranch        *b_BuildUpVertices_V0_RP_particleIDs_;   //!
-   TBranch        *b_BuildUpVertices_V0_RP_particleIDs_type;   //!
-   TBranch        *b_BuildUpVertices_V0_RP_particleIDs_PDG;   //!
-   TBranch        *b_BuildUpVertices_V0_RP_particleIDs_algorithmType;   //!
-   TBranch        *b_BuildUpVertices_V0_RP_particleIDs_likelihood;   //!
-   TBranch        *b_BuildUpVertices_V0_RP_particleIDs_parameters_begin;   //!
-   TBranch        *b_BuildUpVertices_V0_RP_particleIDs_parameters_end;   //!
-   TBranch        *b__BuildUpVertices_V0_RP_particleIDs_parameters;   //!
+   TBranch        *b__BuildUpVertices_V0_RP_decayVertex_;   //!
+   TBranch        *b__BuildUpVertices_V0_RP_decayVertex_index;   //!
+   TBranch        *b__BuildUpVertices_V0_RP_decayVertex_collectionID;   //!
+   TBranch        *b_BuildUpVertices_V0_RP_startVertices_;   //!
+   TBranch        *b_BuildUpVertices_V0_RP_startVertices_weight;   //!
+   TBranch        *b__BuildUpVertices_V0_RP_startVertices_rec_;   //!
+   TBranch        *b__BuildUpVertices_V0_RP_startVertices_rec_index;   //!
+   TBranch        *b__BuildUpVertices_V0_RP_startVertices_rec_collectionID;   //!
+   TBranch        *b__BuildUpVertices_V0_RP_startVertices_vertex_;   //!
+   TBranch        *b__BuildUpVertices_V0_RP_startVertices_vertex_index;   //!
+   TBranch        *b__BuildUpVertices_V0_RP_startVertices_vertex_collectionID;   //!
    TBranch        *b_CalohitMCTruthLink_;   //!
    TBranch        *b_CalohitMCTruthLink_weight;   //!
    TBranch        *b__CalohitMCTruthLink_rec_;   //!
@@ -1999,7 +1707,7 @@ public :
    TBranch        *b_ITrackerEndcapHits_position_x;   //!
    TBranch        *b_ITrackerEndcapHits_position_y;   //!
    TBranch        *b_ITrackerEndcapHits_position_z;   //!
-   TBranch        *b_ITrackerEndcapHits_covMatrix;   //!
+   TBranch        *b_ITrackerEndcapHits_covMatrix_values;   //!
    TBranch        *b_ITrackerHits_;   //!
    TBranch        *b_ITrackerHits_cellID;   //!
    TBranch        *b_ITrackerHits_type;   //!
@@ -2016,7 +1724,7 @@ public :
    TBranch        *b_ITrackerHits_position_x;   //!
    TBranch        *b_ITrackerHits_position_y;   //!
    TBranch        *b_ITrackerHits_position_z;   //!
-   TBranch        *b_ITrackerHits_covMatrix;   //!
+   TBranch        *b_ITrackerHits_covMatrix_values;   //!
    TBranch        *b_LooseSelectedPandoraPFOs_objIdx_;   //!
    TBranch        *b_LooseSelectedPandoraPFOs_objIdx_index;   //!
    TBranch        *b_LooseSelectedPandoraPFOs_objIdx_collectionID;   //!
@@ -2027,7 +1735,7 @@ public :
    TBranch        *b_LumiCalClusters_position_x;   //!
    TBranch        *b_LumiCalClusters_position_y;   //!
    TBranch        *b_LumiCalClusters_position_z;   //!
-   TBranch        *b_LumiCalClusters_positionError;   //!
+   TBranch        *b_LumiCalClusters_positionError_values;   //!
    TBranch        *b_LumiCalClusters_iTheta;   //!
    TBranch        *b_LumiCalClusters_phi;   //!
    TBranch        *b_LumiCalClusters_directionError_x;   //!
@@ -2041,27 +1749,14 @@ public :
    TBranch        *b_LumiCalClusters_clusters_end;   //!
    TBranch        *b_LumiCalClusters_hits_begin;   //!
    TBranch        *b_LumiCalClusters_hits_end;   //!
-   TBranch        *b_LumiCalClusters_particleIDs_begin;   //!
-   TBranch        *b_LumiCalClusters_particleIDs_end;   //!
    TBranch        *b__LumiCalClusters_clusters_;   //!
    TBranch        *b__LumiCalClusters_clusters_index;   //!
    TBranch        *b__LumiCalClusters_clusters_collectionID;   //!
    TBranch        *b__LumiCalClusters_hits_;   //!
    TBranch        *b__LumiCalClusters_hits_index;   //!
    TBranch        *b__LumiCalClusters_hits_collectionID;   //!
-   TBranch        *b__LumiCalClusters_particleIDs_;   //!
-   TBranch        *b__LumiCalClusters_particleIDs_index;   //!
-   TBranch        *b__LumiCalClusters_particleIDs_collectionID;   //!
    TBranch        *b__LumiCalClusters_shapeParameters;   //!
    TBranch        *b__LumiCalClusters_subdetectorEnergies;   //!
-   TBranch        *b_LumiCalClusters_particleIDs_;   //!
-   TBranch        *b_LumiCalClusters_particleIDs_type;   //!
-   TBranch        *b_LumiCalClusters_particleIDs_PDG;   //!
-   TBranch        *b_LumiCalClusters_particleIDs_algorithmType;   //!
-   TBranch        *b_LumiCalClusters_particleIDs_likelihood;   //!
-   TBranch        *b_LumiCalClusters_particleIDs_parameters_begin;   //!
-   TBranch        *b_LumiCalClusters_particleIDs_parameters_end;   //!
-   TBranch        *b__LumiCalClusters_particleIDs_parameters;   //!
    TBranch        *b_LumiCalCollection_;   //!
    TBranch        *b_LumiCalCollection_cellID;   //!
    TBranch        *b_LumiCalCollection_energy;   //!
@@ -2104,15 +1799,13 @@ public :
    TBranch        *b_LumiCalRecoParticles_charge;   //!
    TBranch        *b_LumiCalRecoParticles_mass;   //!
    TBranch        *b_LumiCalRecoParticles_goodnessOfPID;   //!
-   TBranch        *b_LumiCalRecoParticles_covMatrix;   //!
+   TBranch        *b_LumiCalRecoParticles_covMatrix_values;   //!
    TBranch        *b_LumiCalRecoParticles_clusters_begin;   //!
    TBranch        *b_LumiCalRecoParticles_clusters_end;   //!
    TBranch        *b_LumiCalRecoParticles_tracks_begin;   //!
    TBranch        *b_LumiCalRecoParticles_tracks_end;   //!
    TBranch        *b_LumiCalRecoParticles_particles_begin;   //!
    TBranch        *b_LumiCalRecoParticles_particles_end;   //!
-   TBranch        *b_LumiCalRecoParticles_particleIDs_begin;   //!
-   TBranch        *b_LumiCalRecoParticles_particleIDs_end;   //!
    TBranch        *b__LumiCalRecoParticles_clusters_;   //!
    TBranch        *b__LumiCalRecoParticles_clusters_index;   //!
    TBranch        *b__LumiCalRecoParticles_clusters_collectionID;   //!
@@ -2122,23 +1815,17 @@ public :
    TBranch        *b__LumiCalRecoParticles_particles_;   //!
    TBranch        *b__LumiCalRecoParticles_particles_index;   //!
    TBranch        *b__LumiCalRecoParticles_particles_collectionID;   //!
-   TBranch        *b__LumiCalRecoParticles_particleIDs_;   //!
-   TBranch        *b__LumiCalRecoParticles_particleIDs_index;   //!
-   TBranch        *b__LumiCalRecoParticles_particleIDs_collectionID;   //!
-   TBranch        *b__LumiCalRecoParticles_startVertex_;   //!
-   TBranch        *b__LumiCalRecoParticles_startVertex_index;   //!
-   TBranch        *b__LumiCalRecoParticles_startVertex_collectionID;   //!
-   TBranch        *b__LumiCalRecoParticles_particleIDUsed_;   //!
-   TBranch        *b__LumiCalRecoParticles_particleIDUsed_index;   //!
-   TBranch        *b__LumiCalRecoParticles_particleIDUsed_collectionID;   //!
-   TBranch        *b_LumiCalRecoParticles_particleIDs_;   //!
-   TBranch        *b_LumiCalRecoParticles_particleIDs_type;   //!
-   TBranch        *b_LumiCalRecoParticles_particleIDs_PDG;   //!
-   TBranch        *b_LumiCalRecoParticles_particleIDs_algorithmType;   //!
-   TBranch        *b_LumiCalRecoParticles_particleIDs_likelihood;   //!
-   TBranch        *b_LumiCalRecoParticles_particleIDs_parameters_begin;   //!
-   TBranch        *b_LumiCalRecoParticles_particleIDs_parameters_end;   //!
-   TBranch        *b__LumiCalRecoParticles_particleIDs_parameters;   //!
+   TBranch        *b__LumiCalRecoParticles_decayVertex_;   //!
+   TBranch        *b__LumiCalRecoParticles_decayVertex_index;   //!
+   TBranch        *b__LumiCalRecoParticles_decayVertex_collectionID;   //!
+   TBranch        *b_LumiCalRecoParticles_startVertices_;   //!
+   TBranch        *b_LumiCalRecoParticles_startVertices_weight;   //!
+   TBranch        *b__LumiCalRecoParticles_startVertices_rec_;   //!
+   TBranch        *b__LumiCalRecoParticles_startVertices_rec_index;   //!
+   TBranch        *b__LumiCalRecoParticles_startVertices_rec_collectionID;   //!
+   TBranch        *b__LumiCalRecoParticles_startVertices_vertex_;   //!
+   TBranch        *b__LumiCalRecoParticles_startVertices_vertex_index;   //!
+   TBranch        *b__LumiCalRecoParticles_startVertices_vertex_collectionID;   //!
    TBranch        *b_MCParticles_;   //!
    TBranch        *b_MCParticles_PDG;   //!
    TBranch        *b_MCParticles_generatorStatus;   //!
@@ -2228,7 +1915,7 @@ public :
    TBranch        *b_OTrackerEndcapHits_position_x;   //!
    TBranch        *b_OTrackerEndcapHits_position_y;   //!
    TBranch        *b_OTrackerEndcapHits_position_z;   //!
-   TBranch        *b_OTrackerEndcapHits_covMatrix;   //!
+   TBranch        *b_OTrackerEndcapHits_covMatrix_values;   //!
    TBranch        *b_OTrackerHits_;   //!
    TBranch        *b_OTrackerHits_cellID;   //!
    TBranch        *b_OTrackerHits_type;   //!
@@ -2245,7 +1932,7 @@ public :
    TBranch        *b_OTrackerHits_position_x;   //!
    TBranch        *b_OTrackerHits_position_y;   //!
    TBranch        *b_OTrackerHits_position_z;   //!
-   TBranch        *b_OTrackerHits_covMatrix;   //!
+   TBranch        *b_OTrackerHits_covMatrix_values;   //!
    TBranch        *b_OuterTrackerBarrelCollection_;   //!
    TBranch        *b_OuterTrackerBarrelCollection_cellID;   //!
    TBranch        *b_OuterTrackerBarrelCollection_eDep;   //!
@@ -2299,7 +1986,7 @@ public :
    TBranch        *b_PandoraClusters_position_x;   //!
    TBranch        *b_PandoraClusters_position_y;   //!
    TBranch        *b_PandoraClusters_position_z;   //!
-   TBranch        *b_PandoraClusters_positionError;   //!
+   TBranch        *b_PandoraClusters_positionError_values;   //!
    TBranch        *b_PandoraClusters_iTheta;   //!
    TBranch        *b_PandoraClusters_phi;   //!
    TBranch        *b_PandoraClusters_directionError_x;   //!
@@ -2313,27 +2000,14 @@ public :
    TBranch        *b_PandoraClusters_clusters_end;   //!
    TBranch        *b_PandoraClusters_hits_begin;   //!
    TBranch        *b_PandoraClusters_hits_end;   //!
-   TBranch        *b_PandoraClusters_particleIDs_begin;   //!
-   TBranch        *b_PandoraClusters_particleIDs_end;   //!
    TBranch        *b__PandoraClusters_clusters_;   //!
    TBranch        *b__PandoraClusters_clusters_index;   //!
    TBranch        *b__PandoraClusters_clusters_collectionID;   //!
    TBranch        *b__PandoraClusters_hits_;   //!
    TBranch        *b__PandoraClusters_hits_index;   //!
    TBranch        *b__PandoraClusters_hits_collectionID;   //!
-   TBranch        *b__PandoraClusters_particleIDs_;   //!
-   TBranch        *b__PandoraClusters_particleIDs_index;   //!
-   TBranch        *b__PandoraClusters_particleIDs_collectionID;   //!
    TBranch        *b__PandoraClusters_shapeParameters;   //!
    TBranch        *b__PandoraClusters_subdetectorEnergies;   //!
-   TBranch        *b_PandoraClusters_particleIDs_;   //!
-   TBranch        *b_PandoraClusters_particleIDs_type;   //!
-   TBranch        *b_PandoraClusters_particleIDs_PDG;   //!
-   TBranch        *b_PandoraClusters_particleIDs_algorithmType;   //!
-   TBranch        *b_PandoraClusters_particleIDs_likelihood;   //!
-   TBranch        *b_PandoraClusters_particleIDs_parameters_begin;   //!
-   TBranch        *b_PandoraClusters_particleIDs_parameters_end;   //!
-   TBranch        *b__PandoraClusters_particleIDs_parameters;   //!
    TBranch        *b_PandoraPFOs_;   //!
    TBranch        *b_PandoraPFOs_PDG;   //!
    TBranch        *b_PandoraPFOs_energy;   //!
@@ -2346,15 +2020,13 @@ public :
    TBranch        *b_PandoraPFOs_charge;   //!
    TBranch        *b_PandoraPFOs_mass;   //!
    TBranch        *b_PandoraPFOs_goodnessOfPID;   //!
-   TBranch        *b_PandoraPFOs_covMatrix;   //!
+   TBranch        *b_PandoraPFOs_covMatrix_values;   //!
    TBranch        *b_PandoraPFOs_clusters_begin;   //!
    TBranch        *b_PandoraPFOs_clusters_end;   //!
    TBranch        *b_PandoraPFOs_tracks_begin;   //!
    TBranch        *b_PandoraPFOs_tracks_end;   //!
    TBranch        *b_PandoraPFOs_particles_begin;   //!
    TBranch        *b_PandoraPFOs_particles_end;   //!
-   TBranch        *b_PandoraPFOs_particleIDs_begin;   //!
-   TBranch        *b_PandoraPFOs_particleIDs_end;   //!
    TBranch        *b__PandoraPFOs_clusters_;   //!
    TBranch        *b__PandoraPFOs_clusters_index;   //!
    TBranch        *b__PandoraPFOs_clusters_collectionID;   //!
@@ -2364,56 +2036,70 @@ public :
    TBranch        *b__PandoraPFOs_particles_;   //!
    TBranch        *b__PandoraPFOs_particles_index;   //!
    TBranch        *b__PandoraPFOs_particles_collectionID;   //!
-   TBranch        *b__PandoraPFOs_particleIDs_;   //!
-   TBranch        *b__PandoraPFOs_particleIDs_index;   //!
-   TBranch        *b__PandoraPFOs_particleIDs_collectionID;   //!
-   TBranch        *b__PandoraPFOs_startVertex_;   //!
-   TBranch        *b__PandoraPFOs_startVertex_index;   //!
-   TBranch        *b__PandoraPFOs_startVertex_collectionID;   //!
-   TBranch        *b__PandoraPFOs_particleIDUsed_;   //!
-   TBranch        *b__PandoraPFOs_particleIDUsed_index;   //!
-   TBranch        *b__PandoraPFOs_particleIDUsed_collectionID;   //!
-   TBranch        *b_PandoraPFOs_particleIDs_;   //!
-   TBranch        *b_PandoraPFOs_particleIDs_type;   //!
-   TBranch        *b_PandoraPFOs_particleIDs_PDG;   //!
-   TBranch        *b_PandoraPFOs_particleIDs_algorithmType;   //!
-   TBranch        *b_PandoraPFOs_particleIDs_likelihood;   //!
-   TBranch        *b_PandoraPFOs_particleIDs_parameters_begin;   //!
-   TBranch        *b_PandoraPFOs_particleIDs_parameters_end;   //!
-   TBranch        *b__PandoraPFOs_particleIDs_parameters;   //!
+   TBranch        *b__PandoraPFOs_decayVertex_;   //!
+   TBranch        *b__PandoraPFOs_decayVertex_index;   //!
+   TBranch        *b__PandoraPFOs_decayVertex_collectionID;   //!
+   TBranch        *b_PandoraPFOs_startVertices_;   //!
+   TBranch        *b_PandoraPFOs_startVertices_weight;   //!
+   TBranch        *b__PandoraPFOs_startVertices_rec_;   //!
+   TBranch        *b__PandoraPFOs_startVertices_rec_index;   //!
+   TBranch        *b__PandoraPFOs_startVertices_rec_collectionID;   //!
+   TBranch        *b__PandoraPFOs_startVertices_vertex_;   //!
+   TBranch        *b__PandoraPFOs_startVertices_vertex_index;   //!
+   TBranch        *b__PandoraPFOs_startVertices_vertex_collectionID;   //!
    TBranch        *b_PandoraStartVertices_;   //!
-   TBranch        *b_PandoraStartVertices_primary;   //!
+   TBranch        *b_PandoraStartVertices_type;   //!
    TBranch        *b_PandoraStartVertices_chi2;   //!
-   TBranch        *b_PandoraStartVertices_probability;   //!
+   TBranch        *b_PandoraStartVertices_ndf;   //!
    TBranch        *b_PandoraStartVertices_position_x;   //!
    TBranch        *b_PandoraStartVertices_position_y;   //!
    TBranch        *b_PandoraStartVertices_position_z;   //!
-   TBranch        *b_PandoraStartVertices_covMatrix;   //!
+   TBranch        *b_PandoraStartVertices_covMatrix_values;   //!
    TBranch        *b_PandoraStartVertices_algorithmType;   //!
    TBranch        *b_PandoraStartVertices_parameters_begin;   //!
    TBranch        *b_PandoraStartVertices_parameters_end;   //!
-   TBranch        *b__PandoraStartVertices_associatedParticle_;   //!
-   TBranch        *b__PandoraStartVertices_associatedParticle_index;   //!
-   TBranch        *b__PandoraStartVertices_associatedParticle_collectionID;   //!
+   TBranch        *b_PandoraStartVertices_particles_begin;   //!
+   TBranch        *b_PandoraStartVertices_particles_end;   //!
+   TBranch        *b__PandoraStartVertices_particles_;   //!
+   TBranch        *b__PandoraStartVertices_particles_index;   //!
+   TBranch        *b__PandoraStartVertices_particles_collectionID;   //!
    TBranch        *b__PandoraStartVertices_parameters;   //!
+   TBranch        *b_PandoraStartVertices_associatedParticles_;   //!
+   TBranch        *b_PandoraStartVertices_associatedParticles_weight;   //!
+   TBranch        *b__PandoraStartVertices_associatedParticles_rec_;   //!
+   TBranch        *b__PandoraStartVertices_associatedParticles_rec_index;   //!
+   TBranch        *b__PandoraStartVertices_associatedParticles_rec_collectionID;   //!
+   TBranch        *b__PandoraStartVertices_associatedParticles_vertex_;   //!
+   TBranch        *b__PandoraStartVertices_associatedParticles_vertex_index;   //!
+   TBranch        *b__PandoraStartVertices_associatedParticles_vertex_collectionID;   //!
    TBranch        *b_PFOsFromJets_objIdx_;   //!
    TBranch        *b_PFOsFromJets_objIdx_index;   //!
    TBranch        *b_PFOsFromJets_objIdx_collectionID;   //!
    TBranch        *b_PrimaryVertices_;   //!
-   TBranch        *b_PrimaryVertices_primary;   //!
+   TBranch        *b_PrimaryVertices_type;   //!
    TBranch        *b_PrimaryVertices_chi2;   //!
-   TBranch        *b_PrimaryVertices_probability;   //!
+   TBranch        *b_PrimaryVertices_ndf;   //!
    TBranch        *b_PrimaryVertices_position_x;   //!
    TBranch        *b_PrimaryVertices_position_y;   //!
    TBranch        *b_PrimaryVertices_position_z;   //!
-   TBranch        *b_PrimaryVertices_covMatrix;   //!
+   TBranch        *b_PrimaryVertices_covMatrix_values;   //!
    TBranch        *b_PrimaryVertices_algorithmType;   //!
    TBranch        *b_PrimaryVertices_parameters_begin;   //!
    TBranch        *b_PrimaryVertices_parameters_end;   //!
-   TBranch        *b__PrimaryVertices_associatedParticle_;   //!
-   TBranch        *b__PrimaryVertices_associatedParticle_index;   //!
-   TBranch        *b__PrimaryVertices_associatedParticle_collectionID;   //!
+   TBranch        *b_PrimaryVertices_particles_begin;   //!
+   TBranch        *b_PrimaryVertices_particles_end;   //!
+   TBranch        *b__PrimaryVertices_particles_;   //!
+   TBranch        *b__PrimaryVertices_particles_index;   //!
+   TBranch        *b__PrimaryVertices_particles_collectionID;   //!
    TBranch        *b__PrimaryVertices_parameters;   //!
+   TBranch        *b_PrimaryVertices_associatedParticles_;   //!
+   TBranch        *b_PrimaryVertices_associatedParticles_weight;   //!
+   TBranch        *b__PrimaryVertices_associatedParticles_rec_;   //!
+   TBranch        *b__PrimaryVertices_associatedParticles_rec_index;   //!
+   TBranch        *b__PrimaryVertices_associatedParticles_rec_collectionID;   //!
+   TBranch        *b__PrimaryVertices_associatedParticles_vertex_;   //!
+   TBranch        *b__PrimaryVertices_associatedParticles_vertex_index;   //!
+   TBranch        *b__PrimaryVertices_associatedParticles_vertex_collectionID;   //!
    TBranch        *b_PrimaryVertices_RP_;   //!
    TBranch        *b_PrimaryVertices_RP_PDG;   //!
    TBranch        *b_PrimaryVertices_RP_energy;   //!
@@ -2426,15 +2112,13 @@ public :
    TBranch        *b_PrimaryVertices_RP_charge;   //!
    TBranch        *b_PrimaryVertices_RP_mass;   //!
    TBranch        *b_PrimaryVertices_RP_goodnessOfPID;   //!
-   TBranch        *b_PrimaryVertices_RP_covMatrix;   //!
+   TBranch        *b_PrimaryVertices_RP_covMatrix_values;   //!
    TBranch        *b_PrimaryVertices_RP_clusters_begin;   //!
    TBranch        *b_PrimaryVertices_RP_clusters_end;   //!
    TBranch        *b_PrimaryVertices_RP_tracks_begin;   //!
    TBranch        *b_PrimaryVertices_RP_tracks_end;   //!
    TBranch        *b_PrimaryVertices_RP_particles_begin;   //!
    TBranch        *b_PrimaryVertices_RP_particles_end;   //!
-   TBranch        *b_PrimaryVertices_RP_particleIDs_begin;   //!
-   TBranch        *b_PrimaryVertices_RP_particleIDs_end;   //!
    TBranch        *b__PrimaryVertices_RP_clusters_;   //!
    TBranch        *b__PrimaryVertices_RP_clusters_index;   //!
    TBranch        *b__PrimaryVertices_RP_clusters_collectionID;   //!
@@ -2444,23 +2128,17 @@ public :
    TBranch        *b__PrimaryVertices_RP_particles_;   //!
    TBranch        *b__PrimaryVertices_RP_particles_index;   //!
    TBranch        *b__PrimaryVertices_RP_particles_collectionID;   //!
-   TBranch        *b__PrimaryVertices_RP_particleIDs_;   //!
-   TBranch        *b__PrimaryVertices_RP_particleIDs_index;   //!
-   TBranch        *b__PrimaryVertices_RP_particleIDs_collectionID;   //!
-   TBranch        *b__PrimaryVertices_RP_startVertex_;   //!
-   TBranch        *b__PrimaryVertices_RP_startVertex_index;   //!
-   TBranch        *b__PrimaryVertices_RP_startVertex_collectionID;   //!
-   TBranch        *b__PrimaryVertices_RP_particleIDUsed_;   //!
-   TBranch        *b__PrimaryVertices_RP_particleIDUsed_index;   //!
-   TBranch        *b__PrimaryVertices_RP_particleIDUsed_collectionID;   //!
-   TBranch        *b_PrimaryVertices_RP_particleIDs_;   //!
-   TBranch        *b_PrimaryVertices_RP_particleIDs_type;   //!
-   TBranch        *b_PrimaryVertices_RP_particleIDs_PDG;   //!
-   TBranch        *b_PrimaryVertices_RP_particleIDs_algorithmType;   //!
-   TBranch        *b_PrimaryVertices_RP_particleIDs_likelihood;   //!
-   TBranch        *b_PrimaryVertices_RP_particleIDs_parameters_begin;   //!
-   TBranch        *b_PrimaryVertices_RP_particleIDs_parameters_end;   //!
-   TBranch        *b__PrimaryVertices_RP_particleIDs_parameters;   //!
+   TBranch        *b__PrimaryVertices_RP_decayVertex_;   //!
+   TBranch        *b__PrimaryVertices_RP_decayVertex_index;   //!
+   TBranch        *b__PrimaryVertices_RP_decayVertex_collectionID;   //!
+   TBranch        *b_PrimaryVertices_RP_startVertices_;   //!
+   TBranch        *b_PrimaryVertices_RP_startVertices_weight;   //!
+   TBranch        *b__PrimaryVertices_RP_startVertices_rec_;   //!
+   TBranch        *b__PrimaryVertices_RP_startVertices_rec_index;   //!
+   TBranch        *b__PrimaryVertices_RP_startVertices_rec_collectionID;   //!
+   TBranch        *b__PrimaryVertices_RP_startVertices_vertex_;   //!
+   TBranch        *b__PrimaryVertices_RP_startVertices_vertex_index;   //!
+   TBranch        *b__PrimaryVertices_RP_startVertices_vertex_collectionID;   //!
    TBranch        *b_RecoMCTruthLink_;   //!
    TBranch        *b_RecoMCTruthLink_weight;   //!
    TBranch        *b__RecoMCTruthLink_rec_;   //!
@@ -2469,185 +2147,6 @@ public :
    TBranch        *b__RecoMCTruthLink_sim_;   //!
    TBranch        *b__RecoMCTruthLink_sim_index;   //!
    TBranch        *b__RecoMCTruthLink_sim_collectionID;   //!
-   TBranch        *b_RefinedVertexJets_;   //!
-   TBranch        *b_RefinedVertexJets_PDG;   //!
-   TBranch        *b_RefinedVertexJets_energy;   //!
-   TBranch        *b_RefinedVertexJets_momentum_x;   //!
-   TBranch        *b_RefinedVertexJets_momentum_y;   //!
-   TBranch        *b_RefinedVertexJets_momentum_z;   //!
-   TBranch        *b_RefinedVertexJets_referencePoint_x;   //!
-   TBranch        *b_RefinedVertexJets_referencePoint_y;   //!
-   TBranch        *b_RefinedVertexJets_referencePoint_z;   //!
-   TBranch        *b_RefinedVertexJets_charge;   //!
-   TBranch        *b_RefinedVertexJets_mass;   //!
-   TBranch        *b_RefinedVertexJets_goodnessOfPID;   //!
-   TBranch        *b_RefinedVertexJets_covMatrix;   //!
-   TBranch        *b_RefinedVertexJets_clusters_begin;   //!
-   TBranch        *b_RefinedVertexJets_clusters_end;   //!
-   TBranch        *b_RefinedVertexJets_tracks_begin;   //!
-   TBranch        *b_RefinedVertexJets_tracks_end;   //!
-   TBranch        *b_RefinedVertexJets_particles_begin;   //!
-   TBranch        *b_RefinedVertexJets_particles_end;   //!
-   TBranch        *b_RefinedVertexJets_particleIDs_begin;   //!
-   TBranch        *b_RefinedVertexJets_particleIDs_end;   //!
-   TBranch        *b__RefinedVertexJets_clusters_;   //!
-   TBranch        *b__RefinedVertexJets_clusters_index;   //!
-   TBranch        *b__RefinedVertexJets_clusters_collectionID;   //!
-   TBranch        *b__RefinedVertexJets_tracks_;   //!
-   TBranch        *b__RefinedVertexJets_tracks_index;   //!
-   TBranch        *b__RefinedVertexJets_tracks_collectionID;   //!
-   TBranch        *b__RefinedVertexJets_particles_;   //!
-   TBranch        *b__RefinedVertexJets_particles_index;   //!
-   TBranch        *b__RefinedVertexJets_particles_collectionID;   //!
-   TBranch        *b__RefinedVertexJets_particleIDs_;   //!
-   TBranch        *b__RefinedVertexJets_particleIDs_index;   //!
-   TBranch        *b__RefinedVertexJets_particleIDs_collectionID;   //!
-   TBranch        *b__RefinedVertexJets_startVertex_;   //!
-   TBranch        *b__RefinedVertexJets_startVertex_index;   //!
-   TBranch        *b__RefinedVertexJets_startVertex_collectionID;   //!
-   TBranch        *b__RefinedVertexJets_particleIDUsed_;   //!
-   TBranch        *b__RefinedVertexJets_particleIDUsed_index;   //!
-   TBranch        *b__RefinedVertexJets_particleIDUsed_collectionID;   //!
-   TBranch        *b_RefinedVertexJets_particleIDs_;   //!
-   TBranch        *b_RefinedVertexJets_particleIDs_type;   //!
-   TBranch        *b_RefinedVertexJets_particleIDs_PDG;   //!
-   TBranch        *b_RefinedVertexJets_particleIDs_algorithmType;   //!
-   TBranch        *b_RefinedVertexJets_particleIDs_likelihood;   //!
-   TBranch        *b_RefinedVertexJets_particleIDs_parameters_begin;   //!
-   TBranch        *b_RefinedVertexJets_particleIDs_parameters_end;   //!
-   TBranch        *b__RefinedVertexJets_particleIDs_parameters;   //!
-   TBranch        *b_RefinedVertexJets_rel_;   //!
-   TBranch        *b_RefinedVertexJets_rel_weight;   //!
-   TBranch        *b__RefinedVertexJets_rel_rec_;   //!
-   TBranch        *b__RefinedVertexJets_rel_rec_index;   //!
-   TBranch        *b__RefinedVertexJets_rel_rec_collectionID;   //!
-   TBranch        *b__RefinedVertexJets_rel_vertex_;   //!
-   TBranch        *b__RefinedVertexJets_rel_vertex_index;   //!
-   TBranch        *b__RefinedVertexJets_rel_vertex_collectionID;   //!
-   TBranch        *b_RefinedVertexJets_vtx_;   //!
-   TBranch        *b_RefinedVertexJets_vtx_primary;   //!
-   TBranch        *b_RefinedVertexJets_vtx_chi2;   //!
-   TBranch        *b_RefinedVertexJets_vtx_probability;   //!
-   TBranch        *b_RefinedVertexJets_vtx_position_x;   //!
-   TBranch        *b_RefinedVertexJets_vtx_position_y;   //!
-   TBranch        *b_RefinedVertexJets_vtx_position_z;   //!
-   TBranch        *b_RefinedVertexJets_vtx_covMatrix;   //!
-   TBranch        *b_RefinedVertexJets_vtx_algorithmType;   //!
-   TBranch        *b_RefinedVertexJets_vtx_parameters_begin;   //!
-   TBranch        *b_RefinedVertexJets_vtx_parameters_end;   //!
-   TBranch        *b__RefinedVertexJets_vtx_associatedParticle_;   //!
-   TBranch        *b__RefinedVertexJets_vtx_associatedParticle_index;   //!
-   TBranch        *b__RefinedVertexJets_vtx_associatedParticle_collectionID;   //!
-   TBranch        *b__RefinedVertexJets_vtx_parameters;   //!
-   TBranch        *b_RefinedVertexJets_vtx_RP_;   //!
-   TBranch        *b_RefinedVertexJets_vtx_RP_PDG;   //!
-   TBranch        *b_RefinedVertexJets_vtx_RP_energy;   //!
-   TBranch        *b_RefinedVertexJets_vtx_RP_momentum_x;   //!
-   TBranch        *b_RefinedVertexJets_vtx_RP_momentum_y;   //!
-   TBranch        *b_RefinedVertexJets_vtx_RP_momentum_z;   //!
-   TBranch        *b_RefinedVertexJets_vtx_RP_referencePoint_x;   //!
-   TBranch        *b_RefinedVertexJets_vtx_RP_referencePoint_y;   //!
-   TBranch        *b_RefinedVertexJets_vtx_RP_referencePoint_z;   //!
-   TBranch        *b_RefinedVertexJets_vtx_RP_charge;   //!
-   TBranch        *b_RefinedVertexJets_vtx_RP_mass;   //!
-   TBranch        *b_RefinedVertexJets_vtx_RP_goodnessOfPID;   //!
-   TBranch        *b_RefinedVertexJets_vtx_RP_covMatrix;   //!
-   TBranch        *b_RefinedVertexJets_vtx_RP_clusters_begin;   //!
-   TBranch        *b_RefinedVertexJets_vtx_RP_clusters_end;   //!
-   TBranch        *b_RefinedVertexJets_vtx_RP_tracks_begin;   //!
-   TBranch        *b_RefinedVertexJets_vtx_RP_tracks_end;   //!
-   TBranch        *b_RefinedVertexJets_vtx_RP_particles_begin;   //!
-   TBranch        *b_RefinedVertexJets_vtx_RP_particles_end;   //!
-   TBranch        *b_RefinedVertexJets_vtx_RP_particleIDs_begin;   //!
-   TBranch        *b_RefinedVertexJets_vtx_RP_particleIDs_end;   //!
-   TBranch        *b__RefinedVertexJets_vtx_RP_clusters_;   //!
-   TBranch        *b__RefinedVertexJets_vtx_RP_clusters_index;   //!
-   TBranch        *b__RefinedVertexJets_vtx_RP_clusters_collectionID;   //!
-   TBranch        *b__RefinedVertexJets_vtx_RP_tracks_;   //!
-   TBranch        *b__RefinedVertexJets_vtx_RP_tracks_index;   //!
-   TBranch        *b__RefinedVertexJets_vtx_RP_tracks_collectionID;   //!
-   TBranch        *b__RefinedVertexJets_vtx_RP_particles_;   //!
-   TBranch        *b__RefinedVertexJets_vtx_RP_particles_index;   //!
-   TBranch        *b__RefinedVertexJets_vtx_RP_particles_collectionID;   //!
-   TBranch        *b__RefinedVertexJets_vtx_RP_particleIDs_;   //!
-   TBranch        *b__RefinedVertexJets_vtx_RP_particleIDs_index;   //!
-   TBranch        *b__RefinedVertexJets_vtx_RP_particleIDs_collectionID;   //!
-   TBranch        *b__RefinedVertexJets_vtx_RP_startVertex_;   //!
-   TBranch        *b__RefinedVertexJets_vtx_RP_startVertex_index;   //!
-   TBranch        *b__RefinedVertexJets_vtx_RP_startVertex_collectionID;   //!
-   TBranch        *b__RefinedVertexJets_vtx_RP_particleIDUsed_;   //!
-   TBranch        *b__RefinedVertexJets_vtx_RP_particleIDUsed_index;   //!
-   TBranch        *b__RefinedVertexJets_vtx_RP_particleIDUsed_collectionID;   //!
-   TBranch        *b_RefinedVertexJets_vtx_RP_particleIDs_;   //!
-   TBranch        *b_RefinedVertexJets_vtx_RP_particleIDs_type;   //!
-   TBranch        *b_RefinedVertexJets_vtx_RP_particleIDs_PDG;   //!
-   TBranch        *b_RefinedVertexJets_vtx_RP_particleIDs_algorithmType;   //!
-   TBranch        *b_RefinedVertexJets_vtx_RP_particleIDs_likelihood;   //!
-   TBranch        *b_RefinedVertexJets_vtx_RP_particleIDs_parameters_begin;   //!
-   TBranch        *b_RefinedVertexJets_vtx_RP_particleIDs_parameters_end;   //!
-   TBranch        *b__RefinedVertexJets_vtx_RP_particleIDs_parameters;   //!
-   TBranch        *b_RefinedVertices_;   //!
-   TBranch        *b_RefinedVertices_primary;   //!
-   TBranch        *b_RefinedVertices_chi2;   //!
-   TBranch        *b_RefinedVertices_probability;   //!
-   TBranch        *b_RefinedVertices_position_x;   //!
-   TBranch        *b_RefinedVertices_position_y;   //!
-   TBranch        *b_RefinedVertices_position_z;   //!
-   TBranch        *b_RefinedVertices_covMatrix;   //!
-   TBranch        *b_RefinedVertices_algorithmType;   //!
-   TBranch        *b_RefinedVertices_parameters_begin;   //!
-   TBranch        *b_RefinedVertices_parameters_end;   //!
-   TBranch        *b__RefinedVertices_associatedParticle_;   //!
-   TBranch        *b__RefinedVertices_associatedParticle_index;   //!
-   TBranch        *b__RefinedVertices_associatedParticle_collectionID;   //!
-   TBranch        *b__RefinedVertices_parameters;   //!
-   TBranch        *b_RefinedVertices_RP_;   //!
-   TBranch        *b_RefinedVertices_RP_PDG;   //!
-   TBranch        *b_RefinedVertices_RP_energy;   //!
-   TBranch        *b_RefinedVertices_RP_momentum_x;   //!
-   TBranch        *b_RefinedVertices_RP_momentum_y;   //!
-   TBranch        *b_RefinedVertices_RP_momentum_z;   //!
-   TBranch        *b_RefinedVertices_RP_referencePoint_x;   //!
-   TBranch        *b_RefinedVertices_RP_referencePoint_y;   //!
-   TBranch        *b_RefinedVertices_RP_referencePoint_z;   //!
-   TBranch        *b_RefinedVertices_RP_charge;   //!
-   TBranch        *b_RefinedVertices_RP_mass;   //!
-   TBranch        *b_RefinedVertices_RP_goodnessOfPID;   //!
-   TBranch        *b_RefinedVertices_RP_covMatrix;   //!
-   TBranch        *b_RefinedVertices_RP_clusters_begin;   //!
-   TBranch        *b_RefinedVertices_RP_clusters_end;   //!
-   TBranch        *b_RefinedVertices_RP_tracks_begin;   //!
-   TBranch        *b_RefinedVertices_RP_tracks_end;   //!
-   TBranch        *b_RefinedVertices_RP_particles_begin;   //!
-   TBranch        *b_RefinedVertices_RP_particles_end;   //!
-   TBranch        *b_RefinedVertices_RP_particleIDs_begin;   //!
-   TBranch        *b_RefinedVertices_RP_particleIDs_end;   //!
-   TBranch        *b__RefinedVertices_RP_clusters_;   //!
-   TBranch        *b__RefinedVertices_RP_clusters_index;   //!
-   TBranch        *b__RefinedVertices_RP_clusters_collectionID;   //!
-   TBranch        *b__RefinedVertices_RP_tracks_;   //!
-   TBranch        *b__RefinedVertices_RP_tracks_index;   //!
-   TBranch        *b__RefinedVertices_RP_tracks_collectionID;   //!
-   TBranch        *b__RefinedVertices_RP_particles_;   //!
-   TBranch        *b__RefinedVertices_RP_particles_index;   //!
-   TBranch        *b__RefinedVertices_RP_particles_collectionID;   //!
-   TBranch        *b__RefinedVertices_RP_particleIDs_;   //!
-   TBranch        *b__RefinedVertices_RP_particleIDs_index;   //!
-   TBranch        *b__RefinedVertices_RP_particleIDs_collectionID;   //!
-   TBranch        *b__RefinedVertices_RP_startVertex_;   //!
-   TBranch        *b__RefinedVertices_RP_startVertex_index;   //!
-   TBranch        *b__RefinedVertices_RP_startVertex_collectionID;   //!
-   TBranch        *b__RefinedVertices_RP_particleIDUsed_;   //!
-   TBranch        *b__RefinedVertices_RP_particleIDUsed_index;   //!
-   TBranch        *b__RefinedVertices_RP_particleIDUsed_collectionID;   //!
-   TBranch        *b_RefinedVertices_RP_particleIDs_;   //!
-   TBranch        *b_RefinedVertices_RP_particleIDs_type;   //!
-   TBranch        *b_RefinedVertices_RP_particleIDs_PDG;   //!
-   TBranch        *b_RefinedVertices_RP_particleIDs_algorithmType;   //!
-   TBranch        *b_RefinedVertices_RP_particleIDs_likelihood;   //!
-   TBranch        *b_RefinedVertices_RP_particleIDs_parameters_begin;   //!
-   TBranch        *b_RefinedVertices_RP_particleIDs_parameters_end;   //!
-   TBranch        *b__RefinedVertices_RP_particleIDs_parameters;   //!
    TBranch        *b_RelationCaloHit_;   //!
    TBranch        *b_RelationCaloHit_weight;   //!
    TBranch        *b__RelationCaloHit_rec_;   //!
@@ -2671,15 +2170,10 @@ public :
    TBranch        *b_SiTracks_type;   //!
    TBranch        *b_SiTracks_chi2;   //!
    TBranch        *b_SiTracks_ndf;   //!
-   TBranch        *b_SiTracks_dEdx;   //!
-   TBranch        *b_SiTracks_dEdxError;   //!
-   TBranch        *b_SiTracks_radiusOfInnermostHit;   //!
    TBranch        *b_SiTracks_subdetectorHitNumbers_begin;   //!
    TBranch        *b_SiTracks_subdetectorHitNumbers_end;   //!
    TBranch        *b_SiTracks_trackStates_begin;   //!
    TBranch        *b_SiTracks_trackStates_end;   //!
-   TBranch        *b_SiTracks_dxQuantities_begin;   //!
-   TBranch        *b_SiTracks_dxQuantities_end;   //!
    TBranch        *b_SiTracks_trackerHits_begin;   //!
    TBranch        *b_SiTracks_trackerHits_end;   //!
    TBranch        *b_SiTracks_tracks_begin;   //!
@@ -2702,24 +2196,22 @@ public :
    TBranch        *b__SiTracks_trackStates_referencePoint_x;   //!
    TBranch        *b__SiTracks_trackStates_referencePoint_y;   //!
    TBranch        *b__SiTracks_trackStates_referencePoint_z;   //!
-   TBranch        *b__SiTracks_trackStates_covMatrix;   //!
-   TBranch        *b__SiTracks_dxQuantities_;   //!
-   TBranch        *b__SiTracks_dxQuantities_type;   //!
-   TBranch        *b__SiTracks_dxQuantities_value;   //!
-   TBranch        *b__SiTracks_dxQuantities_error;   //!
+   TBranch        *b__SiTracks_trackStates_covMatrix_values;   //!
+   TBranch        *b_SiTracks_dQdx_;   //!
+   TBranch        *b_SiTracks_dQdx_dQdx_type;   //!
+   TBranch        *b_SiTracks_dQdx_dQdx_value;   //!
+   TBranch        *b_SiTracks_dQdx_dQdx_error;   //!
+   TBranch        *b__SiTracks_dQdx_track_;   //!
+   TBranch        *b__SiTracks_dQdx_track_index;   //!
+   TBranch        *b__SiTracks_dQdx_track_collectionID;   //!
    TBranch        *b_SiTracks_Refitted_;   //!
    TBranch        *b_SiTracks_Refitted_type;   //!
    TBranch        *b_SiTracks_Refitted_chi2;   //!
    TBranch        *b_SiTracks_Refitted_ndf;   //!
-   TBranch        *b_SiTracks_Refitted_dEdx;   //!
-   TBranch        *b_SiTracks_Refitted_dEdxError;   //!
-   TBranch        *b_SiTracks_Refitted_radiusOfInnermostHit;   //!
    TBranch        *b_SiTracks_Refitted_subdetectorHitNumbers_begin;   //!
    TBranch        *b_SiTracks_Refitted_subdetectorHitNumbers_end;   //!
    TBranch        *b_SiTracks_Refitted_trackStates_begin;   //!
    TBranch        *b_SiTracks_Refitted_trackStates_end;   //!
-   TBranch        *b_SiTracks_Refitted_dxQuantities_begin;   //!
-   TBranch        *b_SiTracks_Refitted_dxQuantities_end;   //!
    TBranch        *b_SiTracks_Refitted_trackerHits_begin;   //!
    TBranch        *b_SiTracks_Refitted_trackerHits_end;   //!
    TBranch        *b_SiTracks_Refitted_tracks_begin;   //!
@@ -2742,24 +2234,22 @@ public :
    TBranch        *b__SiTracks_Refitted_trackStates_referencePoint_x;   //!
    TBranch        *b__SiTracks_Refitted_trackStates_referencePoint_y;   //!
    TBranch        *b__SiTracks_Refitted_trackStates_referencePoint_z;   //!
-   TBranch        *b__SiTracks_Refitted_trackStates_covMatrix;   //!
-   TBranch        *b__SiTracks_Refitted_dxQuantities_;   //!
-   TBranch        *b__SiTracks_Refitted_dxQuantities_type;   //!
-   TBranch        *b__SiTracks_Refitted_dxQuantities_value;   //!
-   TBranch        *b__SiTracks_Refitted_dxQuantities_error;   //!
+   TBranch        *b__SiTracks_Refitted_trackStates_covMatrix_values;   //!
+   TBranch        *b_SiTracks_Refitted_dQdx_;   //!
+   TBranch        *b_SiTracks_Refitted_dQdx_dQdx_type;   //!
+   TBranch        *b_SiTracks_Refitted_dQdx_dQdx_value;   //!
+   TBranch        *b_SiTracks_Refitted_dQdx_dQdx_error;   //!
+   TBranch        *b__SiTracks_Refitted_dQdx_track_;   //!
+   TBranch        *b__SiTracks_Refitted_dQdx_track_index;   //!
+   TBranch        *b__SiTracks_Refitted_dQdx_track_collectionID;   //!
    TBranch        *b_SiTracksCT_;   //!
    TBranch        *b_SiTracksCT_type;   //!
    TBranch        *b_SiTracksCT_chi2;   //!
    TBranch        *b_SiTracksCT_ndf;   //!
-   TBranch        *b_SiTracksCT_dEdx;   //!
-   TBranch        *b_SiTracksCT_dEdxError;   //!
-   TBranch        *b_SiTracksCT_radiusOfInnermostHit;   //!
    TBranch        *b_SiTracksCT_subdetectorHitNumbers_begin;   //!
    TBranch        *b_SiTracksCT_subdetectorHitNumbers_end;   //!
    TBranch        *b_SiTracksCT_trackStates_begin;   //!
    TBranch        *b_SiTracksCT_trackStates_end;   //!
-   TBranch        *b_SiTracksCT_dxQuantities_begin;   //!
-   TBranch        *b_SiTracksCT_dxQuantities_end;   //!
    TBranch        *b_SiTracksCT_trackerHits_begin;   //!
    TBranch        *b_SiTracksCT_trackerHits_end;   //!
    TBranch        *b_SiTracksCT_tracks_begin;   //!
@@ -2782,11 +2272,14 @@ public :
    TBranch        *b__SiTracksCT_trackStates_referencePoint_x;   //!
    TBranch        *b__SiTracksCT_trackStates_referencePoint_y;   //!
    TBranch        *b__SiTracksCT_trackStates_referencePoint_z;   //!
-   TBranch        *b__SiTracksCT_trackStates_covMatrix;   //!
-   TBranch        *b__SiTracksCT_dxQuantities_;   //!
-   TBranch        *b__SiTracksCT_dxQuantities_type;   //!
-   TBranch        *b__SiTracksCT_dxQuantities_value;   //!
-   TBranch        *b__SiTracksCT_dxQuantities_error;   //!
+   TBranch        *b__SiTracksCT_trackStates_covMatrix_values;   //!
+   TBranch        *b_SiTracksCT_dQdx_;   //!
+   TBranch        *b_SiTracksCT_dQdx_dQdx_type;   //!
+   TBranch        *b_SiTracksCT_dQdx_dQdx_value;   //!
+   TBranch        *b_SiTracksCT_dQdx_dQdx_error;   //!
+   TBranch        *b__SiTracksCT_dQdx_track_;   //!
+   TBranch        *b__SiTracksCT_dQdx_track_index;   //!
+   TBranch        *b__SiTracksCT_dQdx_track_collectionID;   //!
    TBranch        *b_SiTracksMCTruthLink_;   //!
    TBranch        *b_SiTracksMCTruthLink_weight;   //!
    TBranch        *b__SiTracksMCTruthLink_rec_;   //!
@@ -2828,53 +2321,6 @@ public :
    TBranch        *b__VertexEndcapCollection_particle_;   //!
    TBranch        *b__VertexEndcapCollection_particle_index;   //!
    TBranch        *b__VertexEndcapCollection_particle_collectionID;   //!
-   TBranch        *b_VertexJets_;   //!
-   TBranch        *b_VertexJets_PDG;   //!
-   TBranch        *b_VertexJets_energy;   //!
-   TBranch        *b_VertexJets_momentum_x;   //!
-   TBranch        *b_VertexJets_momentum_y;   //!
-   TBranch        *b_VertexJets_momentum_z;   //!
-   TBranch        *b_VertexJets_referencePoint_x;   //!
-   TBranch        *b_VertexJets_referencePoint_y;   //!
-   TBranch        *b_VertexJets_referencePoint_z;   //!
-   TBranch        *b_VertexJets_charge;   //!
-   TBranch        *b_VertexJets_mass;   //!
-   TBranch        *b_VertexJets_goodnessOfPID;   //!
-   TBranch        *b_VertexJets_covMatrix;   //!
-   TBranch        *b_VertexJets_clusters_begin;   //!
-   TBranch        *b_VertexJets_clusters_end;   //!
-   TBranch        *b_VertexJets_tracks_begin;   //!
-   TBranch        *b_VertexJets_tracks_end;   //!
-   TBranch        *b_VertexJets_particles_begin;   //!
-   TBranch        *b_VertexJets_particles_end;   //!
-   TBranch        *b_VertexJets_particleIDs_begin;   //!
-   TBranch        *b_VertexJets_particleIDs_end;   //!
-   TBranch        *b__VertexJets_clusters_;   //!
-   TBranch        *b__VertexJets_clusters_index;   //!
-   TBranch        *b__VertexJets_clusters_collectionID;   //!
-   TBranch        *b__VertexJets_tracks_;   //!
-   TBranch        *b__VertexJets_tracks_index;   //!
-   TBranch        *b__VertexJets_tracks_collectionID;   //!
-   TBranch        *b__VertexJets_particles_;   //!
-   TBranch        *b__VertexJets_particles_index;   //!
-   TBranch        *b__VertexJets_particles_collectionID;   //!
-   TBranch        *b__VertexJets_particleIDs_;   //!
-   TBranch        *b__VertexJets_particleIDs_index;   //!
-   TBranch        *b__VertexJets_particleIDs_collectionID;   //!
-   TBranch        *b__VertexJets_startVertex_;   //!
-   TBranch        *b__VertexJets_startVertex_index;   //!
-   TBranch        *b__VertexJets_startVertex_collectionID;   //!
-   TBranch        *b__VertexJets_particleIDUsed_;   //!
-   TBranch        *b__VertexJets_particleIDUsed_index;   //!
-   TBranch        *b__VertexJets_particleIDUsed_collectionID;   //!
-   TBranch        *b_VertexJets_particleIDs_;   //!
-   TBranch        *b_VertexJets_particleIDs_type;   //!
-   TBranch        *b_VertexJets_particleIDs_PDG;   //!
-   TBranch        *b_VertexJets_particleIDs_algorithmType;   //!
-   TBranch        *b_VertexJets_particleIDs_likelihood;   //!
-   TBranch        *b_VertexJets_particleIDs_parameters_begin;   //!
-   TBranch        *b_VertexJets_particleIDs_parameters_end;   //!
-   TBranch        *b__VertexJets_particleIDs_parameters;   //!
    TBranch        *b_VXDEndcapTrackerHitRelations_;   //!
    TBranch        *b_VXDEndcapTrackerHitRelations_weight;   //!
    TBranch        *b__VXDEndcapTrackerHitRelations_rec_;   //!
@@ -2899,7 +2345,7 @@ public :
    TBranch        *b_VXDEndcapTrackerHits_position_x;   //!
    TBranch        *b_VXDEndcapTrackerHits_position_y;   //!
    TBranch        *b_VXDEndcapTrackerHits_position_z;   //!
-   TBranch        *b_VXDEndcapTrackerHits_covMatrix;   //!
+   TBranch        *b_VXDEndcapTrackerHits_covMatrix_values;   //!
    TBranch        *b_VXDTrackerHitRelations_;   //!
    TBranch        *b_VXDTrackerHitRelations_weight;   //!
    TBranch        *b__VXDTrackerHitRelations_rec_;   //!
@@ -2924,7 +2370,7 @@ public :
    TBranch        *b_VXDTrackerHits_position_x;   //!
    TBranch        *b_VXDTrackerHits_position_y;   //!
    TBranch        *b_VXDTrackerHits_position_z;   //!
-   TBranch        *b_VXDTrackerHits_covMatrix;   //!
+   TBranch        *b_VXDTrackerHits_covMatrix_values;   //!
    TBranch        *b_YokeBarrelCollection_;   //!
    TBranch        *b_YokeBarrelCollection_cellID;   //!
    TBranch        *b_YokeBarrelCollection_energy;   //!
@@ -2967,18 +2413,14 @@ public :
    TBranch        *b__YokeEndcapCollectionContributions_particle_;   //!
    TBranch        *b__YokeEndcapCollectionContributions_particle_index;   //!
    TBranch        *b__YokeEndcapCollectionContributions_particle_collectionID;   //!
-   TBranch        *b_PARAMETERS__intMap_;   //!
-   TBranch        *b__intMap_first;   //!
-   TBranch        *b__intMap_second;   //!
-   TBranch        *b_PARAMETERS__floatMap_;   //!
-   TBranch        *b__floatMap_first;   //!
-   TBranch        *b__floatMap_second;   //!
-   TBranch        *b_PARAMETERS__stringMap_;   //!
-   TBranch        *b__stringMap_first;   //!
-   TBranch        *b__stringMap_second;   //!
-   TBranch        *b_PARAMETERS__doubleMap_;   //!
-   TBranch        *b__doubleMap_first;   //!
-   TBranch        *b__doubleMap_second;   //!
+   TBranch        *b_GPIntKeys;   //!
+   TBranch        *b_GPIntValues;   //!
+   TBranch        *b_GPFloatKeys;   //!
+   TBranch        *b_GPFloatValues;   //!
+   TBranch        *b_GPDoubleKeys;   //!
+   TBranch        *b_GPDoubleValues;   //!
+   TBranch        *b_GPStringKeys;   //!
+   TBranch        *b_GPStringValues;   //!
 
    analysis(TTree *tree=0);
    virtual ~analysis();
@@ -2999,7 +2441,7 @@ analysis::analysis(TTree *tree) : fChain(0)
 // if parameter tree is not specified (or zero), connect the file
 // used to generate this class and read the Tree.
 /*
-   if (tree == 0) {
+     	if (tree == 0) {
       TFile *f = (TFile*)gROOT->GetListOfFiles()->FindObject("data/CLD_FULL/wzp6_ee_mumuH_ecm240_CLD_RECO_edm4hep.root");
       if (!f || !f->IsOpen()) {
          f = new TFile("data/CLD_FULL/wzp6_ee_mumuH_ecm240_CLD_RECO_edm4hep.root");
@@ -3008,6 +2450,7 @@ analysis::analysis(TTree *tree) : fChain(0)
 
    }
 */
+
    Init(tree);
 }
 
@@ -3048,30 +2491,25 @@ void analysis::Init(TTree *tree)
 
    // Set object pointer
    _BuildUpVertices_parameters = 0;
-   _BuildUpVertices_RP_particleIDs_parameters = 0;
    _BuildUpVertices_V0_parameters = 0;
-   _BuildUpVertices_V0_RP_particleIDs_parameters = 0;
    _EventHeader_weights = 0;
    _LumiCalClusters_shapeParameters = 0;
    _LumiCalClusters_subdetectorEnergies = 0;
-   _LumiCalClusters_particleIDs_parameters = 0;
-   _LumiCalRecoParticles_particleIDs_parameters = 0;
    _PandoraClusters_shapeParameters = 0;
    _PandoraClusters_subdetectorEnergies = 0;
-   _PandoraClusters_particleIDs_parameters = 0;
-   _PandoraPFOs_particleIDs_parameters = 0;
    _PandoraStartVertices_parameters = 0;
    _PrimaryVertices_parameters = 0;
-   _PrimaryVertices_RP_particleIDs_parameters = 0;
-   _RefinedVertexJets_particleIDs_parameters = 0;
-   _RefinedVertexJets_vtx_parameters = 0;
-   _RefinedVertexJets_vtx_RP_particleIDs_parameters = 0;
-   _RefinedVertices_parameters = 0;
-   _RefinedVertices_RP_particleIDs_parameters = 0;
    _SiTracks_subdetectorHitNumbers = 0;
    _SiTracks_Refitted_subdetectorHitNumbers = 0;
    _SiTracksCT_subdetectorHitNumbers = 0;
-   _VertexJets_particleIDs_parameters = 0;
+   GPIntKeys = 0;
+   GPIntValues = 0;
+   GPFloatKeys = 0;
+   GPFloatValues = 0;
+   GPDoubleKeys = 0;
+   GPDoubleValues = 0;
+   GPStringKeys = 0;
+   GPStringValues = 0;
    // Set branch addresses and branch pointers
    if (!tree) return;
    fChain = tree;
@@ -3079,20 +2517,30 @@ void analysis::Init(TTree *tree)
    fChain->SetMakeClass(1);
 
    fChain->SetBranchAddress("BuildUpVertices", &BuildUpVertices_, &b_BuildUpVertices_);
-   fChain->SetBranchAddress("BuildUpVertices.primary", BuildUpVertices_primary, &b_BuildUpVertices_primary);
+   fChain->SetBranchAddress("BuildUpVertices.type", BuildUpVertices_type, &b_BuildUpVertices_type);
    fChain->SetBranchAddress("BuildUpVertices.chi2", BuildUpVertices_chi2, &b_BuildUpVertices_chi2);
-   fChain->SetBranchAddress("BuildUpVertices.probability", BuildUpVertices_probability, &b_BuildUpVertices_probability);
+   fChain->SetBranchAddress("BuildUpVertices.ndf", BuildUpVertices_ndf, &b_BuildUpVertices_ndf);
    fChain->SetBranchAddress("BuildUpVertices.position.x", BuildUpVertices_position_x, &b_BuildUpVertices_position_x);
    fChain->SetBranchAddress("BuildUpVertices.position.y", BuildUpVertices_position_y, &b_BuildUpVertices_position_y);
    fChain->SetBranchAddress("BuildUpVertices.position.z", BuildUpVertices_position_z, &b_BuildUpVertices_position_z);
-   fChain->SetBranchAddress("BuildUpVertices.covMatrix[6]", BuildUpVertices_covMatrix, &b_BuildUpVertices_covMatrix);
+   fChain->SetBranchAddress("BuildUpVertices.covMatrix.values[6]", BuildUpVertices_covMatrix_values, &b_BuildUpVertices_covMatrix_values);
    fChain->SetBranchAddress("BuildUpVertices.algorithmType", BuildUpVertices_algorithmType, &b_BuildUpVertices_algorithmType);
    fChain->SetBranchAddress("BuildUpVertices.parameters_begin", BuildUpVertices_parameters_begin, &b_BuildUpVertices_parameters_begin);
    fChain->SetBranchAddress("BuildUpVertices.parameters_end", BuildUpVertices_parameters_end, &b_BuildUpVertices_parameters_end);
-   fChain->SetBranchAddress("_BuildUpVertices_associatedParticle", &_BuildUpVertices_associatedParticle_, &b__BuildUpVertices_associatedParticle_);
-   fChain->SetBranchAddress("_BuildUpVertices_associatedParticle.index", _BuildUpVertices_associatedParticle_index, &b__BuildUpVertices_associatedParticle_index);
-   fChain->SetBranchAddress("_BuildUpVertices_associatedParticle.collectionID", _BuildUpVertices_associatedParticle_collectionID, &b__BuildUpVertices_associatedParticle_collectionID);
+   fChain->SetBranchAddress("BuildUpVertices.particles_begin", BuildUpVertices_particles_begin, &b_BuildUpVertices_particles_begin);
+   fChain->SetBranchAddress("BuildUpVertices.particles_end", BuildUpVertices_particles_end, &b_BuildUpVertices_particles_end);
+   fChain->SetBranchAddress("_BuildUpVertices_particles", &_BuildUpVertices_particles_, &b__BuildUpVertices_particles_);
+   fChain->SetBranchAddress("_BuildUpVertices_particles.index", _BuildUpVertices_particles_index, &b__BuildUpVertices_particles_index);
+   fChain->SetBranchAddress("_BuildUpVertices_particles.collectionID", _BuildUpVertices_particles_collectionID, &b__BuildUpVertices_particles_collectionID);
    fChain->SetBranchAddress("_BuildUpVertices_parameters", &_BuildUpVertices_parameters, &b__BuildUpVertices_parameters);
+   fChain->SetBranchAddress("BuildUpVertices_associatedParticles", &BuildUpVertices_associatedParticles_, &b_BuildUpVertices_associatedParticles_);
+   fChain->SetBranchAddress("BuildUpVertices_associatedParticles.weight", BuildUpVertices_associatedParticles_weight, &b_BuildUpVertices_associatedParticles_weight);
+   fChain->SetBranchAddress("_BuildUpVertices_associatedParticles_rec", &_BuildUpVertices_associatedParticles_rec_, &b__BuildUpVertices_associatedParticles_rec_);
+   fChain->SetBranchAddress("_BuildUpVertices_associatedParticles_rec.index", _BuildUpVertices_associatedParticles_rec_index, &b__BuildUpVertices_associatedParticles_rec_index);
+   fChain->SetBranchAddress("_BuildUpVertices_associatedParticles_rec.collectionID", _BuildUpVertices_associatedParticles_rec_collectionID, &b__BuildUpVertices_associatedParticles_rec_collectionID);
+   fChain->SetBranchAddress("_BuildUpVertices_associatedParticles_vertex", &_BuildUpVertices_associatedParticles_vertex_, &b__BuildUpVertices_associatedParticles_vertex_);
+   fChain->SetBranchAddress("_BuildUpVertices_associatedParticles_vertex.index", _BuildUpVertices_associatedParticles_vertex_index, &b__BuildUpVertices_associatedParticles_vertex_index);
+   fChain->SetBranchAddress("_BuildUpVertices_associatedParticles_vertex.collectionID", _BuildUpVertices_associatedParticles_vertex_collectionID, &b__BuildUpVertices_associatedParticles_vertex_collectionID);
    fChain->SetBranchAddress("BuildUpVertices_RP", &BuildUpVertices_RP_, &b_BuildUpVertices_RP_);
    fChain->SetBranchAddress("BuildUpVertices_RP.PDG", BuildUpVertices_RP_PDG, &b_BuildUpVertices_RP_PDG);
    fChain->SetBranchAddress("BuildUpVertices_RP.energy", BuildUpVertices_RP_energy, &b_BuildUpVertices_RP_energy);
@@ -3105,15 +2553,13 @@ void analysis::Init(TTree *tree)
    fChain->SetBranchAddress("BuildUpVertices_RP.charge", BuildUpVertices_RP_charge, &b_BuildUpVertices_RP_charge);
    fChain->SetBranchAddress("BuildUpVertices_RP.mass", BuildUpVertices_RP_mass, &b_BuildUpVertices_RP_mass);
    fChain->SetBranchAddress("BuildUpVertices_RP.goodnessOfPID", BuildUpVertices_RP_goodnessOfPID, &b_BuildUpVertices_RP_goodnessOfPID);
-   fChain->SetBranchAddress("BuildUpVertices_RP.covMatrix[10]", BuildUpVertices_RP_covMatrix, &b_BuildUpVertices_RP_covMatrix);
+   fChain->SetBranchAddress("BuildUpVertices_RP.covMatrix.values[10]", BuildUpVertices_RP_covMatrix_values, &b_BuildUpVertices_RP_covMatrix_values);
    fChain->SetBranchAddress("BuildUpVertices_RP.clusters_begin", BuildUpVertices_RP_clusters_begin, &b_BuildUpVertices_RP_clusters_begin);
    fChain->SetBranchAddress("BuildUpVertices_RP.clusters_end", BuildUpVertices_RP_clusters_end, &b_BuildUpVertices_RP_clusters_end);
    fChain->SetBranchAddress("BuildUpVertices_RP.tracks_begin", BuildUpVertices_RP_tracks_begin, &b_BuildUpVertices_RP_tracks_begin);
    fChain->SetBranchAddress("BuildUpVertices_RP.tracks_end", BuildUpVertices_RP_tracks_end, &b_BuildUpVertices_RP_tracks_end);
    fChain->SetBranchAddress("BuildUpVertices_RP.particles_begin", BuildUpVertices_RP_particles_begin, &b_BuildUpVertices_RP_particles_begin);
    fChain->SetBranchAddress("BuildUpVertices_RP.particles_end", BuildUpVertices_RP_particles_end, &b_BuildUpVertices_RP_particles_end);
-   fChain->SetBranchAddress("BuildUpVertices_RP.particleIDs_begin", BuildUpVertices_RP_particleIDs_begin, &b_BuildUpVertices_RP_particleIDs_begin);
-   fChain->SetBranchAddress("BuildUpVertices_RP.particleIDs_end", BuildUpVertices_RP_particleIDs_end, &b_BuildUpVertices_RP_particleIDs_end);
    fChain->SetBranchAddress("_BuildUpVertices_RP_clusters", &_BuildUpVertices_RP_clusters_, &b__BuildUpVertices_RP_clusters_);
    fChain->SetBranchAddress("_BuildUpVertices_RP_clusters.index", &_BuildUpVertices_RP_clusters_index, &b__BuildUpVertices_RP_clusters_index);
    fChain->SetBranchAddress("_BuildUpVertices_RP_clusters.collectionID", &_BuildUpVertices_RP_clusters_collectionID, &b__BuildUpVertices_RP_clusters_collectionID);
@@ -3123,59 +2569,61 @@ void analysis::Init(TTree *tree)
    fChain->SetBranchAddress("_BuildUpVertices_RP_particles", &_BuildUpVertices_RP_particles_, &b__BuildUpVertices_RP_particles_);
    fChain->SetBranchAddress("_BuildUpVertices_RP_particles.index", _BuildUpVertices_RP_particles_index, &b__BuildUpVertices_RP_particles_index);
    fChain->SetBranchAddress("_BuildUpVertices_RP_particles.collectionID", _BuildUpVertices_RP_particles_collectionID, &b__BuildUpVertices_RP_particles_collectionID);
-   fChain->SetBranchAddress("_BuildUpVertices_RP_particleIDs", &_BuildUpVertices_RP_particleIDs_, &b__BuildUpVertices_RP_particleIDs_);
-   fChain->SetBranchAddress("_BuildUpVertices_RP_particleIDs.index", &_BuildUpVertices_RP_particleIDs_index, &b__BuildUpVertices_RP_particleIDs_index);
-   fChain->SetBranchAddress("_BuildUpVertices_RP_particleIDs.collectionID", &_BuildUpVertices_RP_particleIDs_collectionID, &b__BuildUpVertices_RP_particleIDs_collectionID);
-   fChain->SetBranchAddress("_BuildUpVertices_RP_startVertex", &_BuildUpVertices_RP_startVertex_, &b__BuildUpVertices_RP_startVertex_);
-   fChain->SetBranchAddress("_BuildUpVertices_RP_startVertex.index", _BuildUpVertices_RP_startVertex_index, &b__BuildUpVertices_RP_startVertex_index);
-   fChain->SetBranchAddress("_BuildUpVertices_RP_startVertex.collectionID", _BuildUpVertices_RP_startVertex_collectionID, &b__BuildUpVertices_RP_startVertex_collectionID);
-   fChain->SetBranchAddress("_BuildUpVertices_RP_particleIDUsed", &_BuildUpVertices_RP_particleIDUsed_, &b__BuildUpVertices_RP_particleIDUsed_);
-   fChain->SetBranchAddress("_BuildUpVertices_RP_particleIDUsed.index", _BuildUpVertices_RP_particleIDUsed_index, &b__BuildUpVertices_RP_particleIDUsed_index);
-   fChain->SetBranchAddress("_BuildUpVertices_RP_particleIDUsed.collectionID", _BuildUpVertices_RP_particleIDUsed_collectionID, &b__BuildUpVertices_RP_particleIDUsed_collectionID);
-   fChain->SetBranchAddress("BuildUpVertices_RP_particleIDs", &BuildUpVertices_RP_particleIDs_, &b_BuildUpVertices_RP_particleIDs_);
-   fChain->SetBranchAddress("BuildUpVertices_RP_particleIDs.type", &BuildUpVertices_RP_particleIDs_type, &b_BuildUpVertices_RP_particleIDs_type);
-   fChain->SetBranchAddress("BuildUpVertices_RP_particleIDs.PDG", &BuildUpVertices_RP_particleIDs_PDG, &b_BuildUpVertices_RP_particleIDs_PDG);
-   fChain->SetBranchAddress("BuildUpVertices_RP_particleIDs.algorithmType", &BuildUpVertices_RP_particleIDs_algorithmType, &b_BuildUpVertices_RP_particleIDs_algorithmType);
-   fChain->SetBranchAddress("BuildUpVertices_RP_particleIDs.likelihood", &BuildUpVertices_RP_particleIDs_likelihood, &b_BuildUpVertices_RP_particleIDs_likelihood);
-   fChain->SetBranchAddress("BuildUpVertices_RP_particleIDs.parameters_begin", &BuildUpVertices_RP_particleIDs_parameters_begin, &b_BuildUpVertices_RP_particleIDs_parameters_begin);
-   fChain->SetBranchAddress("BuildUpVertices_RP_particleIDs.parameters_end", &BuildUpVertices_RP_particleIDs_parameters_end, &b_BuildUpVertices_RP_particleIDs_parameters_end);
-   fChain->SetBranchAddress("_BuildUpVertices_RP_particleIDs_parameters", &_BuildUpVertices_RP_particleIDs_parameters, &b__BuildUpVertices_RP_particleIDs_parameters);
+   fChain->SetBranchAddress("_BuildUpVertices_RP_decayVertex", &_BuildUpVertices_RP_decayVertex_, &b__BuildUpVertices_RP_decayVertex_);
+   fChain->SetBranchAddress("_BuildUpVertices_RP_decayVertex.index", _BuildUpVertices_RP_decayVertex_index, &b__BuildUpVertices_RP_decayVertex_index);
+   fChain->SetBranchAddress("_BuildUpVertices_RP_decayVertex.collectionID", _BuildUpVertices_RP_decayVertex_collectionID, &b__BuildUpVertices_RP_decayVertex_collectionID);
+   fChain->SetBranchAddress("BuildUpVertices_RP_startVertices", &BuildUpVertices_RP_startVertices_, &b_BuildUpVertices_RP_startVertices_);
+   fChain->SetBranchAddress("BuildUpVertices_RP_startVertices.weight", &BuildUpVertices_RP_startVertices_weight, &b_BuildUpVertices_RP_startVertices_weight);
+   fChain->SetBranchAddress("_BuildUpVertices_RP_startVertices_rec", &_BuildUpVertices_RP_startVertices_rec_, &b__BuildUpVertices_RP_startVertices_rec_);
+   fChain->SetBranchAddress("_BuildUpVertices_RP_startVertices_rec.index", &_BuildUpVertices_RP_startVertices_rec_index, &b__BuildUpVertices_RP_startVertices_rec_index);
+   fChain->SetBranchAddress("_BuildUpVertices_RP_startVertices_rec.collectionID", &_BuildUpVertices_RP_startVertices_rec_collectionID, &b__BuildUpVertices_RP_startVertices_rec_collectionID);
+   fChain->SetBranchAddress("_BuildUpVertices_RP_startVertices_vertex", &_BuildUpVertices_RP_startVertices_vertex_, &b__BuildUpVertices_RP_startVertices_vertex_);
+   fChain->SetBranchAddress("_BuildUpVertices_RP_startVertices_vertex.index", &_BuildUpVertices_RP_startVertices_vertex_index, &b__BuildUpVertices_RP_startVertices_vertex_index);
+   fChain->SetBranchAddress("_BuildUpVertices_RP_startVertices_vertex.collectionID", &_BuildUpVertices_RP_startVertices_vertex_collectionID, &b__BuildUpVertices_RP_startVertices_vertex_collectionID);
    fChain->SetBranchAddress("BuildUpVertices_V0", &BuildUpVertices_V0_, &b_BuildUpVertices_V0_);
-   fChain->SetBranchAddress("BuildUpVertices_V0.primary", BuildUpVertices_V0_primary, &b_BuildUpVertices_V0_primary);
-   fChain->SetBranchAddress("BuildUpVertices_V0.chi2", BuildUpVertices_V0_chi2, &b_BuildUpVertices_V0_chi2);
-   fChain->SetBranchAddress("BuildUpVertices_V0.probability", BuildUpVertices_V0_probability, &b_BuildUpVertices_V0_probability);
-   fChain->SetBranchAddress("BuildUpVertices_V0.position.x", BuildUpVertices_V0_position_x, &b_BuildUpVertices_V0_position_x);
-   fChain->SetBranchAddress("BuildUpVertices_V0.position.y", BuildUpVertices_V0_position_y, &b_BuildUpVertices_V0_position_y);
-   fChain->SetBranchAddress("BuildUpVertices_V0.position.z", BuildUpVertices_V0_position_z, &b_BuildUpVertices_V0_position_z);
-   fChain->SetBranchAddress("BuildUpVertices_V0.covMatrix[6]", BuildUpVertices_V0_covMatrix, &b_BuildUpVertices_V0_covMatrix);
-   fChain->SetBranchAddress("BuildUpVertices_V0.algorithmType", BuildUpVertices_V0_algorithmType, &b_BuildUpVertices_V0_algorithmType);
-   fChain->SetBranchAddress("BuildUpVertices_V0.parameters_begin", BuildUpVertices_V0_parameters_begin, &b_BuildUpVertices_V0_parameters_begin);
-   fChain->SetBranchAddress("BuildUpVertices_V0.parameters_end", BuildUpVertices_V0_parameters_end, &b_BuildUpVertices_V0_parameters_end);
-   fChain->SetBranchAddress("_BuildUpVertices_V0_associatedParticle", &_BuildUpVertices_V0_associatedParticle_, &b__BuildUpVertices_V0_associatedParticle_);
-   fChain->SetBranchAddress("_BuildUpVertices_V0_associatedParticle.index", _BuildUpVertices_V0_associatedParticle_index, &b__BuildUpVertices_V0_associatedParticle_index);
-   fChain->SetBranchAddress("_BuildUpVertices_V0_associatedParticle.collectionID", _BuildUpVertices_V0_associatedParticle_collectionID, &b__BuildUpVertices_V0_associatedParticle_collectionID);
+   fChain->SetBranchAddress("BuildUpVertices_V0.type", &BuildUpVertices_V0_type, &b_BuildUpVertices_V0_type);
+   fChain->SetBranchAddress("BuildUpVertices_V0.chi2", &BuildUpVertices_V0_chi2, &b_BuildUpVertices_V0_chi2);
+   fChain->SetBranchAddress("BuildUpVertices_V0.ndf", &BuildUpVertices_V0_ndf, &b_BuildUpVertices_V0_ndf);
+   fChain->SetBranchAddress("BuildUpVertices_V0.position.x", &BuildUpVertices_V0_position_x, &b_BuildUpVertices_V0_position_x);
+   fChain->SetBranchAddress("BuildUpVertices_V0.position.y", &BuildUpVertices_V0_position_y, &b_BuildUpVertices_V0_position_y);
+   fChain->SetBranchAddress("BuildUpVertices_V0.position.z", &BuildUpVertices_V0_position_z, &b_BuildUpVertices_V0_position_z);
+   fChain->SetBranchAddress("BuildUpVertices_V0.covMatrix.values[6]", &BuildUpVertices_V0_covMatrix_values, &b_BuildUpVertices_V0_covMatrix_values);
+   fChain->SetBranchAddress("BuildUpVertices_V0.algorithmType", &BuildUpVertices_V0_algorithmType, &b_BuildUpVertices_V0_algorithmType);
+   fChain->SetBranchAddress("BuildUpVertices_V0.parameters_begin", &BuildUpVertices_V0_parameters_begin, &b_BuildUpVertices_V0_parameters_begin);
+   fChain->SetBranchAddress("BuildUpVertices_V0.parameters_end", &BuildUpVertices_V0_parameters_end, &b_BuildUpVertices_V0_parameters_end);
+   fChain->SetBranchAddress("BuildUpVertices_V0.particles_begin", &BuildUpVertices_V0_particles_begin, &b_BuildUpVertices_V0_particles_begin);
+   fChain->SetBranchAddress("BuildUpVertices_V0.particles_end", &BuildUpVertices_V0_particles_end, &b_BuildUpVertices_V0_particles_end);
+   fChain->SetBranchAddress("_BuildUpVertices_V0_particles", &_BuildUpVertices_V0_particles_, &b__BuildUpVertices_V0_particles_);
+   fChain->SetBranchAddress("_BuildUpVertices_V0_particles.index", &_BuildUpVertices_V0_particles_index, &b__BuildUpVertices_V0_particles_index);
+   fChain->SetBranchAddress("_BuildUpVertices_V0_particles.collectionID", &_BuildUpVertices_V0_particles_collectionID, &b__BuildUpVertices_V0_particles_collectionID);
    fChain->SetBranchAddress("_BuildUpVertices_V0_parameters", &_BuildUpVertices_V0_parameters, &b__BuildUpVertices_V0_parameters);
+   fChain->SetBranchAddress("BuildUpVertices_V0_associatedParticles", &BuildUpVertices_V0_associatedParticles_, &b_BuildUpVertices_V0_associatedParticles_);
+   fChain->SetBranchAddress("BuildUpVertices_V0_associatedParticles.weight", &BuildUpVertices_V0_associatedParticles_weight, &b_BuildUpVertices_V0_associatedParticles_weight);
+   fChain->SetBranchAddress("_BuildUpVertices_V0_associatedParticles_rec", &_BuildUpVertices_V0_associatedParticles_rec_, &b__BuildUpVertices_V0_associatedParticles_rec_);
+   fChain->SetBranchAddress("_BuildUpVertices_V0_associatedParticles_rec.index", &_BuildUpVertices_V0_associatedParticles_rec_index, &b__BuildUpVertices_V0_associatedParticles_rec_index);
+   fChain->SetBranchAddress("_BuildUpVertices_V0_associatedParticles_rec.collectionID", &_BuildUpVertices_V0_associatedParticles_rec_collectionID, &b__BuildUpVertices_V0_associatedParticles_rec_collectionID);
+   fChain->SetBranchAddress("_BuildUpVertices_V0_associatedParticles_vertex", &_BuildUpVertices_V0_associatedParticles_vertex_, &b__BuildUpVertices_V0_associatedParticles_vertex_);
+   fChain->SetBranchAddress("_BuildUpVertices_V0_associatedParticles_vertex.index", &_BuildUpVertices_V0_associatedParticles_vertex_index, &b__BuildUpVertices_V0_associatedParticles_vertex_index);
+   fChain->SetBranchAddress("_BuildUpVertices_V0_associatedParticles_vertex.collectionID", &_BuildUpVertices_V0_associatedParticles_vertex_collectionID, &b__BuildUpVertices_V0_associatedParticles_vertex_collectionID);
    fChain->SetBranchAddress("BuildUpVertices_V0_RP", &BuildUpVertices_V0_RP_, &b_BuildUpVertices_V0_RP_);
-   fChain->SetBranchAddress("BuildUpVertices_V0_RP.PDG", BuildUpVertices_V0_RP_PDG, &b_BuildUpVertices_V0_RP_PDG);
-   fChain->SetBranchAddress("BuildUpVertices_V0_RP.energy", BuildUpVertices_V0_RP_energy, &b_BuildUpVertices_V0_RP_energy);
-   fChain->SetBranchAddress("BuildUpVertices_V0_RP.momentum.x", BuildUpVertices_V0_RP_momentum_x, &b_BuildUpVertices_V0_RP_momentum_x);
-   fChain->SetBranchAddress("BuildUpVertices_V0_RP.momentum.y", BuildUpVertices_V0_RP_momentum_y, &b_BuildUpVertices_V0_RP_momentum_y);
-   fChain->SetBranchAddress("BuildUpVertices_V0_RP.momentum.z", BuildUpVertices_V0_RP_momentum_z, &b_BuildUpVertices_V0_RP_momentum_z);
-   fChain->SetBranchAddress("BuildUpVertices_V0_RP.referencePoint.x", BuildUpVertices_V0_RP_referencePoint_x, &b_BuildUpVertices_V0_RP_referencePoint_x);
-   fChain->SetBranchAddress("BuildUpVertices_V0_RP.referencePoint.y", BuildUpVertices_V0_RP_referencePoint_y, &b_BuildUpVertices_V0_RP_referencePoint_y);
-   fChain->SetBranchAddress("BuildUpVertices_V0_RP.referencePoint.z", BuildUpVertices_V0_RP_referencePoint_z, &b_BuildUpVertices_V0_RP_referencePoint_z);
-   fChain->SetBranchAddress("BuildUpVertices_V0_RP.charge", BuildUpVertices_V0_RP_charge, &b_BuildUpVertices_V0_RP_charge);
-   fChain->SetBranchAddress("BuildUpVertices_V0_RP.mass", BuildUpVertices_V0_RP_mass, &b_BuildUpVertices_V0_RP_mass);
-   fChain->SetBranchAddress("BuildUpVertices_V0_RP.goodnessOfPID", BuildUpVertices_V0_RP_goodnessOfPID, &b_BuildUpVertices_V0_RP_goodnessOfPID);
-   fChain->SetBranchAddress("BuildUpVertices_V0_RP.covMatrix[10]", BuildUpVertices_V0_RP_covMatrix, &b_BuildUpVertices_V0_RP_covMatrix);
-   fChain->SetBranchAddress("BuildUpVertices_V0_RP.clusters_begin", BuildUpVertices_V0_RP_clusters_begin, &b_BuildUpVertices_V0_RP_clusters_begin);
-   fChain->SetBranchAddress("BuildUpVertices_V0_RP.clusters_end", BuildUpVertices_V0_RP_clusters_end, &b_BuildUpVertices_V0_RP_clusters_end);
-   fChain->SetBranchAddress("BuildUpVertices_V0_RP.tracks_begin", BuildUpVertices_V0_RP_tracks_begin, &b_BuildUpVertices_V0_RP_tracks_begin);
-   fChain->SetBranchAddress("BuildUpVertices_V0_RP.tracks_end", BuildUpVertices_V0_RP_tracks_end, &b_BuildUpVertices_V0_RP_tracks_end);
-   fChain->SetBranchAddress("BuildUpVertices_V0_RP.particles_begin", BuildUpVertices_V0_RP_particles_begin, &b_BuildUpVertices_V0_RP_particles_begin);
-   fChain->SetBranchAddress("BuildUpVertices_V0_RP.particles_end", BuildUpVertices_V0_RP_particles_end, &b_BuildUpVertices_V0_RP_particles_end);
-   fChain->SetBranchAddress("BuildUpVertices_V0_RP.particleIDs_begin", BuildUpVertices_V0_RP_particleIDs_begin, &b_BuildUpVertices_V0_RP_particleIDs_begin);
-   fChain->SetBranchAddress("BuildUpVertices_V0_RP.particleIDs_end", BuildUpVertices_V0_RP_particleIDs_end, &b_BuildUpVertices_V0_RP_particleIDs_end);
+   fChain->SetBranchAddress("BuildUpVertices_V0_RP.PDG", &BuildUpVertices_V0_RP_PDG, &b_BuildUpVertices_V0_RP_PDG);
+   fChain->SetBranchAddress("BuildUpVertices_V0_RP.energy", &BuildUpVertices_V0_RP_energy, &b_BuildUpVertices_V0_RP_energy);
+   fChain->SetBranchAddress("BuildUpVertices_V0_RP.momentum.x", &BuildUpVertices_V0_RP_momentum_x, &b_BuildUpVertices_V0_RP_momentum_x);
+   fChain->SetBranchAddress("BuildUpVertices_V0_RP.momentum.y", &BuildUpVertices_V0_RP_momentum_y, &b_BuildUpVertices_V0_RP_momentum_y);
+   fChain->SetBranchAddress("BuildUpVertices_V0_RP.momentum.z", &BuildUpVertices_V0_RP_momentum_z, &b_BuildUpVertices_V0_RP_momentum_z);
+   fChain->SetBranchAddress("BuildUpVertices_V0_RP.referencePoint.x", &BuildUpVertices_V0_RP_referencePoint_x, &b_BuildUpVertices_V0_RP_referencePoint_x);
+   fChain->SetBranchAddress("BuildUpVertices_V0_RP.referencePoint.y", &BuildUpVertices_V0_RP_referencePoint_y, &b_BuildUpVertices_V0_RP_referencePoint_y);
+   fChain->SetBranchAddress("BuildUpVertices_V0_RP.referencePoint.z", &BuildUpVertices_V0_RP_referencePoint_z, &b_BuildUpVertices_V0_RP_referencePoint_z);
+   fChain->SetBranchAddress("BuildUpVertices_V0_RP.charge", &BuildUpVertices_V0_RP_charge, &b_BuildUpVertices_V0_RP_charge);
+   fChain->SetBranchAddress("BuildUpVertices_V0_RP.mass", &BuildUpVertices_V0_RP_mass, &b_BuildUpVertices_V0_RP_mass);
+   fChain->SetBranchAddress("BuildUpVertices_V0_RP.goodnessOfPID", &BuildUpVertices_V0_RP_goodnessOfPID, &b_BuildUpVertices_V0_RP_goodnessOfPID);
+   fChain->SetBranchAddress("BuildUpVertices_V0_RP.covMatrix.values[10]", &BuildUpVertices_V0_RP_covMatrix_values, &b_BuildUpVertices_V0_RP_covMatrix_values);
+   fChain->SetBranchAddress("BuildUpVertices_V0_RP.clusters_begin", &BuildUpVertices_V0_RP_clusters_begin, &b_BuildUpVertices_V0_RP_clusters_begin);
+   fChain->SetBranchAddress("BuildUpVertices_V0_RP.clusters_end", &BuildUpVertices_V0_RP_clusters_end, &b_BuildUpVertices_V0_RP_clusters_end);
+   fChain->SetBranchAddress("BuildUpVertices_V0_RP.tracks_begin", &BuildUpVertices_V0_RP_tracks_begin, &b_BuildUpVertices_V0_RP_tracks_begin);
+   fChain->SetBranchAddress("BuildUpVertices_V0_RP.tracks_end", &BuildUpVertices_V0_RP_tracks_end, &b_BuildUpVertices_V0_RP_tracks_end);
+   fChain->SetBranchAddress("BuildUpVertices_V0_RP.particles_begin", &BuildUpVertices_V0_RP_particles_begin, &b_BuildUpVertices_V0_RP_particles_begin);
+   fChain->SetBranchAddress("BuildUpVertices_V0_RP.particles_end", &BuildUpVertices_V0_RP_particles_end, &b_BuildUpVertices_V0_RP_particles_end);
    fChain->SetBranchAddress("_BuildUpVertices_V0_RP_clusters", &_BuildUpVertices_V0_RP_clusters_, &b__BuildUpVertices_V0_RP_clusters_);
    fChain->SetBranchAddress("_BuildUpVertices_V0_RP_clusters.index", &_BuildUpVertices_V0_RP_clusters_index, &b__BuildUpVertices_V0_RP_clusters_index);
    fChain->SetBranchAddress("_BuildUpVertices_V0_RP_clusters.collectionID", &_BuildUpVertices_V0_RP_clusters_collectionID, &b__BuildUpVertices_V0_RP_clusters_collectionID);
@@ -3183,25 +2631,19 @@ void analysis::Init(TTree *tree)
    fChain->SetBranchAddress("_BuildUpVertices_V0_RP_tracks.index", &_BuildUpVertices_V0_RP_tracks_index, &b__BuildUpVertices_V0_RP_tracks_index);
    fChain->SetBranchAddress("_BuildUpVertices_V0_RP_tracks.collectionID", &_BuildUpVertices_V0_RP_tracks_collectionID, &b__BuildUpVertices_V0_RP_tracks_collectionID);
    fChain->SetBranchAddress("_BuildUpVertices_V0_RP_particles", &_BuildUpVertices_V0_RP_particles_, &b__BuildUpVertices_V0_RP_particles_);
-   fChain->SetBranchAddress("_BuildUpVertices_V0_RP_particles.index", _BuildUpVertices_V0_RP_particles_index, &b__BuildUpVertices_V0_RP_particles_index);
-   fChain->SetBranchAddress("_BuildUpVertices_V0_RP_particles.collectionID", _BuildUpVertices_V0_RP_particles_collectionID, &b__BuildUpVertices_V0_RP_particles_collectionID);
-   fChain->SetBranchAddress("_BuildUpVertices_V0_RP_particleIDs", &_BuildUpVertices_V0_RP_particleIDs_, &b__BuildUpVertices_V0_RP_particleIDs_);
-   fChain->SetBranchAddress("_BuildUpVertices_V0_RP_particleIDs.index", &_BuildUpVertices_V0_RP_particleIDs_index, &b__BuildUpVertices_V0_RP_particleIDs_index);
-   fChain->SetBranchAddress("_BuildUpVertices_V0_RP_particleIDs.collectionID", &_BuildUpVertices_V0_RP_particleIDs_collectionID, &b__BuildUpVertices_V0_RP_particleIDs_collectionID);
-   fChain->SetBranchAddress("_BuildUpVertices_V0_RP_startVertex", &_BuildUpVertices_V0_RP_startVertex_, &b__BuildUpVertices_V0_RP_startVertex_);
-   fChain->SetBranchAddress("_BuildUpVertices_V0_RP_startVertex.index", _BuildUpVertices_V0_RP_startVertex_index, &b__BuildUpVertices_V0_RP_startVertex_index);
-   fChain->SetBranchAddress("_BuildUpVertices_V0_RP_startVertex.collectionID", _BuildUpVertices_V0_RP_startVertex_collectionID, &b__BuildUpVertices_V0_RP_startVertex_collectionID);
-   fChain->SetBranchAddress("_BuildUpVertices_V0_RP_particleIDUsed", &_BuildUpVertices_V0_RP_particleIDUsed_, &b__BuildUpVertices_V0_RP_particleIDUsed_);
-   fChain->SetBranchAddress("_BuildUpVertices_V0_RP_particleIDUsed.index", _BuildUpVertices_V0_RP_particleIDUsed_index, &b__BuildUpVertices_V0_RP_particleIDUsed_index);
-   fChain->SetBranchAddress("_BuildUpVertices_V0_RP_particleIDUsed.collectionID", _BuildUpVertices_V0_RP_particleIDUsed_collectionID, &b__BuildUpVertices_V0_RP_particleIDUsed_collectionID);
-   fChain->SetBranchAddress("BuildUpVertices_V0_RP_particleIDs", &BuildUpVertices_V0_RP_particleIDs_, &b_BuildUpVertices_V0_RP_particleIDs_);
-   fChain->SetBranchAddress("BuildUpVertices_V0_RP_particleIDs.type", &BuildUpVertices_V0_RP_particleIDs_type, &b_BuildUpVertices_V0_RP_particleIDs_type);
-   fChain->SetBranchAddress("BuildUpVertices_V0_RP_particleIDs.PDG", &BuildUpVertices_V0_RP_particleIDs_PDG, &b_BuildUpVertices_V0_RP_particleIDs_PDG);
-   fChain->SetBranchAddress("BuildUpVertices_V0_RP_particleIDs.algorithmType", &BuildUpVertices_V0_RP_particleIDs_algorithmType, &b_BuildUpVertices_V0_RP_particleIDs_algorithmType);
-   fChain->SetBranchAddress("BuildUpVertices_V0_RP_particleIDs.likelihood", &BuildUpVertices_V0_RP_particleIDs_likelihood, &b_BuildUpVertices_V0_RP_particleIDs_likelihood);
-   fChain->SetBranchAddress("BuildUpVertices_V0_RP_particleIDs.parameters_begin", &BuildUpVertices_V0_RP_particleIDs_parameters_begin, &b_BuildUpVertices_V0_RP_particleIDs_parameters_begin);
-   fChain->SetBranchAddress("BuildUpVertices_V0_RP_particleIDs.parameters_end", &BuildUpVertices_V0_RP_particleIDs_parameters_end, &b_BuildUpVertices_V0_RP_particleIDs_parameters_end);
-   fChain->SetBranchAddress("_BuildUpVertices_V0_RP_particleIDs_parameters", &_BuildUpVertices_V0_RP_particleIDs_parameters, &b__BuildUpVertices_V0_RP_particleIDs_parameters);
+   fChain->SetBranchAddress("_BuildUpVertices_V0_RP_particles.index", &_BuildUpVertices_V0_RP_particles_index, &b__BuildUpVertices_V0_RP_particles_index);
+   fChain->SetBranchAddress("_BuildUpVertices_V0_RP_particles.collectionID", &_BuildUpVertices_V0_RP_particles_collectionID, &b__BuildUpVertices_V0_RP_particles_collectionID);
+   fChain->SetBranchAddress("_BuildUpVertices_V0_RP_decayVertex", &_BuildUpVertices_V0_RP_decayVertex_, &b__BuildUpVertices_V0_RP_decayVertex_);
+   fChain->SetBranchAddress("_BuildUpVertices_V0_RP_decayVertex.index", &_BuildUpVertices_V0_RP_decayVertex_index, &b__BuildUpVertices_V0_RP_decayVertex_index);
+   fChain->SetBranchAddress("_BuildUpVertices_V0_RP_decayVertex.collectionID", &_BuildUpVertices_V0_RP_decayVertex_collectionID, &b__BuildUpVertices_V0_RP_decayVertex_collectionID);
+   fChain->SetBranchAddress("BuildUpVertices_V0_RP_startVertices", &BuildUpVertices_V0_RP_startVertices_, &b_BuildUpVertices_V0_RP_startVertices_);
+   fChain->SetBranchAddress("BuildUpVertices_V0_RP_startVertices.weight", &BuildUpVertices_V0_RP_startVertices_weight, &b_BuildUpVertices_V0_RP_startVertices_weight);
+   fChain->SetBranchAddress("_BuildUpVertices_V0_RP_startVertices_rec", &_BuildUpVertices_V0_RP_startVertices_rec_, &b__BuildUpVertices_V0_RP_startVertices_rec_);
+   fChain->SetBranchAddress("_BuildUpVertices_V0_RP_startVertices_rec.index", &_BuildUpVertices_V0_RP_startVertices_rec_index, &b__BuildUpVertices_V0_RP_startVertices_rec_index);
+   fChain->SetBranchAddress("_BuildUpVertices_V0_RP_startVertices_rec.collectionID", &_BuildUpVertices_V0_RP_startVertices_rec_collectionID, &b__BuildUpVertices_V0_RP_startVertices_rec_collectionID);
+   fChain->SetBranchAddress("_BuildUpVertices_V0_RP_startVertices_vertex", &_BuildUpVertices_V0_RP_startVertices_vertex_, &b__BuildUpVertices_V0_RP_startVertices_vertex_);
+   fChain->SetBranchAddress("_BuildUpVertices_V0_RP_startVertices_vertex.index", &_BuildUpVertices_V0_RP_startVertices_vertex_index, &b__BuildUpVertices_V0_RP_startVertices_vertex_index);
+   fChain->SetBranchAddress("_BuildUpVertices_V0_RP_startVertices_vertex.collectionID", &_BuildUpVertices_V0_RP_startVertices_vertex_collectionID, &b__BuildUpVertices_V0_RP_startVertices_vertex_collectionID);
    fChain->SetBranchAddress("CalohitMCTruthLink", &CalohitMCTruthLink_, &b_CalohitMCTruthLink_);
    fChain->SetBranchAddress("CalohitMCTruthLink.weight", CalohitMCTruthLink_weight, &b_CalohitMCTruthLink_weight);
    fChain->SetBranchAddress("_CalohitMCTruthLink_rec", &_CalohitMCTruthLink_rec_, &b__CalohitMCTruthLink_rec_);
@@ -3447,7 +2889,7 @@ void analysis::Init(TTree *tree)
    fChain->SetBranchAddress("ITrackerEndcapHits.position.x", ITrackerEndcapHits_position_x, &b_ITrackerEndcapHits_position_x);
    fChain->SetBranchAddress("ITrackerEndcapHits.position.y", ITrackerEndcapHits_position_y, &b_ITrackerEndcapHits_position_y);
    fChain->SetBranchAddress("ITrackerEndcapHits.position.z", ITrackerEndcapHits_position_z, &b_ITrackerEndcapHits_position_z);
-   fChain->SetBranchAddress("ITrackerEndcapHits.covMatrix[6]", ITrackerEndcapHits_covMatrix, &b_ITrackerEndcapHits_covMatrix);
+   fChain->SetBranchAddress("ITrackerEndcapHits.covMatrix.values[6]", ITrackerEndcapHits_covMatrix_values, &b_ITrackerEndcapHits_covMatrix_values);
    fChain->SetBranchAddress("ITrackerHits", &ITrackerHits_, &b_ITrackerHits_);
    fChain->SetBranchAddress("ITrackerHits.cellID", ITrackerHits_cellID, &b_ITrackerHits_cellID);
    fChain->SetBranchAddress("ITrackerHits.type", ITrackerHits_type, &b_ITrackerHits_type);
@@ -3464,7 +2906,7 @@ void analysis::Init(TTree *tree)
    fChain->SetBranchAddress("ITrackerHits.position.x", ITrackerHits_position_x, &b_ITrackerHits_position_x);
    fChain->SetBranchAddress("ITrackerHits.position.y", ITrackerHits_position_y, &b_ITrackerHits_position_y);
    fChain->SetBranchAddress("ITrackerHits.position.z", ITrackerHits_position_z, &b_ITrackerHits_position_z);
-   fChain->SetBranchAddress("ITrackerHits.covMatrix[6]", ITrackerHits_covMatrix, &b_ITrackerHits_covMatrix);
+   fChain->SetBranchAddress("ITrackerHits.covMatrix.values[6]", ITrackerHits_covMatrix_values, &b_ITrackerHits_covMatrix_values);
    fChain->SetBranchAddress("LooseSelectedPandoraPFOs_objIdx", &LooseSelectedPandoraPFOs_objIdx_, &b_LooseSelectedPandoraPFOs_objIdx_);
    fChain->SetBranchAddress("LooseSelectedPandoraPFOs_objIdx.index", LooseSelectedPandoraPFOs_objIdx_index, &b_LooseSelectedPandoraPFOs_objIdx_index);
    fChain->SetBranchAddress("LooseSelectedPandoraPFOs_objIdx.collectionID", LooseSelectedPandoraPFOs_objIdx_collectionID, &b_LooseSelectedPandoraPFOs_objIdx_collectionID);
@@ -3475,7 +2917,7 @@ void analysis::Init(TTree *tree)
    fChain->SetBranchAddress("LumiCalClusters.position.x", LumiCalClusters_position_x, &b_LumiCalClusters_position_x);
    fChain->SetBranchAddress("LumiCalClusters.position.y", LumiCalClusters_position_y, &b_LumiCalClusters_position_y);
    fChain->SetBranchAddress("LumiCalClusters.position.z", LumiCalClusters_position_z, &b_LumiCalClusters_position_z);
-   fChain->SetBranchAddress("LumiCalClusters.positionError[6]", LumiCalClusters_positionError, &b_LumiCalClusters_positionError);
+   fChain->SetBranchAddress("LumiCalClusters.positionError.values[6]", LumiCalClusters_positionError_values, &b_LumiCalClusters_positionError_values);
    fChain->SetBranchAddress("LumiCalClusters.iTheta", LumiCalClusters_iTheta, &b_LumiCalClusters_iTheta);
    fChain->SetBranchAddress("LumiCalClusters.phi", LumiCalClusters_phi, &b_LumiCalClusters_phi);
    fChain->SetBranchAddress("LumiCalClusters.directionError.x", LumiCalClusters_directionError_x, &b_LumiCalClusters_directionError_x);
@@ -3489,27 +2931,14 @@ void analysis::Init(TTree *tree)
    fChain->SetBranchAddress("LumiCalClusters.clusters_end", LumiCalClusters_clusters_end, &b_LumiCalClusters_clusters_end);
    fChain->SetBranchAddress("LumiCalClusters.hits_begin", LumiCalClusters_hits_begin, &b_LumiCalClusters_hits_begin);
    fChain->SetBranchAddress("LumiCalClusters.hits_end", LumiCalClusters_hits_end, &b_LumiCalClusters_hits_end);
-   fChain->SetBranchAddress("LumiCalClusters.particleIDs_begin", LumiCalClusters_particleIDs_begin, &b_LumiCalClusters_particleIDs_begin);
-   fChain->SetBranchAddress("LumiCalClusters.particleIDs_end", LumiCalClusters_particleIDs_end, &b_LumiCalClusters_particleIDs_end);
    fChain->SetBranchAddress("_LumiCalClusters_clusters", &_LumiCalClusters_clusters_, &b__LumiCalClusters_clusters_);
    fChain->SetBranchAddress("_LumiCalClusters_clusters.index", &_LumiCalClusters_clusters_index, &b__LumiCalClusters_clusters_index);
    fChain->SetBranchAddress("_LumiCalClusters_clusters.collectionID", &_LumiCalClusters_clusters_collectionID, &b__LumiCalClusters_clusters_collectionID);
    fChain->SetBranchAddress("_LumiCalClusters_hits", &_LumiCalClusters_hits_, &b__LumiCalClusters_hits_);
    fChain->SetBranchAddress("_LumiCalClusters_hits.index", _LumiCalClusters_hits_index, &b__LumiCalClusters_hits_index);
    fChain->SetBranchAddress("_LumiCalClusters_hits.collectionID", _LumiCalClusters_hits_collectionID, &b__LumiCalClusters_hits_collectionID);
-   fChain->SetBranchAddress("_LumiCalClusters_particleIDs", &_LumiCalClusters_particleIDs_, &b__LumiCalClusters_particleIDs_);
-   fChain->SetBranchAddress("_LumiCalClusters_particleIDs.index", &_LumiCalClusters_particleIDs_index, &b__LumiCalClusters_particleIDs_index);
-   fChain->SetBranchAddress("_LumiCalClusters_particleIDs.collectionID", &_LumiCalClusters_particleIDs_collectionID, &b__LumiCalClusters_particleIDs_collectionID);
    fChain->SetBranchAddress("_LumiCalClusters_shapeParameters", &_LumiCalClusters_shapeParameters, &b__LumiCalClusters_shapeParameters);
    fChain->SetBranchAddress("_LumiCalClusters_subdetectorEnergies", &_LumiCalClusters_subdetectorEnergies, &b__LumiCalClusters_subdetectorEnergies);
-   fChain->SetBranchAddress("LumiCalClusters_particleIDs", &LumiCalClusters_particleIDs_, &b_LumiCalClusters_particleIDs_);
-   fChain->SetBranchAddress("LumiCalClusters_particleIDs.type", &LumiCalClusters_particleIDs_type, &b_LumiCalClusters_particleIDs_type);
-   fChain->SetBranchAddress("LumiCalClusters_particleIDs.PDG", &LumiCalClusters_particleIDs_PDG, &b_LumiCalClusters_particleIDs_PDG);
-   fChain->SetBranchAddress("LumiCalClusters_particleIDs.algorithmType", &LumiCalClusters_particleIDs_algorithmType, &b_LumiCalClusters_particleIDs_algorithmType);
-   fChain->SetBranchAddress("LumiCalClusters_particleIDs.likelihood", &LumiCalClusters_particleIDs_likelihood, &b_LumiCalClusters_particleIDs_likelihood);
-   fChain->SetBranchAddress("LumiCalClusters_particleIDs.parameters_begin", &LumiCalClusters_particleIDs_parameters_begin, &b_LumiCalClusters_particleIDs_parameters_begin);
-   fChain->SetBranchAddress("LumiCalClusters_particleIDs.parameters_end", &LumiCalClusters_particleIDs_parameters_end, &b_LumiCalClusters_particleIDs_parameters_end);
-   fChain->SetBranchAddress("_LumiCalClusters_particleIDs_parameters", &_LumiCalClusters_particleIDs_parameters, &b__LumiCalClusters_particleIDs_parameters);
    fChain->SetBranchAddress("LumiCalCollection", &LumiCalCollection_, &b_LumiCalCollection_);
    fChain->SetBranchAddress("LumiCalCollection.cellID", LumiCalCollection_cellID, &b_LumiCalCollection_cellID);
    fChain->SetBranchAddress("LumiCalCollection.energy", LumiCalCollection_energy, &b_LumiCalCollection_energy);
@@ -3552,15 +2981,13 @@ void analysis::Init(TTree *tree)
    fChain->SetBranchAddress("LumiCalRecoParticles.charge", LumiCalRecoParticles_charge, &b_LumiCalRecoParticles_charge);
    fChain->SetBranchAddress("LumiCalRecoParticles.mass", LumiCalRecoParticles_mass, &b_LumiCalRecoParticles_mass);
    fChain->SetBranchAddress("LumiCalRecoParticles.goodnessOfPID", LumiCalRecoParticles_goodnessOfPID, &b_LumiCalRecoParticles_goodnessOfPID);
-   fChain->SetBranchAddress("LumiCalRecoParticles.covMatrix[10]", LumiCalRecoParticles_covMatrix, &b_LumiCalRecoParticles_covMatrix);
+   fChain->SetBranchAddress("LumiCalRecoParticles.covMatrix.values[10]", LumiCalRecoParticles_covMatrix_values, &b_LumiCalRecoParticles_covMatrix_values);
    fChain->SetBranchAddress("LumiCalRecoParticles.clusters_begin", LumiCalRecoParticles_clusters_begin, &b_LumiCalRecoParticles_clusters_begin);
    fChain->SetBranchAddress("LumiCalRecoParticles.clusters_end", LumiCalRecoParticles_clusters_end, &b_LumiCalRecoParticles_clusters_end);
    fChain->SetBranchAddress("LumiCalRecoParticles.tracks_begin", LumiCalRecoParticles_tracks_begin, &b_LumiCalRecoParticles_tracks_begin);
    fChain->SetBranchAddress("LumiCalRecoParticles.tracks_end", LumiCalRecoParticles_tracks_end, &b_LumiCalRecoParticles_tracks_end);
    fChain->SetBranchAddress("LumiCalRecoParticles.particles_begin", LumiCalRecoParticles_particles_begin, &b_LumiCalRecoParticles_particles_begin);
    fChain->SetBranchAddress("LumiCalRecoParticles.particles_end", LumiCalRecoParticles_particles_end, &b_LumiCalRecoParticles_particles_end);
-   fChain->SetBranchAddress("LumiCalRecoParticles.particleIDs_begin", LumiCalRecoParticles_particleIDs_begin, &b_LumiCalRecoParticles_particleIDs_begin);
-   fChain->SetBranchAddress("LumiCalRecoParticles.particleIDs_end", LumiCalRecoParticles_particleIDs_end, &b_LumiCalRecoParticles_particleIDs_end);
    fChain->SetBranchAddress("_LumiCalRecoParticles_clusters", &_LumiCalRecoParticles_clusters_, &b__LumiCalRecoParticles_clusters_);
    fChain->SetBranchAddress("_LumiCalRecoParticles_clusters.index", _LumiCalRecoParticles_clusters_index, &b__LumiCalRecoParticles_clusters_index);
    fChain->SetBranchAddress("_LumiCalRecoParticles_clusters.collectionID", _LumiCalRecoParticles_clusters_collectionID, &b__LumiCalRecoParticles_clusters_collectionID);
@@ -3570,23 +2997,17 @@ void analysis::Init(TTree *tree)
    fChain->SetBranchAddress("_LumiCalRecoParticles_particles", &_LumiCalRecoParticles_particles_, &b__LumiCalRecoParticles_particles_);
    fChain->SetBranchAddress("_LumiCalRecoParticles_particles.index", &_LumiCalRecoParticles_particles_index, &b__LumiCalRecoParticles_particles_index);
    fChain->SetBranchAddress("_LumiCalRecoParticles_particles.collectionID", &_LumiCalRecoParticles_particles_collectionID, &b__LumiCalRecoParticles_particles_collectionID);
-   fChain->SetBranchAddress("_LumiCalRecoParticles_particleIDs", &_LumiCalRecoParticles_particleIDs_, &b__LumiCalRecoParticles_particleIDs_);
-   fChain->SetBranchAddress("_LumiCalRecoParticles_particleIDs.index", &_LumiCalRecoParticles_particleIDs_index, &b__LumiCalRecoParticles_particleIDs_index);
-   fChain->SetBranchAddress("_LumiCalRecoParticles_particleIDs.collectionID", &_LumiCalRecoParticles_particleIDs_collectionID, &b__LumiCalRecoParticles_particleIDs_collectionID);
-   fChain->SetBranchAddress("_LumiCalRecoParticles_startVertex", &_LumiCalRecoParticles_startVertex_, &b__LumiCalRecoParticles_startVertex_);
-   fChain->SetBranchAddress("_LumiCalRecoParticles_startVertex.index", _LumiCalRecoParticles_startVertex_index, &b__LumiCalRecoParticles_startVertex_index);
-   fChain->SetBranchAddress("_LumiCalRecoParticles_startVertex.collectionID", _LumiCalRecoParticles_startVertex_collectionID, &b__LumiCalRecoParticles_startVertex_collectionID);
-   fChain->SetBranchAddress("_LumiCalRecoParticles_particleIDUsed", &_LumiCalRecoParticles_particleIDUsed_, &b__LumiCalRecoParticles_particleIDUsed_);
-   fChain->SetBranchAddress("_LumiCalRecoParticles_particleIDUsed.index", _LumiCalRecoParticles_particleIDUsed_index, &b__LumiCalRecoParticles_particleIDUsed_index);
-   fChain->SetBranchAddress("_LumiCalRecoParticles_particleIDUsed.collectionID", _LumiCalRecoParticles_particleIDUsed_collectionID, &b__LumiCalRecoParticles_particleIDUsed_collectionID);
-   fChain->SetBranchAddress("LumiCalRecoParticles_particleIDs", &LumiCalRecoParticles_particleIDs_, &b_LumiCalRecoParticles_particleIDs_);
-   fChain->SetBranchAddress("LumiCalRecoParticles_particleIDs.type", &LumiCalRecoParticles_particleIDs_type, &b_LumiCalRecoParticles_particleIDs_type);
-   fChain->SetBranchAddress("LumiCalRecoParticles_particleIDs.PDG", &LumiCalRecoParticles_particleIDs_PDG, &b_LumiCalRecoParticles_particleIDs_PDG);
-   fChain->SetBranchAddress("LumiCalRecoParticles_particleIDs.algorithmType", &LumiCalRecoParticles_particleIDs_algorithmType, &b_LumiCalRecoParticles_particleIDs_algorithmType);
-   fChain->SetBranchAddress("LumiCalRecoParticles_particleIDs.likelihood", &LumiCalRecoParticles_particleIDs_likelihood, &b_LumiCalRecoParticles_particleIDs_likelihood);
-   fChain->SetBranchAddress("LumiCalRecoParticles_particleIDs.parameters_begin", &LumiCalRecoParticles_particleIDs_parameters_begin, &b_LumiCalRecoParticles_particleIDs_parameters_begin);
-   fChain->SetBranchAddress("LumiCalRecoParticles_particleIDs.parameters_end", &LumiCalRecoParticles_particleIDs_parameters_end, &b_LumiCalRecoParticles_particleIDs_parameters_end);
-   fChain->SetBranchAddress("_LumiCalRecoParticles_particleIDs_parameters", &_LumiCalRecoParticles_particleIDs_parameters, &b__LumiCalRecoParticles_particleIDs_parameters);
+   fChain->SetBranchAddress("_LumiCalRecoParticles_decayVertex", &_LumiCalRecoParticles_decayVertex_, &b__LumiCalRecoParticles_decayVertex_);
+   fChain->SetBranchAddress("_LumiCalRecoParticles_decayVertex.index", _LumiCalRecoParticles_decayVertex_index, &b__LumiCalRecoParticles_decayVertex_index);
+   fChain->SetBranchAddress("_LumiCalRecoParticles_decayVertex.collectionID", _LumiCalRecoParticles_decayVertex_collectionID, &b__LumiCalRecoParticles_decayVertex_collectionID);
+   fChain->SetBranchAddress("LumiCalRecoParticles_startVertices", &LumiCalRecoParticles_startVertices_, &b_LumiCalRecoParticles_startVertices_);
+   fChain->SetBranchAddress("LumiCalRecoParticles_startVertices.weight", &LumiCalRecoParticles_startVertices_weight, &b_LumiCalRecoParticles_startVertices_weight);
+   fChain->SetBranchAddress("_LumiCalRecoParticles_startVertices_rec", &_LumiCalRecoParticles_startVertices_rec_, &b__LumiCalRecoParticles_startVertices_rec_);
+   fChain->SetBranchAddress("_LumiCalRecoParticles_startVertices_rec.index", &_LumiCalRecoParticles_startVertices_rec_index, &b__LumiCalRecoParticles_startVertices_rec_index);
+   fChain->SetBranchAddress("_LumiCalRecoParticles_startVertices_rec.collectionID", &_LumiCalRecoParticles_startVertices_rec_collectionID, &b__LumiCalRecoParticles_startVertices_rec_collectionID);
+   fChain->SetBranchAddress("_LumiCalRecoParticles_startVertices_vertex", &_LumiCalRecoParticles_startVertices_vertex_, &b__LumiCalRecoParticles_startVertices_vertex_);
+   fChain->SetBranchAddress("_LumiCalRecoParticles_startVertices_vertex.index", &_LumiCalRecoParticles_startVertices_vertex_index, &b__LumiCalRecoParticles_startVertices_vertex_index);
+   fChain->SetBranchAddress("_LumiCalRecoParticles_startVertices_vertex.collectionID", &_LumiCalRecoParticles_startVertices_vertex_collectionID, &b__LumiCalRecoParticles_startVertices_vertex_collectionID);
    fChain->SetBranchAddress("MCParticles", &MCParticles_, &b_MCParticles_);
    fChain->SetBranchAddress("MCParticles.PDG", MCParticles_PDG, &b_MCParticles_PDG);
    fChain->SetBranchAddress("MCParticles.generatorStatus", MCParticles_generatorStatus, &b_MCParticles_generatorStatus);
@@ -3676,7 +3097,7 @@ void analysis::Init(TTree *tree)
    fChain->SetBranchAddress("OTrackerEndcapHits.position.x", OTrackerEndcapHits_position_x, &b_OTrackerEndcapHits_position_x);
    fChain->SetBranchAddress("OTrackerEndcapHits.position.y", OTrackerEndcapHits_position_y, &b_OTrackerEndcapHits_position_y);
    fChain->SetBranchAddress("OTrackerEndcapHits.position.z", OTrackerEndcapHits_position_z, &b_OTrackerEndcapHits_position_z);
-   fChain->SetBranchAddress("OTrackerEndcapHits.covMatrix[6]", OTrackerEndcapHits_covMatrix, &b_OTrackerEndcapHits_covMatrix);
+   fChain->SetBranchAddress("OTrackerEndcapHits.covMatrix.values[6]", OTrackerEndcapHits_covMatrix_values, &b_OTrackerEndcapHits_covMatrix_values);
    fChain->SetBranchAddress("OTrackerHits", &OTrackerHits_, &b_OTrackerHits_);
    fChain->SetBranchAddress("OTrackerHits.cellID", OTrackerHits_cellID, &b_OTrackerHits_cellID);
    fChain->SetBranchAddress("OTrackerHits.type", OTrackerHits_type, &b_OTrackerHits_type);
@@ -3693,7 +3114,7 @@ void analysis::Init(TTree *tree)
    fChain->SetBranchAddress("OTrackerHits.position.x", OTrackerHits_position_x, &b_OTrackerHits_position_x);
    fChain->SetBranchAddress("OTrackerHits.position.y", OTrackerHits_position_y, &b_OTrackerHits_position_y);
    fChain->SetBranchAddress("OTrackerHits.position.z", OTrackerHits_position_z, &b_OTrackerHits_position_z);
-   fChain->SetBranchAddress("OTrackerHits.covMatrix[6]", OTrackerHits_covMatrix, &b_OTrackerHits_covMatrix);
+   fChain->SetBranchAddress("OTrackerHits.covMatrix.values[6]", OTrackerHits_covMatrix_values, &b_OTrackerHits_covMatrix_values);
    fChain->SetBranchAddress("OuterTrackerBarrelCollection", &OuterTrackerBarrelCollection_, &b_OuterTrackerBarrelCollection_);
    fChain->SetBranchAddress("OuterTrackerBarrelCollection.cellID", OuterTrackerBarrelCollection_cellID, &b_OuterTrackerBarrelCollection_cellID);
    fChain->SetBranchAddress("OuterTrackerBarrelCollection.eDep", OuterTrackerBarrelCollection_eDep, &b_OuterTrackerBarrelCollection_eDep);
@@ -3747,7 +3168,7 @@ void analysis::Init(TTree *tree)
    fChain->SetBranchAddress("PandoraClusters.position.x", PandoraClusters_position_x, &b_PandoraClusters_position_x);
    fChain->SetBranchAddress("PandoraClusters.position.y", PandoraClusters_position_y, &b_PandoraClusters_position_y);
    fChain->SetBranchAddress("PandoraClusters.position.z", PandoraClusters_position_z, &b_PandoraClusters_position_z);
-   fChain->SetBranchAddress("PandoraClusters.positionError[6]", PandoraClusters_positionError, &b_PandoraClusters_positionError);
+   fChain->SetBranchAddress("PandoraClusters.positionError.values[6]", PandoraClusters_positionError_values, &b_PandoraClusters_positionError_values);
    fChain->SetBranchAddress("PandoraClusters.iTheta", PandoraClusters_iTheta, &b_PandoraClusters_iTheta);
    fChain->SetBranchAddress("PandoraClusters.phi", PandoraClusters_phi, &b_PandoraClusters_phi);
    fChain->SetBranchAddress("PandoraClusters.directionError.x", PandoraClusters_directionError_x, &b_PandoraClusters_directionError_x);
@@ -3761,27 +3182,14 @@ void analysis::Init(TTree *tree)
    fChain->SetBranchAddress("PandoraClusters.clusters_end", PandoraClusters_clusters_end, &b_PandoraClusters_clusters_end);
    fChain->SetBranchAddress("PandoraClusters.hits_begin", PandoraClusters_hits_begin, &b_PandoraClusters_hits_begin);
    fChain->SetBranchAddress("PandoraClusters.hits_end", PandoraClusters_hits_end, &b_PandoraClusters_hits_end);
-   fChain->SetBranchAddress("PandoraClusters.particleIDs_begin", PandoraClusters_particleIDs_begin, &b_PandoraClusters_particleIDs_begin);
-   fChain->SetBranchAddress("PandoraClusters.particleIDs_end", PandoraClusters_particleIDs_end, &b_PandoraClusters_particleIDs_end);
    fChain->SetBranchAddress("_PandoraClusters_clusters", &_PandoraClusters_clusters_, &b__PandoraClusters_clusters_);
    fChain->SetBranchAddress("_PandoraClusters_clusters.index", &_PandoraClusters_clusters_index, &b__PandoraClusters_clusters_index);
    fChain->SetBranchAddress("_PandoraClusters_clusters.collectionID", &_PandoraClusters_clusters_collectionID, &b__PandoraClusters_clusters_collectionID);
    fChain->SetBranchAddress("_PandoraClusters_hits", &_PandoraClusters_hits_, &b__PandoraClusters_hits_);
    fChain->SetBranchAddress("_PandoraClusters_hits.index", _PandoraClusters_hits_index, &b__PandoraClusters_hits_index);
    fChain->SetBranchAddress("_PandoraClusters_hits.collectionID", _PandoraClusters_hits_collectionID, &b__PandoraClusters_hits_collectionID);
-   fChain->SetBranchAddress("_PandoraClusters_particleIDs", &_PandoraClusters_particleIDs_, &b__PandoraClusters_particleIDs_);
-   fChain->SetBranchAddress("_PandoraClusters_particleIDs.index", &_PandoraClusters_particleIDs_index, &b__PandoraClusters_particleIDs_index);
-   fChain->SetBranchAddress("_PandoraClusters_particleIDs.collectionID", &_PandoraClusters_particleIDs_collectionID, &b__PandoraClusters_particleIDs_collectionID);
    fChain->SetBranchAddress("_PandoraClusters_shapeParameters", &_PandoraClusters_shapeParameters, &b__PandoraClusters_shapeParameters);
    fChain->SetBranchAddress("_PandoraClusters_subdetectorEnergies", &_PandoraClusters_subdetectorEnergies, &b__PandoraClusters_subdetectorEnergies);
-   fChain->SetBranchAddress("PandoraClusters_particleIDs", &PandoraClusters_particleIDs_, &b_PandoraClusters_particleIDs_);
-   fChain->SetBranchAddress("PandoraClusters_particleIDs.type", &PandoraClusters_particleIDs_type, &b_PandoraClusters_particleIDs_type);
-   fChain->SetBranchAddress("PandoraClusters_particleIDs.PDG", &PandoraClusters_particleIDs_PDG, &b_PandoraClusters_particleIDs_PDG);
-   fChain->SetBranchAddress("PandoraClusters_particleIDs.algorithmType", &PandoraClusters_particleIDs_algorithmType, &b_PandoraClusters_particleIDs_algorithmType);
-   fChain->SetBranchAddress("PandoraClusters_particleIDs.likelihood", &PandoraClusters_particleIDs_likelihood, &b_PandoraClusters_particleIDs_likelihood);
-   fChain->SetBranchAddress("PandoraClusters_particleIDs.parameters_begin", &PandoraClusters_particleIDs_parameters_begin, &b_PandoraClusters_particleIDs_parameters_begin);
-   fChain->SetBranchAddress("PandoraClusters_particleIDs.parameters_end", &PandoraClusters_particleIDs_parameters_end, &b_PandoraClusters_particleIDs_parameters_end);
-   fChain->SetBranchAddress("_PandoraClusters_particleIDs_parameters", &_PandoraClusters_particleIDs_parameters, &b__PandoraClusters_particleIDs_parameters);
    fChain->SetBranchAddress("PandoraPFOs", &PandoraPFOs_, &b_PandoraPFOs_);
    fChain->SetBranchAddress("PandoraPFOs.PDG", PandoraPFOs_PDG, &b_PandoraPFOs_PDG);
    fChain->SetBranchAddress("PandoraPFOs.energy", PandoraPFOs_energy, &b_PandoraPFOs_energy);
@@ -3794,15 +3202,13 @@ void analysis::Init(TTree *tree)
    fChain->SetBranchAddress("PandoraPFOs.charge", PandoraPFOs_charge, &b_PandoraPFOs_charge);
    fChain->SetBranchAddress("PandoraPFOs.mass", PandoraPFOs_mass, &b_PandoraPFOs_mass);
    fChain->SetBranchAddress("PandoraPFOs.goodnessOfPID", PandoraPFOs_goodnessOfPID, &b_PandoraPFOs_goodnessOfPID);
-   fChain->SetBranchAddress("PandoraPFOs.covMatrix[10]", PandoraPFOs_covMatrix, &b_PandoraPFOs_covMatrix);
+   fChain->SetBranchAddress("PandoraPFOs.covMatrix.values[10]", PandoraPFOs_covMatrix_values, &b_PandoraPFOs_covMatrix_values);
    fChain->SetBranchAddress("PandoraPFOs.clusters_begin", PandoraPFOs_clusters_begin, &b_PandoraPFOs_clusters_begin);
    fChain->SetBranchAddress("PandoraPFOs.clusters_end", PandoraPFOs_clusters_end, &b_PandoraPFOs_clusters_end);
    fChain->SetBranchAddress("PandoraPFOs.tracks_begin", PandoraPFOs_tracks_begin, &b_PandoraPFOs_tracks_begin);
    fChain->SetBranchAddress("PandoraPFOs.tracks_end", PandoraPFOs_tracks_end, &b_PandoraPFOs_tracks_end);
    fChain->SetBranchAddress("PandoraPFOs.particles_begin", PandoraPFOs_particles_begin, &b_PandoraPFOs_particles_begin);
    fChain->SetBranchAddress("PandoraPFOs.particles_end", PandoraPFOs_particles_end, &b_PandoraPFOs_particles_end);
-   fChain->SetBranchAddress("PandoraPFOs.particleIDs_begin", PandoraPFOs_particleIDs_begin, &b_PandoraPFOs_particleIDs_begin);
-   fChain->SetBranchAddress("PandoraPFOs.particleIDs_end", PandoraPFOs_particleIDs_end, &b_PandoraPFOs_particleIDs_end);
    fChain->SetBranchAddress("_PandoraPFOs_clusters", &_PandoraPFOs_clusters_, &b__PandoraPFOs_clusters_);
    fChain->SetBranchAddress("_PandoraPFOs_clusters.index", _PandoraPFOs_clusters_index, &b__PandoraPFOs_clusters_index);
    fChain->SetBranchAddress("_PandoraPFOs_clusters.collectionID", _PandoraPFOs_clusters_collectionID, &b__PandoraPFOs_clusters_collectionID);
@@ -3812,56 +3218,70 @@ void analysis::Init(TTree *tree)
    fChain->SetBranchAddress("_PandoraPFOs_particles", &_PandoraPFOs_particles_, &b__PandoraPFOs_particles_);
    fChain->SetBranchAddress("_PandoraPFOs_particles.index", &_PandoraPFOs_particles_index, &b__PandoraPFOs_particles_index);
    fChain->SetBranchAddress("_PandoraPFOs_particles.collectionID", &_PandoraPFOs_particles_collectionID, &b__PandoraPFOs_particles_collectionID);
-   fChain->SetBranchAddress("_PandoraPFOs_particleIDs", &_PandoraPFOs_particleIDs_, &b__PandoraPFOs_particleIDs_);
-   fChain->SetBranchAddress("_PandoraPFOs_particleIDs.index", &_PandoraPFOs_particleIDs_index, &b__PandoraPFOs_particleIDs_index);
-   fChain->SetBranchAddress("_PandoraPFOs_particleIDs.collectionID", &_PandoraPFOs_particleIDs_collectionID, &b__PandoraPFOs_particleIDs_collectionID);
-   fChain->SetBranchAddress("_PandoraPFOs_startVertex", &_PandoraPFOs_startVertex_, &b__PandoraPFOs_startVertex_);
-   fChain->SetBranchAddress("_PandoraPFOs_startVertex.index", _PandoraPFOs_startVertex_index, &b__PandoraPFOs_startVertex_index);
-   fChain->SetBranchAddress("_PandoraPFOs_startVertex.collectionID", _PandoraPFOs_startVertex_collectionID, &b__PandoraPFOs_startVertex_collectionID);
-   fChain->SetBranchAddress("_PandoraPFOs_particleIDUsed", &_PandoraPFOs_particleIDUsed_, &b__PandoraPFOs_particleIDUsed_);
-   fChain->SetBranchAddress("_PandoraPFOs_particleIDUsed.index", _PandoraPFOs_particleIDUsed_index, &b__PandoraPFOs_particleIDUsed_index);
-   fChain->SetBranchAddress("_PandoraPFOs_particleIDUsed.collectionID", _PandoraPFOs_particleIDUsed_collectionID, &b__PandoraPFOs_particleIDUsed_collectionID);
-   fChain->SetBranchAddress("PandoraPFOs_particleIDs", &PandoraPFOs_particleIDs_, &b_PandoraPFOs_particleIDs_);
-   fChain->SetBranchAddress("PandoraPFOs_particleIDs.type", &PandoraPFOs_particleIDs_type, &b_PandoraPFOs_particleIDs_type);
-   fChain->SetBranchAddress("PandoraPFOs_particleIDs.PDG", &PandoraPFOs_particleIDs_PDG, &b_PandoraPFOs_particleIDs_PDG);
-   fChain->SetBranchAddress("PandoraPFOs_particleIDs.algorithmType", &PandoraPFOs_particleIDs_algorithmType, &b_PandoraPFOs_particleIDs_algorithmType);
-   fChain->SetBranchAddress("PandoraPFOs_particleIDs.likelihood", &PandoraPFOs_particleIDs_likelihood, &b_PandoraPFOs_particleIDs_likelihood);
-   fChain->SetBranchAddress("PandoraPFOs_particleIDs.parameters_begin", &PandoraPFOs_particleIDs_parameters_begin, &b_PandoraPFOs_particleIDs_parameters_begin);
-   fChain->SetBranchAddress("PandoraPFOs_particleIDs.parameters_end", &PandoraPFOs_particleIDs_parameters_end, &b_PandoraPFOs_particleIDs_parameters_end);
-   fChain->SetBranchAddress("_PandoraPFOs_particleIDs_parameters", &_PandoraPFOs_particleIDs_parameters, &b__PandoraPFOs_particleIDs_parameters);
+   fChain->SetBranchAddress("_PandoraPFOs_decayVertex", &_PandoraPFOs_decayVertex_, &b__PandoraPFOs_decayVertex_);
+   fChain->SetBranchAddress("_PandoraPFOs_decayVertex.index", _PandoraPFOs_decayVertex_index, &b__PandoraPFOs_decayVertex_index);
+   fChain->SetBranchAddress("_PandoraPFOs_decayVertex.collectionID", _PandoraPFOs_decayVertex_collectionID, &b__PandoraPFOs_decayVertex_collectionID);
+   fChain->SetBranchAddress("PandoraPFOs_startVertices", &PandoraPFOs_startVertices_, &b_PandoraPFOs_startVertices_);
+   fChain->SetBranchAddress("PandoraPFOs_startVertices.weight", &PandoraPFOs_startVertices_weight, &b_PandoraPFOs_startVertices_weight);
+   fChain->SetBranchAddress("_PandoraPFOs_startVertices_rec", &_PandoraPFOs_startVertices_rec_, &b__PandoraPFOs_startVertices_rec_);
+   fChain->SetBranchAddress("_PandoraPFOs_startVertices_rec.index", &_PandoraPFOs_startVertices_rec_index, &b__PandoraPFOs_startVertices_rec_index);
+   fChain->SetBranchAddress("_PandoraPFOs_startVertices_rec.collectionID", &_PandoraPFOs_startVertices_rec_collectionID, &b__PandoraPFOs_startVertices_rec_collectionID);
+   fChain->SetBranchAddress("_PandoraPFOs_startVertices_vertex", &_PandoraPFOs_startVertices_vertex_, &b__PandoraPFOs_startVertices_vertex_);
+   fChain->SetBranchAddress("_PandoraPFOs_startVertices_vertex.index", &_PandoraPFOs_startVertices_vertex_index, &b__PandoraPFOs_startVertices_vertex_index);
+   fChain->SetBranchAddress("_PandoraPFOs_startVertices_vertex.collectionID", &_PandoraPFOs_startVertices_vertex_collectionID, &b__PandoraPFOs_startVertices_vertex_collectionID);
    fChain->SetBranchAddress("PandoraStartVertices", &PandoraStartVertices_, &b_PandoraStartVertices_);
-   fChain->SetBranchAddress("PandoraStartVertices.primary", PandoraStartVertices_primary, &b_PandoraStartVertices_primary);
+   fChain->SetBranchAddress("PandoraStartVertices.type", PandoraStartVertices_type, &b_PandoraStartVertices_type);
    fChain->SetBranchAddress("PandoraStartVertices.chi2", PandoraStartVertices_chi2, &b_PandoraStartVertices_chi2);
-   fChain->SetBranchAddress("PandoraStartVertices.probability", PandoraStartVertices_probability, &b_PandoraStartVertices_probability);
+   fChain->SetBranchAddress("PandoraStartVertices.ndf", PandoraStartVertices_ndf, &b_PandoraStartVertices_ndf);
    fChain->SetBranchAddress("PandoraStartVertices.position.x", PandoraStartVertices_position_x, &b_PandoraStartVertices_position_x);
    fChain->SetBranchAddress("PandoraStartVertices.position.y", PandoraStartVertices_position_y, &b_PandoraStartVertices_position_y);
    fChain->SetBranchAddress("PandoraStartVertices.position.z", PandoraStartVertices_position_z, &b_PandoraStartVertices_position_z);
-   fChain->SetBranchAddress("PandoraStartVertices.covMatrix[6]", PandoraStartVertices_covMatrix, &b_PandoraStartVertices_covMatrix);
+   fChain->SetBranchAddress("PandoraStartVertices.covMatrix.values[6]", PandoraStartVertices_covMatrix_values, &b_PandoraStartVertices_covMatrix_values);
    fChain->SetBranchAddress("PandoraStartVertices.algorithmType", PandoraStartVertices_algorithmType, &b_PandoraStartVertices_algorithmType);
    fChain->SetBranchAddress("PandoraStartVertices.parameters_begin", PandoraStartVertices_parameters_begin, &b_PandoraStartVertices_parameters_begin);
    fChain->SetBranchAddress("PandoraStartVertices.parameters_end", PandoraStartVertices_parameters_end, &b_PandoraStartVertices_parameters_end);
-   fChain->SetBranchAddress("_PandoraStartVertices_associatedParticle", &_PandoraStartVertices_associatedParticle_, &b__PandoraStartVertices_associatedParticle_);
-   fChain->SetBranchAddress("_PandoraStartVertices_associatedParticle.index", _PandoraStartVertices_associatedParticle_index, &b__PandoraStartVertices_associatedParticle_index);
-   fChain->SetBranchAddress("_PandoraStartVertices_associatedParticle.collectionID", _PandoraStartVertices_associatedParticle_collectionID, &b__PandoraStartVertices_associatedParticle_collectionID);
+   fChain->SetBranchAddress("PandoraStartVertices.particles_begin", PandoraStartVertices_particles_begin, &b_PandoraStartVertices_particles_begin);
+   fChain->SetBranchAddress("PandoraStartVertices.particles_end", PandoraStartVertices_particles_end, &b_PandoraStartVertices_particles_end);
+   fChain->SetBranchAddress("_PandoraStartVertices_particles", &_PandoraStartVertices_particles_, &b__PandoraStartVertices_particles_);
+   fChain->SetBranchAddress("_PandoraStartVertices_particles.index", &_PandoraStartVertices_particles_index, &b__PandoraStartVertices_particles_index);
+   fChain->SetBranchAddress("_PandoraStartVertices_particles.collectionID", &_PandoraStartVertices_particles_collectionID, &b__PandoraStartVertices_particles_collectionID);
    fChain->SetBranchAddress("_PandoraStartVertices_parameters", &_PandoraStartVertices_parameters, &b__PandoraStartVertices_parameters);
+   fChain->SetBranchAddress("PandoraStartVertices_associatedParticles", &PandoraStartVertices_associatedParticles_, &b_PandoraStartVertices_associatedParticles_);
+   fChain->SetBranchAddress("PandoraStartVertices_associatedParticles.weight", PandoraStartVertices_associatedParticles_weight, &b_PandoraStartVertices_associatedParticles_weight);
+   fChain->SetBranchAddress("_PandoraStartVertices_associatedParticles_rec", &_PandoraStartVertices_associatedParticles_rec_, &b__PandoraStartVertices_associatedParticles_rec_);
+   fChain->SetBranchAddress("_PandoraStartVertices_associatedParticles_rec.index", _PandoraStartVertices_associatedParticles_rec_index, &b__PandoraStartVertices_associatedParticles_rec_index);
+   fChain->SetBranchAddress("_PandoraStartVertices_associatedParticles_rec.collectionID", _PandoraStartVertices_associatedParticles_rec_collectionID, &b__PandoraStartVertices_associatedParticles_rec_collectionID);
+   fChain->SetBranchAddress("_PandoraStartVertices_associatedParticles_vertex", &_PandoraStartVertices_associatedParticles_vertex_, &b__PandoraStartVertices_associatedParticles_vertex_);
+   fChain->SetBranchAddress("_PandoraStartVertices_associatedParticles_vertex.index", _PandoraStartVertices_associatedParticles_vertex_index, &b__PandoraStartVertices_associatedParticles_vertex_index);
+   fChain->SetBranchAddress("_PandoraStartVertices_associatedParticles_vertex.collectionID", _PandoraStartVertices_associatedParticles_vertex_collectionID, &b__PandoraStartVertices_associatedParticles_vertex_collectionID);
    fChain->SetBranchAddress("PFOsFromJets_objIdx", &PFOsFromJets_objIdx_, &b_PFOsFromJets_objIdx_);
    fChain->SetBranchAddress("PFOsFromJets_objIdx.index", PFOsFromJets_objIdx_index, &b_PFOsFromJets_objIdx_index);
    fChain->SetBranchAddress("PFOsFromJets_objIdx.collectionID", PFOsFromJets_objIdx_collectionID, &b_PFOsFromJets_objIdx_collectionID);
    fChain->SetBranchAddress("PrimaryVertices", &PrimaryVertices_, &b_PrimaryVertices_);
-   fChain->SetBranchAddress("PrimaryVertices.primary", PrimaryVertices_primary, &b_PrimaryVertices_primary);
+   fChain->SetBranchAddress("PrimaryVertices.type", PrimaryVertices_type, &b_PrimaryVertices_type);
    fChain->SetBranchAddress("PrimaryVertices.chi2", PrimaryVertices_chi2, &b_PrimaryVertices_chi2);
-   fChain->SetBranchAddress("PrimaryVertices.probability", PrimaryVertices_probability, &b_PrimaryVertices_probability);
+   fChain->SetBranchAddress("PrimaryVertices.ndf", PrimaryVertices_ndf, &b_PrimaryVertices_ndf);
    fChain->SetBranchAddress("PrimaryVertices.position.x", PrimaryVertices_position_x, &b_PrimaryVertices_position_x);
    fChain->SetBranchAddress("PrimaryVertices.position.y", PrimaryVertices_position_y, &b_PrimaryVertices_position_y);
    fChain->SetBranchAddress("PrimaryVertices.position.z", PrimaryVertices_position_z, &b_PrimaryVertices_position_z);
-   fChain->SetBranchAddress("PrimaryVertices.covMatrix[6]", PrimaryVertices_covMatrix, &b_PrimaryVertices_covMatrix);
+   fChain->SetBranchAddress("PrimaryVertices.covMatrix.values[6]", PrimaryVertices_covMatrix_values, &b_PrimaryVertices_covMatrix_values);
    fChain->SetBranchAddress("PrimaryVertices.algorithmType", PrimaryVertices_algorithmType, &b_PrimaryVertices_algorithmType);
    fChain->SetBranchAddress("PrimaryVertices.parameters_begin", PrimaryVertices_parameters_begin, &b_PrimaryVertices_parameters_begin);
    fChain->SetBranchAddress("PrimaryVertices.parameters_end", PrimaryVertices_parameters_end, &b_PrimaryVertices_parameters_end);
-   fChain->SetBranchAddress("_PrimaryVertices_associatedParticle", &_PrimaryVertices_associatedParticle_, &b__PrimaryVertices_associatedParticle_);
-   fChain->SetBranchAddress("_PrimaryVertices_associatedParticle.index", _PrimaryVertices_associatedParticle_index, &b__PrimaryVertices_associatedParticle_index);
-   fChain->SetBranchAddress("_PrimaryVertices_associatedParticle.collectionID", _PrimaryVertices_associatedParticle_collectionID, &b__PrimaryVertices_associatedParticle_collectionID);
+   fChain->SetBranchAddress("PrimaryVertices.particles_begin", PrimaryVertices_particles_begin, &b_PrimaryVertices_particles_begin);
+   fChain->SetBranchAddress("PrimaryVertices.particles_end", PrimaryVertices_particles_end, &b_PrimaryVertices_particles_end);
+   fChain->SetBranchAddress("_PrimaryVertices_particles", &_PrimaryVertices_particles_, &b__PrimaryVertices_particles_);
+   fChain->SetBranchAddress("_PrimaryVertices_particles.index", _PrimaryVertices_particles_index, &b__PrimaryVertices_particles_index);
+   fChain->SetBranchAddress("_PrimaryVertices_particles.collectionID", _PrimaryVertices_particles_collectionID, &b__PrimaryVertices_particles_collectionID);
    fChain->SetBranchAddress("_PrimaryVertices_parameters", &_PrimaryVertices_parameters, &b__PrimaryVertices_parameters);
+   fChain->SetBranchAddress("PrimaryVertices_associatedParticles", &PrimaryVertices_associatedParticles_, &b_PrimaryVertices_associatedParticles_);
+   fChain->SetBranchAddress("PrimaryVertices_associatedParticles.weight", PrimaryVertices_associatedParticles_weight, &b_PrimaryVertices_associatedParticles_weight);
+   fChain->SetBranchAddress("_PrimaryVertices_associatedParticles_rec", &_PrimaryVertices_associatedParticles_rec_, &b__PrimaryVertices_associatedParticles_rec_);
+   fChain->SetBranchAddress("_PrimaryVertices_associatedParticles_rec.index", _PrimaryVertices_associatedParticles_rec_index, &b__PrimaryVertices_associatedParticles_rec_index);
+   fChain->SetBranchAddress("_PrimaryVertices_associatedParticles_rec.collectionID", _PrimaryVertices_associatedParticles_rec_collectionID, &b__PrimaryVertices_associatedParticles_rec_collectionID);
+   fChain->SetBranchAddress("_PrimaryVertices_associatedParticles_vertex", &_PrimaryVertices_associatedParticles_vertex_, &b__PrimaryVertices_associatedParticles_vertex_);
+   fChain->SetBranchAddress("_PrimaryVertices_associatedParticles_vertex.index", _PrimaryVertices_associatedParticles_vertex_index, &b__PrimaryVertices_associatedParticles_vertex_index);
+   fChain->SetBranchAddress("_PrimaryVertices_associatedParticles_vertex.collectionID", _PrimaryVertices_associatedParticles_vertex_collectionID, &b__PrimaryVertices_associatedParticles_vertex_collectionID);
    fChain->SetBranchAddress("PrimaryVertices_RP", &PrimaryVertices_RP_, &b_PrimaryVertices_RP_);
    fChain->SetBranchAddress("PrimaryVertices_RP.PDG", PrimaryVertices_RP_PDG, &b_PrimaryVertices_RP_PDG);
    fChain->SetBranchAddress("PrimaryVertices_RP.energy", PrimaryVertices_RP_energy, &b_PrimaryVertices_RP_energy);
@@ -3874,15 +3294,13 @@ void analysis::Init(TTree *tree)
    fChain->SetBranchAddress("PrimaryVertices_RP.charge", PrimaryVertices_RP_charge, &b_PrimaryVertices_RP_charge);
    fChain->SetBranchAddress("PrimaryVertices_RP.mass", PrimaryVertices_RP_mass, &b_PrimaryVertices_RP_mass);
    fChain->SetBranchAddress("PrimaryVertices_RP.goodnessOfPID", PrimaryVertices_RP_goodnessOfPID, &b_PrimaryVertices_RP_goodnessOfPID);
-   fChain->SetBranchAddress("PrimaryVertices_RP.covMatrix[10]", PrimaryVertices_RP_covMatrix, &b_PrimaryVertices_RP_covMatrix);
+   fChain->SetBranchAddress("PrimaryVertices_RP.covMatrix.values[10]", PrimaryVertices_RP_covMatrix_values, &b_PrimaryVertices_RP_covMatrix_values);
    fChain->SetBranchAddress("PrimaryVertices_RP.clusters_begin", PrimaryVertices_RP_clusters_begin, &b_PrimaryVertices_RP_clusters_begin);
    fChain->SetBranchAddress("PrimaryVertices_RP.clusters_end", PrimaryVertices_RP_clusters_end, &b_PrimaryVertices_RP_clusters_end);
    fChain->SetBranchAddress("PrimaryVertices_RP.tracks_begin", PrimaryVertices_RP_tracks_begin, &b_PrimaryVertices_RP_tracks_begin);
    fChain->SetBranchAddress("PrimaryVertices_RP.tracks_end", PrimaryVertices_RP_tracks_end, &b_PrimaryVertices_RP_tracks_end);
    fChain->SetBranchAddress("PrimaryVertices_RP.particles_begin", PrimaryVertices_RP_particles_begin, &b_PrimaryVertices_RP_particles_begin);
    fChain->SetBranchAddress("PrimaryVertices_RP.particles_end", PrimaryVertices_RP_particles_end, &b_PrimaryVertices_RP_particles_end);
-   fChain->SetBranchAddress("PrimaryVertices_RP.particleIDs_begin", PrimaryVertices_RP_particleIDs_begin, &b_PrimaryVertices_RP_particleIDs_begin);
-   fChain->SetBranchAddress("PrimaryVertices_RP.particleIDs_end", PrimaryVertices_RP_particleIDs_end, &b_PrimaryVertices_RP_particleIDs_end);
    fChain->SetBranchAddress("_PrimaryVertices_RP_clusters", &_PrimaryVertices_RP_clusters_, &b__PrimaryVertices_RP_clusters_);
    fChain->SetBranchAddress("_PrimaryVertices_RP_clusters.index", &_PrimaryVertices_RP_clusters_index, &b__PrimaryVertices_RP_clusters_index);
    fChain->SetBranchAddress("_PrimaryVertices_RP_clusters.collectionID", &_PrimaryVertices_RP_clusters_collectionID, &b__PrimaryVertices_RP_clusters_collectionID);
@@ -3892,23 +3310,17 @@ void analysis::Init(TTree *tree)
    fChain->SetBranchAddress("_PrimaryVertices_RP_particles", &_PrimaryVertices_RP_particles_, &b__PrimaryVertices_RP_particles_);
    fChain->SetBranchAddress("_PrimaryVertices_RP_particles.index", _PrimaryVertices_RP_particles_index, &b__PrimaryVertices_RP_particles_index);
    fChain->SetBranchAddress("_PrimaryVertices_RP_particles.collectionID", _PrimaryVertices_RP_particles_collectionID, &b__PrimaryVertices_RP_particles_collectionID);
-   fChain->SetBranchAddress("_PrimaryVertices_RP_particleIDs", &_PrimaryVertices_RP_particleIDs_, &b__PrimaryVertices_RP_particleIDs_);
-   fChain->SetBranchAddress("_PrimaryVertices_RP_particleIDs.index", &_PrimaryVertices_RP_particleIDs_index, &b__PrimaryVertices_RP_particleIDs_index);
-   fChain->SetBranchAddress("_PrimaryVertices_RP_particleIDs.collectionID", &_PrimaryVertices_RP_particleIDs_collectionID, &b__PrimaryVertices_RP_particleIDs_collectionID);
-   fChain->SetBranchAddress("_PrimaryVertices_RP_startVertex", &_PrimaryVertices_RP_startVertex_, &b__PrimaryVertices_RP_startVertex_);
-   fChain->SetBranchAddress("_PrimaryVertices_RP_startVertex.index", _PrimaryVertices_RP_startVertex_index, &b__PrimaryVertices_RP_startVertex_index);
-   fChain->SetBranchAddress("_PrimaryVertices_RP_startVertex.collectionID", _PrimaryVertices_RP_startVertex_collectionID, &b__PrimaryVertices_RP_startVertex_collectionID);
-   fChain->SetBranchAddress("_PrimaryVertices_RP_particleIDUsed", &_PrimaryVertices_RP_particleIDUsed_, &b__PrimaryVertices_RP_particleIDUsed_);
-   fChain->SetBranchAddress("_PrimaryVertices_RP_particleIDUsed.index", _PrimaryVertices_RP_particleIDUsed_index, &b__PrimaryVertices_RP_particleIDUsed_index);
-   fChain->SetBranchAddress("_PrimaryVertices_RP_particleIDUsed.collectionID", _PrimaryVertices_RP_particleIDUsed_collectionID, &b__PrimaryVertices_RP_particleIDUsed_collectionID);
-   fChain->SetBranchAddress("PrimaryVertices_RP_particleIDs", &PrimaryVertices_RP_particleIDs_, &b_PrimaryVertices_RP_particleIDs_);
-   fChain->SetBranchAddress("PrimaryVertices_RP_particleIDs.type", &PrimaryVertices_RP_particleIDs_type, &b_PrimaryVertices_RP_particleIDs_type);
-   fChain->SetBranchAddress("PrimaryVertices_RP_particleIDs.PDG", &PrimaryVertices_RP_particleIDs_PDG, &b_PrimaryVertices_RP_particleIDs_PDG);
-   fChain->SetBranchAddress("PrimaryVertices_RP_particleIDs.algorithmType", &PrimaryVertices_RP_particleIDs_algorithmType, &b_PrimaryVertices_RP_particleIDs_algorithmType);
-   fChain->SetBranchAddress("PrimaryVertices_RP_particleIDs.likelihood", &PrimaryVertices_RP_particleIDs_likelihood, &b_PrimaryVertices_RP_particleIDs_likelihood);
-   fChain->SetBranchAddress("PrimaryVertices_RP_particleIDs.parameters_begin", &PrimaryVertices_RP_particleIDs_parameters_begin, &b_PrimaryVertices_RP_particleIDs_parameters_begin);
-   fChain->SetBranchAddress("PrimaryVertices_RP_particleIDs.parameters_end", &PrimaryVertices_RP_particleIDs_parameters_end, &b_PrimaryVertices_RP_particleIDs_parameters_end);
-   fChain->SetBranchAddress("_PrimaryVertices_RP_particleIDs_parameters", &_PrimaryVertices_RP_particleIDs_parameters, &b__PrimaryVertices_RP_particleIDs_parameters);
+   fChain->SetBranchAddress("_PrimaryVertices_RP_decayVertex", &_PrimaryVertices_RP_decayVertex_, &b__PrimaryVertices_RP_decayVertex_);
+   fChain->SetBranchAddress("_PrimaryVertices_RP_decayVertex.index", _PrimaryVertices_RP_decayVertex_index, &b__PrimaryVertices_RP_decayVertex_index);
+   fChain->SetBranchAddress("_PrimaryVertices_RP_decayVertex.collectionID", _PrimaryVertices_RP_decayVertex_collectionID, &b__PrimaryVertices_RP_decayVertex_collectionID);
+   fChain->SetBranchAddress("PrimaryVertices_RP_startVertices", &PrimaryVertices_RP_startVertices_, &b_PrimaryVertices_RP_startVertices_);
+   fChain->SetBranchAddress("PrimaryVertices_RP_startVertices.weight", &PrimaryVertices_RP_startVertices_weight, &b_PrimaryVertices_RP_startVertices_weight);
+   fChain->SetBranchAddress("_PrimaryVertices_RP_startVertices_rec", &_PrimaryVertices_RP_startVertices_rec_, &b__PrimaryVertices_RP_startVertices_rec_);
+   fChain->SetBranchAddress("_PrimaryVertices_RP_startVertices_rec.index", &_PrimaryVertices_RP_startVertices_rec_index, &b__PrimaryVertices_RP_startVertices_rec_index);
+   fChain->SetBranchAddress("_PrimaryVertices_RP_startVertices_rec.collectionID", &_PrimaryVertices_RP_startVertices_rec_collectionID, &b__PrimaryVertices_RP_startVertices_rec_collectionID);
+   fChain->SetBranchAddress("_PrimaryVertices_RP_startVertices_vertex", &_PrimaryVertices_RP_startVertices_vertex_, &b__PrimaryVertices_RP_startVertices_vertex_);
+   fChain->SetBranchAddress("_PrimaryVertices_RP_startVertices_vertex.index", &_PrimaryVertices_RP_startVertices_vertex_index, &b__PrimaryVertices_RP_startVertices_vertex_index);
+   fChain->SetBranchAddress("_PrimaryVertices_RP_startVertices_vertex.collectionID", &_PrimaryVertices_RP_startVertices_vertex_collectionID, &b__PrimaryVertices_RP_startVertices_vertex_collectionID);
    fChain->SetBranchAddress("RecoMCTruthLink", &RecoMCTruthLink_, &b_RecoMCTruthLink_);
    fChain->SetBranchAddress("RecoMCTruthLink.weight", RecoMCTruthLink_weight, &b_RecoMCTruthLink_weight);
    fChain->SetBranchAddress("_RecoMCTruthLink_rec", &_RecoMCTruthLink_rec_, &b__RecoMCTruthLink_rec_);
@@ -3917,185 +3329,6 @@ void analysis::Init(TTree *tree)
    fChain->SetBranchAddress("_RecoMCTruthLink_sim", &_RecoMCTruthLink_sim_, &b__RecoMCTruthLink_sim_);
    fChain->SetBranchAddress("_RecoMCTruthLink_sim.index", _RecoMCTruthLink_sim_index, &b__RecoMCTruthLink_sim_index);
    fChain->SetBranchAddress("_RecoMCTruthLink_sim.collectionID", _RecoMCTruthLink_sim_collectionID, &b__RecoMCTruthLink_sim_collectionID);
-   fChain->SetBranchAddress("RefinedVertexJets", &RefinedVertexJets_, &b_RefinedVertexJets_);
-   fChain->SetBranchAddress("RefinedVertexJets.PDG", RefinedVertexJets_PDG, &b_RefinedVertexJets_PDG);
-   fChain->SetBranchAddress("RefinedVertexJets.energy", RefinedVertexJets_energy, &b_RefinedVertexJets_energy);
-   fChain->SetBranchAddress("RefinedVertexJets.momentum.x", RefinedVertexJets_momentum_x, &b_RefinedVertexJets_momentum_x);
-   fChain->SetBranchAddress("RefinedVertexJets.momentum.y", RefinedVertexJets_momentum_y, &b_RefinedVertexJets_momentum_y);
-   fChain->SetBranchAddress("RefinedVertexJets.momentum.z", RefinedVertexJets_momentum_z, &b_RefinedVertexJets_momentum_z);
-   fChain->SetBranchAddress("RefinedVertexJets.referencePoint.x", RefinedVertexJets_referencePoint_x, &b_RefinedVertexJets_referencePoint_x);
-   fChain->SetBranchAddress("RefinedVertexJets.referencePoint.y", RefinedVertexJets_referencePoint_y, &b_RefinedVertexJets_referencePoint_y);
-   fChain->SetBranchAddress("RefinedVertexJets.referencePoint.z", RefinedVertexJets_referencePoint_z, &b_RefinedVertexJets_referencePoint_z);
-   fChain->SetBranchAddress("RefinedVertexJets.charge", RefinedVertexJets_charge, &b_RefinedVertexJets_charge);
-   fChain->SetBranchAddress("RefinedVertexJets.mass", RefinedVertexJets_mass, &b_RefinedVertexJets_mass);
-   fChain->SetBranchAddress("RefinedVertexJets.goodnessOfPID", RefinedVertexJets_goodnessOfPID, &b_RefinedVertexJets_goodnessOfPID);
-   fChain->SetBranchAddress("RefinedVertexJets.covMatrix[10]", RefinedVertexJets_covMatrix, &b_RefinedVertexJets_covMatrix);
-   fChain->SetBranchAddress("RefinedVertexJets.clusters_begin", RefinedVertexJets_clusters_begin, &b_RefinedVertexJets_clusters_begin);
-   fChain->SetBranchAddress("RefinedVertexJets.clusters_end", RefinedVertexJets_clusters_end, &b_RefinedVertexJets_clusters_end);
-   fChain->SetBranchAddress("RefinedVertexJets.tracks_begin", RefinedVertexJets_tracks_begin, &b_RefinedVertexJets_tracks_begin);
-   fChain->SetBranchAddress("RefinedVertexJets.tracks_end", RefinedVertexJets_tracks_end, &b_RefinedVertexJets_tracks_end);
-   fChain->SetBranchAddress("RefinedVertexJets.particles_begin", RefinedVertexJets_particles_begin, &b_RefinedVertexJets_particles_begin);
-   fChain->SetBranchAddress("RefinedVertexJets.particles_end", RefinedVertexJets_particles_end, &b_RefinedVertexJets_particles_end);
-   fChain->SetBranchAddress("RefinedVertexJets.particleIDs_begin", RefinedVertexJets_particleIDs_begin, &b_RefinedVertexJets_particleIDs_begin);
-   fChain->SetBranchAddress("RefinedVertexJets.particleIDs_end", RefinedVertexJets_particleIDs_end, &b_RefinedVertexJets_particleIDs_end);
-   fChain->SetBranchAddress("_RefinedVertexJets_clusters", &_RefinedVertexJets_clusters_, &b__RefinedVertexJets_clusters_);
-   fChain->SetBranchAddress("_RefinedVertexJets_clusters.index", &_RefinedVertexJets_clusters_index, &b__RefinedVertexJets_clusters_index);
-   fChain->SetBranchAddress("_RefinedVertexJets_clusters.collectionID", &_RefinedVertexJets_clusters_collectionID, &b__RefinedVertexJets_clusters_collectionID);
-   fChain->SetBranchAddress("_RefinedVertexJets_tracks", &_RefinedVertexJets_tracks_, &b__RefinedVertexJets_tracks_);
-   fChain->SetBranchAddress("_RefinedVertexJets_tracks.index", &_RefinedVertexJets_tracks_index, &b__RefinedVertexJets_tracks_index);
-   fChain->SetBranchAddress("_RefinedVertexJets_tracks.collectionID", &_RefinedVertexJets_tracks_collectionID, &b__RefinedVertexJets_tracks_collectionID);
-   fChain->SetBranchAddress("_RefinedVertexJets_particles", &_RefinedVertexJets_particles_, &b__RefinedVertexJets_particles_);
-   fChain->SetBranchAddress("_RefinedVertexJets_particles.index", _RefinedVertexJets_particles_index, &b__RefinedVertexJets_particles_index);
-   fChain->SetBranchAddress("_RefinedVertexJets_particles.collectionID", _RefinedVertexJets_particles_collectionID, &b__RefinedVertexJets_particles_collectionID);
-   fChain->SetBranchAddress("_RefinedVertexJets_particleIDs", &_RefinedVertexJets_particleIDs_, &b__RefinedVertexJets_particleIDs_);
-   fChain->SetBranchAddress("_RefinedVertexJets_particleIDs.index", _RefinedVertexJets_particleIDs_index, &b__RefinedVertexJets_particleIDs_index);
-   fChain->SetBranchAddress("_RefinedVertexJets_particleIDs.collectionID", _RefinedVertexJets_particleIDs_collectionID, &b__RefinedVertexJets_particleIDs_collectionID);
-   fChain->SetBranchAddress("_RefinedVertexJets_startVertex", &_RefinedVertexJets_startVertex_, &b__RefinedVertexJets_startVertex_);
-   fChain->SetBranchAddress("_RefinedVertexJets_startVertex.index", _RefinedVertexJets_startVertex_index, &b__RefinedVertexJets_startVertex_index);
-   fChain->SetBranchAddress("_RefinedVertexJets_startVertex.collectionID", _RefinedVertexJets_startVertex_collectionID, &b__RefinedVertexJets_startVertex_collectionID);
-   fChain->SetBranchAddress("_RefinedVertexJets_particleIDUsed", &_RefinedVertexJets_particleIDUsed_, &b__RefinedVertexJets_particleIDUsed_);
-   fChain->SetBranchAddress("_RefinedVertexJets_particleIDUsed.index", _RefinedVertexJets_particleIDUsed_index, &b__RefinedVertexJets_particleIDUsed_index);
-   fChain->SetBranchAddress("_RefinedVertexJets_particleIDUsed.collectionID", _RefinedVertexJets_particleIDUsed_collectionID, &b__RefinedVertexJets_particleIDUsed_collectionID);
-   fChain->SetBranchAddress("RefinedVertexJets_particleIDs", &RefinedVertexJets_particleIDs_, &b_RefinedVertexJets_particleIDs_);
-   fChain->SetBranchAddress("RefinedVertexJets_particleIDs.type", RefinedVertexJets_particleIDs_type, &b_RefinedVertexJets_particleIDs_type);
-   fChain->SetBranchAddress("RefinedVertexJets_particleIDs.PDG", RefinedVertexJets_particleIDs_PDG, &b_RefinedVertexJets_particleIDs_PDG);
-   fChain->SetBranchAddress("RefinedVertexJets_particleIDs.algorithmType", RefinedVertexJets_particleIDs_algorithmType, &b_RefinedVertexJets_particleIDs_algorithmType);
-   fChain->SetBranchAddress("RefinedVertexJets_particleIDs.likelihood", RefinedVertexJets_particleIDs_likelihood, &b_RefinedVertexJets_particleIDs_likelihood);
-   fChain->SetBranchAddress("RefinedVertexJets_particleIDs.parameters_begin", RefinedVertexJets_particleIDs_parameters_begin, &b_RefinedVertexJets_particleIDs_parameters_begin);
-   fChain->SetBranchAddress("RefinedVertexJets_particleIDs.parameters_end", RefinedVertexJets_particleIDs_parameters_end, &b_RefinedVertexJets_particleIDs_parameters_end);
-   fChain->SetBranchAddress("_RefinedVertexJets_particleIDs_parameters", &_RefinedVertexJets_particleIDs_parameters, &b__RefinedVertexJets_particleIDs_parameters);
-   fChain->SetBranchAddress("RefinedVertexJets_rel", &RefinedVertexJets_rel_, &b_RefinedVertexJets_rel_);
-   fChain->SetBranchAddress("RefinedVertexJets_rel.weight", RefinedVertexJets_rel_weight, &b_RefinedVertexJets_rel_weight);
-   fChain->SetBranchAddress("_RefinedVertexJets_rel_rec", &_RefinedVertexJets_rel_rec_, &b__RefinedVertexJets_rel_rec_);
-   fChain->SetBranchAddress("_RefinedVertexJets_rel_rec.index", _RefinedVertexJets_rel_rec_index, &b__RefinedVertexJets_rel_rec_index);
-   fChain->SetBranchAddress("_RefinedVertexJets_rel_rec.collectionID", _RefinedVertexJets_rel_rec_collectionID, &b__RefinedVertexJets_rel_rec_collectionID);
-   fChain->SetBranchAddress("_RefinedVertexJets_rel_vertex", &_RefinedVertexJets_rel_vertex_, &b__RefinedVertexJets_rel_vertex_);
-   fChain->SetBranchAddress("_RefinedVertexJets_rel_vertex.index", _RefinedVertexJets_rel_vertex_index, &b__RefinedVertexJets_rel_vertex_index);
-   fChain->SetBranchAddress("_RefinedVertexJets_rel_vertex.collectionID", _RefinedVertexJets_rel_vertex_collectionID, &b__RefinedVertexJets_rel_vertex_collectionID);
-   fChain->SetBranchAddress("RefinedVertexJets_vtx", &RefinedVertexJets_vtx_, &b_RefinedVertexJets_vtx_);
-   fChain->SetBranchAddress("RefinedVertexJets_vtx.primary", RefinedVertexJets_vtx_primary, &b_RefinedVertexJets_vtx_primary);
-   fChain->SetBranchAddress("RefinedVertexJets_vtx.chi2", RefinedVertexJets_vtx_chi2, &b_RefinedVertexJets_vtx_chi2);
-   fChain->SetBranchAddress("RefinedVertexJets_vtx.probability", RefinedVertexJets_vtx_probability, &b_RefinedVertexJets_vtx_probability);
-   fChain->SetBranchAddress("RefinedVertexJets_vtx.position.x", RefinedVertexJets_vtx_position_x, &b_RefinedVertexJets_vtx_position_x);
-   fChain->SetBranchAddress("RefinedVertexJets_vtx.position.y", RefinedVertexJets_vtx_position_y, &b_RefinedVertexJets_vtx_position_y);
-   fChain->SetBranchAddress("RefinedVertexJets_vtx.position.z", RefinedVertexJets_vtx_position_z, &b_RefinedVertexJets_vtx_position_z);
-   fChain->SetBranchAddress("RefinedVertexJets_vtx.covMatrix[6]", RefinedVertexJets_vtx_covMatrix, &b_RefinedVertexJets_vtx_covMatrix);
-   fChain->SetBranchAddress("RefinedVertexJets_vtx.algorithmType", RefinedVertexJets_vtx_algorithmType, &b_RefinedVertexJets_vtx_algorithmType);
-   fChain->SetBranchAddress("RefinedVertexJets_vtx.parameters_begin", RefinedVertexJets_vtx_parameters_begin, &b_RefinedVertexJets_vtx_parameters_begin);
-   fChain->SetBranchAddress("RefinedVertexJets_vtx.parameters_end", RefinedVertexJets_vtx_parameters_end, &b_RefinedVertexJets_vtx_parameters_end);
-   fChain->SetBranchAddress("_RefinedVertexJets_vtx_associatedParticle", &_RefinedVertexJets_vtx_associatedParticle_, &b__RefinedVertexJets_vtx_associatedParticle_);
-   fChain->SetBranchAddress("_RefinedVertexJets_vtx_associatedParticle.index", _RefinedVertexJets_vtx_associatedParticle_index, &b__RefinedVertexJets_vtx_associatedParticle_index);
-   fChain->SetBranchAddress("_RefinedVertexJets_vtx_associatedParticle.collectionID", _RefinedVertexJets_vtx_associatedParticle_collectionID, &b__RefinedVertexJets_vtx_associatedParticle_collectionID);
-   fChain->SetBranchAddress("_RefinedVertexJets_vtx_parameters", &_RefinedVertexJets_vtx_parameters, &b__RefinedVertexJets_vtx_parameters);
-   fChain->SetBranchAddress("RefinedVertexJets_vtx_RP", &RefinedVertexJets_vtx_RP_, &b_RefinedVertexJets_vtx_RP_);
-   fChain->SetBranchAddress("RefinedVertexJets_vtx_RP.PDG", RefinedVertexJets_vtx_RP_PDG, &b_RefinedVertexJets_vtx_RP_PDG);
-   fChain->SetBranchAddress("RefinedVertexJets_vtx_RP.energy", RefinedVertexJets_vtx_RP_energy, &b_RefinedVertexJets_vtx_RP_energy);
-   fChain->SetBranchAddress("RefinedVertexJets_vtx_RP.momentum.x", RefinedVertexJets_vtx_RP_momentum_x, &b_RefinedVertexJets_vtx_RP_momentum_x);
-   fChain->SetBranchAddress("RefinedVertexJets_vtx_RP.momentum.y", RefinedVertexJets_vtx_RP_momentum_y, &b_RefinedVertexJets_vtx_RP_momentum_y);
-   fChain->SetBranchAddress("RefinedVertexJets_vtx_RP.momentum.z", RefinedVertexJets_vtx_RP_momentum_z, &b_RefinedVertexJets_vtx_RP_momentum_z);
-   fChain->SetBranchAddress("RefinedVertexJets_vtx_RP.referencePoint.x", RefinedVertexJets_vtx_RP_referencePoint_x, &b_RefinedVertexJets_vtx_RP_referencePoint_x);
-   fChain->SetBranchAddress("RefinedVertexJets_vtx_RP.referencePoint.y", RefinedVertexJets_vtx_RP_referencePoint_y, &b_RefinedVertexJets_vtx_RP_referencePoint_y);
-   fChain->SetBranchAddress("RefinedVertexJets_vtx_RP.referencePoint.z", RefinedVertexJets_vtx_RP_referencePoint_z, &b_RefinedVertexJets_vtx_RP_referencePoint_z);
-   fChain->SetBranchAddress("RefinedVertexJets_vtx_RP.charge", RefinedVertexJets_vtx_RP_charge, &b_RefinedVertexJets_vtx_RP_charge);
-   fChain->SetBranchAddress("RefinedVertexJets_vtx_RP.mass", RefinedVertexJets_vtx_RP_mass, &b_RefinedVertexJets_vtx_RP_mass);
-   fChain->SetBranchAddress("RefinedVertexJets_vtx_RP.goodnessOfPID", RefinedVertexJets_vtx_RP_goodnessOfPID, &b_RefinedVertexJets_vtx_RP_goodnessOfPID);
-   fChain->SetBranchAddress("RefinedVertexJets_vtx_RP.covMatrix[10]", RefinedVertexJets_vtx_RP_covMatrix, &b_RefinedVertexJets_vtx_RP_covMatrix);
-   fChain->SetBranchAddress("RefinedVertexJets_vtx_RP.clusters_begin", RefinedVertexJets_vtx_RP_clusters_begin, &b_RefinedVertexJets_vtx_RP_clusters_begin);
-   fChain->SetBranchAddress("RefinedVertexJets_vtx_RP.clusters_end", RefinedVertexJets_vtx_RP_clusters_end, &b_RefinedVertexJets_vtx_RP_clusters_end);
-   fChain->SetBranchAddress("RefinedVertexJets_vtx_RP.tracks_begin", RefinedVertexJets_vtx_RP_tracks_begin, &b_RefinedVertexJets_vtx_RP_tracks_begin);
-   fChain->SetBranchAddress("RefinedVertexJets_vtx_RP.tracks_end", RefinedVertexJets_vtx_RP_tracks_end, &b_RefinedVertexJets_vtx_RP_tracks_end);
-   fChain->SetBranchAddress("RefinedVertexJets_vtx_RP.particles_begin", RefinedVertexJets_vtx_RP_particles_begin, &b_RefinedVertexJets_vtx_RP_particles_begin);
-   fChain->SetBranchAddress("RefinedVertexJets_vtx_RP.particles_end", RefinedVertexJets_vtx_RP_particles_end, &b_RefinedVertexJets_vtx_RP_particles_end);
-   fChain->SetBranchAddress("RefinedVertexJets_vtx_RP.particleIDs_begin", RefinedVertexJets_vtx_RP_particleIDs_begin, &b_RefinedVertexJets_vtx_RP_particleIDs_begin);
-   fChain->SetBranchAddress("RefinedVertexJets_vtx_RP.particleIDs_end", RefinedVertexJets_vtx_RP_particleIDs_end, &b_RefinedVertexJets_vtx_RP_particleIDs_end);
-   fChain->SetBranchAddress("_RefinedVertexJets_vtx_RP_clusters", &_RefinedVertexJets_vtx_RP_clusters_, &b__RefinedVertexJets_vtx_RP_clusters_);
-   fChain->SetBranchAddress("_RefinedVertexJets_vtx_RP_clusters.index", &_RefinedVertexJets_vtx_RP_clusters_index, &b__RefinedVertexJets_vtx_RP_clusters_index);
-   fChain->SetBranchAddress("_RefinedVertexJets_vtx_RP_clusters.collectionID", &_RefinedVertexJets_vtx_RP_clusters_collectionID, &b__RefinedVertexJets_vtx_RP_clusters_collectionID);
-   fChain->SetBranchAddress("_RefinedVertexJets_vtx_RP_tracks", &_RefinedVertexJets_vtx_RP_tracks_, &b__RefinedVertexJets_vtx_RP_tracks_);
-   fChain->SetBranchAddress("_RefinedVertexJets_vtx_RP_tracks.index", &_RefinedVertexJets_vtx_RP_tracks_index, &b__RefinedVertexJets_vtx_RP_tracks_index);
-   fChain->SetBranchAddress("_RefinedVertexJets_vtx_RP_tracks.collectionID", &_RefinedVertexJets_vtx_RP_tracks_collectionID, &b__RefinedVertexJets_vtx_RP_tracks_collectionID);
-   fChain->SetBranchAddress("_RefinedVertexJets_vtx_RP_particles", &_RefinedVertexJets_vtx_RP_particles_, &b__RefinedVertexJets_vtx_RP_particles_);
-   fChain->SetBranchAddress("_RefinedVertexJets_vtx_RP_particles.index", _RefinedVertexJets_vtx_RP_particles_index, &b__RefinedVertexJets_vtx_RP_particles_index);
-   fChain->SetBranchAddress("_RefinedVertexJets_vtx_RP_particles.collectionID", _RefinedVertexJets_vtx_RP_particles_collectionID, &b__RefinedVertexJets_vtx_RP_particles_collectionID);
-   fChain->SetBranchAddress("_RefinedVertexJets_vtx_RP_particleIDs", &_RefinedVertexJets_vtx_RP_particleIDs_, &b__RefinedVertexJets_vtx_RP_particleIDs_);
-   fChain->SetBranchAddress("_RefinedVertexJets_vtx_RP_particleIDs.index", &_RefinedVertexJets_vtx_RP_particleIDs_index, &b__RefinedVertexJets_vtx_RP_particleIDs_index);
-   fChain->SetBranchAddress("_RefinedVertexJets_vtx_RP_particleIDs.collectionID", &_RefinedVertexJets_vtx_RP_particleIDs_collectionID, &b__RefinedVertexJets_vtx_RP_particleIDs_collectionID);
-   fChain->SetBranchAddress("_RefinedVertexJets_vtx_RP_startVertex", &_RefinedVertexJets_vtx_RP_startVertex_, &b__RefinedVertexJets_vtx_RP_startVertex_);
-   fChain->SetBranchAddress("_RefinedVertexJets_vtx_RP_startVertex.index", _RefinedVertexJets_vtx_RP_startVertex_index, &b__RefinedVertexJets_vtx_RP_startVertex_index);
-   fChain->SetBranchAddress("_RefinedVertexJets_vtx_RP_startVertex.collectionID", _RefinedVertexJets_vtx_RP_startVertex_collectionID, &b__RefinedVertexJets_vtx_RP_startVertex_collectionID);
-   fChain->SetBranchAddress("_RefinedVertexJets_vtx_RP_particleIDUsed", &_RefinedVertexJets_vtx_RP_particleIDUsed_, &b__RefinedVertexJets_vtx_RP_particleIDUsed_);
-   fChain->SetBranchAddress("_RefinedVertexJets_vtx_RP_particleIDUsed.index", _RefinedVertexJets_vtx_RP_particleIDUsed_index, &b__RefinedVertexJets_vtx_RP_particleIDUsed_index);
-   fChain->SetBranchAddress("_RefinedVertexJets_vtx_RP_particleIDUsed.collectionID", _RefinedVertexJets_vtx_RP_particleIDUsed_collectionID, &b__RefinedVertexJets_vtx_RP_particleIDUsed_collectionID);
-   fChain->SetBranchAddress("RefinedVertexJets_vtx_RP_particleIDs", &RefinedVertexJets_vtx_RP_particleIDs_, &b_RefinedVertexJets_vtx_RP_particleIDs_);
-   fChain->SetBranchAddress("RefinedVertexJets_vtx_RP_particleIDs.type", &RefinedVertexJets_vtx_RP_particleIDs_type, &b_RefinedVertexJets_vtx_RP_particleIDs_type);
-   fChain->SetBranchAddress("RefinedVertexJets_vtx_RP_particleIDs.PDG", &RefinedVertexJets_vtx_RP_particleIDs_PDG, &b_RefinedVertexJets_vtx_RP_particleIDs_PDG);
-   fChain->SetBranchAddress("RefinedVertexJets_vtx_RP_particleIDs.algorithmType", &RefinedVertexJets_vtx_RP_particleIDs_algorithmType, &b_RefinedVertexJets_vtx_RP_particleIDs_algorithmType);
-   fChain->SetBranchAddress("RefinedVertexJets_vtx_RP_particleIDs.likelihood", &RefinedVertexJets_vtx_RP_particleIDs_likelihood, &b_RefinedVertexJets_vtx_RP_particleIDs_likelihood);
-   fChain->SetBranchAddress("RefinedVertexJets_vtx_RP_particleIDs.parameters_begin", &RefinedVertexJets_vtx_RP_particleIDs_parameters_begin, &b_RefinedVertexJets_vtx_RP_particleIDs_parameters_begin);
-   fChain->SetBranchAddress("RefinedVertexJets_vtx_RP_particleIDs.parameters_end", &RefinedVertexJets_vtx_RP_particleIDs_parameters_end, &b_RefinedVertexJets_vtx_RP_particleIDs_parameters_end);
-   fChain->SetBranchAddress("_RefinedVertexJets_vtx_RP_particleIDs_parameters", &_RefinedVertexJets_vtx_RP_particleIDs_parameters, &b__RefinedVertexJets_vtx_RP_particleIDs_parameters);
-   fChain->SetBranchAddress("RefinedVertices", &RefinedVertices_, &b_RefinedVertices_);
-   fChain->SetBranchAddress("RefinedVertices.primary", RefinedVertices_primary, &b_RefinedVertices_primary);
-   fChain->SetBranchAddress("RefinedVertices.chi2", RefinedVertices_chi2, &b_RefinedVertices_chi2);
-   fChain->SetBranchAddress("RefinedVertices.probability", RefinedVertices_probability, &b_RefinedVertices_probability);
-   fChain->SetBranchAddress("RefinedVertices.position.x", RefinedVertices_position_x, &b_RefinedVertices_position_x);
-   fChain->SetBranchAddress("RefinedVertices.position.y", RefinedVertices_position_y, &b_RefinedVertices_position_y);
-   fChain->SetBranchAddress("RefinedVertices.position.z", RefinedVertices_position_z, &b_RefinedVertices_position_z);
-   fChain->SetBranchAddress("RefinedVertices.covMatrix[6]", RefinedVertices_covMatrix, &b_RefinedVertices_covMatrix);
-   fChain->SetBranchAddress("RefinedVertices.algorithmType", RefinedVertices_algorithmType, &b_RefinedVertices_algorithmType);
-   fChain->SetBranchAddress("RefinedVertices.parameters_begin", RefinedVertices_parameters_begin, &b_RefinedVertices_parameters_begin);
-   fChain->SetBranchAddress("RefinedVertices.parameters_end", RefinedVertices_parameters_end, &b_RefinedVertices_parameters_end);
-   fChain->SetBranchAddress("_RefinedVertices_associatedParticle", &_RefinedVertices_associatedParticle_, &b__RefinedVertices_associatedParticle_);
-   fChain->SetBranchAddress("_RefinedVertices_associatedParticle.index", _RefinedVertices_associatedParticle_index, &b__RefinedVertices_associatedParticle_index);
-   fChain->SetBranchAddress("_RefinedVertices_associatedParticle.collectionID", _RefinedVertices_associatedParticle_collectionID, &b__RefinedVertices_associatedParticle_collectionID);
-   fChain->SetBranchAddress("_RefinedVertices_parameters", &_RefinedVertices_parameters, &b__RefinedVertices_parameters);
-   fChain->SetBranchAddress("RefinedVertices_RP", &RefinedVertices_RP_, &b_RefinedVertices_RP_);
-   fChain->SetBranchAddress("RefinedVertices_RP.PDG", RefinedVertices_RP_PDG, &b_RefinedVertices_RP_PDG);
-   fChain->SetBranchAddress("RefinedVertices_RP.energy", RefinedVertices_RP_energy, &b_RefinedVertices_RP_energy);
-   fChain->SetBranchAddress("RefinedVertices_RP.momentum.x", RefinedVertices_RP_momentum_x, &b_RefinedVertices_RP_momentum_x);
-   fChain->SetBranchAddress("RefinedVertices_RP.momentum.y", RefinedVertices_RP_momentum_y, &b_RefinedVertices_RP_momentum_y);
-   fChain->SetBranchAddress("RefinedVertices_RP.momentum.z", RefinedVertices_RP_momentum_z, &b_RefinedVertices_RP_momentum_z);
-   fChain->SetBranchAddress("RefinedVertices_RP.referencePoint.x", RefinedVertices_RP_referencePoint_x, &b_RefinedVertices_RP_referencePoint_x);
-   fChain->SetBranchAddress("RefinedVertices_RP.referencePoint.y", RefinedVertices_RP_referencePoint_y, &b_RefinedVertices_RP_referencePoint_y);
-   fChain->SetBranchAddress("RefinedVertices_RP.referencePoint.z", RefinedVertices_RP_referencePoint_z, &b_RefinedVertices_RP_referencePoint_z);
-   fChain->SetBranchAddress("RefinedVertices_RP.charge", RefinedVertices_RP_charge, &b_RefinedVertices_RP_charge);
-   fChain->SetBranchAddress("RefinedVertices_RP.mass", RefinedVertices_RP_mass, &b_RefinedVertices_RP_mass);
-   fChain->SetBranchAddress("RefinedVertices_RP.goodnessOfPID", RefinedVertices_RP_goodnessOfPID, &b_RefinedVertices_RP_goodnessOfPID);
-   fChain->SetBranchAddress("RefinedVertices_RP.covMatrix[10]", RefinedVertices_RP_covMatrix, &b_RefinedVertices_RP_covMatrix);
-   fChain->SetBranchAddress("RefinedVertices_RP.clusters_begin", RefinedVertices_RP_clusters_begin, &b_RefinedVertices_RP_clusters_begin);
-   fChain->SetBranchAddress("RefinedVertices_RP.clusters_end", RefinedVertices_RP_clusters_end, &b_RefinedVertices_RP_clusters_end);
-   fChain->SetBranchAddress("RefinedVertices_RP.tracks_begin", RefinedVertices_RP_tracks_begin, &b_RefinedVertices_RP_tracks_begin);
-   fChain->SetBranchAddress("RefinedVertices_RP.tracks_end", RefinedVertices_RP_tracks_end, &b_RefinedVertices_RP_tracks_end);
-   fChain->SetBranchAddress("RefinedVertices_RP.particles_begin", RefinedVertices_RP_particles_begin, &b_RefinedVertices_RP_particles_begin);
-   fChain->SetBranchAddress("RefinedVertices_RP.particles_end", RefinedVertices_RP_particles_end, &b_RefinedVertices_RP_particles_end);
-   fChain->SetBranchAddress("RefinedVertices_RP.particleIDs_begin", RefinedVertices_RP_particleIDs_begin, &b_RefinedVertices_RP_particleIDs_begin);
-   fChain->SetBranchAddress("RefinedVertices_RP.particleIDs_end", RefinedVertices_RP_particleIDs_end, &b_RefinedVertices_RP_particleIDs_end);
-   fChain->SetBranchAddress("_RefinedVertices_RP_clusters", &_RefinedVertices_RP_clusters_, &b__RefinedVertices_RP_clusters_);
-   fChain->SetBranchAddress("_RefinedVertices_RP_clusters.index", &_RefinedVertices_RP_clusters_index, &b__RefinedVertices_RP_clusters_index);
-   fChain->SetBranchAddress("_RefinedVertices_RP_clusters.collectionID", &_RefinedVertices_RP_clusters_collectionID, &b__RefinedVertices_RP_clusters_collectionID);
-   fChain->SetBranchAddress("_RefinedVertices_RP_tracks", &_RefinedVertices_RP_tracks_, &b__RefinedVertices_RP_tracks_);
-   fChain->SetBranchAddress("_RefinedVertices_RP_tracks.index", &_RefinedVertices_RP_tracks_index, &b__RefinedVertices_RP_tracks_index);
-   fChain->SetBranchAddress("_RefinedVertices_RP_tracks.collectionID", &_RefinedVertices_RP_tracks_collectionID, &b__RefinedVertices_RP_tracks_collectionID);
-   fChain->SetBranchAddress("_RefinedVertices_RP_particles", &_RefinedVertices_RP_particles_, &b__RefinedVertices_RP_particles_);
-   fChain->SetBranchAddress("_RefinedVertices_RP_particles.index", _RefinedVertices_RP_particles_index, &b__RefinedVertices_RP_particles_index);
-   fChain->SetBranchAddress("_RefinedVertices_RP_particles.collectionID", _RefinedVertices_RP_particles_collectionID, &b__RefinedVertices_RP_particles_collectionID);
-   fChain->SetBranchAddress("_RefinedVertices_RP_particleIDs", &_RefinedVertices_RP_particleIDs_, &b__RefinedVertices_RP_particleIDs_);
-   fChain->SetBranchAddress("_RefinedVertices_RP_particleIDs.index", &_RefinedVertices_RP_particleIDs_index, &b__RefinedVertices_RP_particleIDs_index);
-   fChain->SetBranchAddress("_RefinedVertices_RP_particleIDs.collectionID", &_RefinedVertices_RP_particleIDs_collectionID, &b__RefinedVertices_RP_particleIDs_collectionID);
-   fChain->SetBranchAddress("_RefinedVertices_RP_startVertex", &_RefinedVertices_RP_startVertex_, &b__RefinedVertices_RP_startVertex_);
-   fChain->SetBranchAddress("_RefinedVertices_RP_startVertex.index", _RefinedVertices_RP_startVertex_index, &b__RefinedVertices_RP_startVertex_index);
-   fChain->SetBranchAddress("_RefinedVertices_RP_startVertex.collectionID", _RefinedVertices_RP_startVertex_collectionID, &b__RefinedVertices_RP_startVertex_collectionID);
-   fChain->SetBranchAddress("_RefinedVertices_RP_particleIDUsed", &_RefinedVertices_RP_particleIDUsed_, &b__RefinedVertices_RP_particleIDUsed_);
-   fChain->SetBranchAddress("_RefinedVertices_RP_particleIDUsed.index", _RefinedVertices_RP_particleIDUsed_index, &b__RefinedVertices_RP_particleIDUsed_index);
-   fChain->SetBranchAddress("_RefinedVertices_RP_particleIDUsed.collectionID", _RefinedVertices_RP_particleIDUsed_collectionID, &b__RefinedVertices_RP_particleIDUsed_collectionID);
-   fChain->SetBranchAddress("RefinedVertices_RP_particleIDs", &RefinedVertices_RP_particleIDs_, &b_RefinedVertices_RP_particleIDs_);
-   fChain->SetBranchAddress("RefinedVertices_RP_particleIDs.type", &RefinedVertices_RP_particleIDs_type, &b_RefinedVertices_RP_particleIDs_type);
-   fChain->SetBranchAddress("RefinedVertices_RP_particleIDs.PDG", &RefinedVertices_RP_particleIDs_PDG, &b_RefinedVertices_RP_particleIDs_PDG);
-   fChain->SetBranchAddress("RefinedVertices_RP_particleIDs.algorithmType", &RefinedVertices_RP_particleIDs_algorithmType, &b_RefinedVertices_RP_particleIDs_algorithmType);
-   fChain->SetBranchAddress("RefinedVertices_RP_particleIDs.likelihood", &RefinedVertices_RP_particleIDs_likelihood, &b_RefinedVertices_RP_particleIDs_likelihood);
-   fChain->SetBranchAddress("RefinedVertices_RP_particleIDs.parameters_begin", &RefinedVertices_RP_particleIDs_parameters_begin, &b_RefinedVertices_RP_particleIDs_parameters_begin);
-   fChain->SetBranchAddress("RefinedVertices_RP_particleIDs.parameters_end", &RefinedVertices_RP_particleIDs_parameters_end, &b_RefinedVertices_RP_particleIDs_parameters_end);
-   fChain->SetBranchAddress("_RefinedVertices_RP_particleIDs_parameters", &_RefinedVertices_RP_particleIDs_parameters, &b__RefinedVertices_RP_particleIDs_parameters);
    fChain->SetBranchAddress("RelationCaloHit", &RelationCaloHit_, &b_RelationCaloHit_);
    fChain->SetBranchAddress("RelationCaloHit.weight", RelationCaloHit_weight, &b_RelationCaloHit_weight);
    fChain->SetBranchAddress("_RelationCaloHit_rec", &_RelationCaloHit_rec_, &b__RelationCaloHit_rec_);
@@ -4119,15 +3352,10 @@ void analysis::Init(TTree *tree)
    fChain->SetBranchAddress("SiTracks.type", SiTracks_type, &b_SiTracks_type);
    fChain->SetBranchAddress("SiTracks.chi2", SiTracks_chi2, &b_SiTracks_chi2);
    fChain->SetBranchAddress("SiTracks.ndf", SiTracks_ndf, &b_SiTracks_ndf);
-   fChain->SetBranchAddress("SiTracks.dEdx", SiTracks_dEdx, &b_SiTracks_dEdx);
-   fChain->SetBranchAddress("SiTracks.dEdxError", SiTracks_dEdxError, &b_SiTracks_dEdxError);
-   fChain->SetBranchAddress("SiTracks.radiusOfInnermostHit", SiTracks_radiusOfInnermostHit, &b_SiTracks_radiusOfInnermostHit);
    fChain->SetBranchAddress("SiTracks.subdetectorHitNumbers_begin", SiTracks_subdetectorHitNumbers_begin, &b_SiTracks_subdetectorHitNumbers_begin);
    fChain->SetBranchAddress("SiTracks.subdetectorHitNumbers_end", SiTracks_subdetectorHitNumbers_end, &b_SiTracks_subdetectorHitNumbers_end);
    fChain->SetBranchAddress("SiTracks.trackStates_begin", SiTracks_trackStates_begin, &b_SiTracks_trackStates_begin);
    fChain->SetBranchAddress("SiTracks.trackStates_end", SiTracks_trackStates_end, &b_SiTracks_trackStates_end);
-   fChain->SetBranchAddress("SiTracks.dxQuantities_begin", SiTracks_dxQuantities_begin, &b_SiTracks_dxQuantities_begin);
-   fChain->SetBranchAddress("SiTracks.dxQuantities_end", SiTracks_dxQuantities_end, &b_SiTracks_dxQuantities_end);
    fChain->SetBranchAddress("SiTracks.trackerHits_begin", SiTracks_trackerHits_begin, &b_SiTracks_trackerHits_begin);
    fChain->SetBranchAddress("SiTracks.trackerHits_end", SiTracks_trackerHits_end, &b_SiTracks_trackerHits_end);
    fChain->SetBranchAddress("SiTracks.tracks_begin", SiTracks_tracks_begin, &b_SiTracks_tracks_begin);
@@ -4150,24 +3378,22 @@ void analysis::Init(TTree *tree)
    fChain->SetBranchAddress("_SiTracks_trackStates.referencePoint.x", _SiTracks_trackStates_referencePoint_x, &b__SiTracks_trackStates_referencePoint_x);
    fChain->SetBranchAddress("_SiTracks_trackStates.referencePoint.y", _SiTracks_trackStates_referencePoint_y, &b__SiTracks_trackStates_referencePoint_y);
    fChain->SetBranchAddress("_SiTracks_trackStates.referencePoint.z", _SiTracks_trackStates_referencePoint_z, &b__SiTracks_trackStates_referencePoint_z);
-   fChain->SetBranchAddress("_SiTracks_trackStates.covMatrix[21]", _SiTracks_trackStates_covMatrix, &b__SiTracks_trackStates_covMatrix);
-   fChain->SetBranchAddress("_SiTracks_dxQuantities", &_SiTracks_dxQuantities_, &b__SiTracks_dxQuantities_);
-   fChain->SetBranchAddress("_SiTracks_dxQuantities.type", _SiTracks_dxQuantities_type, &b__SiTracks_dxQuantities_type);
-   fChain->SetBranchAddress("_SiTracks_dxQuantities.value", _SiTracks_dxQuantities_value, &b__SiTracks_dxQuantities_value);
-   fChain->SetBranchAddress("_SiTracks_dxQuantities.error", _SiTracks_dxQuantities_error, &b__SiTracks_dxQuantities_error);
+   fChain->SetBranchAddress("_SiTracks_trackStates.covMatrix.values[21]", _SiTracks_trackStates_covMatrix_values, &b__SiTracks_trackStates_covMatrix_values);
+   fChain->SetBranchAddress("SiTracks_dQdx", &SiTracks_dQdx_, &b_SiTracks_dQdx_);
+   fChain->SetBranchAddress("SiTracks_dQdx.dQdx.type", SiTracks_dQdx_dQdx_type, &b_SiTracks_dQdx_dQdx_type);
+   fChain->SetBranchAddress("SiTracks_dQdx.dQdx.value", SiTracks_dQdx_dQdx_value, &b_SiTracks_dQdx_dQdx_value);
+   fChain->SetBranchAddress("SiTracks_dQdx.dQdx.error", SiTracks_dQdx_dQdx_error, &b_SiTracks_dQdx_dQdx_error);
+   fChain->SetBranchAddress("_SiTracks_dQdx_track", &_SiTracks_dQdx_track_, &b__SiTracks_dQdx_track_);
+   fChain->SetBranchAddress("_SiTracks_dQdx_track.index", _SiTracks_dQdx_track_index, &b__SiTracks_dQdx_track_index);
+   fChain->SetBranchAddress("_SiTracks_dQdx_track.collectionID", _SiTracks_dQdx_track_collectionID, &b__SiTracks_dQdx_track_collectionID);
    fChain->SetBranchAddress("SiTracks_Refitted", &SiTracks_Refitted_, &b_SiTracks_Refitted_);
    fChain->SetBranchAddress("SiTracks_Refitted.type", SiTracks_Refitted_type, &b_SiTracks_Refitted_type);
    fChain->SetBranchAddress("SiTracks_Refitted.chi2", SiTracks_Refitted_chi2, &b_SiTracks_Refitted_chi2);
    fChain->SetBranchAddress("SiTracks_Refitted.ndf", SiTracks_Refitted_ndf, &b_SiTracks_Refitted_ndf);
-   fChain->SetBranchAddress("SiTracks_Refitted.dEdx", SiTracks_Refitted_dEdx, &b_SiTracks_Refitted_dEdx);
-   fChain->SetBranchAddress("SiTracks_Refitted.dEdxError", SiTracks_Refitted_dEdxError, &b_SiTracks_Refitted_dEdxError);
-   fChain->SetBranchAddress("SiTracks_Refitted.radiusOfInnermostHit", SiTracks_Refitted_radiusOfInnermostHit, &b_SiTracks_Refitted_radiusOfInnermostHit);
    fChain->SetBranchAddress("SiTracks_Refitted.subdetectorHitNumbers_begin", SiTracks_Refitted_subdetectorHitNumbers_begin, &b_SiTracks_Refitted_subdetectorHitNumbers_begin);
    fChain->SetBranchAddress("SiTracks_Refitted.subdetectorHitNumbers_end", SiTracks_Refitted_subdetectorHitNumbers_end, &b_SiTracks_Refitted_subdetectorHitNumbers_end);
    fChain->SetBranchAddress("SiTracks_Refitted.trackStates_begin", SiTracks_Refitted_trackStates_begin, &b_SiTracks_Refitted_trackStates_begin);
    fChain->SetBranchAddress("SiTracks_Refitted.trackStates_end", SiTracks_Refitted_trackStates_end, &b_SiTracks_Refitted_trackStates_end);
-   fChain->SetBranchAddress("SiTracks_Refitted.dxQuantities_begin", SiTracks_Refitted_dxQuantities_begin, &b_SiTracks_Refitted_dxQuantities_begin);
-   fChain->SetBranchAddress("SiTracks_Refitted.dxQuantities_end", SiTracks_Refitted_dxQuantities_end, &b_SiTracks_Refitted_dxQuantities_end);
    fChain->SetBranchAddress("SiTracks_Refitted.trackerHits_begin", SiTracks_Refitted_trackerHits_begin, &b_SiTracks_Refitted_trackerHits_begin);
    fChain->SetBranchAddress("SiTracks_Refitted.trackerHits_end", SiTracks_Refitted_trackerHits_end, &b_SiTracks_Refitted_trackerHits_end);
    fChain->SetBranchAddress("SiTracks_Refitted.tracks_begin", SiTracks_Refitted_tracks_begin, &b_SiTracks_Refitted_tracks_begin);
@@ -4190,24 +3416,22 @@ void analysis::Init(TTree *tree)
    fChain->SetBranchAddress("_SiTracks_Refitted_trackStates.referencePoint.x", _SiTracks_Refitted_trackStates_referencePoint_x, &b__SiTracks_Refitted_trackStates_referencePoint_x);
    fChain->SetBranchAddress("_SiTracks_Refitted_trackStates.referencePoint.y", _SiTracks_Refitted_trackStates_referencePoint_y, &b__SiTracks_Refitted_trackStates_referencePoint_y);
    fChain->SetBranchAddress("_SiTracks_Refitted_trackStates.referencePoint.z", _SiTracks_Refitted_trackStates_referencePoint_z, &b__SiTracks_Refitted_trackStates_referencePoint_z);
-   fChain->SetBranchAddress("_SiTracks_Refitted_trackStates.covMatrix[21]", _SiTracks_Refitted_trackStates_covMatrix, &b__SiTracks_Refitted_trackStates_covMatrix);
-   fChain->SetBranchAddress("_SiTracks_Refitted_dxQuantities", &_SiTracks_Refitted_dxQuantities_, &b__SiTracks_Refitted_dxQuantities_);
-   fChain->SetBranchAddress("_SiTracks_Refitted_dxQuantities.type", _SiTracks_Refitted_dxQuantities_type, &b__SiTracks_Refitted_dxQuantities_type);
-   fChain->SetBranchAddress("_SiTracks_Refitted_dxQuantities.value", _SiTracks_Refitted_dxQuantities_value, &b__SiTracks_Refitted_dxQuantities_value);
-   fChain->SetBranchAddress("_SiTracks_Refitted_dxQuantities.error", _SiTracks_Refitted_dxQuantities_error, &b__SiTracks_Refitted_dxQuantities_error);
+   fChain->SetBranchAddress("_SiTracks_Refitted_trackStates.covMatrix.values[21]", _SiTracks_Refitted_trackStates_covMatrix_values, &b__SiTracks_Refitted_trackStates_covMatrix_values);
+   fChain->SetBranchAddress("SiTracks_Refitted_dQdx", &SiTracks_Refitted_dQdx_, &b_SiTracks_Refitted_dQdx_);
+   fChain->SetBranchAddress("SiTracks_Refitted_dQdx.dQdx.type", SiTracks_Refitted_dQdx_dQdx_type, &b_SiTracks_Refitted_dQdx_dQdx_type);
+   fChain->SetBranchAddress("SiTracks_Refitted_dQdx.dQdx.value", SiTracks_Refitted_dQdx_dQdx_value, &b_SiTracks_Refitted_dQdx_dQdx_value);
+   fChain->SetBranchAddress("SiTracks_Refitted_dQdx.dQdx.error", SiTracks_Refitted_dQdx_dQdx_error, &b_SiTracks_Refitted_dQdx_dQdx_error);
+   fChain->SetBranchAddress("_SiTracks_Refitted_dQdx_track", &_SiTracks_Refitted_dQdx_track_, &b__SiTracks_Refitted_dQdx_track_);
+   fChain->SetBranchAddress("_SiTracks_Refitted_dQdx_track.index", _SiTracks_Refitted_dQdx_track_index, &b__SiTracks_Refitted_dQdx_track_index);
+   fChain->SetBranchAddress("_SiTracks_Refitted_dQdx_track.collectionID", _SiTracks_Refitted_dQdx_track_collectionID, &b__SiTracks_Refitted_dQdx_track_collectionID);
    fChain->SetBranchAddress("SiTracksCT", &SiTracksCT_, &b_SiTracksCT_);
    fChain->SetBranchAddress("SiTracksCT.type", SiTracksCT_type, &b_SiTracksCT_type);
    fChain->SetBranchAddress("SiTracksCT.chi2", SiTracksCT_chi2, &b_SiTracksCT_chi2);
    fChain->SetBranchAddress("SiTracksCT.ndf", SiTracksCT_ndf, &b_SiTracksCT_ndf);
-   fChain->SetBranchAddress("SiTracksCT.dEdx", SiTracksCT_dEdx, &b_SiTracksCT_dEdx);
-   fChain->SetBranchAddress("SiTracksCT.dEdxError", SiTracksCT_dEdxError, &b_SiTracksCT_dEdxError);
-   fChain->SetBranchAddress("SiTracksCT.radiusOfInnermostHit", SiTracksCT_radiusOfInnermostHit, &b_SiTracksCT_radiusOfInnermostHit);
    fChain->SetBranchAddress("SiTracksCT.subdetectorHitNumbers_begin", SiTracksCT_subdetectorHitNumbers_begin, &b_SiTracksCT_subdetectorHitNumbers_begin);
    fChain->SetBranchAddress("SiTracksCT.subdetectorHitNumbers_end", SiTracksCT_subdetectorHitNumbers_end, &b_SiTracksCT_subdetectorHitNumbers_end);
    fChain->SetBranchAddress("SiTracksCT.trackStates_begin", SiTracksCT_trackStates_begin, &b_SiTracksCT_trackStates_begin);
    fChain->SetBranchAddress("SiTracksCT.trackStates_end", SiTracksCT_trackStates_end, &b_SiTracksCT_trackStates_end);
-   fChain->SetBranchAddress("SiTracksCT.dxQuantities_begin", SiTracksCT_dxQuantities_begin, &b_SiTracksCT_dxQuantities_begin);
-   fChain->SetBranchAddress("SiTracksCT.dxQuantities_end", SiTracksCT_dxQuantities_end, &b_SiTracksCT_dxQuantities_end);
    fChain->SetBranchAddress("SiTracksCT.trackerHits_begin", SiTracksCT_trackerHits_begin, &b_SiTracksCT_trackerHits_begin);
    fChain->SetBranchAddress("SiTracksCT.trackerHits_end", SiTracksCT_trackerHits_end, &b_SiTracksCT_trackerHits_end);
    fChain->SetBranchAddress("SiTracksCT.tracks_begin", SiTracksCT_tracks_begin, &b_SiTracksCT_tracks_begin);
@@ -4230,11 +3454,14 @@ void analysis::Init(TTree *tree)
    fChain->SetBranchAddress("_SiTracksCT_trackStates.referencePoint.x", _SiTracksCT_trackStates_referencePoint_x, &b__SiTracksCT_trackStates_referencePoint_x);
    fChain->SetBranchAddress("_SiTracksCT_trackStates.referencePoint.y", _SiTracksCT_trackStates_referencePoint_y, &b__SiTracksCT_trackStates_referencePoint_y);
    fChain->SetBranchAddress("_SiTracksCT_trackStates.referencePoint.z", _SiTracksCT_trackStates_referencePoint_z, &b__SiTracksCT_trackStates_referencePoint_z);
-   fChain->SetBranchAddress("_SiTracksCT_trackStates.covMatrix[21]", _SiTracksCT_trackStates_covMatrix, &b__SiTracksCT_trackStates_covMatrix);
-   fChain->SetBranchAddress("_SiTracksCT_dxQuantities", &_SiTracksCT_dxQuantities_, &b__SiTracksCT_dxQuantities_);
-   fChain->SetBranchAddress("_SiTracksCT_dxQuantities.type", _SiTracksCT_dxQuantities_type, &b__SiTracksCT_dxQuantities_type);
-   fChain->SetBranchAddress("_SiTracksCT_dxQuantities.value", _SiTracksCT_dxQuantities_value, &b__SiTracksCT_dxQuantities_value);
-   fChain->SetBranchAddress("_SiTracksCT_dxQuantities.error", _SiTracksCT_dxQuantities_error, &b__SiTracksCT_dxQuantities_error);
+   fChain->SetBranchAddress("_SiTracksCT_trackStates.covMatrix.values[21]", _SiTracksCT_trackStates_covMatrix_values, &b__SiTracksCT_trackStates_covMatrix_values);
+   fChain->SetBranchAddress("SiTracksCT_dQdx", &SiTracksCT_dQdx_, &b_SiTracksCT_dQdx_);
+   fChain->SetBranchAddress("SiTracksCT_dQdx.dQdx.type", SiTracksCT_dQdx_dQdx_type, &b_SiTracksCT_dQdx_dQdx_type);
+   fChain->SetBranchAddress("SiTracksCT_dQdx.dQdx.value", SiTracksCT_dQdx_dQdx_value, &b_SiTracksCT_dQdx_dQdx_value);
+   fChain->SetBranchAddress("SiTracksCT_dQdx.dQdx.error", SiTracksCT_dQdx_dQdx_error, &b_SiTracksCT_dQdx_dQdx_error);
+   fChain->SetBranchAddress("_SiTracksCT_dQdx_track", &_SiTracksCT_dQdx_track_, &b__SiTracksCT_dQdx_track_);
+   fChain->SetBranchAddress("_SiTracksCT_dQdx_track.index", _SiTracksCT_dQdx_track_index, &b__SiTracksCT_dQdx_track_index);
+   fChain->SetBranchAddress("_SiTracksCT_dQdx_track.collectionID", _SiTracksCT_dQdx_track_collectionID, &b__SiTracksCT_dQdx_track_collectionID);
    fChain->SetBranchAddress("SiTracksMCTruthLink", &SiTracksMCTruthLink_, &b_SiTracksMCTruthLink_);
    fChain->SetBranchAddress("SiTracksMCTruthLink.weight", SiTracksMCTruthLink_weight, &b_SiTracksMCTruthLink_weight);
    fChain->SetBranchAddress("_SiTracksMCTruthLink_rec", &_SiTracksMCTruthLink_rec_, &b__SiTracksMCTruthLink_rec_);
@@ -4276,53 +3503,6 @@ void analysis::Init(TTree *tree)
    fChain->SetBranchAddress("_VertexEndcapCollection_particle", &_VertexEndcapCollection_particle_, &b__VertexEndcapCollection_particle_);
    fChain->SetBranchAddress("_VertexEndcapCollection_particle.index", _VertexEndcapCollection_particle_index, &b__VertexEndcapCollection_particle_index);
    fChain->SetBranchAddress("_VertexEndcapCollection_particle.collectionID", _VertexEndcapCollection_particle_collectionID, &b__VertexEndcapCollection_particle_collectionID);
-   fChain->SetBranchAddress("VertexJets", &VertexJets_, &b_VertexJets_);
-   fChain->SetBranchAddress("VertexJets.PDG", VertexJets_PDG, &b_VertexJets_PDG);
-   fChain->SetBranchAddress("VertexJets.energy", VertexJets_energy, &b_VertexJets_energy);
-   fChain->SetBranchAddress("VertexJets.momentum.x", VertexJets_momentum_x, &b_VertexJets_momentum_x);
-   fChain->SetBranchAddress("VertexJets.momentum.y", VertexJets_momentum_y, &b_VertexJets_momentum_y);
-   fChain->SetBranchAddress("VertexJets.momentum.z", VertexJets_momentum_z, &b_VertexJets_momentum_z);
-   fChain->SetBranchAddress("VertexJets.referencePoint.x", VertexJets_referencePoint_x, &b_VertexJets_referencePoint_x);
-   fChain->SetBranchAddress("VertexJets.referencePoint.y", VertexJets_referencePoint_y, &b_VertexJets_referencePoint_y);
-   fChain->SetBranchAddress("VertexJets.referencePoint.z", VertexJets_referencePoint_z, &b_VertexJets_referencePoint_z);
-   fChain->SetBranchAddress("VertexJets.charge", VertexJets_charge, &b_VertexJets_charge);
-   fChain->SetBranchAddress("VertexJets.mass", VertexJets_mass, &b_VertexJets_mass);
-   fChain->SetBranchAddress("VertexJets.goodnessOfPID", VertexJets_goodnessOfPID, &b_VertexJets_goodnessOfPID);
-   fChain->SetBranchAddress("VertexJets.covMatrix[10]", VertexJets_covMatrix, &b_VertexJets_covMatrix);
-   fChain->SetBranchAddress("VertexJets.clusters_begin", VertexJets_clusters_begin, &b_VertexJets_clusters_begin);
-   fChain->SetBranchAddress("VertexJets.clusters_end", VertexJets_clusters_end, &b_VertexJets_clusters_end);
-   fChain->SetBranchAddress("VertexJets.tracks_begin", VertexJets_tracks_begin, &b_VertexJets_tracks_begin);
-   fChain->SetBranchAddress("VertexJets.tracks_end", VertexJets_tracks_end, &b_VertexJets_tracks_end);
-   fChain->SetBranchAddress("VertexJets.particles_begin", VertexJets_particles_begin, &b_VertexJets_particles_begin);
-   fChain->SetBranchAddress("VertexJets.particles_end", VertexJets_particles_end, &b_VertexJets_particles_end);
-   fChain->SetBranchAddress("VertexJets.particleIDs_begin", VertexJets_particleIDs_begin, &b_VertexJets_particleIDs_begin);
-   fChain->SetBranchAddress("VertexJets.particleIDs_end", VertexJets_particleIDs_end, &b_VertexJets_particleIDs_end);
-   fChain->SetBranchAddress("_VertexJets_clusters", &_VertexJets_clusters_, &b__VertexJets_clusters_);
-   fChain->SetBranchAddress("_VertexJets_clusters.index", &_VertexJets_clusters_index, &b__VertexJets_clusters_index);
-   fChain->SetBranchAddress("_VertexJets_clusters.collectionID", &_VertexJets_clusters_collectionID, &b__VertexJets_clusters_collectionID);
-   fChain->SetBranchAddress("_VertexJets_tracks", &_VertexJets_tracks_, &b__VertexJets_tracks_);
-   fChain->SetBranchAddress("_VertexJets_tracks.index", &_VertexJets_tracks_index, &b__VertexJets_tracks_index);
-   fChain->SetBranchAddress("_VertexJets_tracks.collectionID", &_VertexJets_tracks_collectionID, &b__VertexJets_tracks_collectionID);
-   fChain->SetBranchAddress("_VertexJets_particles", &_VertexJets_particles_, &b__VertexJets_particles_);
-   fChain->SetBranchAddress("_VertexJets_particles.index", _VertexJets_particles_index, &b__VertexJets_particles_index);
-   fChain->SetBranchAddress("_VertexJets_particles.collectionID", _VertexJets_particles_collectionID, &b__VertexJets_particles_collectionID);
-   fChain->SetBranchAddress("_VertexJets_particleIDs", &_VertexJets_particleIDs_, &b__VertexJets_particleIDs_);
-   fChain->SetBranchAddress("_VertexJets_particleIDs.index", _VertexJets_particleIDs_index, &b__VertexJets_particleIDs_index);
-   fChain->SetBranchAddress("_VertexJets_particleIDs.collectionID", _VertexJets_particleIDs_collectionID, &b__VertexJets_particleIDs_collectionID);
-   fChain->SetBranchAddress("_VertexJets_startVertex", &_VertexJets_startVertex_, &b__VertexJets_startVertex_);
-   fChain->SetBranchAddress("_VertexJets_startVertex.index", _VertexJets_startVertex_index, &b__VertexJets_startVertex_index);
-   fChain->SetBranchAddress("_VertexJets_startVertex.collectionID", _VertexJets_startVertex_collectionID, &b__VertexJets_startVertex_collectionID);
-   fChain->SetBranchAddress("_VertexJets_particleIDUsed", &_VertexJets_particleIDUsed_, &b__VertexJets_particleIDUsed_);
-   fChain->SetBranchAddress("_VertexJets_particleIDUsed.index", _VertexJets_particleIDUsed_index, &b__VertexJets_particleIDUsed_index);
-   fChain->SetBranchAddress("_VertexJets_particleIDUsed.collectionID", _VertexJets_particleIDUsed_collectionID, &b__VertexJets_particleIDUsed_collectionID);
-   fChain->SetBranchAddress("VertexJets_particleIDs", &VertexJets_particleIDs_, &b_VertexJets_particleIDs_);
-   fChain->SetBranchAddress("VertexJets_particleIDs.type", VertexJets_particleIDs_type, &b_VertexJets_particleIDs_type);
-   fChain->SetBranchAddress("VertexJets_particleIDs.PDG", VertexJets_particleIDs_PDG, &b_VertexJets_particleIDs_PDG);
-   fChain->SetBranchAddress("VertexJets_particleIDs.algorithmType", VertexJets_particleIDs_algorithmType, &b_VertexJets_particleIDs_algorithmType);
-   fChain->SetBranchAddress("VertexJets_particleIDs.likelihood", VertexJets_particleIDs_likelihood, &b_VertexJets_particleIDs_likelihood);
-   fChain->SetBranchAddress("VertexJets_particleIDs.parameters_begin", VertexJets_particleIDs_parameters_begin, &b_VertexJets_particleIDs_parameters_begin);
-   fChain->SetBranchAddress("VertexJets_particleIDs.parameters_end", VertexJets_particleIDs_parameters_end, &b_VertexJets_particleIDs_parameters_end);
-   fChain->SetBranchAddress("_VertexJets_particleIDs_parameters", &_VertexJets_particleIDs_parameters, &b__VertexJets_particleIDs_parameters);
    fChain->SetBranchAddress("VXDEndcapTrackerHitRelations", &VXDEndcapTrackerHitRelations_, &b_VXDEndcapTrackerHitRelations_);
    fChain->SetBranchAddress("VXDEndcapTrackerHitRelations.weight", VXDEndcapTrackerHitRelations_weight, &b_VXDEndcapTrackerHitRelations_weight);
    fChain->SetBranchAddress("_VXDEndcapTrackerHitRelations_rec", &_VXDEndcapTrackerHitRelations_rec_, &b__VXDEndcapTrackerHitRelations_rec_);
@@ -4347,7 +3527,7 @@ void analysis::Init(TTree *tree)
    fChain->SetBranchAddress("VXDEndcapTrackerHits.position.x", VXDEndcapTrackerHits_position_x, &b_VXDEndcapTrackerHits_position_x);
    fChain->SetBranchAddress("VXDEndcapTrackerHits.position.y", VXDEndcapTrackerHits_position_y, &b_VXDEndcapTrackerHits_position_y);
    fChain->SetBranchAddress("VXDEndcapTrackerHits.position.z", VXDEndcapTrackerHits_position_z, &b_VXDEndcapTrackerHits_position_z);
-   fChain->SetBranchAddress("VXDEndcapTrackerHits.covMatrix[6]", VXDEndcapTrackerHits_covMatrix, &b_VXDEndcapTrackerHits_covMatrix);
+   fChain->SetBranchAddress("VXDEndcapTrackerHits.covMatrix.values[6]", VXDEndcapTrackerHits_covMatrix_values, &b_VXDEndcapTrackerHits_covMatrix_values);
    fChain->SetBranchAddress("VXDTrackerHitRelations", &VXDTrackerHitRelations_, &b_VXDTrackerHitRelations_);
    fChain->SetBranchAddress("VXDTrackerHitRelations.weight", VXDTrackerHitRelations_weight, &b_VXDTrackerHitRelations_weight);
    fChain->SetBranchAddress("_VXDTrackerHitRelations_rec", &_VXDTrackerHitRelations_rec_, &b__VXDTrackerHitRelations_rec_);
@@ -4372,7 +3552,7 @@ void analysis::Init(TTree *tree)
    fChain->SetBranchAddress("VXDTrackerHits.position.x", VXDTrackerHits_position_x, &b_VXDTrackerHits_position_x);
    fChain->SetBranchAddress("VXDTrackerHits.position.y", VXDTrackerHits_position_y, &b_VXDTrackerHits_position_y);
    fChain->SetBranchAddress("VXDTrackerHits.position.z", VXDTrackerHits_position_z, &b_VXDTrackerHits_position_z);
-   fChain->SetBranchAddress("VXDTrackerHits.covMatrix[6]", VXDTrackerHits_covMatrix, &b_VXDTrackerHits_covMatrix);
+   fChain->SetBranchAddress("VXDTrackerHits.covMatrix.values[6]", VXDTrackerHits_covMatrix_values, &b_VXDTrackerHits_covMatrix_values);
    fChain->SetBranchAddress("YokeBarrelCollection", &YokeBarrelCollection_, &b_YokeBarrelCollection_);
    fChain->SetBranchAddress("YokeBarrelCollection.cellID", YokeBarrelCollection_cellID, &b_YokeBarrelCollection_cellID);
    fChain->SetBranchAddress("YokeBarrelCollection.energy", YokeBarrelCollection_energy, &b_YokeBarrelCollection_energy);
@@ -4415,18 +3595,14 @@ void analysis::Init(TTree *tree)
    fChain->SetBranchAddress("_YokeEndcapCollectionContributions_particle", &_YokeEndcapCollectionContributions_particle_, &b__YokeEndcapCollectionContributions_particle_);
    fChain->SetBranchAddress("_YokeEndcapCollectionContributions_particle.index", _YokeEndcapCollectionContributions_particle_index, &b__YokeEndcapCollectionContributions_particle_index);
    fChain->SetBranchAddress("_YokeEndcapCollectionContributions_particle.collectionID", _YokeEndcapCollectionContributions_particle_collectionID, &b__YokeEndcapCollectionContributions_particle_collectionID);
-   fChain->SetBranchAddress("_intMap", &_intMap_, &b_PARAMETERS__intMap_);
-   fChain->SetBranchAddress("_intMap.first", &_intMap_first, &b__intMap_first);
-   fChain->SetBranchAddress("_intMap.second", &_intMap_second, &b__intMap_second);
-   fChain->SetBranchAddress("_floatMap", &_floatMap_, &b_PARAMETERS__floatMap_);
-   fChain->SetBranchAddress("_floatMap.first", &_floatMap_first, &b__floatMap_first);
-   fChain->SetBranchAddress("_floatMap.second", &_floatMap_second, &b__floatMap_second);
-   fChain->SetBranchAddress("_stringMap", &_stringMap_, &b_PARAMETERS__stringMap_);
-   fChain->SetBranchAddress("_stringMap.first", &_stringMap_first, &b__stringMap_first);
-   fChain->SetBranchAddress("_stringMap.second", &_stringMap_second, &b__stringMap_second);
-   fChain->SetBranchAddress("_doubleMap", &_doubleMap_, &b_PARAMETERS__doubleMap_);
-   fChain->SetBranchAddress("_doubleMap.first", &_doubleMap_first, &b__doubleMap_first);
-   fChain->SetBranchAddress("_doubleMap.second", &_doubleMap_second, &b__doubleMap_second);
+   fChain->SetBranchAddress("GPIntKeys", &GPIntKeys, &b_GPIntKeys);
+   fChain->SetBranchAddress("GPIntValues", &GPIntValues, &b_GPIntValues);
+   fChain->SetBranchAddress("GPFloatKeys", &GPFloatKeys, &b_GPFloatKeys);
+   fChain->SetBranchAddress("GPFloatValues", &GPFloatValues, &b_GPFloatValues);
+   fChain->SetBranchAddress("GPDoubleKeys", &GPDoubleKeys, &b_GPDoubleKeys);
+   fChain->SetBranchAddress("GPDoubleValues", &GPDoubleValues, &b_GPDoubleValues);
+   fChain->SetBranchAddress("GPStringKeys", &GPStringKeys, &b_GPStringKeys);
+   fChain->SetBranchAddress("GPStringValues", &GPStringValues, &b_GPStringValues);
    Notify();
 }
 

@@ -3,17 +3,17 @@
 # are created inside "out" (after all jobs are done). 
 # S.Chekanov 
 # 
-# for fast simulation 
-INPUT_TYPE=1 # 1 delphes, 2 CLT full sim
-OUTPUT_DIR="delphes"
-DATA_DIR=data/IDEA_DELPHES/
+#for fast simulation 
+#INPUT_TYPE=1 # 1 delphes, 2 CLT full sim
+#OUTPUT_DIR="delphes"
+#DATA_DIR=data/IDEA_DELPHES/
 
 #### for full simulation
-#INPUT_TYPE=2 # 1 delphes, 2 CLT full sim
-#OUTPUT_DIR="cld_full"
-#DATA_DIR=data/CLD_FULL/
+INPUT_TYPE=2 # 1 delphes, 2 CLT full sim
+OUTPUT_DIR="cld_full"
+DATA_DIR=data/CLD_FULL/
 
-EVENTS=1000       # 1000 events or use -1 for all 
+EVENTS=10000      # 1000 events or use -1 for all 
 SYSTEMATICS=0     # this is a default systematics. Can be any integer value 
 NODES=2           # How many jobs do you want to run in parallel? 
 
