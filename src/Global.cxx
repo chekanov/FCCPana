@@ -34,6 +34,7 @@ Global::Global() {
   PT_CUT=20;
   PT_LEPTON=20;
   PT_PHOTON=20;
+  ETA_CUT=2.5; 
   cout << "########  Cuts=" << endl;
   cout << "         minPT=" << PT_CUT << endl;
   cout << "         maxEta=" << ETA_CUT << endl;
